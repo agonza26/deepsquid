@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
 	public float rotationDampening = 5f; //see above, but applies to rotation
 	
 	private Transform thisTransform;
+	public Collider cameraColbox;
 
 	public float minX = -360.0f;
 	public float maxX = 360.0f;
