@@ -59,11 +59,11 @@ public class simple_movement : MonoBehaviour {
 		{
 			transform.Translate(-Vector3.forward*Time.deltaTime*playerSpeed);
 		}
-		if (Input.GetKey ("r")) 
+		if (Input.GetKey ("r")) //Move straight up
 		{
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);
 		}
-		if (Input.GetKey ("f")) 
+		if (Input.GetKey ("f")) //Move straight down
 		{
 			transform.Translate (Vector3.down * Time.deltaTime * 8f);
 		}
