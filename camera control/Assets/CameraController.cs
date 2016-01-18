@@ -60,13 +60,13 @@ public class CameraController : MonoBehaviour
 		Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDampening * Time.deltaTime);
 
 
-		if (CameraColliderSphere.OnCollisionEnter) 
+		/* if (CameraColliderSphere.OnCollisionEnter) 
 		{
 			if (offset.z < minCameraDist) 
 			{
 				thisTransform = offset.Lerp (thisTransform, playerTarget);
 			}
-		}
+		} */
 
 		thisTransform.position = currentPosition;
 		

@@ -150,15 +150,11 @@ public class simple_movement : MonoBehaviour {
 
 
 		}
-		transform.Translate (vel * acc);
 
-
-		//elevate up and down
-		if (Input.GetKey ("r")) 
 		{
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);
 		}
-		if (Input.GetKey ("f")) 
+		if (Input.GetKey ("f")) //Move straight down
 		{
 			transform.Translate (Vector3.down * Time.deltaTime * 8f);
 		}
