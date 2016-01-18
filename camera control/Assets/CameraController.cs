@@ -59,15 +59,6 @@ public class CameraController : MonoBehaviour
 		Vector3 wantedPosition = playerTarget.position + (playerTarget.rotation * offset);
 		Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDampening * Time.deltaTime);
 
-
-		/* if (CameraColliderSphere.OnCollisionEnter) 
-		{
-			if (offset.z < minCameraDist) 
-			{
-				thisTransform = offset.Lerp (thisTransform, playerTarget);
-			}
-		} */
-
 		thisTransform.position = currentPosition;
 		
 		Quaternion wantedRotation = Quaternion.LookRotation (playerTarget.position - thisTransform.position, playerTarget.up);
@@ -75,6 +66,15 @@ public class CameraController : MonoBehaviour
 		thisTransform.rotation = wantedRotation;
 	}
 
+	void OnCollisionEnter (Collision collision)
+	{
+		if (offset.z < minCameraDist) 
+		{
+			offset.z += 1.2f;
+		}
+		Debug.Log ("camera collided with object", collision.gameObject);
+	}
+		
 	public static float ClampAngle(float angle, float min, float max)
 	{
 		if (angle < -360F)
