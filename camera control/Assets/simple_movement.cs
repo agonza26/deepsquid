@@ -132,7 +132,7 @@ public class simple_movement : MonoBehaviour {
 					acc = 0;
 					coast = 0.01f;
 				}
-				transform.Translate (vel * acc);
+				//transform.Translate (vel * acc);
 			} else {
 				acc += coastD;
 
@@ -150,10 +150,14 @@ public class simple_movement : MonoBehaviour {
 
 
 		}
+		transform.Translate (vel * acc);
 
-		{
+
+		if (Input.GetKey ("r")){
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);
 		}
+
+
 		if (Input.GetKey ("f")) //Move straight down
 		{
 			transform.Translate (Vector3.down * Time.deltaTime * 8f);
