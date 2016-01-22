@@ -87,7 +87,7 @@ public class simple_movement : MonoBehaviour {
 
 
 
-		if (Input.GetKey ("w")) { //move forwards
+		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			
 			if (acc < accMax) {
 				acc += accCount;
@@ -99,20 +99,13 @@ public class simple_movement : MonoBehaviour {
 			}
 
 
-		} else if (Input.GetKey ("s")) { //move backwards
+		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 
 			if (acc > deccMax) {
-				Debug.Log (acc);
-
 				acc -= deccCount;
-
-
 				deccCount += 0.005f;
-
-
 				if (acc < deccMax) {
 					acc = deccMax;
-
 				}
 			}
 
@@ -120,6 +113,8 @@ public class simple_movement : MonoBehaviour {
 		} else {
 			accCount = 0.025f;
 			deccCount = 0.025f;
+
+
 			//decrease spead to 0 naturally
 			if ((acc >= 0)) {
 				acc -= coast;
@@ -132,7 +127,7 @@ public class simple_movement : MonoBehaviour {
 					acc = 0;
 					coast = 0.01f;
 				}
-				//transform.Translate (vel * acc);
+
 			} else {
 				acc += coastD;
 
@@ -144,15 +139,23 @@ public class simple_movement : MonoBehaviour {
 					acc = 0;
 					coastD = 0.01f;
 				}
-
-
 			}
 
-
 		}
+
+		//change players position
 		transform.Translate (vel * acc);
 
 
+
+
+
+
+
+
+
+
+		//elevation control
 		if (Input.GetKey ("r")){
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);
 		}
