@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 	public Transform playerTarget;
 	public Collider CameraColliderSphere;
 	public Vector3 offset = new Vector3 (0f, 0f, -7.5f);
+	public Vector3 camDistSave;
 	public float minCameraDist = -5f;
 	public float maxCameraDist = -15f;
 	
@@ -30,7 +31,8 @@ public class CameraController : MonoBehaviour
 	void Start () 
 	{
 		thisTransform = transform; //cache transform default
-		float savCamDist = offset.z;
+		//float savCamDist = offset.z;
+		camDistSave = offset;
 	}
 	
 	// Update is called once per frame
@@ -50,9 +52,11 @@ public class CameraController : MonoBehaviour
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && offset.z < minCameraDist) 
 		{
 			offset.z += 0.8f;
+			camDistSave.z += 0.8f;
 		} else if (Input.GetAxis ("Mouse ScrollWheel") < 0 && offset.z > maxCameraDist) 
 		{
 			offset.z -= 0.8f;
+			camDistSave.z -= 0.8f;
 		}
 
 
@@ -64,6 +68,14 @@ public class CameraController : MonoBehaviour
 		Quaternion wantedRotation = Quaternion.LookRotation (playerTarget.position - thisTransform.position, playerTarget.up);
 		
 		thisTransform.rotation = wantedRotation;
+		
+		if(offset.z > camDistSave.z)
+		{
+			offset.z -= 0.8f;
+		} else if (offset.z < camDistSave.z)
+		{
+			offset.z += 0.8f;
+		}
 	}
 
 	void OnCollisionEnter (Collision collision)
