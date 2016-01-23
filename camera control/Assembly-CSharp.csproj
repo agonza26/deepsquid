@@ -45,7 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BasicEnemy.cs" />
      <Compile Include="Assets\CameraController.cs" />
+     <Compile Include="Assets\EnemySight.cs" />
      <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\simple_movement.cs" />
  <Reference Include="UnityEngine.UI">

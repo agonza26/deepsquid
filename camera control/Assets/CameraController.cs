@@ -3,12 +3,15 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour 
 {
-	public Transform playerTarget;
-	public Collider CameraColliderSphere;
+	public Transform playerCameraTarget;
+	public Transform player;
 	public Vector3 offset = new Vector3 (0f, 0f, -7.5f);
 	public Vector3 camDistSave;
 	public float minCameraDist = -5f;
+	public float minCameraDistAlphaDropRange;
 	public float maxCameraDist = -15f;
+	private bool AlphaDrop = false;
+	private Material temp;
 	
 	public float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	public float rotationDampening = 5f; //see above, but applies to rotation
@@ -26,6 +29,9 @@ public class CameraController : MonoBehaviour
 
 	float rotationY = 0.0f;
 	float rotationX = 0.0f;
+	
+	bool touchedPlane = false;
+	int touchedTimer = 0;
 		
 	// Use this for initialization
 	void Start () 
@@ -33,12 +39,14 @@ public class CameraController : MonoBehaviour
 		thisTransform = transform; //cache transform default
 		//float savCamDist = offset.z;
 		camDistSave = offset;
+		temp = playerCameraTarget.GetComponentInParent<Material>();
+		minCameraDistAlphaDropRange = minCameraDist + 1.6f;
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () 
 	{
-		if(!playerTarget)
+		if(!playerCameraTarget)
 		{
 			return;   //if there is no game object for the camera to follow, return
 		}
@@ -57,34 +65,48 @@ public class CameraController : MonoBehaviour
 		{
 			offset.z -= 0.8f;
 			camDistSave.z -= 0.8f;
+			AlphaDrop = false;
 		}
+		
+		/*if(AlphaDrop && player.material.color.a > 0.35f)
+		{
+			player.material.color.a -= 0.2f;
+		}*/
+		if(offset.z > camDistSave.z)
+		{
+			offset.z -= 0.8f;
+		} 
 
-
-		Vector3 wantedPosition = playerTarget.position + (playerTarget.rotation * offset);
+		if(touchedPlane)
+		{
+			//offset.z += 0.8f;
+			//touchedPlane = false;
+		}
+		Vector3 wantedPosition = playerCameraTarget.position + (playerCameraTarget.rotation * offset);
 		Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDampening * Time.deltaTime);
 
 		thisTransform.position = currentPosition;
 		
-		Quaternion wantedRotation = Quaternion.LookRotation (playerTarget.position - thisTransform.position, playerTarget.up);
+		Quaternion wantedRotation = Quaternion.LookRotation (playerCameraTarget.position - thisTransform.position, playerCameraTarget.up);
 		
 		thisTransform.rotation = wantedRotation;
 		
-		if(offset.z > camDistSave.z)
-		{
-			offset.z -= 0.8f;
-		} else if (offset.z < camDistSave.z)
-		{
-			offset.z += 0.8f;
-		}
+
 	}
 
-	void OnCollisionEnter (Collision collision)
+	void OnTriggerEnter (Collider collision)
 	{
-		if (offset.z < minCameraDist) 
+		Vector3 otherObj = collision.gameObject.GetComponent<Transform>().position;
+		Vector3 newDist = Vector3.Lerp(playerCameraTarget.position, otherObj, 1f);
+		
+		if(offset.z < minCameraDist)
 		{
-			offset.z += 1.2f;
+			offset.z -= newDist.z;
+		} else if (offset.z > minCameraDist)
+		{
+			AlphaDrop = true;
 		}
-		Debug.Log ("camera collided with object", collision.gameObject);
+		Debug.Log ("camera collided with object: " + collision.gameObject.name);
 	}
 		
 	public static float ClampAngle(float angle, float min, float max)
