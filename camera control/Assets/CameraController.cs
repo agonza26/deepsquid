@@ -69,7 +69,7 @@ public class CameraController : MonoBehaviour
 			rcMaxDist += 0.8f;
 			AlphaDrop = false;
 		}
-		if(Physics.Raycast(transform.position, Vector3.forward, rcMaxDist) && offset.z < minCameraDist)
+		if(Physics.Raycast(transform.position, Vector3.forward, rcMaxDist))
 		{
 			offset.z += 1f;
 		} 
