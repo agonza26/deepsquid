@@ -9,6 +9,8 @@ public class simple_movement : MonoBehaviour {
 	public float yMaxLimit = 80f;
 	public float distance = 5.0f;
 	public float camRotMult = 200f;
+	private Transform CameraTarg;
+	private Quaternion ctRot;
 	float x = 0.0f;
 	float y = 0.0f;
 
@@ -40,10 +42,12 @@ public class simple_movement : MonoBehaviour {
 	{
 		thisTransform = transform;
 		tempSpeed = playerSpeed;
+		CameraTarg = transform.GetChild(0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 
 		x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
 		y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.0125f;
@@ -64,7 +68,7 @@ public class simple_movement : MonoBehaviour {
 		*/
 
 
-
+		
 
 		Vector3 vel = Vector3.forward*Time.deltaTime*playerSpeed;
 
@@ -79,7 +83,13 @@ public class simple_movement : MonoBehaviour {
 		}
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 		//Vector3 negDistance = new Vector3 (0.0f, 0.0f, -distance);
-		transform.rotation = rotation;
+		CameraTarg.rotation = rotation;
+		
+		/*if(Input.GetKey("mouse 1"))
+		{
+			ctRot = CameraTarg.transform.rotation;
+			transform.rotation = ctRot;
+		}*/
 
 
 
@@ -88,7 +98,8 @@ public class simple_movement : MonoBehaviour {
 
 
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
-			
+			ctRot = CameraTarg.transform.rotation;
+			transform.rotation = ctRot;
 			if (acc < accMax) {
 				acc += accCount;
 				accCount += 0.005f;
@@ -100,7 +111,8 @@ public class simple_movement : MonoBehaviour {
 
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
-
+			ctRot = CameraTarg.transform.rotation;
+			transform.rotation = ctRot;
 			if (acc > deccMax) {
 				acc -= deccCount;
 				deccCount += 0.005f;
