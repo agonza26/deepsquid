@@ -659,6 +659,10 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 123214, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
   m_IsPrefabParent: 0
@@ -1475,6 +1479,10 @@ Prefab:
       propertyPath: pos3
       value: 
       objectReference: {fileID: 1606050463}
+    - target: {fileID: 11448258, guid: 087f06dda00c744559ccaa19bd4772ba, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 087f06dda00c744559ccaa19bd4772ba, type: 2}
   m_IsPrefabParent: 0
@@ -2223,6 +2231,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497504504}
   m_Mesh: {fileID: 4300020, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!1 &1532718882 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179776, guid: 087f06dda00c744559ccaa19bd4772ba, type: 2}
+  m_PrefabInternal: {fileID: 927847257}
+--- !u!114 &1532718883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532718882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773c5e313ac5c0b4fbb5e8da926dc2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkValue: 1
 --- !u!4 &1606050463 stripped
 Transform:
   m_PrefabParentObject: {fileID: 488200, guid: afe4278ccf0f04a2a8387a4d934bfe1c, type: 2}
@@ -2745,6 +2769,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831906495}
   m_Mesh: {fileID: 4300002, guid: 734a382962019ce439b9fdcbf52719b7, type: 3}
+--- !u!1 &1951751266 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 123214, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+  m_PrefabInternal: {fileID: 366111884}
+--- !u!114 &1951751267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951751266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efbae789655e9b42b85a196cbb44cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHealthMax: 10
+  PlayerOverhealthMax: 0
+  PlayerCurrHealth: 0
+  PlayerDmged: 0
 --- !u!4 &1952857003 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442134, guid: afe4278ccf0f04a2a8387a4d934bfe1c, type: 2}
