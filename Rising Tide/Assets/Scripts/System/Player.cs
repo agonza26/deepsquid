@@ -12,7 +12,11 @@ public class Player : MonoBehaviour {
 	public Image hideBar;	
 	public Image DamageIndicator;
 	public float flashSpeed = 5f;
+
+	public CanvasGroup uiCanvas;
+	
 	//bool damaged;
+
 	bool isAlive;
 	
 
@@ -22,10 +26,13 @@ public class Player : MonoBehaviour {
 		playerHealthTotal = player.GetComponent<Player_stats>().PlayerHealthMax;
 	
 		isAlive = true;
+		StartCoroutine(hideUI());
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 	
 		
 		if(Input.GetKeyUp("x"))
@@ -45,6 +52,8 @@ public class Player : MonoBehaviour {
 		if (player.GetComponent<Player_stats>().PlayerDmged)
 		{
 			DamageIndicator.color = flashColor;
+			showUI();
+			StartCoroutine(hideUI());
 		}
 		else
 		{
@@ -68,5 +77,24 @@ public class Player : MonoBehaviour {
 		if(playerHealthCurr <= 0f  && isAlive){
 			hideBar.color = Color.Lerp(Color.clear, Color.black, playerHealthCurr/playerHealthTotal);
 		}
+
 	}*/
+
+	
+	IEnumerator hideUI(){
+		uiCanvas.alpha = 255;
+		Debug.Log("Before Waiting 5 seconds");
+		yield return new WaitForSeconds(5);
+		while(uiCanvas.alpha > 0){
+			yield return new WaitForSeconds(0.05f);
+			Debug.Log(uiCanvas.alpha);
+			uiCanvas.alpha -= 0.05f;
+			
+		}
+	}
+	public void showUI(){
+		uiCanvas.alpha = 255;
+	}
+	
+
 }
