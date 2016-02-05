@@ -455,9 +455,63 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11446996, guid: 5549800544a014c7e904568bf945ee95, type: 2}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 967229481}
+    - target: {fileID: 11462314, guid: 5549800544a014c7e904568bf945ee95, type: 2}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 967229481}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5549800544a014c7e904568bf945ee95, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &967229477 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159658, guid: 5549800544a014c7e904568bf945ee95, type: 2}
+  m_PrefabInternal: {fileID: 967229476}
+--- !u!114 &967229478 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11431090, guid: 5549800544a014c7e904568bf945ee95,
+    type: 2}
+  m_PrefabInternal: {fileID: 967229476}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &967229479 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11452392, guid: 5549800544a014c7e904568bf945ee95,
+    type: 2}
+  m_PrefabInternal: {fileID: 967229476}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &967229480 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11470300, guid: 5549800544a014c7e904568bf945ee95,
+    type: 2}
+  m_PrefabInternal: {fileID: 967229476}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!225 &967229481 stripped
+CanvasGroup:
+  m_PrefabParentObject: {fileID: 22590018, guid: 5549800544a014c7e904568bf945ee95,
+    type: 2}
+  m_PrefabInternal: {fileID: 967229476}
+--- !u!114 &967229482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 967229477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5730c7f66b4230d4ebe3224e51e0c553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthTotal: 0
+  playerHealthCurr: 0
+  healthBar: {fileID: 967229480}
+  flashColor: {r: 1, g: 0, b: 0, a: 0.1}
+  hideBar: {fileID: 967229479}
+  DamageIndicator: {fileID: 967229478}
+  flashSpeed: 5
+  uiCanvas: {fileID: 967229481}
 --- !u!1001 &1014043205
 Prefab:
   m_ObjectHideFlags: 0
