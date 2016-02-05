@@ -173,6 +173,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cefd21d217bb4a3088627c91659a4fd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &206167441 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 123214, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+  m_PrefabInternal: {fileID: 366111884}
+--- !u!114 &206167447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206167441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efbae789655e9b42b85a196cbb44cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHealthMax: 10
+  PlayerOverhealthMax: 0
+  PlayerCurrHealth: 0
+  PlayerDmged: 0
 --- !u!4 &323218904 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439244, guid: e361f3ad5c81347049e81282d74934e0, type: 2}
@@ -218,6 +237,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 123214, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 123214, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -504,14 +527,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5730c7f66b4230d4ebe3224e51e0c553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthTotal: 0
-  playerHealthCurr: 0
   healthBar: {fileID: 967229480}
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
   hideBar: {fileID: 967229479}
   DamageIndicator: {fileID: 967229478}
   flashSpeed: 5
   uiCanvas: {fileID: 967229481}
+--- !u!1 &990030126 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179776, guid: 087f06dda00c744559ccaa19bd4772ba, type: 2}
+  m_PrefabInternal: {fileID: 927847257}
+--- !u!114 &990030133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 990030126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773c5e313ac5c0b4fbb5e8da926dc2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkValue: 1
 --- !u!1001 &1014043205
 Prefab:
   m_ObjectHideFlags: 0
