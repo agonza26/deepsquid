@@ -23,8 +23,6 @@ public class simple_movement : MonoBehaviour {
 
 
 	//velocity
-
-
 	private float accCount = 0.025f;
 	private float acc = 0.0f;
 	public float accMax = 1f;

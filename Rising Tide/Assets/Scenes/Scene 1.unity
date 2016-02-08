@@ -224,6 +224,10 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2359690, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 93bf269b178762c42ab3baa910fd454b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
   m_IsPrefabParent: 0
@@ -330,7 +334,7 @@ ParticleSystem:
     minMaxState: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
@@ -339,7 +343,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 4
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -503,7 +507,7 @@ ParticleSystem:
         rgba: 4278190080
       minMaxState: 0
     startSize:
-      scalar: 5
+      scalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -644,7 +648,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 3000
+    maxNumParticles: 600
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
@@ -671,7 +675,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 0
+      scalar: 500
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -705,11 +709,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 2000
+    cnt0: 400
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 2000
+    cntmax0: 400
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
@@ -721,14 +725,19 @@ ParticleSystem:
   SizeModule:
     enabled: 1
     curve:
-      scalar: 1
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
+          tangentMode: 0
+        - time: 0.4878436
+          value: 0.71122485
+          inSlope: 1.4984608
+          outSlope: 1.4984608
           tangentMode: 0
         - time: 1
           value: 1
@@ -3792,6 +3801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2d37939bc2ec94a908f0b4c922dd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMat: {fileID: 0}
+  camoMat: {fileID: 0}
   Ink: {fileID: 376773916}
   playerPos: {fileID: 53852798}
   inkCDTimer: 1
