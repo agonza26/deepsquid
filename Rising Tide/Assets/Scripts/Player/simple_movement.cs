@@ -28,7 +28,7 @@ public class simple_movement : MonoBehaviour {
 	public float accMax = 1f;
 	public float coast = 0.1f;
 
-
+	public bool spaceWait = false;
 	private float deccCount = 0.025f;
 	public float deccMax = -1f;
 	public float coastD = 0.1f;
@@ -61,16 +61,7 @@ public class simple_movement : MonoBehaviour {
 
 
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
-			ctRot = CameraTarg.transform.rotation;
-			transform.rotation = ctRot;
-			if (acc < accMax) {
-				acc += accCount;
-				accCount += 0.005f;
-				if (acc > accMax) {
-					acc = accMax;
-
-				}
-			}
+			StartCoroutine(inkJump());
 
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
@@ -85,10 +76,10 @@ public class simple_movement : MonoBehaviour {
 			}
 
 
-		} else {
+		}
+		else {
 			accCount = 0.025f;
 			deccCount = 0.025f;
-
 
 			//decrease spead to 0 naturally
 			if ((acc >= 0)) {
@@ -121,15 +112,6 @@ public class simple_movement : MonoBehaviour {
 		//change players position
 		transform.Translate (vel * acc);
 
-
-
-
-
-
-
-
-
-
 		//elevation control
 		if (Input.GetKey ("r")){
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);
@@ -154,4 +136,36 @@ public class simple_movement : MonoBehaviour {
 			angle -= 360F;
 		return Mathf.Clamp(angle, min, max);
 	}
+
+	IEnumerator inkJump(){
+		ctRot = CameraTarg.transform.rotation;
+		transform.rotation = ctRot;
+		if (spaceWait == false && Input.GetKey ("space")) {
+			Debug.Log ("Into space.");
+			if (acc < accMax + 1) {
+				acc += accCount+1;
+				accCount += 0.015f;
+				if (acc > accMax + 1) {
+					acc = accMax+1;
+
+				}
+			}
+			spaceWait = true;
+			yield return new WaitForSeconds (3);
+			spaceWait = false;
+
+		} else {
+			if (acc < accMax) {
+				acc += accCount;
+				accCount += 0.005f;
+				if (acc > accMax) {
+					acc = accMax;
+
+				}
+			}
+
+		}
+
+	}
+
 }
