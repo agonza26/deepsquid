@@ -21,7 +21,8 @@ public class simple_movement : MonoBehaviour {
 	//private Rigidbody rb;//used for controlling player's
 
 	public bool inkBoost = false;
-	public float inkAccBoost = 3f;
+	public bool inkBoostCD = false;
+	public float inkAccBoost = 5f;
 
 	public float dashInkCDTimer = 0f;
 	public float dashInkCD = 4.5f;
@@ -69,9 +70,9 @@ public class simple_movement : MonoBehaviour {
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
-			if (Input.GetKeyDown("space") && Time.time > dashInkCDTimer) {
+			if (Input.GetKeyDown("space") && inkBoostCD == false) {
 				//inkCD = true;
-				dashInkCDTimer = Time.time + dashInkCD;
+				//dashInkCDTimer = Time.time + dashInkCD;
 				//StartCoroutine (resetInkCD ());
 				float startTime = Time.time;
 				StartCoroutine(inkJump());
@@ -81,7 +82,6 @@ public class simple_movement : MonoBehaviour {
 
 			} else {
 				//Normal Movement Speed
-				//Debug.Log ("this is just normal speed");
 				if (acc < accMax) {
 					acc += accCount;
 					accCount += 0.005f;
@@ -173,32 +173,38 @@ public class simple_movement : MonoBehaviour {
 		while(acc < (accMax + inkAccBoost)) {
 			//Debug.Log("Speeding up");
 			acc += accCount;
-			accCount += 0.15f;
-			yield return StartCoroutine (speedUp ());
+			accCount += 0.3f;
+			yield return StartCoroutine (waitThisLong(0.05f));
 
 		}
-		//If reached top boosting speed, cap ACC at accMax+boost speed
-		if (acc > (accMax + inkAccBoost)) {
-			acc = accMax + inkAccBoost;
-			//Debug.Log("debugging coroutine, now wait 3 seconds" + Time.time);
-			yield return StartCoroutine (tickSlow ());
+			//If reached top boosting speed, cap ACC at accMax+boost speed
+			if (acc > (accMax + inkAccBoost)) {
+				acc = accMax + inkAccBoost;
+				inkBoostCD = true;
 
-		} 
+			} 
+		yield return StartCoroutine (waitThisLong(1.05f));
 		//accCount = 0.025f;
-		while (acc > accMax) {
-			//Debug.Log("Slowing down");	
-			acc -= accCount;
-			accCount += 0.001f;
-			yield return StartCoroutine (speedDown ());
-			Debug.Log ("time is : " + Time.time);
+		if(inkBoostCD == true){
+		
+			while (acc > accMax) {
+				//Debug.Log("Slowing down");	
+				acc -= accCount;
+				accCount += 0.001f;
+				yield return StartCoroutine (waitThisLong(0.2f));
+				Debug.Log ("time is : " + Time.time);
 			}
-			if (acc < accMax) {					
-				acc = accMax;
-
-			}
+				/*if (acc < accMax /*&& Input.GetKey("w")) {					
+					acc = accMax;
+					Debug.Log(accMax);
+				}*/
+		}
 		
 		float endTime = Time.time;
+		
 		Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
+		yield return StartCoroutine(waitThisLong(5f));
+		inkBoostCD = false;
 	}
 
 
@@ -220,6 +226,10 @@ public class simple_movement : MonoBehaviour {
 	IEnumerator tickSlow(){
 		yield return new WaitForSeconds(0.6f);
 	}
+	
+	IEnumerator waitThisLong(float x){
+		yield return new WaitForSeconds(x);
+	                                                                                                                               }
 
 
 }
