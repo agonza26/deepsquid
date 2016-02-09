@@ -20,8 +20,9 @@ public class simple_movement : MonoBehaviour {
 	private float tempSpeed;
 	//private Rigidbody rb;//used for controlling player's
 
-	public bool inkBoost = false;
+	//public bool inkBoost = false;
 	public bool inkBoostCD = false;
+	public bool cloudCDVar;
 	public float inkAccBoost = 5f;
 
 	public float dashInkCDTimer = 0f;
@@ -70,12 +71,9 @@ public class simple_movement : MonoBehaviour {
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
-			if (Input.GetKeyDown("space") && inkBoostCD == false) {
-				//inkCD = true;
-				//dashInkCDTimer = Time.time + dashInkCD;
-				//StartCoroutine (resetInkCD ());
+			if (Input.GetKeyDown("space") && inkBoostCD == false /* &&  aVar == false*/) {
 				float startTime = Time.time;
-				StartCoroutine(inkJump());
+				//StartCoroutine(inkJump());
 				float endTime = Time.time;
 				//Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
 				//inkJump ();
@@ -167,9 +165,12 @@ public class simple_movement : MonoBehaviour {
 		return Mathf.Clamp(angle, min, max);
 	}
 
-	IEnumerator inkJump(){
+	public IEnumerator inkJump(){
 		float startTime = Time.time;
-
+		//Abilities aVar = GetComponent<Abilities>();
+		//aVar.inkCloudCD = true;
+		//Debug.Log("CloudCDVar = " + aVar);
+		//set cloudCD 
 		while(acc < (accMax + inkAccBoost)) {
 			//Debug.Log("Speeding up");
 			acc += accCount;
@@ -181,30 +182,22 @@ public class simple_movement : MonoBehaviour {
 			if (acc > (accMax + inkAccBoost)) {
 				acc = accMax + inkAccBoost;
 				inkBoostCD = true;
-
+				
 			} 
-		yield return StartCoroutine (waitThisLong(1.05f));
-		//accCount = 0.025f;
+		yield return StartCoroutine (waitThisLong(0.5f));
 		if(inkBoostCD == true){
 		
 			while (acc > accMax) {
 				//Debug.Log("Slowing down");	
 				acc -= accCount;
-				accCount += 0.001f;
-				yield return StartCoroutine (waitThisLong(0.2f));
+				accCount += 0.004f;
+				yield return StartCoroutine (waitThisLong(0.05f));
 				Debug.Log ("time is : " + Time.time);
 			}
-				/*if (acc < accMax /*&& Input.GetKey("w")) {					
-					acc = accMax;
-					Debug.Log(accMax);
-				}*/
+
 		}
-		
-		float endTime = Time.time;
-		
-		Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
-		yield return StartCoroutine(waitThisLong(5f));
 		inkBoostCD = false;
+		//aVar.inkCloudCD = false;
 	}
 
 

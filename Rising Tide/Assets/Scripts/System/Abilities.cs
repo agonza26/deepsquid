@@ -11,9 +11,10 @@ public class Abilities : MonoBehaviour {
 	Color camoColor = new Color(0.0f, 0.0f, 0.0f, 0.1f);
 	Color nonCamoColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 	Color lerpedCamo;
-
-	public float inkCDTimer = 0;
-	public float inkCD = 5.5f;
+	public simple_movement inkCharge;
+	public bool inkCloudCD = false;
+	public float inkCD = 5.0f;
+	public float inkCDTimer = 0f;
 	// Use this for initialization
 	void Start () {
 		camoColor.a = 0.1f;
@@ -27,9 +28,13 @@ public class Abilities : MonoBehaviour {
 	
 		if (Input.GetKeyDown ("space") && Time.time > inkCDTimer) {
 			inkCDTimer = Time.time + inkCD;
+			//inkCloudCD = true;
+			//Debug.Log("Faagaggoijg");
+			inkCharge = GetComponent<simple_movement>();
+			StartCoroutine(inkCharge.inkJump());
 			newInk ();
 
-		} else if (Input.GetKeyDown ("space") && Time.time < inkCDTimer) {
+		} else if (Input.GetKeyDown ("space") && Time.time <= inkCDTimer) {
 			Debug.Log ("Ink is on CD");
 		} else {
 		}

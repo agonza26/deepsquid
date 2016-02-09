@@ -3805,5 +3805,7 @@ MonoBehaviour:
   camoMat: {fileID: 0}
   Ink: {fileID: 376773916}
   playerPos: {fileID: 53852798}
-  inkCDTimer: 1
+  inkCharge: {fileID: 0}
+  inkCloudCD: 0
   inkCD: 5
+  inkCDTimer: 0
