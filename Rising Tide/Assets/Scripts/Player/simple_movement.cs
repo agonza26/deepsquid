@@ -20,7 +20,11 @@ public class simple_movement : MonoBehaviour {
 	private float tempSpeed;
 	//private Rigidbody rb;//used for controlling player's
 
+	public bool inkBoost = false;
+	public float inkAccBoost = 3f;
 
+	public float dashInkCDTimer = 0f;
+	public float dashInkCD = 4.5f;
 
 	//velocity
 	private float accCount = 0.025f;
@@ -28,7 +32,6 @@ public class simple_movement : MonoBehaviour {
 	public float accMax = 1f;
 	public float coast = 0.1f;
 
-	public bool spaceWait = false;
 	private float deccCount = 0.025f;
 	public float deccMax = -1f;
 	public float coastD = 0.1f;
@@ -57,11 +60,38 @@ public class simple_movement : MonoBehaviour {
 		CameraTarg.rotation = rotation;
 
 
-
-
-
-		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
+		/*
+		if (inkBoost == true && inkCD == true) {
 			StartCoroutine(inkJump());
+			//inkJump ();
+		}
+*/
+		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
+			ctRot = CameraTarg.transform.rotation;
+			transform.rotation = ctRot;
+			if (Input.GetKeyDown("space") && Time.time > dashInkCDTimer) {
+				//inkCD = true;
+				dashInkCDTimer = Time.time + dashInkCD;
+				//StartCoroutine (resetInkCD ());
+				float startTime = Time.time;
+				StartCoroutine(inkJump());
+				float endTime = Time.time;
+				//Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
+				//inkJump ();
+
+			} else {
+				//Normal Movement Speed
+				//Debug.Log ("this is just normal speed");
+				if (acc < accMax) {
+					acc += accCount;
+					accCount += 0.005f;
+					if (acc > accMax) {
+						acc = accMax;
+					}
+				}
+
+			}
+
 
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
@@ -138,34 +168,58 @@ public class simple_movement : MonoBehaviour {
 	}
 
 	IEnumerator inkJump(){
-		ctRot = CameraTarg.transform.rotation;
-		transform.rotation = ctRot;
-		if (spaceWait == false && Input.GetKey ("space")) {
-			Debug.Log ("Into space.");
-			if (acc < accMax + 1) {
-				acc += accCount+1;
-				accCount += 0.015f;
-				if (acc > accMax + 1) {
-					acc = accMax+1;
+		float startTime = Time.time;
 
-				}
-			}
-			spaceWait = true;
-			yield return new WaitForSeconds (3);
-			spaceWait = false;
-
-		} else {
-			if (acc < accMax) {
-				acc += accCount;
-				accCount += 0.005f;
-				if (acc > accMax) {
-					acc = accMax;
-
-				}
-			}
+		while(acc < (accMax + inkAccBoost)) {
+			//Debug.Log("Speeding up");
+			acc += accCount;
+			accCount += 0.15f;
+			yield return StartCoroutine (speedUp ());
 
 		}
+		//If reached top boosting speed, cap ACC at accMax+boost speed
+		if (acc > (accMax + inkAccBoost)) {
+			acc = accMax + inkAccBoost;
+			//Debug.Log("debugging coroutine, now wait 3 seconds" + Time.time);
+			yield return StartCoroutine (tickSlow ());
+
+		} 
+		//accCount = 0.025f;
+		while (acc > accMax) {
+			//Debug.Log("Slowing down");	
+			acc -= accCount;
+			accCount += 0.001f;
+			yield return StartCoroutine (speedDown ());
+			Debug.Log ("time is : " + Time.time);
+			}
+			if (acc < accMax) {					
+				acc = accMax;
+
+			}
+		
+		float endTime = Time.time;
+		Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
+	}
+
+
+	IEnumerator speedUp(){	
+		
+
+		yield return new WaitForSeconds (0.05f);
+
 
 	}
+
+	IEnumerator speedDown(){
+		
+		yield return new WaitForSeconds (0.10f);
+
+
+	}
+
+	IEnumerator tickSlow(){
+		yield return new WaitForSeconds(0.6f);
+	}
+
 
 }

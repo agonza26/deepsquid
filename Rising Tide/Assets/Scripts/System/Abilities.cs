@@ -13,7 +13,7 @@ public class Abilities : MonoBehaviour {
 	Color lerpedCamo;
 
 	public float inkCDTimer = 0;
-	public float inkCD = 5;
+	public float inkCD = 10.5f;
 	// Use this for initialization
 	void Start () {
 		camoColor.a = 0.1f;
