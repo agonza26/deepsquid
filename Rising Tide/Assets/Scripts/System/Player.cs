@@ -57,11 +57,11 @@ public class Player : MonoBehaviour {
 	
 	IEnumerator hideUI(){
 		uiCanvas.alpha = 255;
-		Debug.Log("Before Waiting 5 seconds");
+		//Debug.Log("Before Waiting 5 seconds");
 		yield return new WaitForSeconds(5);
 		while(uiCanvas.alpha > 0){
 			yield return new WaitForSeconds(0.05f);
-			Debug.Log(uiCanvas.alpha);
+			//Debug.Log(uiCanvas.alpha);
 			uiCanvas.alpha -= 0.05f;
 			
 		}

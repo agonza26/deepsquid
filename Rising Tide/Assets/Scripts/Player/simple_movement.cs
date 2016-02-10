@@ -23,10 +23,10 @@ public class simple_movement : MonoBehaviour {
 	//public bool inkBoost = false;
 	public bool inkBoostCD = false;
 	public bool cloudCDVar;
-	public float inkAccBoost = 5f;
-
+	float inkAccBoost = 1f;
+	
 	public float dashInkCDTimer = 0f;
-	public float dashInkCD = 4.5f;
+	public float dashInkCD = 0.5f;
 
 	//velocity
 	private float accCount = 0.025f;
@@ -61,40 +61,26 @@ public class simple_movement : MonoBehaviour {
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 		CameraTarg.rotation = rotation;
 
-
-		/*
-		if (inkBoost == true && inkCD == true) {
-			StartCoroutine(inkJump());
-			//inkJump ();
-		}
-*/
+			
+		
+			
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
-			if (Input.GetKeyDown("space") && inkBoostCD == false /* &&  aVar == false*/) {
-				float startTime = Time.time;
-				//StartCoroutine(inkJump());
-				float endTime = Time.time;
-				//Debug.Log ("Start time: " + startTime + ", End time: " + endTime);
-				//inkJump ();
-
-			} else {
-				//Normal Movement Speed
-				if (acc < accMax) {
-					acc += accCount;
-					accCount += 0.005f;
-					if (acc > accMax) {
-						acc = accMax;
-					}
+			
+			if (acc < accMax) {
+				acc += accCount;
+				accCount += 0.005f;
+				if (acc > accMax) {
+					acc = accMax;
 				}
-
 			}
-
-
+		Debug.Log("Ink accboost = " + inkAccBoost);
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
+			
 			if (acc > deccMax) {
 				acc -= deccCount;
 				deccCount += 0.005f;
@@ -102,8 +88,6 @@ public class simple_movement : MonoBehaviour {
 					acc = deccMax;
 				}
 			}
-
-
 		}
 		else {
 			accCount = 0.025f;
@@ -134,11 +118,11 @@ public class simple_movement : MonoBehaviour {
 					coastD = 0.01f;
 				}
 			}
-
 		}
-
+		
 		//change players position
-		transform.Translate (vel * acc);
+		
+		transform.Translate (vel * acc * inkAccBoost);
 
 		//elevation control
 		if (Input.GetKey ("r")){
@@ -165,60 +149,57 @@ public class simple_movement : MonoBehaviour {
 		return Mathf.Clamp(angle, min, max);
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	public IEnumerator inkJump(){
-		float startTime = Time.time;
-		//Abilities aVar = GetComponent<Abilities>();
-		//aVar.inkCloudCD = true;
-		//Debug.Log("CloudCDVar = " + aVar);
-		//set cloudCD 
-		while(acc < (accMax + inkAccBoost)) {
-			//Debug.Log("Speeding up");
+		inkAccBoost = 3f;
+		yield return StartCoroutine (waitThisLong(0.5f));
+		inkAccBoost = 1f;
+		//inkBoostCD = true;
+		//dashInkCDTimer = Time.time;
+		/*if(Time.time > dashInkCDTimer){
+			dashInkCDTimer = Time.time + dashInkCD;
+			inkAccBoost = 1f;
+		}
+		*/
+		/*while(acc < (accMax + inkAccBoost)) {
+			Debug.Log("first part");
+			
+			
+			//yield return StartCoroutine (waitThisLong(0.05f));
 			acc += accCount;
 			accCount += 0.3f;
-			yield return StartCoroutine (waitThisLong(0.05f));
-
 		}
-			//If reached top boosting speed, cap ACC at accMax+boost speed
-			if (acc > (accMax + inkAccBoost)) {
-				acc = accMax + inkAccBoost;
-				inkBoostCD = true;
-				
-			} 
-		yield return StartCoroutine (waitThisLong(0.5f));
-		if(inkBoostCD == true){
-		
-			while (acc > accMax) {
-				//Debug.Log("Slowing down");	
+		//If reached top boosting speed, cap ACC at accMax+boost speed
+		if (acc > (accMax + inkAccBoost)) {
+			Debug.Log("second part");
+			acc = accMax + inkAccBoost;
+			inkBoostCD = true;
+			
+		} 
+		//yield return StartCoroutine (waitThisLong(0.5f));
+		if(inkBoostCD == true){	
+			while (acc > accMax) {	
+				Debug.Log("third part");
 				acc -= accCount;
+				
+				//yield return StartCoroutine (waitThisLong(0.05f));
 				accCount += 0.004f;
-				yield return StartCoroutine (waitThisLong(0.05f));
-				Debug.Log ("time is : " + Time.time);
 			}
 
 		}
+		yield return null;
 		inkBoostCD = false;
-		//aVar.inkCloudCD = false;
+		*/
 	}
 
 
-	IEnumerator speedUp(){	
-		
-
-		yield return new WaitForSeconds (0.05f);
-
-
-	}
-
-	IEnumerator speedDown(){
-		
-		yield return new WaitForSeconds (0.10f);
-
-
-	}
-
-	IEnumerator tickSlow(){
-		yield return new WaitForSeconds(0.6f);
-	}
+	
 	
 	IEnumerator waitThisLong(float x){
 		yield return new WaitForSeconds(x);

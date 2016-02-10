@@ -228,6 +228,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 93bf269b178762c42ab3baa910fd454b, type: 2}
+    - target: {fileID: 11454224, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
+      propertyPath: inkAccBoost
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c42050b076a3b419d90c6d708ebe43b0, type: 2}
   m_IsPrefabParent: 0
@@ -648,7 +652,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 600
+    maxNumParticles: 402
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
@@ -675,7 +679,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 500
+      scalar: 400
       maxCurve:
         serializedVersion: 2
         m_Curve:

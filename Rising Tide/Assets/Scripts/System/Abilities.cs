@@ -32,10 +32,11 @@ public class Abilities : MonoBehaviour {
 			//Debug.Log("Faagaggoijg");
 			inkCharge = GetComponent<simple_movement>();
 			StartCoroutine(inkCharge.inkJump());
+			//inkCharge.inkJump();
 			newInk ();
 
 		} else if (Input.GetKeyDown ("space") && Time.time <= inkCDTimer) {
-			Debug.Log ("Ink is on CD");
+			//Debug.Log ("Ink is on CD");
 		} else {
 		}
 		if (Input.GetKey ("t")) {
