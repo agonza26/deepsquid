@@ -42,6 +42,10 @@ public class PickupObject : MonoBehaviour
     {
         if (carrying)
         {
+			if(carriedObject.tag == "Enemy")
+			{
+				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg());
+			}
             carry(carriedObject);
             checkDrop();
         }
@@ -61,7 +65,7 @@ public class PickupObject : MonoBehaviour
             canThrow = true;
             o.GetComponent<Rigidbody>().useGravity = false;
             //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z)/2f;
+            float d = (o.GetComponent<Collider>().bounds.size.z) * 1.1f/2f;
             playerZRot = player.transform.rotation;
             o.transform.position = Vector3.Lerp(o.transform.position, player.transform.position + (-player.transform.up * d) * distance, Time.deltaTime * smooth);
             o.transform.rotation = playerZRot; //stop picked up object from rotating independently
@@ -73,7 +77,7 @@ public class PickupObject : MonoBehaviour
             if (!parented)
             {
                 //position player alongside grabbed object
-                Vector3 objSize = (o.GetComponent<Collider>().bounds.size) / 2f;
+                Vector3 objSize = (o.GetComponent<Collider>().bounds.size)/ 2f;
                 player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize, Time.deltaTime * smooth);
 
                 //make player child of grabbed object for movement and rotation

@@ -10,6 +10,7 @@ public class Player_stats : MonoBehaviour {
 	public float PlayerCurrHealth;
     public float restartDelay = 5f;
 	public bool PlayerDmged;
+	public float PlayerDmgOutput;
 	private Color lowAlph;
 	private Color normalAlph;
 
@@ -26,7 +27,7 @@ public class Player_stats : MonoBehaviour {
 		PlayerCurrHealth = PlayerHealthMax;
 		normalAlph = GetComponent<Renderer>().material.color;
 		lowAlph = GetComponent<Renderer>().material.color;
-		lowAlph.a = 0.65f;
+		lowAlph.a = 0.3f;
 	}
 	
 	// Update is called once per frame
@@ -60,10 +61,7 @@ public class Player_stats : MonoBehaviour {
 
     public void changePlayerAlphaDown()
 	{
-		//GetComponent<Renderer>().material.SetColor("_Color", lowAlph);
 		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, lowAlph, 5f * Time.deltaTime);		
-		/*Debug.Log("Desired Color: " + lowAlph);
-		Debug.Log("Current Color: " + GetComponent<Renderer>().material.color);*/
 	}
 	
 	public void changePlayerAlphaUp()
@@ -72,6 +70,11 @@ public class Player_stats : MonoBehaviour {
 		{
 			return;
 		}
-		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, normalAlph, 5f * Time.deltaTime); //Color.Lerp(lowAlph, GetComponent<Renderer>().material.color, 5f * Time.deltaTime);
+		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, normalAlph, 5f * Time.deltaTime); 
+	}
+	
+	public float giveDmg()
+	{
+		return PlayerDmgOutput;
 	}
 }
