@@ -22,6 +22,7 @@ public class simple_movement : MonoBehaviour {
 
 	//public bool inkBoost = false;
 	public bool inkBoostCD = false;
+	bool inkJumpedBack = false;
 	public bool cloudCDVar;
 	float inkAccBoost = 1f;
 	
@@ -29,6 +30,7 @@ public class simple_movement : MonoBehaviour {
 	public float dashInkCD = 0.5f;
 
 	//velocity
+	Vector3 vel;
 	private float accCount = 0.025f;
 	private float acc = 0.0f;
 	public float accMax = 1f;
@@ -43,6 +45,7 @@ public class simple_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		Debug.Log("acc = " + acc);
 		//rb = GetComponent<Rigidbody>();
 		tempSpeed = playerSpeed;
 		CameraTarg = transform.GetChild(0);
@@ -57,7 +60,7 @@ public class simple_movement : MonoBehaviour {
 		y = ClampAngle (y, yMinLimit, yMaxLimit);
 
 
-		Vector3 vel = Vector3.forward*Time.deltaTime*playerSpeed;
+		vel = Vector3.forward*Time.deltaTime*playerSpeed;
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 		CameraTarg.rotation = rotation;
 
@@ -76,6 +79,7 @@ public class simple_movement : MonoBehaviour {
 				}
 			}
 		Debug.Log("Ink accboost = " + inkAccBoost);
+		Debug.Log("acc = " + acc);
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 			ctRot = CameraTarg.transform.rotation;
@@ -157,45 +161,25 @@ public class simple_movement : MonoBehaviour {
 	
 	
 	public IEnumerator inkJump(){
-		inkAccBoost = 3f;
-		yield return StartCoroutine (waitThisLong(0.5f));
-		inkAccBoost = 1f;
-		//inkBoostCD = true;
-		//dashInkCDTimer = Time.time;
-		/*if(Time.time > dashInkCDTimer){
-			dashInkCDTimer = Time.time + dashInkCD;
+		//inkAccBoost = 3f;
+		//yield return StartCoroutine (waitThisLong(0.5f));
+		//inkAccBoost = 1f;
+		if(acc == 0 && inkJumpedBack == false){
+			acc = -1;
+			inkAccBoost = 3f;
+			yield return StartCoroutine (waitThisLong(0.5f));
+			acc = 0f;
+			inkAccBoost = 1f;
+			
+			inkJumpedBack = true;
+			
+		}
+		else if(inkJumpedBack != true){
+			inkAccBoost = 3f;
+			yield return StartCoroutine (waitThisLong(0.5f));
 			inkAccBoost = 1f;
 		}
-		*/
-		/*while(acc < (accMax + inkAccBoost)) {
-			Debug.Log("first part");
-			
-			
-			//yield return StartCoroutine (waitThisLong(0.05f));
-			acc += accCount;
-			accCount += 0.3f;
-		}
-		//If reached top boosting speed, cap ACC at accMax+boost speed
-		if (acc > (accMax + inkAccBoost)) {
-			Debug.Log("second part");
-			acc = accMax + inkAccBoost;
-			inkBoostCD = true;
-			
-		} 
-		//yield return StartCoroutine (waitThisLong(0.5f));
-		if(inkBoostCD == true){	
-			while (acc > accMax) {	
-				Debug.Log("third part");
-				acc -= accCount;
-				
-				//yield return StartCoroutine (waitThisLong(0.05f));
-				accCount += 0.004f;
-			}
-
-		}
-		yield return null;
-		inkBoostCD = false;
-		*/
+		inkJumpedBack = false;
 	}
 
 
