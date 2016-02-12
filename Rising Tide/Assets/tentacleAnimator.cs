@@ -11,13 +11,18 @@ public class tentacleAnimator : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if moving forward (pressing W), play swimming animation, stop when key released
+        bool isSwimming = Input.GetKey("w");
+        anim.SetBool("swimming", isSwimming);
 
-        if (Input.GetMouseButtonDown(0))
+        //press grab/throw button or left click to start grab animation, press again to exit grab animation
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) 
         {
             if (!anim.GetBool("grabbing"))
             { //start grabbing
@@ -28,9 +33,9 @@ public class tentacleAnimator : MonoBehaviour
                 anim.SetBool("grabbing", false);
             }
             Debug.Log("Now grabbing");
-            //anim.SetBool("isSwimming", false);
         }
 
+        //right click to start swim animation, and again to exit swim animation
         if (Input.GetMouseButtonDown(1)) //0 left click, 1 right click, 2 middlle click
         {
             if (!anim.GetBool("swimming"))
