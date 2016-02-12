@@ -14,13 +14,13 @@ public class Player_stats : MonoBehaviour {
 	private Color lowAlph;
 	private Color normalAlph;
 
-    Animator anim;
-    float restartTimer;
+    //private Animator anim;
+    //float restartTimer;
 
-    void Awake()
+    /*void Awake()
     {
         anim = GetComponent<Animator>();
-    }
+    }*/
 
     // Use this for initialization
     void Start () {
@@ -33,22 +33,14 @@ public class Player_stats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-
-    public void playerDamage(float val)
-	{
-		PlayerDmged = true;
-		PlayerCurrHealth -= val;
-
-        if (PlayerCurrHealth <= 0)
+	/*if (PlayerCurrHealth <= 0)
         {
-            /*if (gameObject.CompareTag("Player"))
+            if (gameObject.CompareTag("Player"))
             {
                 Destroy(gameObject);
                 Debug.Log("player dead");
                 SceneManager.LoadScene("Backup");
-            }*/
+            }
             anim.SetTrigger("GameOver");
             restartTimer += Time.deltaTime;
 
@@ -56,7 +48,15 @@ public class Player_stats : MonoBehaviour {
             {
                 SceneManager.LoadScene("Backup");
             }
-        }
+        }*/
+	
+	}
+
+
+    public void playerDamage(float val)
+	{
+		PlayerDmged = true;
+		PlayerCurrHealth -= val;
 	}
 
     public void changePlayerAlphaDown()
