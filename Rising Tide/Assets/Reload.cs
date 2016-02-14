@@ -11,7 +11,7 @@ public class Reload : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey("enter"))
+        if (Input.GetKey(KeyCode.Return) || Input.GetKey("enter"))
         {
             SceneManager.LoadScene("Backup");
         }

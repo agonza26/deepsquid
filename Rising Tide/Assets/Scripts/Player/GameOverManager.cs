@@ -10,14 +10,14 @@ public class GameOverManager : MonoBehaviour
     public float restartDelay = 5f;         // Time to wait before restarting the level
 
 
-    Animator anim;                          // Reference to the animator component.
+    //Animator anim;                          // Reference to the animator component.
     float restartTimer = 0;                     // Timer to count up to restarting the level
 
 
     void Awake()
     {
         // Set up the reference.
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
 
     }
 
@@ -30,9 +30,7 @@ public class GameOverManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Time:" + restartTimer);
         currHealth = deathManager.GetComponent<Player_stats>().PlayerCurrHealth;
-        Debug.Log("Health:"+currHealth);
         // If the player has run out of health...
         if (currHealth <= 0)
         {
