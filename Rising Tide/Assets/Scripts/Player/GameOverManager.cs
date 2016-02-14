@@ -45,7 +45,7 @@ public class GameOverManager : MonoBehaviour
               if (restartDelay >= restartTimer + Time.deltaTime)
               {
                   //restartTimer = Time.time;
-                  SceneManager.LoadScene("Backup");
+                  SceneManager.LoadScene("DeathScene");
             }
         }
     }

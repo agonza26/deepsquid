@@ -2187,11 +2187,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408082, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22408082, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11462314, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: uiCanvas
@@ -3269,6 +3269,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkValue: 1
+--- !u!114 &1532718890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532718882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca5923d666465844be207b81815f717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1
+  currentHealth: 0
+  sinkSpeed: 2.5
 --- !u!225 &1543334790 stripped
 CanvasGroup:
   m_PrefabParentObject: {fileID: 22590018, guid: 5549800544a014c7e904568bf945ee95,
@@ -4241,6 +4255,7 @@ MonoBehaviour:
   PlayerCurrHealth: 0
   restartDelay: 5
   PlayerDmged: 0
+  PlayerDmgOutput: 0
 --- !u!4 &1952857003 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442134, guid: afe4278ccf0f04a2a8387a4d934bfe1c, type: 2}
