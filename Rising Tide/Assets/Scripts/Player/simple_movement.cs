@@ -20,16 +20,16 @@ public class simple_movement : MonoBehaviour {
 	private float tempSpeed;
 	//private Rigidbody rb;//used for controlling player's
 
-
+	bool inkJumpedBack = false;
+	float inkAccBoost = 1f;
+	
 
 	//velocity
-
-
+	Vector3 vel;
 	private float accCount = 0.025f;
 	private float acc = 0.0f;
 	public float accMax = 1f;
 	public float coast = 0.1f;
-
 
 	private float deccCount = 0.025f;
 	public float deccMax = -1f;
@@ -40,7 +40,6 @@ public class simple_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		//rb = GetComponent<Rigidbody>();
 		tempSpeed = playerSpeed;
 		CameraTarg = transform.GetChild(0);
 	}
@@ -54,30 +53,29 @@ public class simple_movement : MonoBehaviour {
 		y = ClampAngle (y, yMinLimit, yMaxLimit);
 
 
-		Vector3 vel = Vector3.forward*Time.deltaTime*playerSpeed;
+		vel = Vector3.forward*Time.deltaTime*playerSpeed;
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 		CameraTarg.rotation = rotation;
 
-
-
-
-
+			
+		
+			
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
+			
 			if (acc < accMax) {
 				acc += accCount;
 				accCount += 0.005f;
 				if (acc > accMax) {
 					acc = accMax;
-
 				}
 			}
-
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
+			
 			if (acc > deccMax) {
 				acc -= deccCount;
 				deccCount += 0.005f;
@@ -85,12 +83,10 @@ public class simple_movement : MonoBehaviour {
 					acc = deccMax;
 				}
 			}
-
-
-		} else {
+		}
+		else {
 			accCount = 0.025f;
 			deccCount = 0.025f;
-
 
 			//decrease spead to 0 naturally
 			if ((acc >= 0)) {
@@ -117,20 +113,10 @@ public class simple_movement : MonoBehaviour {
 					coastD = 0.01f;
 				}
 			}
-
 		}
-
+		
 		//change players position
-		transform.Translate (vel * acc);
-
-
-
-
-
-
-
-
-
+		transform.Translate (vel * acc * inkAccBoost);
 
 		//elevation control
 		if (Input.GetKey ("r")){
@@ -145,9 +131,6 @@ public class simple_movement : MonoBehaviour {
 
 	}
 
-
-
-
 	public static float ClampAngle(float angle, float min, float max)
 	{
 		if (angle < -360F)
@@ -156,4 +139,33 @@ public class simple_movement : MonoBehaviour {
 			angle -= 360F;
 		return Mathf.Clamp(angle, min, max);
 	}
+
+	//Controls the ink movement, like moving forward or backwards depending on
+	//acceleration.
+	public IEnumerator inkJump(){
+		if(acc == 0 && inkJumpedBack == false){
+			acc = -1;
+			inkAccBoost = 3f;
+			yield return StartCoroutine (waitThisLong(0.5f));
+			acc = 0f;
+			inkAccBoost = 1f;
+			inkJumpedBack = true;
+			
+		}
+		else if(inkJumpedBack != true){
+			inkAccBoost = 3f;
+			yield return StartCoroutine (waitThisLong(0.5f));
+			inkAccBoost = 1f;
+		}
+		inkJumpedBack = false;
+	}
+
+
+	
+	//Coroutine to wait x amount of time
+	IEnumerator waitThisLong(float x){
+		yield return new WaitForSeconds(x);
+	                                                                                                                               }
+
+
 }

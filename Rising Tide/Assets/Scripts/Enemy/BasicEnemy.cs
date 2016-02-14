@@ -31,9 +31,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	//SARA calls
-
-
 
 	void Start () {
 
