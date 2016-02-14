@@ -20,14 +20,9 @@ public class simple_movement : MonoBehaviour {
 	private float tempSpeed;
 	//private Rigidbody rb;//used for controlling player's
 
-	//public bool inkBoost = false;
-	public bool inkBoostCD = false;
 	bool inkJumpedBack = false;
-	public bool cloudCDVar;
 	float inkAccBoost = 1f;
 	
-	public float dashInkCDTimer = 0f;
-	public float dashInkCD = 0.5f;
 
 	//velocity
 	Vector3 vel;
@@ -45,8 +40,6 @@ public class simple_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log("acc = " + acc);
-		//rb = GetComponent<Rigidbody>();
 		tempSpeed = playerSpeed;
 		CameraTarg = transform.GetChild(0);
 	}
@@ -78,8 +71,6 @@ public class simple_movement : MonoBehaviour {
 					acc = accMax;
 				}
 			}
-		Debug.Log("Ink accboost = " + inkAccBoost);
-		Debug.Log("acc = " + acc);
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 			ctRot = CameraTarg.transform.rotation;
@@ -125,7 +116,6 @@ public class simple_movement : MonoBehaviour {
 		}
 		
 		//change players position
-		
 		transform.Translate (vel * acc * inkAccBoost);
 
 		//elevation control
@@ -141,9 +131,6 @@ public class simple_movement : MonoBehaviour {
 
 	}
 
-
-
-
 	public static float ClampAngle(float angle, float min, float max)
 	{
 		if (angle < -360F)
@@ -153,24 +140,15 @@ public class simple_movement : MonoBehaviour {
 		return Mathf.Clamp(angle, min, max);
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	//Controls the ink movement, like moving forward or backwards depending on
+	//acceleration.
 	public IEnumerator inkJump(){
-		//inkAccBoost = 3f;
-		//yield return StartCoroutine (waitThisLong(0.5f));
-		//inkAccBoost = 1f;
 		if(acc == 0 && inkJumpedBack == false){
 			acc = -1;
 			inkAccBoost = 3f;
 			yield return StartCoroutine (waitThisLong(0.5f));
 			acc = 0f;
 			inkAccBoost = 1f;
-			
 			inkJumpedBack = true;
 			
 		}
@@ -184,7 +162,7 @@ public class simple_movement : MonoBehaviour {
 
 
 	
-	
+	//Coroutine to wait x amount of time
 	IEnumerator waitThisLong(float x){
 		yield return new WaitForSeconds(x);
 	                                                                                                                               }

@@ -3234,7 +3234,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 2
-    type: 0
+    type: 1
     collisionMode: 0
     plane0: {fileID: 1249312638}
     plane1: {fileID: 1066189581}
@@ -3353,9 +3353,9 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 4294967295
     maxCollisionShapes: 256
-    quality: 0
+    quality: 1
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   SubModule:
@@ -3604,11 +3604,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408082, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22408082, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11446996, guid: 5549800544a014c7e904568bf945ee95, type: 2}
       propertyPath: uiCanvas
@@ -5378,6 +5378,7 @@ MonoBehaviour:
   camoMat: {fileID: 0}
   Ink: {fileID: 376773916}
   playerPos: {fileID: 53852798}
+  part: {fileID: 0}
   inkCharge: {fileID: 0}
   inkCloudCD: 0
   inkCD: 5

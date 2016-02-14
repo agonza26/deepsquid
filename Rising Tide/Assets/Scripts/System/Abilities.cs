@@ -11,40 +11,44 @@ public class Abilities : MonoBehaviour {
 	Color camoColor = new Color(0.0f, 0.0f, 0.0f, 0.1f);
 	Color nonCamoColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 	Color lerpedCamo;
+	//Enemy
+	public ParticleSystem part;
 	public simple_movement inkCharge;
 	public bool inkCloudCD = false;
 	public float inkCD = 5.0f;
 	public float inkCDTimer = 0f;
+	
 	// Use this for initialization
 	void Start () {
 		camoColor.a = 0.1f;
 		nonCamoColor = GetComponent<Renderer>().material.color;
 		nonCamoColor.a = 1f;
+		
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-		if (Input.GetKeyDown ("space") && Time.time > inkCDTimer) {
+		//Controls inking when space is pressed and within the time CD
+		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer) {
 			inkCDTimer = Time.time + inkCD;
-			//inkCloudCD = true;
-			//Debug.Log("Faagaggoijg");
 			inkCharge = GetComponent<simple_movement>();
 			StartCoroutine(inkCharge.inkJump());
-			//inkCharge.inkJump();
 			newInk ();
 
-		} else if (Input.GetKeyDown ("space") && Time.time <= inkCDTimer) {
-			//Debug.Log ("Ink is on CD");
+		} else if (Input.GetKeyDown ("1") && Time.time <= inkCDTimer) {
 		} else {
 		}
-		if (Input.GetKey ("t")) {
+		if (Input.GetKey ("2")) {
 			StartCoroutine(camouflage (camoColor, 1.0f));
 		} else {
 			StartCoroutine(camouflage (nonCamoColor, 1.0f));
 		}
 			
+	}
+	
+	void OnParticleCollision(GameObject other){
+		Debug.Log("Object has been hit by ink");
 	}
 	//Inking 
 	void newInk(){
