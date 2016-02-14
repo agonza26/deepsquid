@@ -54,18 +54,18 @@ public class Player : MonoBehaviour {
 			hideBar.color = Color.Lerp(Color.clear, Color.black, playerHealthCurr/playerHealthTotal);
 		}
 	}
-	
+	//Hide the UI over time.
 	IEnumerator hideUI(){
 		uiCanvas.alpha = 255;
-		Debug.Log("Before Waiting 5 seconds");
+		//Debug.Log("Before Waiting 5 seconds");
 		yield return new WaitForSeconds(5);
 		while(uiCanvas.alpha > 0){
 			yield return new WaitForSeconds(0.05f);
-			Debug.Log(uiCanvas.alpha);
 			uiCanvas.alpha -= 0.05f;
 			
 		}
 	}
+	//Show the ui
 	public void showUI(){
 		uiCanvas.alpha = 255;
 	}
