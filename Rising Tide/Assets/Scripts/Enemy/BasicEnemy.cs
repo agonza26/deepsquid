@@ -1,108 +1,251 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BasicEnemy : MonoBehaviour {
+
+
+	public bool debugStatements = true;
+	public string state = "patrol";
+	public string message = "none";
+
+	public float timeFS = 0.01f;
+	public float vel = 5f; //velocity
+	public float radius; //how far away from the patrol points should the fist start turning towards the next
+
+
+	public float swimT; // how frequent the fish "swims", normal
+	public float swimF; // how frequent the fish "swims", follow
+	public float swimA; // how frequent the fish "swims, attack; temporary until distinct attacks are implemented per each fish
+	public float huntT; // how long fish will look for player after loosing sight
+
+	public float swimRadius = 30; //turn radius of fish lol
+
+	public float wiggleVar; // possible distance away object will "wiggle"
+	public float wiggleLimit; // how far away from path should the enemy wander
+
 	public Transform pos1; //until I make an array
 	public Transform pos2; //only three different places to patrol between
-	public Transform pos3;
+	public Transform pos3; 
 
-	public float dg = 5f; //drag
-	public float vel = 5f; //velocity
 
-	public float radius; //how far away from the patrol points should the fist start turning towards the next
-	public float magicNum; //dont remember at the moment
-	public float wiggleVar; // how far away from path should the enemy wander
-	public float swimT; // how frequent the fish "swims", normal
+	private bool seeking = true; //in seek state, true if we are heading towards last know place for player
+	private int index = 1; //used to iterate through points, will be legacy later
 
-	//not used at the moment
-	/*
-	public float swimPanicT; // how frequent the fish "swims", Panic
-	public float swimAttackT; // how frequent the fish "swims, Attack
-	public float swimHuntT; // how frequent the fish "swims, Hunt
-	*/
+	//time variables
+	private float timeC = 0f; 
+	private float timeF = 0f; 
+	private float timeS = 0f; 
+	private float timeHT = 0f; 
+	private float lifetime = 0f; 
 
 
 
-	private int index = 1;
-	private float timeC = 0f;
-	private Rigidbody rigBod;
-	private Transform currentHeading;
-	private Transform currentTarget;
-
+	private Rigidbody rigBod; //reference to the rigid body
+	private bool switchT = false;
+	private Transform currentTarget; //where the enemy is currently trying to go towards
+	private Vector3 currentT;        // same as above, just vector
+	private LastPlayerSighting lPC; //used to get last player's sighting and reset valuable
 
 
 
 	void Start () {
+		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 
-		//wish i could use pointers and better copy methods :(
+		//prepares patrol state
 		currentTarget = pos1; 
-		currentHeading = currentTarget;
-		transform.LookAt(currentHeading);//start off looking at the first point
+		currentT = currentTarget.position;
 
-
+		//look towards target on start
+		transform.LookAt(currentTarget);//start off looking at the first point
 		rigBod = GetComponent<Rigidbody>();//init rigitbody
-		rigBod.velocity = (transform.forward * vel); //assign forward direction velocity 
-		rigBod.drag = dg; //drag slows down enemy to emulate water
 	}
 
 
 
 
-
-	//this model could be used for a steering director possibly
 	void Update () {
+		lifetime += Time.deltaTime; //increase how long this has been living
+
 		timeC += Time.deltaTime; //increase timer clock 
-		if (timeC >= swimT) { //if we hit the assigned swim timer, its time to swim
+
+		//used to call commands, does not control switching from a state to another
+		switch (state) { //acts depending on state
+			case "follow":
+				
+				follow ();
+				break;
+			case "seek":
+				seek ();
+				break;
+
+			case "patrol":
+			default:
+				patrol ();
+				break;
+		}
+
+	}
+
+
+	void OnParticleCollision(GameObject o){
+	}
+
+
+
+		
+	void swim(){
+		float mag = 1f;//used for debugging when trying to spawn objects, used to project visually some direction of Vector 3 to the world
+
+
+
+		//where we would be going if we go straight
+		Vector3 currentHeading = new Vector3 (transform.position.x + (transform.forward * vel*mag).x, 
+			transform.position.y + (transform.forward * vel*mag).y, transform.position.z + (transform.forward * vel*mag).z);
+
+		//will adjust enemy's rotation within bounds
+		fixRotation (currentHeading, currentT);
+		rigBod.velocity = (transform.forward * vel );
+
+	}
+
+
+	void follow(){
+		
+
+
+		//message system to switch to another states
+		if (message != "none") {
+			switch (message) {
+				case "lostPlayer":
+					state = "patrol";
+					message = "none";
+					patrol();
+					break;
+			}
+		}
+
+		//get current player's location from eyes
+		currentT = lPC.position;
+
+		//iff
+		if (currentT != lPC.resetPosition && timeF ==0) {
 			swim ();
-			timeC = 0; //reset timer
 		}
-	
-		//if we are near the current target
-		float dist = Vector3.Distance (transform.position, currentTarget.position);
-		if (dist < radius) {
-			changeTarget ();
+
+		timeF += Time.deltaTime;
+		if (timeF >= timeFS) {
+			timeF = 0;
 		}
+
 	}
 
 
 
 
-	void swim(bool straight = false, int factor = 1){
-		if (straight) {
-			//Not sure what else to add here at the moment 
-		}else{
-			wiggle (factor); //simple implementation of randomness untill steering ai(backlogged a lot)
-			//same here
-		}
-		rigBod.velocity = (transform.forward * vel);
+	void fixRotation (Vector3 heading, Vector3 target){
+		//finds the angle between the projected point if going straight and to the target (player);
+		float a = angleBetween (transform.InverseTransformPoint (heading), transform.InverseTransformPoint (target), "x"); //viewing from x axis
+		float b = angleBetween (transform.InverseTransformPoint (heading), transform.InverseTransformPoint (target), "y"); //vidwing from y axis
+		//decided z wasn't needed, might use for correction due to a fish's appearance, such as a shark
 
-	}
-
-
-	void wiggle(int factor){
-		Vector3 test = currentHeading.position;
-		test += Vector3.up * Random.Range (-magicNum, magicNum);
-		test += Vector3.down * Random.Range (-magicNum, magicNum);
-		test += Vector3.left * Random.Range (-magicNum, magicNum);
-		test += Vector3.right* Random.Range (-magicNum, magicNum);
+		//used to limit turning radius, might implement an increasing turning behavior later on.
+		float upAngle = ((a > swimRadius) ? swimRadius : a); 
+		float rightAngle = ((b > swimRadius) ? swimRadius : b);
 
 
-		//check to see if we are too far
-		float distX = Mathf.Abs(test.x-currentTarget.position.x);
-		float distY = Mathf.Abs(test.y-currentTarget.position.y);
-		float distZ = Mathf.Abs(test.z-currentTarget.position.z);
-		if (distX > wiggleVar||distY > wiggleVar||distZ > wiggleVar) {
+		//converts to Quanternion
+		Quaternion rotR = Quaternion.AngleAxis(rightAngle, Vector3.up);
+		Quaternion rotU = Quaternion.AngleAxis(upAngle, Vector3.left);
 
-			//Debug.Log("we are too far off");
-		}
-
-
-		transform.LookAt(test);
+		// rotate around World Left/Right
+		transform.rotation =  transform.rotation * rotR;
+		// rotate around Local Up/down
+		transform.rotation = transform.rotation * rotU;
 	}
 
 
 
 
+
+	float angleBetween(Vector3 from, Vector3 to, string axis  ){
+		Vector2 fromVector2;
+		Vector2 toVector2;
+
+		switch (axis) {
+			case "x":
+				fromVector2 = new Vector2(from.y, from.z);
+				toVector2 = new Vector2(to.y, to.z);
+				break;
+			case "y":
+				fromVector2 = new Vector2(from.x, from.z);
+				toVector2 = new Vector2(to.x, to.z);
+				break;
+			case "z":
+				fromVector2 = new Vector2(from.x, from.y);
+				toVector2 = new Vector2(to.x, to.y);
+				break;
+			default:
+				fromVector2 = new Vector2(0, 0);
+				toVector2 = new Vector2(0,0);
+				break;
+		}
+
+
+
+		float ang = Vector2.Angle(fromVector2, toVector2);
+		Vector3 cross = Vector3.Cross(fromVector2, toVector2);
+
+		if (cross.z > 0) {
+			//ang = 360 - ang;// used if i want to represent it with 0 is to right of forwards, and 360 to left
+			ang = -ang;      //used if i want to represent it with + to the right of forwards, and - to the left
+		}
+		return ang;
+
+	}
+
+
+
+
+
+
+
+
+
+
+	void patrol()
+	{
+		if (message != "none") {
+			switch (message) {
+				case "seePlayer":
+					Debug.Log ("We got the message!");
+					message = "none";
+					state = "follow";
+					follow ();
+					break;
+			}
+				
+		} else {
+			float variance = Random.Range (0.001f, swimT);
+
+			if (timeC >= variance) { //if we hit the assigned swim timer, its time to swim
+				if (switchT) {
+					changeTarget ();
+				} 
+				currentT = currentTarget.position;
+
+				swim ();
+				timeC = 0; //reset timer
+			}
+			//if we are near the current target, allows us to store if we have passed it 
+			//and to switch direction when its time to swim
+			float dist = Vector3.Distance (transform.position, currentTarget.position);
+			if (dist < radius) {
+				switchT= true;
+			}
+		}
+
+	}
 
 
 
@@ -112,25 +255,174 @@ public class BasicEnemy : MonoBehaviour {
 
 	void changeTarget(bool overRide = false, Transform custTarget = null){
 		switch (index) {
-			case 2:
-				index = 3;
-				currentTarget = pos3;
-				break;
-			case 3:
-				index = 1;
-				currentTarget = pos1;
+		case 2:
+			index = 3;
+			currentTarget = pos3;
+			break;
+		case 3:
+			index = 1;
+			currentTarget = pos1;
 
-				break;
-			case 1:
-			default:
-				index = 2;
-				currentTarget = pos2;
-				break;
+			break;
+		case 1:
+		default:
+			index = 2;
+			currentTarget = pos2;
+			break;
 		}
-		currentHeading = currentTarget; //temporary test
-		transform.LookAt(currentHeading);
+		currentT = currentTarget.position;
+		switchT= false;
+		//eventually access map of points, then choose a neighbor
 	}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+	//not completely implemented
+	void seek(){
+
+		if (message != "none") {
+			switch (message) {
+			case "foundPlayer":
+				state = "follow";
+				message = "none";
+				follow();
+				break;
+			}
+		}
+
+
+
+		if (seeking) {
+			
+			//get current player's location from eyes
+			currentT = lPC.position;
+
+			//if close to last spot of player, change to looking around
+			if (false) {
+				seeking = false;
+				huntT = 0;
+			} else {
+				swim ();
+
+			}
+
+		} else {
+			timeHT += Time.deltaTime;
+
+			//if the fish has exhausted all of its time looking for the target
+			if (timeHT >= huntT) {
+				//switch state to patrol
+
+			} else {
+				//go towards current node
+
+			}
+		}
+
+
+
+		if (currentT != lPC.resetPosition && timeS ==0) {
+			swim ();
+		}
+
+		timeS += Time.deltaTime;
+		if (timeS >= 5) {
+
+			timeS = 0;
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	void wiggle(int factor){
+		Vector3 test = currentTarget.position;
+		test += Vector3.up * Random.Range (-wiggleVar, wiggleVar);
+		test += Vector3.down * Random.Range (-wiggleVar, wiggleVar);
+		test += Vector3.left * Random.Range (-wiggleVar, wiggleVar);
+		test += Vector3.right* Random.Range (-wiggleVar, wiggleVar);
+
+
+		//check to see if we are too far
+		float distX = Mathf.Abs(test.x-currentTarget.position.x);
+		float distY = Mathf.Abs(test.y-currentTarget.position.y);
+		float distZ = Mathf.Abs(test.z-currentTarget.position.z);
+		if (distX > wiggleLimit||distY > wiggleLimit||distZ > wiggleLimit) {
+
+		}
+		transform.LookAt(test);
+	}
+
+
+
+	//dump to store snippets of old code
+	void legacyCode(){
+		/*
+			 * legacy code that would have object rotate towards player through lerp, creating a full curve, not steering behavioresque
+			Vector3 direction = (currentT - transform.position);
+			Quaternion lookRotation = Quaternion.LookRotation (direction);
+			transform.rotation = Quaternion.Lerp (transform.rotation, lookRotation, RotationSpeed);
+			*/
+		//Debug.Log("with respect to X" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"x"));
+		//Debug.Log("with respect to Y" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"y"));
+		//Debug.Log("with respect to Z" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"z"));
+
+		/*
+
+
+		void smoothSwim(){
+
+			Vector3 targetPoint = player.position;
+
+			Vector3 direction = (targetPoint - transform.position);
+
+			Quaternion lookRotation = Quaternion.LookRotation (direction);
+
+			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, 1);
+		}
+
+		*/
+		/*
+
+
+		Vector3 direction = (currentT - transform.position);
+		Quaternion lookRotation = Quaternion.LookRotation (direction);
+		transform.rotation = Quaternion.Lerp (transform.rotation, lookRotation, RotationSpeed);
+
+		*/
+
+
+
+	}
+		
 }
