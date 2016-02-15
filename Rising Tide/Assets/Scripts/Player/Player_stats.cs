@@ -10,7 +10,7 @@ public class Player_stats : MonoBehaviour {
 	public float PlayerCurrHealth;
     public float restartDelay = 5f;
 	public bool PlayerDmged;
-	public float PlayerDmgOutput;
+	public float PlayerDmgOutput = 30f;
 	private Color lowAlph;
 	private Color normalAlph;
 

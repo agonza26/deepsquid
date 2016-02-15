@@ -21,11 +21,13 @@ public class PickupObject : MonoBehaviour
     float objectSize;
     bool parented = false;
     bool canThrow;
+	
+	public ParticleSystem blood;
 
     public GameObject player;
     public float playerSize = 2.0f;
     public float distance = 1.5f; //offset between carried object and player
-    public float smooth = 8f; //smooth carrying movement
+    public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
     private Quaternion playerZRot;
     //public float rayDistance; //how far away an object can be picked up from
@@ -40,11 +42,21 @@ public class PickupObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
+		blood.enableEmission = true;
+		*/
         if (carrying)
         {
 			if(carriedObject.tag == "Enemy")
 			{
-				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg());
+				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
+				
+				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
+				{
+					Debug.Log("playing blood particle system...");
+					blood.Play();
+					dropObject();
+				}
 			}
             carry(carriedObject);
             checkDrop();
@@ -65,7 +77,7 @@ public class PickupObject : MonoBehaviour
             canThrow = true;
             o.GetComponent<Rigidbody>().useGravity = false;
             //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z) * 1.1f/2f;
+            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.8f;
             playerZRot = player.transform.rotation;
             o.transform.position = Vector3.Lerp(o.transform.position, player.transform.position + (-player.transform.up * d) * distance, Time.deltaTime * smooth);
             o.transform.rotation = playerZRot; //stop picked up object from rotating independently
@@ -93,7 +105,7 @@ public class PickupObject : MonoBehaviour
 
     void pickup()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             //shoot ray from center of screen
             int x = Screen.width / 2;

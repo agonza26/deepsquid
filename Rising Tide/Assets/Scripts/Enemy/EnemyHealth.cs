@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour {
 	
 	public float enemyHealthMax;
 	public float enemyHealthCurr;
+	public float PlayerHealthRestoreValue;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,12 @@ public class EnemyHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	//Debug.Log(enemyHealthCurr);
+		if(enemyHealthCurr <= 0)
+		{
+			Debug.Log(this + " has been defeated");
+			gameObject.SetActive(false);
+		}
 	}
 	
 	public void enemyTakeDmg(float dmgReceivedVal)
