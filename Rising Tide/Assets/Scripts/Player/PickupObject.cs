@@ -16,7 +16,7 @@ public class PickupObject : MonoBehaviour
 {
 
     GameObject mainCamera;
-    public bool carrying;
+    public bool carrying = false;
     GameObject carriedObject;
     float objectSize;
     bool parented = false;
@@ -54,11 +54,13 @@ public class PickupObject : MonoBehaviour
 				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
 				{
 					Debug.Log("playing blood particle system...");
+					carrying = false;
 					blood.Play();
 					dropObject();
 				}
 			}
-            carry(carriedObject);
+			if(carrying)
+				carry(carriedObject);
             checkDrop();
         }
         else
@@ -77,9 +79,10 @@ public class PickupObject : MonoBehaviour
             canThrow = true;
             o.GetComponent<Rigidbody>().useGravity = false;
             //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.8f;
+            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
             playerZRot = player.transform.rotation;
-            o.transform.position = Vector3.Lerp(o.transform.position, player.transform.position + (-player.transform.up * d) * distance, Time.deltaTime * smooth);
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
+            o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
             o.transform.rotation = playerZRot; //stop picked up object from rotating independently
         }
 

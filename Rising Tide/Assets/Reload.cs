@@ -13,7 +13,7 @@ public class Reload : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.Return) || Input.GetKey("enter"))
         {
-            SceneManager.LoadScene("Backup");
+            SceneManager.LoadScene("Scene 1");
         }
 	
 	}

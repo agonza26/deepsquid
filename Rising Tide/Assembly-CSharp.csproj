@@ -45,9 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Reload.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BE_Stats.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySight.cs" />
+     <Compile Include="Assets\Scripts\Player\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\Player\PickupObject.cs" />
      <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
      <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
@@ -55,6 +59,7 @@
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
      <Compile Include="Assets\Scripts\System\Player.cs" />
+     <Compile Include="Assets\tentacleAnimator.cs" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	
-	private GameObject player;
+	public GameObject player;
 	private float playerHealthTotal;
 	private float playerHealthCurr;
 	public Slider healthBar;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		//Set initial health of player;
-		player = GameObject.FindGameObjectWithTag("Player");
+		//player = GameObject.FindGameObjectWithTag("Player");
 		playerHealthTotal = player.GetComponent<Player_stats>().PlayerHealthMax;
 	
 		isAlive = true;

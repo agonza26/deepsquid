@@ -22,32 +22,40 @@ public class tentacleAnimator : MonoBehaviour
         anim.SetBool("swimming", isSwimming);
 
         //press grab/throw button or left click to start grab animation, press again to exit grab animation
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) 
+        if (GetComponentInParent<PickupObject>().carrying)//Input.GetMouseButtonDown(0))//Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) ||) 
         {
-            if (!anim.GetBool("grabbing"))
-            { //start grabbing
+            //if (!anim.GetBool("grabbing"))
+            //{ //start grabbing
                 anim.SetBool("grabbing", true);
-            }
-            else if (anim.GetBool("grabbing"))
-            { //stop grabbing
-                anim.SetBool("grabbing", false);
-            }
+            //}
+            //else if (anim.GetBool("grabbing"))
+            //{ //stop grabbing
+            //}
             Debug.Log("Now grabbing");
         }
+		else
+		{
+			anim.SetBool("grabbing", false);
+			Debug.Log("Releasing held object");
+		}
 
         //right click to start swim animation, and again to exit swim animation
-        if (Input.GetMouseButtonDown(1)) //0 left click, 1 right click, 2 middlle click
+        if (GetComponentInParent<simple_movement>().acc > 0)//Input.GetMouseButtonDown(1)) //0 left click, 1 right click, 2 middlle click
         {
-            if (!anim.GetBool("swimming"))
-            {  //start swimming
+            //if (!anim.GetBool("swimming"))
+            //{  //start swimming
                 anim.SetBool("swimming", true);
-            }
-            else if (anim.GetBool("swimming"))
-            { //stop swimming
-                anim.SetBool("swimming", false);
-            }
+            //}
+            //else if (anim.GetBool("swimming"))
+            //{ //stop swimming
+                
+            //}
 
         }
+		else if(GetComponentInParent<simple_movement>().acc <= 0)
+		{
+			anim.SetBool("swimming", false);
+		}
 
     }
 
