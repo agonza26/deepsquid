@@ -28,7 +28,7 @@ public class simple_movement : MonoBehaviour {
 	//velocity
 	Vector3 vel;
 	private float accCount = 0.025f;
-	private float acc = 0.0f;
+	public float acc = 0.0f;
 	public float accMax = 1f;
 	public float coast = 0.1f;
 
