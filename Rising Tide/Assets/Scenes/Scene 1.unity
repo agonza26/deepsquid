@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418582713591a394097aa8f9c6f159c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carrying: 0
   blood: {fileID: 602360869}
   player: {fileID: 206167441}
   playerSize: 2

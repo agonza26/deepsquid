@@ -16,7 +16,7 @@ public class PickupObject : MonoBehaviour
 {
 
     GameObject mainCamera;
-    bool carrying;
+    public bool carrying;
     GameObject carriedObject;
     float objectSize;
     bool parented = false;
@@ -172,4 +172,5 @@ public class PickupObject : MonoBehaviour
         dropObject();
         //carriedObject = null;
     }
+	
 }

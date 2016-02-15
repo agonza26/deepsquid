@@ -18,6 +18,7 @@ public class simple_movement : MonoBehaviour {
 	public float distanceMin = .5f;
 	public float distanceMax = 15f;
 	private float tempSpeed;
+	private float carryingSpeed = 1f;
 	//private Rigidbody rb;//used for controlling player's
 
 	bool inkJumpedBack = false;
@@ -116,7 +117,15 @@ public class simple_movement : MonoBehaviour {
 		}
 		
 		//change players position
-		transform.Translate (vel * acc * inkAccBoost);
+		if(GetComponent<PickupObject>().carrying)
+		{
+			carryingSpeed = 0.5f;
+		} 
+		else 
+		{
+			carryingSpeed = 1f;
+		}
+		transform.Translate (vel * acc * inkAccBoost * carryingSpeed);
 
 		//elevation control
 		if (Input.GetKey ("r")){
