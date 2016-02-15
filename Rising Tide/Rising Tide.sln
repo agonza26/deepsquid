@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rising Tide.CSharp", "Rising Tide.CSharp.csproj", "{CDD064D0-0E9D-6DAE-5D4E-14273FF3D030}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rising Tide.CSharp.Editor", "Rising Tide.CSharp.Editor.csproj", "{423B09A5-4DED-CDC1-55A4-D75C79423432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CDD064D0-0E9D-6DAE-5D4E-14273FF3D030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDD064D0-0E9D-6DAE-5D4E-14273FF3D030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDD064D0-0E9D-6DAE-5D4E-14273FF3D030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423B09A5-4DED-CDC1-55A4-D75C79423432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423B09A5-4DED-CDC1-55A4-D75C79423432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423B09A5-4DED-CDC1-55A4-D75C79423432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423B09A5-4DED-CDC1-55A4-D75C79423432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

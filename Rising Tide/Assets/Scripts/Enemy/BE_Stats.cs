@@ -36,7 +36,6 @@ public class BE_Stats : MonoBehaviour
         if (o.gameObject.tag == "Player")
         {
             currentHealth -= 1;
-            Debug.Log("EHealth:" + currentHealth);
         }
         else
         {
