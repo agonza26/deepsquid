@@ -93,7 +93,7 @@ public class BasicEnemy : MonoBehaviour {
 		float distZ = Mathf.Abs(test.z-currentTarget.position.z);
 		if (distX > wiggleVar||distY > wiggleVar||distZ > wiggleVar) {
 
-			Debug.Log("we are too far off");
+			//Debug.Log("we are too far off");
 		}
 
 

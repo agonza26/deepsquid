@@ -46,7 +46,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySight.cs" />
+     <Compile Include="Assets\Scripts\Player\PickupObject.cs" />
+     <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
+     <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
