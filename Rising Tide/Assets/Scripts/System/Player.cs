@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 		while(uiCanvas.alpha > 0){
 			yield return new WaitForSeconds(0.05f);
-			Debug.Log(uiCanvas.alpha);
+			//Debug.Log(uiCanvas.alpha);
 			uiCanvas.alpha -= 0.05f;
 			
 		}

@@ -36,7 +36,7 @@ public class tentacleAnimator : MonoBehaviour
 		else
 		{
 			anim.SetBool("grabbing", false);
-			Debug.Log("Releasing held object");
+			//Debug.Log("Releasing held object");
 		}
 
         //right click to start swim animation, and again to exit swim animation

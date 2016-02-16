@@ -94,6 +94,7 @@ public class CameraController : MonoBehaviour
 		if(isTouching && offset.z < -2f)
 		{
 			offset.z = Mathf.Lerp(offset.z, playerCameraTarget.position.z, positionDampening * Time.deltaTime);
+            Debug.Log("here");
 		}
 		
 		Vector3 wantedPosition = playerCameraTarget.position + (playerCameraTarget.rotation * offset);
@@ -116,6 +117,10 @@ public class CameraController : MonoBehaviour
 	
 	private void OnTriggerEnter(Collider collider)
 	{
+        if (collider.gameObject.transform.tag == "Player")
+        {
+            return;
+        }
 		isTouching = true;
 	}
 

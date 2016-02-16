@@ -42,7 +42,8 @@ public class simple_movement : MonoBehaviour {
 	void Start () 
 	{
 		tempSpeed = playerSpeed;
-		CameraTarg = transform.GetChild(0);
+        CameraTarg = transform.GetChild(0);
+        //CameraTarg = transform.parent;
 	}
 	
 	// Update is called once per frame
@@ -63,9 +64,10 @@ public class simple_movement : MonoBehaviour {
 			
 		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 			ctRot = CameraTarg.transform.rotation;
-			transform.rotation = ctRot;
-			
-			if (acc < accMax) {
+            //transform.Rotate(0, 0, ctRot.z);
+            transform.rotation = ctRot;
+
+            if (acc < accMax) {
 				acc += accCount;
 				accCount += 0.005f;
 				if (acc > accMax) {
