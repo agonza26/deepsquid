@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -451,7 +451,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -670,7 +670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -822,7 +822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -1013,7 +1013,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -1260,7 +1260,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1472,7 +1472,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -3307,7 +3307,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -3432,7 +3432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -3631,7 +3631,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1730238081}
   m_LocalRotation: {x: -0.0043502105, y: -0.7070935, z: -0.70709336, w: -0.004350151}
-  m_LocalPosition: {x: 0.000011362385, y: -0, z: 5}
+  m_LocalPosition: {x: 0, y: 5, z: 2.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 987125765}
@@ -3814,7 +3814,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: b22266b1f060e054899c591492802169, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22266b1f060e054899c591492802169, type: 3}
@@ -3864,7 +3864,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalScale.x

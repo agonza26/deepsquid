@@ -25,6 +25,7 @@ public class GameOverManager : MonoBehaviour
     {
        // anim = GetComponent<Animator>();
         deathManager = GameObject.FindGameObjectWithTag("Player");
+		Debug.Log ("this is" + deathManager.name);
         playerHealth = deathManager.GetComponent<Player_stats>().PlayerHealthMax;
     }
 
