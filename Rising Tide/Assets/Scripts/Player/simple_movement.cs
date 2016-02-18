@@ -23,6 +23,8 @@ public class simple_movement : MonoBehaviour {
 
 	bool inkJumpedBack = false;
 	float inkAccBoost = 1f;
+	public float travelSpeed = 1f;
+	bool tentaclesForward;
 	
 
 	//velocity
@@ -66,7 +68,7 @@ public class simple_movement : MonoBehaviour {
 			ctRot = CameraTarg.transform.rotation;
             //transform.Rotate(0, 0, ctRot.z);
             transform.rotation = ctRot;
-
+			transform.forward *= -1f;
             if (acc < accMax) {
 				acc += accCount;
 				accCount += 0.005f;
@@ -74,11 +76,24 @@ public class simple_movement : MonoBehaviour {
 					acc = accMax;
 				}
 			}
+			if(Input.GetKey(KeyCode.LeftShift))
+			{
+				vel *= -1f;
+				transform.forward *= -1f;
+				travelSpeed = 2f;
+				tentaclesForward = false;
+			} 
+			else 
+			{
+				travelSpeed = 1f;
+				tentaclesForward = true;
+			}
 
 		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
 			ctRot = CameraTarg.transform.rotation;
 			transform.rotation = ctRot;
-			
+			transform.forward *= -1f;
+			tentaclesForward = true;
 			if (acc > deccMax) {
 				acc -= deccCount;
 				deccCount += 0.005f;
@@ -116,6 +131,11 @@ public class simple_movement : MonoBehaviour {
 					coastD = 0.01f;
 				}
 			}
+			//transform.rotation = Quaternion.Lerp(transform.rotation, ctRot, 8f * Time.deltaTime);
+			if(!tentaclesForward)
+			{
+				vel *= -1;
+			}
 		}
 		
 		//change players position
@@ -127,8 +147,11 @@ public class simple_movement : MonoBehaviour {
 		{
 			carryingSpeed = 1f;
 		}
-		transform.Translate (vel * acc * inkAccBoost * carryingSpeed);
 
+		
+		transform.Translate (-vel * acc * inkAccBoost * carryingSpeed * travelSpeed);		
+		//Debug.Log(tentaclesForward);
+		
 		//elevation control
 		if (Input.GetKey ("r")){
 			transform.Translate (Vector3.up * Time.deltaTime * 8f);

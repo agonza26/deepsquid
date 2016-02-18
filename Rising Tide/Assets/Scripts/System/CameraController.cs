@@ -80,7 +80,7 @@ public class CameraController : MonoBehaviour
 		if(Physics.Raycast(transform.position, transform.forward, out hit, rcMaxDist) && offset.z < -2f)
 		{
 			Debug.Log(hit.transform.tag);
-			if(hit.transform.tag != "Player")
+			if(hit.transform.tag == "Environment")
 			{
 				pushInFront(hit);		
 			}
@@ -117,7 +117,7 @@ public class CameraController : MonoBehaviour
 	
 	private void OnTriggerEnter(Collider collider)
 	{
-        if (collider.gameObject.transform.tag == "Player")
+        if (collider.gameObject.transform.tag != "Environment")
         {
             return;
         }

@@ -118,20 +118,25 @@ public class PickupObject : MonoBehaviour
             RaycastHit hit;
             Debug.DrawRay(ray.origin, ray.direction);
             if (Physics.Raycast(ray, out hit))
-            //if (Physics.Raycast(ray, out hit, rayDistance))
             {
-                Debug.Log(hit.transform.gameObject);
-                //if it hits something valid, pick it up
-                Pickupable p = hit.collider.GetComponent<Pickupable>(); 
-                if (p != null)
-                {
-                    Debug.Log("that can be picked up");
-                    carrying = true;
-                    carriedObject = p.gameObject;
-                    //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
-                    //gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
-                    objectSize = p.size;
-                }
+				float distFromObj = Vector3.Distance(hit.transform.position, player.transform.position);
+                if(distFromObj < 60f)
+				{
+					//if it hits something valid, pick it up
+					Pickupable p = hit.collider.GetComponent<Pickupable>(); 
+					if (p != null)
+					{
+						Debug.Log("that can be picked up");
+						carrying = true;
+						carriedObject = p.gameObject;
+						//p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
+						//gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
+						objectSize = p.size;
+					}
+				}
+				Debug.Log(hit.transform.gameObject);
+				Debug.Log("You are " + distFromObj + " from " + hit);
+
             }
         }
     }
