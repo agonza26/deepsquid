@@ -21,6 +21,8 @@ public class PickupObject : MonoBehaviour
     float objectSize;
     bool parented = false;
     bool canThrow;
+	bool grabbableInRange = false;
+	Collider InRangeItemSaver;
 	
 	public ParticleSystem blood;
 
@@ -42,9 +44,6 @@ public class PickupObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
-		blood.enableEmission = true;
-		*/
         if (carrying)
         {
 			if(carriedObject.tag == "Enemy")
@@ -55,8 +54,10 @@ public class PickupObject : MonoBehaviour
 				{
 					Debug.Log("playing blood particle system...");
 					carrying = false;
+					transform.GetComponent<Player_stats>().playerDamage(-carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue);
 					blood.Play();
 					dropObject();
+					grabbableInRange = false;
 				}
 			}
 			if(carrying)
@@ -117,13 +118,14 @@ public class PickupObject : MonoBehaviour
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y)); //shoot ray from middle of screen 
             RaycastHit hit;
             Debug.DrawRay(ray.origin, ray.direction);
-            if (Physics.Raycast(ray, out hit))
+            if (grabbableInRange)//(Physics.Raycast(ray, out hit))
             {
-				float distFromObj = Vector3.Distance(hit.transform.position, player.transform.position);
-                if(distFromObj < 60f)
-				{
+				//float distFromObj = Vector3.Distance(hit.transform.position, player.transform.position);
+                //if(distFromObj < 60f)
+				//{
 					//if it hits something valid, pick it up
-					Pickupable p = hit.collider.GetComponent<Pickupable>(); 
+					//Pickupable p = hit.collider.GetComponent<Pickupable>(); 
+					Pickupable p = InRangeItemSaver.GetComponent<Pickupable>();
 					if (p != null)
 					{
 						Debug.Log("that can be picked up");
@@ -133,9 +135,9 @@ public class PickupObject : MonoBehaviour
 						//gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
 						objectSize = p.size;
 					}
-				}
-				Debug.Log(hit.transform.gameObject);
-				Debug.Log("You are " + distFromObj + " from " + hit);
+				//}
+				//Debug.Log(hit.transform.gameObject);
+				//Debug.Log("You are " + distFromObj + " from " + hit);
 
             }
         }
@@ -180,5 +182,21 @@ public class PickupObject : MonoBehaviour
         dropObject();
         //carriedObject = null;
     }
+	
+	void OnTriggerEnter(Collider c)
+	{
+		if(c.GetComponent<Pickupable>() != null)
+		{
+			grabbableInRange = true;
+		}
+		Debug.Log("A grabbable item " + c + " is in range");
+		InRangeItemSaver = c;
+	}
+	
+	void OnTriggerExit(Collider c)
+	{
+		grabbableInRange = false;
+		Debug.Log("Grabbable item " + c + " has left the grab range");
+	}
 	
 }

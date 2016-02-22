@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     private GameObject deathManager;
-    public float playerHealth;  // Reference to the player's health.
-    public float currHealth;
+    //public float playerHealth;  // Reference to the player's health.
+    //public float currHealth;
     public float restartDelay = 5f;         // Time to wait before restarting the level
 
 
@@ -25,19 +25,17 @@ public class GameOverManager : MonoBehaviour
     {
        // anim = GetComponent<Animator>();
         deathManager = GameObject.FindGameObjectWithTag("Player");
-		Debug.Log ("this is" + deathManager.name);
-        playerHealth = deathManager.GetComponent<Player_stats>().PlayerHealthMax;
     }
 
     void Update()
     {
-        currHealth = deathManager.GetComponent<Player_stats>().PlayerCurrHealth;
         // If the player has run out of health...
-        if (currHealth <= 0)
+        if (deathManager.GetComponent<Player_stats>().PlayerCurrHealth <= 0)
         {
             //anim.SetTrigger("GameOver");
             //StartCoroutine(respawn());
-            
+            deathManager.GetComponent<simple_movement>().toggleDeathState(); //movement is toggled off
+			deathManager.GetComponent<Abilities>().toggleDeathState(); //abilities are toggled off
               //currHealth = 1;
               restartTimer = Time.deltaTime;
               //anim.SetTrigger("GameOver");

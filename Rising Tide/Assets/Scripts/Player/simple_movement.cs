@@ -25,6 +25,7 @@ public class simple_movement : MonoBehaviour {
 	float inkAccBoost = 1f;
 	public float travelSpeed = 1f;
 	bool tentaclesForward;
+	bool isDead = false;
 	
 
 	//velocity
@@ -45,122 +46,124 @@ public class simple_movement : MonoBehaviour {
 	{
 		tempSpeed = playerSpeed;
         CameraTarg = transform.GetChild(0);
+		isDead = false;
         //CameraTarg = transform.parent;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(!isDead)
+		{
+			x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
+			y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.0125f;
+			y = ClampAngle (y, yMinLimit, yMaxLimit);
 
-		x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
-		y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.0125f;
-		y = ClampAngle (y, yMinLimit, yMaxLimit);
 
+			vel = Vector3.forward*Time.deltaTime*playerSpeed;
+			Quaternion rotation = Quaternion.Euler (y, x, 0);
+			CameraTarg.rotation = rotation;
 
-		vel = Vector3.forward*Time.deltaTime*playerSpeed;
-		Quaternion rotation = Quaternion.Euler (y, x, 0);
-		CameraTarg.rotation = rotation;
-
+				
 			
-		
-			
-		if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
-			ctRot = CameraTarg.transform.rotation;
-            //transform.Rotate(0, 0, ctRot.z);
-            transform.rotation = ctRot;
-			transform.forward *= -1f;
-            if (acc < accMax) {
-				acc += accCount;
-				accCount += 0.005f;
-				if (acc > accMax) {
-					acc = accMax;
+				
+			if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
+				ctRot = CameraTarg.transform.rotation;
+				//transform.Rotate(0, 0, ctRot.z);
+				transform.rotation = ctRot;
+				transform.forward *= -1f;
+				if (acc < accMax) {
+					acc += accCount;
+					accCount += 0.005f;
+					if (acc > accMax) {
+						acc = accMax;
+					}
+				}
+				if(Input.GetKey(KeyCode.LeftShift))
+				{
+					vel *= -1f;
+					transform.forward *= -1f;
+					travelSpeed = 2f;
+					tentaclesForward = false;
+				} 
+				else 
+				{
+					travelSpeed = 1f;
+					tentaclesForward = true;
+				}
+
+			} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
+				ctRot = CameraTarg.transform.rotation;
+				transform.rotation = ctRot;
+				transform.forward *= -1f;
+				tentaclesForward = true;
+				if (acc > deccMax) {
+					acc -= deccCount;
+					deccCount += 0.005f;
+					if (acc < deccMax) {
+						acc = deccMax;
+					}
 				}
 			}
-			if(Input.GetKey(KeyCode.LeftShift))
+			else {
+				accCount = 0.025f;
+				deccCount = 0.025f;
+
+				//decrease spead to 0 naturally
+				if ((acc >= 0)) {
+					acc -= coast;
+
+					if (coast > 0.01) {
+						coast -= 0.01f;
+					}
+
+					if (acc < 0) {
+						acc = 0;
+						coast = 0.01f;
+					}
+
+				} else {
+					acc += coastD;
+
+					if (coastD > 0.01) {
+						coastD -= 0.01f;
+					}
+
+					if (acc > 0) {
+						acc = 0;
+						coastD = 0.01f;
+					}
+				}
+				//transform.rotation = Quaternion.Lerp(transform.rotation, ctRot, 8f * Time.deltaTime);
+				if(!tentaclesForward)
+				{
+					vel *= -1;
+				}
+			}
+			
+			//change players position
+			if(GetComponent<PickupObject>().carrying)
 			{
-				vel *= -1f;
-				transform.forward *= -1f;
-				travelSpeed = 2f;
-				tentaclesForward = false;
+				carryingSpeed = 0.5f;
 			} 
 			else 
 			{
-				travelSpeed = 1f;
-				tentaclesForward = true;
+				carryingSpeed = 1f;
 			}
 
-		} else if (Input.GetKey ("s") && !Input.GetKey ("w")) { //move backwards
-			ctRot = CameraTarg.transform.rotation;
-			transform.rotation = ctRot;
-			transform.forward *= -1f;
-			tentaclesForward = true;
-			if (acc > deccMax) {
-				acc -= deccCount;
-				deccCount += 0.005f;
-				if (acc < deccMax) {
-					acc = deccMax;
-				}
+			
+			transform.Translate (-vel * acc * inkAccBoost * carryingSpeed * travelSpeed);		
+			//Debug.Log(tentaclesForward);
+			
+			//elevation control
+			if (Input.GetKey ("r")){
+				transform.Translate (Vector3.up * Time.deltaTime * 8f);
 			}
-		}
-		else {
-			accCount = 0.025f;
-			deccCount = 0.025f;
 
-			//decrease spead to 0 naturally
-			if ((acc >= 0)) {
-				acc -= coast;
 
-				if (coast > 0.01) {
-					coast -= 0.01f;
-				}
-
-				if (acc < 0) {
-					acc = 0;
-					coast = 0.01f;
-				}
-
-			} else {
-				acc += coastD;
-
-				if (coastD > 0.01) {
-					coastD -= 0.01f;
-				}
-
-				if (acc > 0) {
-					acc = 0;
-					coastD = 0.01f;
-				}
-			}
-			//transform.rotation = Quaternion.Lerp(transform.rotation, ctRot, 8f * Time.deltaTime);
-			if(!tentaclesForward)
+			if (Input.GetKey ("f")) //Move straight down
 			{
-				vel *= -1;
+				transform.Translate (Vector3.down * Time.deltaTime * 8f);
 			}
-		}
-		
-		//change players position
-		if(GetComponent<PickupObject>().carrying)
-		{
-			carryingSpeed = 0.5f;
-		} 
-		else 
-		{
-			carryingSpeed = 1f;
-		}
-
-		
-		transform.Translate (-vel * acc * inkAccBoost * carryingSpeed * travelSpeed);		
-		//Debug.Log(tentaclesForward);
-		
-		//elevation control
-		if (Input.GetKey ("r")){
-			transform.Translate (Vector3.up * Time.deltaTime * 8f);
-		}
-
-
-		if (Input.GetKey ("f")) //Move straight down
-		{
-			transform.Translate (Vector3.down * Time.deltaTime * 8f);
 		}
 
 	}
@@ -194,6 +197,11 @@ public class simple_movement : MonoBehaviour {
 		inkJumpedBack = false;
 	}
 
+	public void toggleDeathState()
+	{
+		isDead = true;
+		Debug.Log("Simple Movement isDead " + isDead);
+	}
 
 	
 	//Coroutine to wait x amount of time

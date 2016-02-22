@@ -17,34 +17,37 @@ public class Abilities : MonoBehaviour {
 	public bool inkCloudCD = false;
 	public float inkCD = 5.0f;
 	public float inkCDTimer = 0f;
+	bool isDead;
 	
 	// Use this for initialization
 	void Start () {
 		camoColor.a = 0.1f;
 		nonCamoColor = GetComponent<Renderer>().material.color;
 		nonCamoColor.a = 1f;
-		
+		isDead = false;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Controls inking when space is pressed and within the time CD
-		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer) {
-			inkCDTimer = Time.time + inkCD;
-			inkCharge = GetComponent<simple_movement>();
-			StartCoroutine(inkCharge.inkJump());
-			newInk ();
+		if(!isDead)
+		{
+			//Controls inking when space is pressed and within the time CD
+			if (Input.GetKeyDown ("1") && Time.time > inkCDTimer) {
+				inkCDTimer = Time.time + inkCD;
+				inkCharge = GetComponent<simple_movement>();
+				StartCoroutine(inkCharge.inkJump());
+				newInk ();
 
-		} else if (Input.GetKeyDown ("1") && Time.time <= inkCDTimer) {
-		} else {
+			} else if (Input.GetKeyDown ("1") && Time.time <= inkCDTimer) {
+			} else {
+			}
+			if (Input.GetKey ("2")) {
+				StartCoroutine(camouflage (camoColor, 1.0f));
+			} else {
+				StartCoroutine(camouflage (nonCamoColor, 1.0f));
+			}
 		}
-		if (Input.GetKey ("2")) {
-			StartCoroutine(camouflage (camoColor, 1.0f));
-		} else {
-			StartCoroutine(camouflage (nonCamoColor, 1.0f));
-		}
-			
 	}
 	
 	void OnParticleCollision(GameObject other){
@@ -84,5 +87,10 @@ public class Abilities : MonoBehaviour {
 		}
 	}
 
+	public void toggleDeathState()
+	{
+		isDead = true;
+		Debug.Log("Abilities isDead = " + isDead);
+	}
 
 }
