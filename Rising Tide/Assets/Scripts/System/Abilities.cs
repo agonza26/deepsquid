@@ -3,34 +3,41 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Abilities : MonoBehaviour {
+	public bool procured;
 	public Material playerMat;
 	public Material camoMat;
 	public ParticleSystem Ink;
 	public Transform playerPos;
+
 	//if its true, that means its on CD and cannot be used, if false then usable.
 	Color camoColor = new Color(0.0f, 0.0f, 0.0f, 0.1f);
 	Color nonCamoColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 	Color lerpedCamo;
 	//Enemy
-	public ParticleSystem part;
 	public simple_movement inkCharge;
+	public GameObject abilityObject;
 	public bool inkCloudCD = false;
 	public float inkCD = 5.0f;
 	public float inkCDTimer = 0f;
-	
+	private bool[] abilities;
+
+
 	// Use this for initialization
 	void Start () {
+
 		camoColor.a = 0.1f;
 		nonCamoColor = GetComponent<Renderer>().material.color;
 		nonCamoColor.a = 1f;
-		
-	
+		procured = GetComponent<PickupObject>().carrying;
+		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+
 		//Controls inking when space is pressed and within the time CD
-		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer) {
+		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {
 			inkCDTimer = Time.time + inkCD;
 			inkCharge = GetComponent<simple_movement>();
 			StartCoroutine(inkCharge.inkJump());
@@ -38,21 +45,23 @@ public class Abilities : MonoBehaviour {
 
 		} else if (Input.GetKeyDown ("1") && Time.time <= inkCDTimer) {
 		} else {
-		}
+		}/*
 		if (Input.GetKey ("2")) {
 			StartCoroutine(camouflage (camoColor, 1.0f));
 		} else {
 			StartCoroutine(camouflage (nonCamoColor, 1.0f));
-		}
-			
+		}*/
+
+
+
 	}
-	
+
 	void OnParticleCollision(GameObject other){
 		Debug.Log("Object has been hit by ink");
 	}
 	//Inking 
 	void newInk(){
-		
+
 		Ink.transform.position = playerPos.transform.position;
 		//Ink.sizeOverLifetime.enabled = true;
 		ParticleSystem.SizeOverLifetimeModule sz = Ink.sizeOverLifetime;
@@ -65,7 +74,7 @@ public class Abilities : MonoBehaviour {
 		//nonCamoColor.a = 1.0f;
 		lerpedCamo = Color.Lerp (nonCamoColor, camoColor, 5f);
 		GetComponent<Renderer>().material.SetColor("_Color", lerpedCamo);
-		
+
 	}
 	//Camoflouage
 	void unCamo(){
@@ -86,3 +95,4 @@ public class Abilities : MonoBehaviour {
 
 
 }
+
