@@ -462,7 +462,7 @@ GameObject:
   - 114: {fileID: 303201415}
   m_Layer: 0
   m_Name: InkAbilityObject
-  m_TagString: Enemy
+  m_TagString: AbilityInk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
