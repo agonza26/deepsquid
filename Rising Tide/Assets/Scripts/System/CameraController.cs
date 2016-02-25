@@ -14,8 +14,8 @@ public class CameraController : MonoBehaviour
 	private bool isTouching = false;
 	private bool CameraChildTouching = false;
 	
-	public float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
-	public float rotationDampening = 5f; //see above, but applies to rotation
+	private float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
+	private float rotationDampening = 5f; //see above, but applies to rotation
 	private float PDsave;
 	
 	private Transform thisTransform;
@@ -23,8 +23,8 @@ public class CameraController : MonoBehaviour
 	public float minX = -360.0f;
 	public float maxX = 360.0f;
 
-	public float minY = -45.0f;
-	public float maxY = 45.0f;
+	private float minY = -90.0f;
+	private float maxY = 90.0f;
 
 	public float sensX = 100.0f;
 	public float sensY = 100.0f;
@@ -46,9 +46,12 @@ public class CameraController : MonoBehaviour
 		rcMaxDist = Vector3.Distance(transform.position, playerCameraTarget.position);
 		Debug.DrawRay(transform.position, transform.forward * rcMaxDist);
 		RaycastHit hit;
-		rotationX += Input.GetAxis ("Mouse X") * sensX * Time.deltaTime;
-		rotationY += Input.GetAxis ("Mouse Y") * sensY * Time.deltaTime;
-		rotationY = Mathf.Clamp (rotationY, minY, maxY);
+		//rotationX += Input.GetAxis ("Mouse X") * sensX * Time.deltaTime;
+		//rotationY += Input.GetAxis ("Mouse Y") * 100f * sensY * Time.deltaTime;
+		//Debug.Log ("rotation x is: " + rotationX);
+		//Debug.Log ("rotation y is: " + rotationY);
+		//rotationX = Mathf.Clamp (rotationX, minX, maxX);
+		//rotationY = Mathf.Clamp (rotationY, minY, maxY);
 		if(-rcMaxDist > minCameraDist)
 		{
 			player.GetComponent<Player_stats>().changePlayerAlphaDown();

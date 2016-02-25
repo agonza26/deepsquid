@@ -3994,7 +3994,15 @@ Prefab:
     - target: {fileID: 11496454, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
       propertyPath: chasee
       value: 
-      objectReference: {fileID: 412300179}
+      objectReference: {fileID: 987125764}
+    - target: {fileID: 11496454, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: randomness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496454, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: flockSize
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
   m_IsPrefabParent: 0
@@ -4194,6 +4202,18 @@ Prefab:
     - target: {fileID: 11476204, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
       propertyPath: maxCameraDist
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476204, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
+      propertyPath: maxY
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476204, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
+      propertyPath: minY
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476204, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
+      propertyPath: minCameraDist
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
