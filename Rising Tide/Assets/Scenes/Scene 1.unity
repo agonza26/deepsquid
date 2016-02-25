@@ -1558,7 +1558,7 @@ MonoBehaviour:
   PlayerCurrHealth: 0
   restartDelay: 5
   PlayerDmged: 0
-  PlayerDmgOutput: 0
+  PlayerDmgOutput: 0.25
 --- !u!64 &987125768
 MeshCollider:
   m_ObjectHideFlags: 0

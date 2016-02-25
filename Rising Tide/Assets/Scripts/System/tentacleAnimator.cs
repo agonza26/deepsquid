@@ -26,6 +26,7 @@ public class tentacleAnimator : MonoBehaviour
         {
             //if (!anim.GetBool("grabbing"))
             //{ //start grabbing
+				anim.speed = 10f;
                 anim.SetBool("grabbing", true);
             //}
             //else if (anim.GetBool("grabbing"))
@@ -36,6 +37,7 @@ public class tentacleAnimator : MonoBehaviour
 		else
 		{
 			anim.SetBool("grabbing", false);
+			anim.speed = 1f;
 			//Debug.Log("Releasing held object");
 		}
 
