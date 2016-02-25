@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -84,14 +78,14 @@
     <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
     <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
     <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
-    <Compile Include="Assets\Scripts\Reload.cs" />
     <Compile Include="Assets\Scripts\System\Abilities.cs" />
     <Compile Include="Assets\Scripts\System\CameraController.cs" />
     <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
     <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
     <Compile Include="Assets\Scripts\System\Player.cs" />
-    <Compile Include="Assets\Scripts\tentacleAnimator.cs" />
+    <Compile Include="Assets\Scripts\System\Reload.cs" />
+    <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />

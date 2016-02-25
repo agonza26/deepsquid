@@ -29,7 +29,7 @@ public class GameOverManager : MonoBehaviour
 
     void Update()
     {
-        // If the player has run out of health...
+        /*// If the player has run out of health...
         if (deathManager.GetComponent<Player_stats>().PlayerCurrHealth <= 0)
         {
             //anim.SetTrigger("GameOver");
@@ -44,7 +44,7 @@ public class GameOverManager : MonoBehaviour
                   //restartTimer = Time.time;
                   SceneManager.LoadScene("DeathScene");
             }
-        }
+        }*/
     }
 
     IEnumerator respawn()
