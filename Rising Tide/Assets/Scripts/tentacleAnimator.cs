@@ -31,7 +31,7 @@ public class tentacleAnimator : MonoBehaviour
             //else if (anim.GetBool("grabbing"))
             //{ //stop grabbing
             //}
-            Debug.Log("Now grabbing");
+            //Debug.Log("Now grabbing");
         }
 		else
 		{

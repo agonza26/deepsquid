@@ -1428,7 +1428,7 @@ MonoBehaviour:
   PlayerCurrHealth: 0
   restartDelay: 5
   PlayerDmged: 0
-  PlayerDmgOutput: 2
+  PlayerDmgOutput: 0
 --- !u!64 &987125768
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1465,10 +1465,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.9001135
-  m_Height: 14.282966
+  m_Radius: 2.4865203
+  m_Height: 9.336918
   m_Direction: 2
-  m_Center: {x: 0.00003051729, y: 0, z: -7.37}
+  m_Center: {x: 0.00003051729, y: 0, z: -6.06}
 --- !u!114 &987125772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4293,31 +4293,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4
+      value: -5.5305414
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.2
+      value: -7.7725077
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2
+      value: 4.5652437
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000029802322
+      value: -0.05976139
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071069
+      value: 0.0036586176
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.70710677
+      value: -0.060996547
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000026077032
+      value: -0.99634063
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ece8a113734e82f41ab7edefc9f9823a, type: 3}
       propertyPath: m_RootOrder

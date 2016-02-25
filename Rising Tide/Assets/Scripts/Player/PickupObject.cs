@@ -79,12 +79,19 @@ public class PickupObject : MonoBehaviour
         {
             canThrow = true;
             o.GetComponent<Rigidbody>().useGravity = false;
+			Debug.Log(o.transform.position);
             //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
+            float d = (o.GetComponent<Collider>().bounds.size.z);
+			float halfPlayer = player.GetComponent<Renderer>().bounds.size.z * 0.5f;
+			float totalOffset = d + halfPlayer + 1f;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
-            o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
-            o.transform.rotation = playerZRot; //stop picked up object from rotating independently
+			Vector3 UnderPlayerPosition = player.transform.position + player.transform.forward;//*-4;
+			Vector3 grabObjOffset = player.transform.forward * totalOffset;
+			UnderPlayerPosition -= player.transform.forward * totalOffset;
+			//UnderPlayerPosition.z += d + halfPlayer;
+            //o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
+			o.transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
+            //o.transform.rotation = playerZRot; //stop picked up object from rotating independently
         }
 
         else //object is larger than player
