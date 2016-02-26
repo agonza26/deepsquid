@@ -43,15 +43,15 @@ public class AbilityProcurement : MonoBehaviour {
 			}
 
 		}*/
-		if (player.GetComponentInParent<PickupObject> ().carrying && speedAbilityObject.tag == "AbilitySpeed") {
+		if (speedAbilityObject.tag == "AbilitySpeed") {
 			//player.GetComponentInParent<Pickupable> ().gameObject == speedAbilityObject ) {
 			speedAbilityObject.SetActive (false);
 			abilities [0] = true;
 			//player.GetComponentInParent<Abilities> ().SetAbilityArray (0);
 			player.GetComponentInParent<PickupObject> ().carrying = false;
 		}
-		Debug.Log ("Hello?");
-		if (player.GetComponentInParent<PickupObject> ().carrying && inkAbilityObject.tag == "AbilityInk") {
+
+		if (inkAbilityObject.tag == "AbilityInk") {
 			
 			inkAbilityObject.SetActive (false);
 			abilities [1] = true;
