@@ -4,8 +4,7 @@ using System.Collections;
 
 public class Abilities : MonoBehaviour {
 	public bool procured;
-	public Material playerMat;
-	public Material camoMat;
+
 	public ParticleSystem Ink;
 	public Transform playerPos;
 
@@ -19,59 +18,54 @@ public class Abilities : MonoBehaviour {
 	public bool inkCloudCD = false;
 	public float inkCD = 5.0f;
 	public float inkCDTimer = 0f;
-	private bool[] abilities;
+	public float abilitySpeedVal = 1f;
+	bool[] abilities;
 
 
 	// Use this for initialization
 	void Start () {
-
-		camoColor.a = 0.1f;
-		nonCamoColor = GetComponent<Renderer>().material.color;
-		nonCamoColor.a = 1f;
-		procured = GetComponent<PickupObject>().carrying;
 		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
+		Debug.Log(abilities[0] + ", " + abilities[1]);
 		//Controls inking when space is pressed and within the time CD
+
 		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {
+			//Debug.Log ("This is not happening");
 			inkCDTimer = Time.time + inkCD;
 			inkCharge = GetComponent<simple_movement>();
 			StartCoroutine(inkCharge.inkJump());
 			newInk ();
 
-		} else if (Input.GetKeyDown ("1") && Time.time <= inkCDTimer) {
+		}  else {
+		}
+		//Controls controlling the speed ability, this is meant to be a default ability on shift
+		if (Input.GetKey (KeyCode.LeftShift) && abilities[0] == true) {
+			abilitySpeedVal = 3f;
 		} else {
-		}/*
-		if (Input.GetKey ("2")) {
-			StartCoroutine(camouflage (camoColor, 1.0f));
-		} else {
-			StartCoroutine(camouflage (nonCamoColor, 1.0f));
-		}*/
+			abilitySpeedVal = 1f;
+		}
 
 
 
 	}
 
-	void OnParticleCollision(GameObject other){
-		Debug.Log("Object has been hit by ink");
-	}
+
 	//Inking 
 	void newInk(){
 
 		Ink.transform.position = playerPos.transform.position;
-		//Ink.sizeOverLifetime.enabled = true;
+
 		ParticleSystem.SizeOverLifetimeModule sz = Ink.sizeOverLifetime;
 		sz.enabled = true;
 		Ink.Play ();
 	}
 	//Camoflouage
 	void camo(){
-		//camoColor.a = 0.1f;
-		//nonCamoColor.a = 1.0f;
 		lerpedCamo = Color.Lerp (nonCamoColor, camoColor, 5f);
 		GetComponent<Renderer>().material.SetColor("_Color", lerpedCamo);
 
@@ -93,6 +87,10 @@ public class Abilities : MonoBehaviour {
 		}
 	}
 
-
+	/*public void SetAbilityArray(int ArPos)
+	{
+		abilities [ArPos] = true;	
+	}
+*/
 }
 

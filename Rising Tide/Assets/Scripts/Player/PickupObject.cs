@@ -125,7 +125,8 @@ public class PickupObject : MonoBehaviour
                 Pickupable p = hit.collider.GetComponent<Pickupable>(); 
                 if (p != null)
                 {
-                    Debug.Log("that can be picked up");
+                   // Debug.Log("that can be picked up");
+					Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
                     carrying = true;
                     carriedObject = p.gameObject;
                     //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
