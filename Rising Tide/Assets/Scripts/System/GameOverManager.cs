@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    private GameObject deathManager;
+    //private GameObject deathManager;
     //public float playerHealth;  // Reference to the player's health.
     //public float currHealth;
     public float restartDelay = 5f;         // Time to wait before restarting the level
 
 
     //Animator anim;                          // Reference to the animator component.
-    float restartTimer = 0;                     // Timer to count up to restarting the level
+    //float restartTimer = 0;                     // Timer to count up to restarting the level
 
 
     void Awake()
@@ -24,7 +24,7 @@ public class GameOverManager : MonoBehaviour
     void Start()
     {
        // anim = GetComponent<Animator>();
-        deathManager = GameObject.FindGameObjectWithTag("Player");
+        //deathManager = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

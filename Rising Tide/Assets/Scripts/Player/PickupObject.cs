@@ -37,7 +37,6 @@ public class PickupObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mainCamera = GameObject.FindWithTag("MainCamera");
 
     }
 
@@ -84,9 +83,7 @@ public class PickupObject : MonoBehaviour
             float d = (o.GetComponent<Collider>().bounds.size.z);
 			float halfPlayer = player.GetComponent<Renderer>().bounds.size.z * 0.5f;
 			float totalOffset = d + halfPlayer + 1f;
-            playerZRot = player.transform.rotation;
 			Vector3 UnderPlayerPosition = player.transform.position + player.transform.forward;//*-4;
-			Vector3 grabObjOffset = player.transform.forward * totalOffset;
 			UnderPlayerPosition -= player.transform.forward * totalOffset;
 			//UnderPlayerPosition.z += d + halfPlayer;
             //o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
@@ -118,34 +115,17 @@ public class PickupObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            //shoot ray from center of screen
-            int x = Screen.width / 2;
-            int y = Screen.height / 2;
-
-            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y)); //shoot ray from middle of screen 
-            RaycastHit hit;
-            Debug.DrawRay(ray.origin, ray.direction);
-            if (grabbableInRange)//(Physics.Raycast(ray, out hit))
+            if (grabbableInRange)
             {
-				//float distFromObj = Vector3.Distance(hit.transform.position, player.transform.position);
-                //if(distFromObj < 60f)
-				//{
-					//if it hits something valid, pick it up
-					//Pickupable p = hit.collider.GetComponent<Pickupable>(); 
+				
 					Pickupable p = InRangeItemSaver.GetComponent<Pickupable>();
 					if (p != null)
 					{
 						Debug.Log("that can be picked up");
 						carrying = true;
 						carriedObject = p.gameObject;
-						//p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
-						//gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
 						objectSize = p.size;
 					}
-				//}
-				//Debug.Log(hit.transform.gameObject);
-				//Debug.Log("You are " + distFromObj + " from " + hit);
-
             }
         }
     }

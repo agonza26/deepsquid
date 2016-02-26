@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 	public float maxCameraDist = -15f;
 	private Material temp;
 	private bool isTouching = false;
-	private bool CameraChildTouching = false;
+	//private bool CameraChildTouching = false;
 	
 	public float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	public float rotationDampening = 5f; //see above, but applies to rotation
@@ -129,7 +129,7 @@ public class CameraController : MonoBehaviour
 		isTouching = false;
 	}
 		
-	public void InnerCamT()
+	/*public void InnerCamT()
 	{
 		CameraChildTouching = true;
 	}
@@ -137,7 +137,7 @@ public class CameraController : MonoBehaviour
 	public void InnerCamNT()
 	{
 		CameraChildTouching = false;
-	}
+	}*/
 	
 	public static float ClampAngle(float angle, float min, float max)
 	{

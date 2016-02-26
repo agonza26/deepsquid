@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyAttack : MonoBehaviour {
 
 	public float atkValue = 1f;
+	
 	// Use this for initialization
 	void Start () {
 	

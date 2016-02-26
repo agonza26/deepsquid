@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathScene.unity
   - enabled: 1
     path: Assets/Scenes/Backup.unity
+  - enabled: 1
+    path: Assets/Scenes/Scene 2 AnimatedPlayer.unity

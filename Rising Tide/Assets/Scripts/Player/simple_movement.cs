@@ -17,7 +17,7 @@ public class simple_movement : MonoBehaviour {
 	public float playerSpeed = 12.5f;
 	public float distanceMin = .5f;
 	public float distanceMax = 15f;
-	private float tempSpeed;
+	//private float tempSpeed;
 	private float carryingSpeed = 1f;
 	//private Rigidbody rb;//used for controlling player's
 
@@ -44,7 +44,7 @@ public class simple_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		tempSpeed = playerSpeed;
+		//tempSpeed = playerSpeed;
         CameraTarg = transform.GetChild(0);
 		isDead = false;
         //CameraTarg = transform.parent;

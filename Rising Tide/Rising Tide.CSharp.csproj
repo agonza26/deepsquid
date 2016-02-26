@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -83,6 +89,8 @@
     <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
     <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
+    <Compile Include="Assets\Scripts\System\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\System\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\System\Player.cs" />
     <Compile Include="Assets\Scripts\System\Reload.cs" />
     <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />
