@@ -1,8 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/GameOverManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\System\AbilityProcurement.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/GameOverManager.cs" Line="28" Column="43" />
+      <File FileName="Assets\Scripts\System\AbilityProcurement.cs" Line="14" Column="31" />
+      <File FileName="Assets\Scripts\System\Abilities.cs" Line="43" Column="27" />
+      <File FileName="Assets\Scripts\Player\PickupObject.cs" Line="131" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
