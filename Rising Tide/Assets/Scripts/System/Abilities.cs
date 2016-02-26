@@ -14,24 +14,27 @@ public class Abilities : MonoBehaviour {
 	Color lerpedCamo;
 	//Enemy
 	public simple_movement inkCharge;
-	public GameObject abilityObject;
+	//public GameObject inkAbilityObject;
+	//public GameObject speedAbilityObject;
+	public GameObject testObject;
+	//public Abilities abilities;
 	public bool inkCloudCD = false;
 	public float inkCD = 5.0f;
 	public float inkCDTimer = 0f;
 	public float abilitySpeedVal = 1f;
-	bool[] abilities;
+    public bool[] abilities;
 
 
 	// Use this for initialization
 	void Start () {
-		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
+		//abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 
 	}
 
 	// Update is called once per frame
 	void Update () {
-		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
-		Debug.Log(abilities[0] + ", " + abilities[1]);
+		abilities = testObject.GetComponent<AbilityProcurement> ().abilities;
+		Debug.Log("in abilities: " + abilities[0] + ", " + abilities[1]);
 		//Controls inking when space is pressed and within the time CD
 
 		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {

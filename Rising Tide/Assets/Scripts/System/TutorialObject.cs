@@ -44,7 +44,7 @@ public bool debugStatements = true;
 			// If the player has entered the trigger sphere...
 			if(other.gameObject == player)
 			{
-				Debug.Log("We hella now");
+				//Debug.Log("We hella now");
 				tutorialText.SetActive(true);
 				
 			}

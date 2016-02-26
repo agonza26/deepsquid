@@ -128,7 +128,7 @@ public class PickupObject : MonoBehaviour
                 if (p != null)
                 {
                    // Debug.Log("that can be picked up");
-					Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
+					//Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
                     carrying = true;
                     carriedObject = p.gameObject;
 					if (p.gameObject == speedObject) {
