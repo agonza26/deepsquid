@@ -25,6 +25,8 @@ public class PickupObject : MonoBehaviour
 	public ParticleSystem blood;
 
     public GameObject player;
+	public GameObject speedObject;
+	public GameObject inkObject;
     public float playerSize = 2.0f;
     public float distance = 1.5f; //offset between carried object and player
     public float smooth = 20f; //smooth carrying movement
@@ -125,9 +127,16 @@ public class PickupObject : MonoBehaviour
                 Pickupable p = hit.collider.GetComponent<Pickupable>(); 
                 if (p != null)
                 {
-                    Debug.Log("that can be picked up");
+                   // Debug.Log("that can be picked up");
+					//Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
                     carrying = true;
                     carriedObject = p.gameObject;
+					if (p.gameObject == speedObject) {
+						speedObject.tag = "AbilitySpeed";
+					}
+					if (p.gameObject == inkObject) {
+						inkObject.tag = "AbilityInk";
+					}
                     //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
                     //gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
                     objectSize = p.size;

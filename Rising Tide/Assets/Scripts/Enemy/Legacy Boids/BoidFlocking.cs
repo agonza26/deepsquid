@@ -58,19 +58,19 @@ public class BoidFlocking : MonoBehaviour
 
 	private Vector3 Calc ()
 	{
-		Vector3 randomize = new Vector3 ((Random.value *2) -1, (Random.value * 2) -1, (Random.value * 2) -1);
+		Vector3 randomize = new Vector3 ((Random.value *3) -1, (Random.value * 1) -1, (Random.value * 4) -1);
 
 		randomize.Normalize();
 		BoidController boidController = Controller.GetComponent<BoidController>();
 		Vector3 flockCenter = boidController.flockCenter;
 		Vector3 flockVelocity = boidController.flockVelocity;
-		Vector3 follow = chasee.transform.localPosition;
+		Vector3 follow = chasee.transform.position;
 
 		flockCenter = flockCenter - transform.localPosition;
 		flockVelocity = flockVelocity - GetComponent<Rigidbody>().velocity;
 		follow = follow - transform.localPosition;
 
-		return (flockCenter + flockVelocity + follow * 2 + randomize * randomness);
+		return (flockCenter + flockVelocity +  randomize * randomness);
 	}
 
 
