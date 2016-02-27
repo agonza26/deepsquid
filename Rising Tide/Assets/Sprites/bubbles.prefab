@@ -1,40 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &106710
+--- !u!1 &105272
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 436994}
-  - 198: {fileID: 19838934}
-  - 199: {fileID: 19994912}
+  - 4: {fileID: 401166}
+  - 198: {fileID: 19807870}
+  - 199: {fileID: 19945502}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: bubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &436994
+--- !u!4 &401166
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106710}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 237.53557, y: 4.9501266, z: 47.17401}
+  m_GameObject: {fileID: 105272}
+  m_LocalRotation: {x: -0.48915505, y: -0.5307268, z: -0.50113094, w: 0.47741416}
+  m_LocalPosition: {x: 237.53557, y: 10.83, z: 47.17401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!198 &19838934
+--- !u!198 &19807870
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106710}
+  m_GameObject: {fileID: 105272}
   serializedVersion: 2
   lengthInSec: 5
   startDelay:
@@ -1518,12 +1518,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19994912
+--- !u!199 &19945502
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106710}
+  m_GameObject: {fileID: 105272}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1568,5 +1568,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 106710}
+  m_RootGameObject: {fileID: 105272}
   m_IsPrefabParent: 1
