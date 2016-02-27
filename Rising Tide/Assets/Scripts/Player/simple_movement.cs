@@ -13,6 +13,7 @@ public class simple_movement : MonoBehaviour {
 	private Quaternion ctRot;
 	float x = 0.0f;
 	float y = 0.0f;
+	public ParticleSystem bubbles;
 
 	public float playerSpeed = 12.5f;
 	public float distanceMin = .5f;
@@ -63,14 +64,20 @@ public class simple_movement : MonoBehaviour {
 			Quaternion rotation = Quaternion.Euler (y, x, 0);
 			CameraTarg.rotation = rotation;
 
-				
+			bubbles.Pause();
 			
-				
+			//bubbles.Play();	
 			if (Input.GetKey ("w") && !Input.GetKey ("s")) { //move forwards
 				ctRot = CameraTarg.transform.rotation;
 				//transform.Rotate(0, 0, ctRot.z);
 				transform.rotation = ctRot;
 				transform.forward *= -1f;
+				if(Time.deltaTime % 5 == 0)
+				{
+					bubbles.transform.position = transform.position;
+					//bubbles.transform.rotation.y = 0;
+					bubbles.Play();
+				}
 				if (acc < accMax) {
 					acc += accCount;
 					accCount += 0.005f;
