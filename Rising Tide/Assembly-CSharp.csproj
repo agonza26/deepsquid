@@ -63,9 +63,11 @@
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\Reload.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
+     <Compile Include="Assets\Scripts\System\AbilityProcurement.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
      <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
      <Compile Include="Assets\Scripts\System\Player.cs" />
+     <Compile Include="Assets\Scripts\System\TutorialObject.cs" />
      <Compile Include="Assets\Scripts\tentacleAnimator.cs" />
      <None Include="Assets\Other\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
