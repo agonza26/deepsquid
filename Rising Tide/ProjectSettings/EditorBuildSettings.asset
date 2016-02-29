@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Backup.unity
   - enabled: 1
-    path: Assets/Scenes/Scene 2 AnimatedPlayer.unity
+    path: Assets/Scenes/MainMenuScene.unity
+  - enabled: 1
+    path: Assets/Scenes/Scene 1.unity
