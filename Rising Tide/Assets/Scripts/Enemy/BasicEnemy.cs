@@ -315,7 +315,6 @@ public class BasicEnemy : MonoBehaviour {
 				huntT = 0;
 			} else {
 				swim ();
-
 			}
 
 		} else {

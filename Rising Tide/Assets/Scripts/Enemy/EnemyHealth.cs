@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour {
 		{
 			Debug.Log(this + " has been defeated");
 			gameObject.SetActive(false);
+			//Destroy(this);
 		}
 	}
 	

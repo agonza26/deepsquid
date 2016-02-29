@@ -24,36 +24,46 @@ public class Abilities : MonoBehaviour {
 	public float abilitySpeedVal = 1f;
     public bool[] abilities;
 
-
+	bool isDead;
+	
 	// Use this for initialization
 	void Start () {
-		//abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
-
+		camoColor.a = 0.1f;
+		nonCamoColor = GetComponent<Renderer>().material.color;
+		nonCamoColor.a = 1f;
+		isDead = false;
+	
 	}
 
 	// Update is called once per frame
 	void Update () {
-		abilities = testObject.GetComponent<AbilityProcurement> ().abilities;
-		Debug.Log("in abilities: " + abilities[0] + ", " + abilities[1]);
-		//Controls inking when space is pressed and within the time CD
 
-		if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {
-			//Debug.Log ("This is not happening");
-			inkCDTimer = Time.time + inkCD;
-			inkCharge = GetComponent<simple_movement>();
-			StartCoroutine(inkCharge.inkJump());
-			newInk ();
+		if(!isDead)
+		{
+			abilities = testObject.GetComponent<AbilityProcurement> ().abilities;
+			Debug.Log("in abilities: " + abilities[0] + ", " + abilities[1]);
+			//Controls inking when space is pressed and within the time CD
 
-		}  else {
+			if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {
+				//Debug.Log ("This is not happening");
+				inkCDTimer = Time.time + inkCD;
+				inkCharge = GetComponent<simple_movement>();
+				StartCoroutine(inkCharge.inkJump());
+				newInk ();
+
+			}  else {
+			}
+			//Controls controlling the speed ability, this is meant to be a default ability on shift
+			if (Input.GetKey (KeyCode.LeftShift) && abilities[0] == true) {
+				abilitySpeedVal = 3f;
+			} else {
+				abilitySpeedVal = 1f;
+			}
 		}
-		//Controls controlling the speed ability, this is meant to be a default ability on shift
-		if (Input.GetKey (KeyCode.LeftShift) && abilities[0] == true) {
-			abilitySpeedVal = 3f;
-		} else {
-			abilitySpeedVal = 1f;
-		}
-
-
+	}
+	
+	void OnParticleCollision(GameObject other){
+		Debug.Log("Object has been hit by ink");
 
 	}
 
@@ -90,10 +100,11 @@ public class Abilities : MonoBehaviour {
 		}
 	}
 
-	/*public void SetAbilityArray(int ArPos)
+	public void toggleDeathState()
 	{
-		abilities [ArPos] = true;	
+		isDead = true;
+		Debug.Log("Abilities isDead = " + isDead);
 	}
-*/
+
 }
 

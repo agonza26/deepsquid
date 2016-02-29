@@ -33,9 +33,11 @@ public class Player_stats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	/*if (PlayerCurrHealth <= 0)
+	if (PlayerCurrHealth <= 0)
         {
-            if (gameObject.CompareTag("Player"))
+			GetComponent<simple_movement>().toggleDeathState();
+			GetComponent<Abilities>().toggleDeathState();
+            /*if (gameObject.CompareTag("Player"))
             {
                 Destroy(gameObject);
                 Debug.Log("player dead");
@@ -47,8 +49,8 @@ public class Player_stats : MonoBehaviour {
             if(restartTimer >= restartDelay)
             {
                 SceneManager.LoadScene("Backup");
-            }
-        }*/
+            }*/
+        }
 	
 	}
 

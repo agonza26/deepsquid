@@ -80,19 +80,20 @@
     <Compile Include="Assets\Scripts\Enemy\Legacy Boids\BoidFlocking.cs" />
     <Compile Include="Assets\Scripts\Enemy\Legacy Boids\BoidWatcher.cs" />
     <Compile Include="Assets\Scripts\Enemy\Search.cs" />
-    <Compile Include="Assets\Scripts\Player\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Player\PickupObject.cs" />
     <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
     <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
     <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
-    <Compile Include="Assets\Scripts\Reload.cs" />
     <Compile Include="Assets\Scripts\System\Abilities.cs" />
-    <Compile Include="Assets\Scripts\System\AbilityProcurement.cs" />
     <Compile Include="Assets\Scripts\System\CameraController.cs" />
+    <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
+    <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
+    <Compile Include="Assets\Scripts\System\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\System\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\System\Player.cs" />
-    <Compile Include="Assets\Scripts\System\TutorialObject.cs" />
-    <Compile Include="Assets\Scripts\tentacleAnimator.cs" />
+    <Compile Include="Assets\Scripts\System\Reload.cs" />
+    <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Other\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
