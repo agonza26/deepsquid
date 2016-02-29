@@ -120,9 +120,9 @@ public class PickupObject : MonoBehaviour
             if (grabbableInRange)
             {
 
-                Debug.Log(hit.transform.gameObject);
+                //Debug.Log(hit.transform.gameObject);
                 //if it hits something valid, pick it up
-                Pickupable p = hit.collider.GetComponent<Pickupable>(); 
+                Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
                 if (p != null)
                 {
                    // Debug.Log("that can be picked up");

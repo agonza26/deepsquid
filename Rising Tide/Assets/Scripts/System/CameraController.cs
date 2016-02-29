@@ -34,6 +34,7 @@ public class CameraController : MonoBehaviour
 	
 	/*
 	MAKE SURE THAT RIGID BODY COMPONENTS ARE ATTACHED TO ENVIRONMENT OBJECTS. THATS THE ONLY WAY THAT ONTRIGGERENTER/EXIT WILL DETECT COLLISION.
+	and tag environment objects with "Environment"
 	*/
 		
 	void Start () 
@@ -63,6 +64,11 @@ public class CameraController : MonoBehaviour
 		{
 			player.GetComponent<Player_stats>().changePlayerAlphaUp();
 		}		
+		
+		if(offset.z > 0)
+		{
+			offset.z *= -1f;
+		}
 		
 		if(!playerCameraTarget)
 		{

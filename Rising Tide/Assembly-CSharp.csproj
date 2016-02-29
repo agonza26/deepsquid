@@ -61,8 +61,8 @@
      <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
+     <Compile Include="Assets\Scripts\System\AbilityProcurement.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
-     <Compile Include="Assets\Scripts\System\CameraSphere.cs" />
      <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
      <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\System\NextLevelButton.cs" />
      <Compile Include="Assets\Scripts\System\Player.cs" />
      <Compile Include="Assets\Scripts\System\Reload.cs" />
+     <Compile Include="Assets\Scripts\System\TutorialObject.cs" />
      <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />
      <None Include="Assets\Other\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

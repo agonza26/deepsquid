@@ -49,8 +49,6 @@ public class simple_movement : MonoBehaviour {
 	void Start () 
 	{
 		isDead = false;
-		
-		tempSpeed = playerSpeed;
         CameraTarg = transform.GetChild(0);
 		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 	}

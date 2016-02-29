@@ -14,10 +14,10 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.1479239, g: 0.5294118, b: 0.4346976, a: 1}
-  m_FogMode: 1
-  m_FogDensity: 0.01
+  m_FogMode: 2
+  m_FogDensity: 0.01555
   m_LinearFogStart: 0
   m_LinearFogEnd: 250
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -98,9 +98,10 @@ GameObject:
   - 23: {fileID: 8543671}
   - 65: {fileID: 8543670}
   - 64: {fileID: 8543669}
+  - 54: {fileID: 8543673}
   m_Layer: 0
   m_Name: rockSquareBlock
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,6 +179,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8543667}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &8543673
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 8543667}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &30292838
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +205,7 @@ GameObject:
   - 33: {fileID: 30292842}
   - 23: {fileID: 30292841}
   - 64: {fileID: 30292840}
+  - 54: {fileID: 30292843}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple
   m_TagString: Untagged
@@ -256,6 +273,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30292838}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &30292843
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30292838}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &45191105 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118456, guid: 7c61e1fedad1e4b45a9e0802dfc46838, type: 2}
@@ -270,9 +302,10 @@ GameObject:
   - 4: {fileID: 60975972}
   - 218: {fileID: 60975974}
   - 154: {fileID: 60975973}
+  - 54: {fileID: 60975975}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -332,6 +365,21 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: 0.0512
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!54 &60975975
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 60975971}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &69199285
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,9 +454,10 @@ GameObject:
   - 23: {fileID: 74810181}
   - 65: {fileID: 74810180}
   - 64: {fileID: 74810179}
+  - 54: {fileID: 74810183}
   m_Layer: 0
   m_Name: rockSquareBlock (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,6 +535,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 74810177}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &74810183
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74810177}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &86278361 stripped
 Transform:
   m_PrefabParentObject: {fileID: 415740, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
@@ -501,6 +565,7 @@ GameObject:
   - 33: {fileID: 91027537}
   - 23: {fileID: 91027536}
   - 64: {fileID: 91027535}
+  - 54: {fileID: 91027538}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (21)
   m_TagString: Untagged
@@ -568,6 +633,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 91027533}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &91027538
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91027533}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &93376717
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,9 +753,10 @@ GameObject:
   - 33: {fileID: 141499844}
   - 23: {fileID: 141499843}
   - 64: {fileID: 141499842}
+  - 54: {fileID: 141499845}
   m_Layer: 0
   m_Name: Cube_002
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,6 +821,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141499840}
   m_Mesh: {fileID: 4300020, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &141499845
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141499840}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &149412676
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,9 +848,10 @@ GameObject:
   - 23: {fileID: 149412680}
   - 65: {fileID: 149412679}
   - 64: {fileID: 149412678}
+  - 54: {fileID: 149412682}
   m_Layer: 0
   m_Name: rockSquareBlock (19)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -832,6 +929,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149412676}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &149412682
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149412676}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &150934225 stripped
 Transform:
   m_PrefabParentObject: {fileID: 431664, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -851,6 +963,7 @@ GameObject:
   - 33: {fileID: 175134237}
   - 23: {fileID: 175134236}
   - 64: {fileID: 175134235}
+  - 54: {fileID: 175134238}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (26)
   m_TagString: Untagged
@@ -918,6 +1031,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 175134233}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &175134238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175134233}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &197411261
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +1057,7 @@ GameObject:
   - 33: {fileID: 197411265}
   - 23: {fileID: 197411264}
   - 64: {fileID: 197411263}
+  - 54: {fileID: 197411266}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (10)
   m_TagString: Untagged
@@ -996,6 +1125,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197411261}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &197411266
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 197411261}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &213804580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1151,7 @@ GameObject:
   - 33: {fileID: 213804584}
   - 23: {fileID: 213804583}
   - 64: {fileID: 213804582}
+  - 54: {fileID: 213804585}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (16)
   m_TagString: Untagged
@@ -1074,6 +1219,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 213804580}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &213804585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 213804580}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &220509799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1245,7 @@ GameObject:
   - 33: {fileID: 220509803}
   - 23: {fileID: 220509802}
   - 64: {fileID: 220509801}
+  - 54: {fileID: 220509804}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (20)
   m_TagString: Untagged
@@ -1152,6 +1313,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220509799}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &220509804
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220509799}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &221512498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,9 +1417,10 @@ GameObject:
   - 33: {fileID: 235846026}
   - 23: {fileID: 235846025}
   - 64: {fileID: 235846024}
+  - 54: {fileID: 235846027}
   m_Layer: 0
   m_Name: rockBigFlat (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,6 +1485,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235846022}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &235846027
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235846022}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &246900032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1511,7 @@ GameObject:
   - 33: {fileID: 246900036}
   - 23: {fileID: 246900035}
   - 64: {fileID: 246900034}
+  - 54: {fileID: 246900037}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (30)
   m_TagString: Untagged
@@ -1386,6 +1579,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 246900032}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &246900037
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246900032}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &250448241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,9 +1605,10 @@ GameObject:
   - 33: {fileID: 250448245}
   - 23: {fileID: 250448244}
   - 64: {fileID: 250448243}
+  - 54: {fileID: 250448246}
   m_Layer: 0
   m_Name: rockBigPillar (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1464,6 +1673,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250448241}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &250448246
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 250448241}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &252616104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,9 +1778,10 @@ GameObject:
   - 23: {fileID: 262299003}
   - 65: {fileID: 262299002}
   - 64: {fileID: 262299001}
+  - 54: {fileID: 262299005}
   m_Layer: 0
   m_Name: rockSquareBlock
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,6 +1859,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262298999}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &262299005
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 262298999}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &268588876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,9 +1963,10 @@ GameObject:
   - 33: {fileID: 280680458}
   - 23: {fileID: 280680457}
   - 64: {fileID: 280680456}
+  - 54: {fileID: 280680459}
   m_Layer: 0
   m_Name: rockBigFlat (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1790,6 +2031,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280680454}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &280680459
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 280680454}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &283534207 stripped
 Transform:
   m_PrefabParentObject: {fileID: 457050, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -1847,9 +2103,10 @@ GameObject:
   - 33: {fileID: 306176105}
   - 23: {fileID: 306176104}
   - 64: {fileID: 306176103}
+  - 54: {fileID: 306176106}
   m_Layer: 0
   m_Name: rockBigPillar (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1914,6 +2171,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306176101}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &306176106
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306176101}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &317842018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,9 +2197,10 @@ GameObject:
   - 33: {fileID: 317842022}
   - 23: {fileID: 317842021}
   - 64: {fileID: 317842020}
+  - 54: {fileID: 317842023}
   m_Layer: 0
   m_Name: Cube_004
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1992,6 +2265,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 317842018}
   m_Mesh: {fileID: 4300014, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &317842023
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 317842018}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &321811529 stripped
 Transform:
   m_PrefabParentObject: {fileID: 479954, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -2007,6 +2295,7 @@ GameObject:
   - 33: {fileID: 328254324}
   - 23: {fileID: 328254323}
   - 64: {fileID: 328254322}
+  - 54: {fileID: 328254325}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (28)
   m_TagString: Untagged
@@ -2074,6 +2363,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 328254320}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &328254325
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328254320}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &359720401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,9 +2390,10 @@ GameObject:
   - 23: {fileID: 359720405}
   - 65: {fileID: 359720404}
   - 64: {fileID: 359720403}
+  - 54: {fileID: 359720407}
   m_Layer: 0
   m_Name: rockSquareBlock (10)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2166,6 +2471,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359720401}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &359720407
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359720401}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &363102207 stripped
 Transform:
   m_PrefabParentObject: {fileID: 448410, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -2181,6 +2501,7 @@ GameObject:
   - 33: {fileID: 370014265}
   - 23: {fileID: 370014264}
   - 64: {fileID: 370014263}
+  - 54: {fileID: 370014266}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (18)
   m_TagString: Untagged
@@ -2248,6 +2569,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370014261}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &370014266
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 370014261}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &375444404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2595,7 @@ GameObject:
   - 33: {fileID: 375444408}
   - 23: {fileID: 375444407}
   - 64: {fileID: 375444406}
+  - 54: {fileID: 375444409}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (5)
   m_TagString: Untagged
@@ -2326,6 +2663,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 375444404}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &375444409
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 375444404}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &387572973
 Prefab:
   m_ObjectHideFlags: 0
@@ -2383,9 +2735,10 @@ GameObject:
   - 33: {fileID: 393817694}
   - 23: {fileID: 393817693}
   - 64: {fileID: 393817692}
+  - 54: {fileID: 393817695}
   m_Layer: 0
   m_Name: Cube_008
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2450,6 +2803,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 393817690}
   m_Mesh: {fileID: 4300006, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &393817695
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393817690}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &407217202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,9 +2830,10 @@ GameObject:
   - 23: {fileID: 407217206}
   - 65: {fileID: 407217205}
   - 64: {fileID: 407217204}
+  - 54: {fileID: 407217208}
   m_Layer: 0
   m_Name: rockSquareBlock (17)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2542,6 +2911,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407217202}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &407217208
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407217202}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &414017464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,9 +3015,10 @@ GameObject:
   - 33: {fileID: 420579367}
   - 23: {fileID: 420579366}
   - 64: {fileID: 420579365}
+  - 54: {fileID: 420579368}
   m_Layer: 0
   m_Name: rockBigPillar
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2698,6 +3083,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420579363}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &420579368
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420579363}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &485691502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,9 +3109,10 @@ GameObject:
   - 33: {fileID: 485691506}
   - 23: {fileID: 485691505}
   - 64: {fileID: 485691504}
+  - 54: {fileID: 485691507}
   m_Layer: 0
   m_Name: rockBigFlat (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2776,6 +3177,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485691502}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &485691507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485691502}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &527432736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +3203,7 @@ GameObject:
   - 33: {fileID: 527432740}
   - 23: {fileID: 527432739}
   - 64: {fileID: 527432738}
+  - 54: {fileID: 527432741}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (29)
   m_TagString: Untagged
@@ -2854,6 +3271,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 527432736}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &527432741
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 527432736}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &554945347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +3297,7 @@ GameObject:
   - 33: {fileID: 554945351}
   - 23: {fileID: 554945350}
   - 64: {fileID: 554945349}
+  - 54: {fileID: 554945352}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (13)
   m_TagString: Untagged
@@ -2932,6 +3365,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554945347}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &554945352
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 554945347}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &559359069
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3525,7 @@ GameObject:
   - 33: {fileID: 604073566}
   - 23: {fileID: 604073565}
   - 64: {fileID: 604073564}
+  - 54: {fileID: 604073567}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (15)
   m_TagString: Untagged
@@ -3144,6 +3593,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 604073562}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &604073567
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 604073562}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &612921010 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468388, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -3159,6 +3623,7 @@ GameObject:
   - 33: {fileID: 623154467}
   - 23: {fileID: 623154466}
   - 64: {fileID: 623154465}
+  - 54: {fileID: 623154468}
   m_Layer: 0
   m_Name: big_testtube_001
   m_TagString: Untagged
@@ -3227,6 +3692,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 623154463}
   m_Mesh: {fileID: 4300000, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &623154468
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623154463}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &637725901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,9 +3718,10 @@ GameObject:
   - 33: {fileID: 637725905}
   - 23: {fileID: 637725904}
   - 64: {fileID: 637725903}
+  - 54: {fileID: 637725906}
   m_Layer: 0
   m_Name: Cube_003
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3305,6 +3786,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 637725901}
   m_Mesh: {fileID: 4300016, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &637725906
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637725901}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &637991415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,6 +3812,7 @@ GameObject:
   - 33: {fileID: 637991419}
   - 23: {fileID: 637991418}
   - 64: {fileID: 637991417}
+  - 54: {fileID: 637991420}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (34)
   m_TagString: Untagged
@@ -3383,6 +3880,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 637991415}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &637991420
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637991415}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &653518770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,9 +3907,10 @@ GameObject:
   - 23: {fileID: 653518774}
   - 65: {fileID: 653518773}
   - 64: {fileID: 653518772}
+  - 54: {fileID: 653518776}
   m_Layer: 0
   m_Name: rockSquareBlock (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3475,6 +3988,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 653518770}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &653518776
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653518770}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &664052469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,6 +4014,7 @@ GameObject:
   - 33: {fileID: 664052473}
   - 23: {fileID: 664052472}
   - 64: {fileID: 664052471}
+  - 54: {fileID: 664052474}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (3)
   m_TagString: Untagged
@@ -3553,6 +4082,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664052469}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &664052474
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664052469}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &666838201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,9 +4108,10 @@ GameObject:
   - 33: {fileID: 666838205}
   - 23: {fileID: 666838204}
   - 64: {fileID: 666838203}
+  - 54: {fileID: 666838206}
   m_Layer: 0
   m_Name: rockBigFlat (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3631,6 +4176,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666838201}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &666838206
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666838201}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &672202043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,6 +4202,7 @@ GameObject:
   - 33: {fileID: 672202047}
   - 23: {fileID: 672202046}
   - 64: {fileID: 672202045}
+  - 54: {fileID: 672202048}
   m_Layer: 0
   m_Name: Obelisk_Purple
   m_TagString: Untagged
@@ -3710,6 +4271,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672202043}
   m_Mesh: {fileID: 4300018, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &672202048
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672202043}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &717060845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,6 +4297,7 @@ GameObject:
   - 33: {fileID: 717060849}
   - 23: {fileID: 717060848}
   - 64: {fileID: 717060847}
+  - 54: {fileID: 717060850}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (25)
   m_TagString: Untagged
@@ -3788,6 +4365,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717060845}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &717060850
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717060845}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &751109336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +4391,7 @@ GameObject:
   - 33: {fileID: 751109340}
   - 23: {fileID: 751109339}
   - 64: {fileID: 751109338}
+  - 54: {fileID: 751109341}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (2)
   m_TagString: Untagged
@@ -3866,6 +4459,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 751109336}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &751109341
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 751109336}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &758148731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,9 +4485,10 @@ GameObject:
   - 33: {fileID: 758148735}
   - 23: {fileID: 758148734}
   - 64: {fileID: 758148733}
+  - 54: {fileID: 758148736}
   m_Layer: 0
   m_Name: Cube_006
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3944,6 +4553,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 758148731}
   m_Mesh: {fileID: 4300010, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &758148736
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 758148731}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &767052489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,6 +4579,7 @@ GameObject:
   - 33: {fileID: 767052493}
   - 23: {fileID: 767052492}
   - 64: {fileID: 767052491}
+  - 54: {fileID: 767052494}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (19)
   m_TagString: Untagged
@@ -4022,6 +4647,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 767052489}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &767052494
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 767052489}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!198 &779037498 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 19865118, guid: 7c61e1fedad1e4b45a9e0802dfc46838,
@@ -4093,9 +4733,10 @@ GameObject:
   - 23: {fileID: 833879047}
   - 65: {fileID: 833879046}
   - 64: {fileID: 833879045}
+  - 54: {fileID: 833879049}
   m_Layer: 0
   m_Name: rockSquareBlock (9)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4173,6 +4814,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833879043}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &833879049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833879043}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &869795625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,9 +4840,10 @@ GameObject:
   - 33: {fileID: 869795629}
   - 23: {fileID: 869795628}
   - 64: {fileID: 869795627}
+  - 54: {fileID: 869795630}
   m_Layer: 0
   m_Name: rockBigFlat (9)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4251,6 +4908,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 869795625}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &869795630
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869795625}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &875743829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,6 +4934,7 @@ GameObject:
   - 33: {fileID: 875743833}
   - 23: {fileID: 875743832}
   - 64: {fileID: 875743831}
+  - 54: {fileID: 875743834}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (9)
   m_TagString: Untagged
@@ -4329,6 +5002,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 875743829}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &875743834
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 875743829}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &878435895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,9 +5028,10 @@ GameObject:
   - 33: {fileID: 878435899}
   - 23: {fileID: 878435898}
   - 64: {fileID: 878435897}
+  - 54: {fileID: 878435900}
   m_Layer: 0
   m_Name: rockBigFlat
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4407,6 +5096,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 878435895}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &878435900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878435895}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &893909563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4419,9 +5123,10 @@ GameObject:
   - 23: {fileID: 893909567}
   - 65: {fileID: 893909566}
   - 64: {fileID: 893909565}
+  - 54: {fileID: 893909569}
   m_Layer: 0
   m_Name: rockSquareBlock (8)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4499,6 +5204,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 893909563}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &893909569
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893909563}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &906599885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,9 +5231,10 @@ GameObject:
   - 23: {fileID: 906599889}
   - 65: {fileID: 906599888}
   - 64: {fileID: 906599887}
+  - 54: {fileID: 906599891}
   m_Layer: 0
   m_Name: rockSquareBlock (11)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4591,6 +5312,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 906599885}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &906599891
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906599885}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &923813784
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,9 +5478,10 @@ GameObject:
   - 23: {fileID: 929247299}
   - 65: {fileID: 929247298}
   - 64: {fileID: 929247297}
+  - 54: {fileID: 929247301}
   m_Layer: 0
   m_Name: rockSquareBlock (20)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4822,6 +5559,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929247295}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &929247301
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929247295}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &939076301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,6 +5585,7 @@ GameObject:
   - 33: {fileID: 939076305}
   - 23: {fileID: 939076304}
   - 64: {fileID: 939076303}
+  - 54: {fileID: 939076306}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (3)
   m_TagString: Untagged
@@ -4900,6 +5653,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939076301}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &939076306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 939076301}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &940450469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,8 +5915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d1afd734851bc49908dfba3e767ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  currHealth: 0
   restartDelay: 5
 --- !u!1 &975438267
 GameObject:
@@ -5161,9 +5927,10 @@ GameObject:
   - 33: {fileID: 975438271}
   - 23: {fileID: 975438270}
   - 64: {fileID: 975438269}
+  - 54: {fileID: 975438272}
   m_Layer: 0
   m_Name: rockBigPillar (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5228,6 +5995,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975438267}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &975438272
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975438267}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &992432126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,9 +6022,10 @@ GameObject:
   - 23: {fileID: 992432130}
   - 65: {fileID: 992432129}
   - 64: {fileID: 992432128}
+  - 54: {fileID: 992432132}
   m_Layer: 0
   m_Name: rockSquareBlock (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5320,6 +6103,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992432126}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &992432132
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992432126}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1012766818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5331,6 +6129,7 @@ GameObject:
   - 33: {fileID: 1012766822}
   - 23: {fileID: 1012766821}
   - 64: {fileID: 1012766820}
+  - 54: {fileID: 1012766823}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (36)
   m_TagString: Untagged
@@ -5398,6 +6197,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1012766818}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1012766823
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012766818}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1020758223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5409,6 +6223,7 @@ GameObject:
   - 33: {fileID: 1020758227}
   - 23: {fileID: 1020758226}
   - 64: {fileID: 1020758225}
+  - 54: {fileID: 1020758228}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (7)
   m_TagString: Untagged
@@ -5476,6 +6291,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020758223}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1020758228
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020758223}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1044530377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +6317,7 @@ GameObject:
   - 33: {fileID: 1044530381}
   - 23: {fileID: 1044530380}
   - 64: {fileID: 1044530379}
+  - 54: {fileID: 1044530382}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (31)
   m_TagString: Untagged
@@ -5554,6 +6385,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1044530377}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1044530382
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044530377}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1053261302
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,9 +6411,10 @@ GameObject:
   - 33: {fileID: 1053261306}
   - 23: {fileID: 1053261305}
   - 64: {fileID: 1053261304}
+  - 54: {fileID: 1053261307}
   m_Layer: 0
   m_Name: rockBigFlat (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5632,6 +6479,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1053261302}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &1053261307
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053261302}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1071163847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +6505,7 @@ GameObject:
   - 33: {fileID: 1071163851}
   - 23: {fileID: 1071163850}
   - 64: {fileID: 1071163849}
+  - 54: {fileID: 1071163852}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (27)
   m_TagString: Untagged
@@ -5710,6 +6573,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1071163847}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1071163852
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071163847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1078093959 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 190344, guid: 7c61e1fedad1e4b45a9e0802dfc46838, type: 2}
@@ -5724,9 +6602,10 @@ GameObject:
   - 4: {fileID: 1079395280}
   - 218: {fileID: 1079395282}
   - 154: {fileID: 1079395281}
+  - 54: {fileID: 1079395283}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5786,6 +6665,21 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: 0.0512
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!54 &1079395283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079395279}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1089783252 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 175464, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
@@ -5794,6 +6688,19 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 488698, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
   m_PrefabInternal: {fileID: 1373833090}
+--- !u!136 &1089783262
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089783252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.8652046
+  m_Height: 8.0833645
+  m_Direction: 2
+  m_Center: {x: 0.00003051729, y: 0.38, z: -5.65}
 --- !u!1 &1092898552
 GameObject:
   m_ObjectHideFlags: 0
@@ -5805,9 +6712,10 @@ GameObject:
   - 33: {fileID: 1092898556}
   - 23: {fileID: 1092898555}
   - 64: {fileID: 1092898554}
+  - 54: {fileID: 1092898557}
   m_Layer: 0
   m_Name: rockBigFlat (10)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5872,6 +6780,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1092898552}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &1092898557
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1092898552}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1097406949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,9 +6807,10 @@ GameObject:
   - 23: {fileID: 1097406953}
   - 65: {fileID: 1097406952}
   - 64: {fileID: 1097406951}
+  - 54: {fileID: 1097406955}
   m_Layer: 0
   m_Name: rockSquareBlock (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5964,6 +6888,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097406949}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1097406955
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097406949}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1113884497
 GameObject:
   m_ObjectHideFlags: 0
@@ -5975,6 +6914,7 @@ GameObject:
   - 33: {fileID: 1113884501}
   - 23: {fileID: 1113884500}
   - 64: {fileID: 1113884499}
+  - 54: {fileID: 1113884502}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (4)
   m_TagString: Untagged
@@ -6042,6 +6982,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113884497}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1113884502
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113884497}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1115024928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6053,6 +7008,7 @@ GameObject:
   - 33: {fileID: 1115024932}
   - 23: {fileID: 1115024931}
   - 64: {fileID: 1115024930}
+  - 54: {fileID: 1115024933}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (4)
   m_TagString: Untagged
@@ -6120,6 +7076,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1115024928}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1115024933
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115024928}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1149765363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,9 +7103,10 @@ GameObject:
   - 23: {fileID: 1149765367}
   - 65: {fileID: 1149765366}
   - 64: {fileID: 1149765365}
+  - 54: {fileID: 1149765369}
   m_Layer: 0
   m_Name: rockSquareBlock (22)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6212,6 +7184,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1149765363}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1149765369
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1149765363}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1150532277
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,6 +7210,7 @@ GameObject:
   - 33: {fileID: 1150532281}
   - 23: {fileID: 1150532280}
   - 64: {fileID: 1150532279}
+  - 54: {fileID: 1150532282}
   m_Layer: 0
   m_Name: Obelisk_Purple (1)
   m_TagString: Untagged
@@ -6291,6 +7279,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150532277}
   m_Mesh: {fileID: 4300018, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &1150532282
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150532277}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1166401672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,9 +7306,10 @@ GameObject:
   - 23: {fileID: 1166401676}
   - 65: {fileID: 1166401675}
   - 64: {fileID: 1166401674}
+  - 54: {fileID: 1166401678}
   m_Layer: 0
   m_Name: rockSquareBlock (13)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6383,6 +7387,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166401672}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1166401678
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166401672}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1204413525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6528,9 +7547,10 @@ GameObject:
   - 23: {fileID: 1235148401}
   - 65: {fileID: 1235148400}
   - 64: {fileID: 1235148399}
+  - 54: {fileID: 1235148403}
   m_Layer: 0
   m_Name: rockSquareBlock (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6608,6 +7628,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1235148397}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1235148403
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235148397}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1249729737
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,6 +7654,7 @@ GameObject:
   - 33: {fileID: 1249729741}
   - 23: {fileID: 1249729740}
   - 64: {fileID: 1249729739}
+  - 54: {fileID: 1249729742}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (2)
   m_TagString: Untagged
@@ -6686,6 +7722,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1249729737}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1249729742
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249729737}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1260772309
 GameObject:
   m_ObjectHideFlags: 0
@@ -6697,6 +7748,7 @@ GameObject:
   - 33: {fileID: 1260772313}
   - 23: {fileID: 1260772312}
   - 64: {fileID: 1260772311}
+  - 54: {fileID: 1260772314}
   m_Layer: 0
   m_Name: big_testtube
   m_TagString: Untagged
@@ -6765,6 +7817,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1260772309}
   m_Mesh: {fileID: 4300004, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &1260772314
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260772309}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1262479195 stripped
 Transform:
   m_PrefabParentObject: {fileID: 459958, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -6781,9 +7848,10 @@ GameObject:
   - 23: {fileID: 1278419561}
   - 65: {fileID: 1278419560}
   - 64: {fileID: 1278419559}
+  - 54: {fileID: 1278419563}
   m_Layer: 0
   m_Name: rockSquareBlock (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6861,6 +7929,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1278419557}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1278419563
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1278419557}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1285819986
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,9 +7955,10 @@ GameObject:
   - 33: {fileID: 1285819990}
   - 23: {fileID: 1285819989}
   - 64: {fileID: 1285819988}
+  - 54: {fileID: 1285819991}
   m_Layer: 0
   m_Name: Cube_005
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6939,6 +8023,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1285819986}
   m_Mesh: {fileID: 4300012, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &1285819991
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1285819986}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1312159759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,9 +8049,10 @@ GameObject:
   - 33: {fileID: 1312159763}
   - 23: {fileID: 1312159762}
   - 64: {fileID: 1312159761}
+  - 54: {fileID: 1312159764}
   m_Layer: 0
   m_Name: Cube_009
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7017,6 +8117,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312159759}
   m_Mesh: {fileID: 4300004, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &1312159764
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312159759}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1316927388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,9 +8144,10 @@ GameObject:
   - 23: {fileID: 1316927392}
   - 65: {fileID: 1316927391}
   - 64: {fileID: 1316927390}
+  - 54: {fileID: 1316927394}
   m_Layer: 0
   m_Name: rockSquareBlock (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7109,6 +8225,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316927388}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1316927394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316927388}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1343586146
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,6 +8251,7 @@ GameObject:
   - 33: {fileID: 1343586150}
   - 23: {fileID: 1343586149}
   - 64: {fileID: 1343586148}
+  - 54: {fileID: 1343586151}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (5)
   m_TagString: Untagged
@@ -7187,6 +8319,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1343586146}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1343586151
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1343586146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1367390624
 GameObject:
   m_ObjectHideFlags: 0
@@ -7199,9 +8346,10 @@ GameObject:
   - 23: {fileID: 1367390628}
   - 65: {fileID: 1367390627}
   - 64: {fileID: 1367390626}
+  - 54: {fileID: 1367390630}
   m_Layer: 0
   m_Name: rockSquareBlock (15)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7279,6 +8427,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1367390624}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1367390630
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367390624}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1369827116
 Prefab:
   m_ObjectHideFlags: 0
@@ -7373,9 +8536,10 @@ GameObject:
   - 23: {fileID: 1372442325}
   - 65: {fileID: 1372442324}
   - 64: {fileID: 1372442323}
+  - 54: {fileID: 1372442327}
   m_Layer: 0
   m_Name: rockSquareBlock (21)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7453,6 +8617,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1372442321}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1372442327
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1372442321}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1373833090
 Prefab:
   m_ObjectHideFlags: 0
@@ -7466,7 +8645,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466106, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.2
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 466106, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7516,6 +8695,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11441004, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
+      propertyPath: bubbles
+      value: 
+      objectReference: {fileID: 19807870, guid: e186e25933b1436489d539da1bcb011f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
   m_IsPrefabParent: 0
@@ -7530,6 +8714,7 @@ GameObject:
   - 33: {fileID: 1385495763}
   - 23: {fileID: 1385495762}
   - 64: {fileID: 1385495761}
+  - 54: {fileID: 1385495764}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (1)
   m_TagString: Untagged
@@ -7597,6 +8782,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1385495759}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1385495764
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385495759}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1385822941
 GameObject:
   m_ObjectHideFlags: 0
@@ -7608,6 +8808,7 @@ GameObject:
   - 33: {fileID: 1385822945}
   - 23: {fileID: 1385822944}
   - 64: {fileID: 1385822943}
+  - 54: {fileID: 1385822946}
   m_Layer: 0
   m_Name: roof
   m_TagString: Untagged
@@ -7675,6 +8876,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1385822941}
   m_Mesh: {fileID: 4300008, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &1385822946
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385822941}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1385855520
 GameObject:
   m_ObjectHideFlags: 0
@@ -7866,9 +9082,10 @@ GameObject:
   - 33: {fileID: 1405043950}
   - 23: {fileID: 1405043949}
   - 64: {fileID: 1405043948}
+  - 54: {fileID: 1405043951}
   m_Layer: 0
   m_Name: rockBigFlat (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7933,6 +9150,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405043946}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &1405043951
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405043946}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1406956322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,6 +9176,7 @@ GameObject:
   - 33: {fileID: 1406956326}
   - 23: {fileID: 1406956325}
   - 64: {fileID: 1406956324}
+  - 54: {fileID: 1406956327}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (35)
   m_TagString: Untagged
@@ -8011,6 +9244,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406956322}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1406956327
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1406956322}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1425425951
 GameObject:
   m_ObjectHideFlags: 0
@@ -8022,6 +9270,7 @@ GameObject:
   - 33: {fileID: 1425425955}
   - 23: {fileID: 1425425954}
   - 64: {fileID: 1425425953}
+  - 54: {fileID: 1425425956}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (7)
   m_TagString: Untagged
@@ -8089,6 +9338,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1425425951}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1425425956
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425425951}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1426134399
 GameObject:
   m_ObjectHideFlags: 0
@@ -8099,6 +9363,7 @@ GameObject:
   - 4: {fileID: 1426134400}
   - 33: {fileID: 1426134402}
   - 23: {fileID: 1426134401}
+  - 54: {fileID: 1426134403}
   m_Layer: 0
   m_Name: pressure_plate
   m_TagString: Untagged
@@ -8153,6 +9418,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1426134399}
   m_Mesh: {fileID: 4300006, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &1426134403
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426134399}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1433184584 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 115338, guid: f6337faff1f795a4e9fe09b9df6e246b, type: 2}
@@ -8251,9 +9531,10 @@ GameObject:
   - 23: {fileID: 1530259094}
   - 65: {fileID: 1530259093}
   - 64: {fileID: 1530259092}
+  - 54: {fileID: 1530259096}
   m_Layer: 0
   m_Name: rockSquareBlock (14)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8331,6 +9612,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1530259090}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1530259096
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1530259090}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1560153014
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,6 +9792,7 @@ GameObject:
   - 33: {fileID: 1568713382}
   - 23: {fileID: 1568713381}
   - 64: {fileID: 1568713380}
+  - 54: {fileID: 1568713383}
   m_Layer: 0
   m_Name: Altar_Base_1_Purple
   m_TagString: Untagged
@@ -8563,6 +9860,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1568713378}
   m_Mesh: {fileID: 4300026, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1568713383
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568713378}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1572136639
 GameObject:
   m_ObjectHideFlags: 0
@@ -8574,6 +9886,7 @@ GameObject:
   - 33: {fileID: 1572136643}
   - 23: {fileID: 1572136642}
   - 64: {fileID: 1572136641}
+  - 54: {fileID: 1572136644}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (14)
   m_TagString: Untagged
@@ -8641,6 +9954,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1572136639}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1572136644
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572136639}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1574399273 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480986, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -8656,6 +9984,7 @@ GameObject:
   - 33: {fileID: 1578438425}
   - 23: {fileID: 1578438424}
   - 64: {fileID: 1578438423}
+  - 54: {fileID: 1578438426}
   m_Layer: 0
   m_Name: Altar_2_Purple
   m_TagString: Untagged
@@ -8724,6 +10053,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1578438421}
   m_Mesh: {fileID: 4300018, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1578438426
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1578438421}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1581783134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,6 +10079,7 @@ GameObject:
   - 33: {fileID: 1581783138}
   - 23: {fileID: 1581783137}
   - 64: {fileID: 1581783136}
+  - 54: {fileID: 1581783139}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (24)
   m_TagString: Untagged
@@ -8802,6 +10147,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1581783134}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1581783139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581783134}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1586176651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,6 +10204,7 @@ GameObject:
   - 33: {fileID: 1591936519}
   - 23: {fileID: 1591936518}
   - 64: {fileID: 1591936517}
+  - 54: {fileID: 1591936520}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (12)
   m_TagString: Untagged
@@ -8911,6 +10272,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1591936515}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1591936520
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1591936515}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1600411247
 GameObject:
   m_ObjectHideFlags: 0
@@ -9000,6 +10376,7 @@ GameObject:
   - 33: {fileID: 1602364113}
   - 23: {fileID: 1602364112}
   - 64: {fileID: 1602364111}
+  - 54: {fileID: 1602364114}
   m_Layer: 0
   m_Name: Arch_Pillar_1_Purple
   m_TagString: Untagged
@@ -9067,6 +10444,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1602364109}
   m_Mesh: {fileID: 4300022, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1602364114
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1602364109}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1627520459
 GameObject:
   m_ObjectHideFlags: 0
@@ -9078,6 +10470,7 @@ GameObject:
   - 33: {fileID: 1627520463}
   - 23: {fileID: 1627520462}
   - 64: {fileID: 1627520461}
+  - 54: {fileID: 1627520464}
   m_Layer: 0
   m_Name: lab
   m_TagString: Untagged
@@ -9146,6 +10539,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1627520459}
   m_Mesh: {fileID: 4300012, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &1627520464
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627520459}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1641626975
 GameObject:
   m_ObjectHideFlags: 0
@@ -9226,9 +10634,10 @@ GameObject:
   - 33: {fileID: 1679428526}
   - 23: {fileID: 1679428525}
   - 64: {fileID: 1679428524}
+  - 54: {fileID: 1679428527}
   m_Layer: 0
   m_Name: Cube_007
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9293,6 +10702,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1679428522}
   m_Mesh: {fileID: 4300008, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &1679428527
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1679428522}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1683313665
 GameObject:
   m_ObjectHideFlags: 0
@@ -9304,9 +10728,10 @@ GameObject:
   - 33: {fileID: 1683313669}
   - 23: {fileID: 1683313668}
   - 64: {fileID: 1683313667}
+  - 54: {fileID: 1683313670}
   m_Layer: 0
   m_Name: Cube_001
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9371,6 +10796,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1683313665}
   m_Mesh: {fileID: 4300018, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &1683313670
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683313665}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1694604536
 GameObject:
   m_ObjectHideFlags: 0
@@ -9381,6 +10821,8 @@ GameObject:
   - 4: {fileID: 1694604537}
   - 33: {fileID: 1694604539}
   - 23: {fileID: 1694604538}
+  - 54: {fileID: 1694604540}
+  - 64: {fileID: 1694604541}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -9434,6 +10876,33 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1694604536}
+  m_Mesh: {fileID: 4300010, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &1694604540
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694604536}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1694604541
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694604536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300010, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
 --- !u!1001 &1698273862
 Prefab:
@@ -9642,9 +11111,10 @@ GameObject:
   - 33: {fileID: 1718488735}
   - 23: {fileID: 1718488734}
   - 64: {fileID: 1718488733}
+  - 54: {fileID: 1718488736}
   m_Layer: 0
   m_Name: rockBigFlat (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9709,6 +11179,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1718488731}
   m_Mesh: {fileID: 4300000, guid: 0b931b65f70df3844a4132799c6c6866, type: 3}
+--- !u!54 &1718488736
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718488731}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1722656879
 Prefab:
   m_ObjectHideFlags: 0
@@ -9894,9 +11379,10 @@ GameObject:
   - 23: {fileID: 1761020505}
   - 65: {fileID: 1761020504}
   - 64: {fileID: 1761020503}
+  - 54: {fileID: 1761020507}
   m_Layer: 0
   m_Name: rockSquareBlock (12)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9974,6 +11460,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1761020501}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1761020507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1761020501}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1763820706 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444828, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -9990,9 +11491,10 @@ GameObject:
   - 23: {fileID: 1764683790}
   - 65: {fileID: 1764683789}
   - 64: {fileID: 1764683788}
+  - 54: {fileID: 1764683792}
   m_Layer: 0
   m_Name: rockSquareBlock (16)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10070,6 +11572,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764683786}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1764683792
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764683786}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1780360587
 GameObject:
   m_ObjectHideFlags: 0
@@ -10081,6 +11598,7 @@ GameObject:
   - 33: {fileID: 1780360591}
   - 23: {fileID: 1780360590}
   - 64: {fileID: 1780360589}
+  - 54: {fileID: 1780360592}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (23)
   m_TagString: Untagged
@@ -10148,6 +11666,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780360587}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1780360592
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780360587}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1789443808
 Prefab:
   m_ObjectHideFlags: 0
@@ -10214,9 +11747,10 @@ GameObject:
   - 23: {fileID: 1809258290}
   - 65: {fileID: 1809258289}
   - 64: {fileID: 1809258288}
+  - 54: {fileID: 1809258292}
   m_Layer: 0
   m_Name: rockSquareBlock (18)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10294,6 +11828,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809258286}
   m_Mesh: {fileID: 4300000, guid: 9cdb7f036f453d24095d0ca511026683, type: 3}
+--- !u!54 &1809258292
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809258286}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1821583233
 GameObject:
   m_ObjectHideFlags: 0
@@ -10305,6 +11854,7 @@ GameObject:
   - 33: {fileID: 1821583237}
   - 23: {fileID: 1821583236}
   - 64: {fileID: 1821583235}
+  - 54: {fileID: 1821583238}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (38)
   m_TagString: Untagged
@@ -10372,6 +11922,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821583233}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1821583238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821583233}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1846300642
 GameObject:
   m_ObjectHideFlags: 0
@@ -10383,6 +11948,7 @@ GameObject:
   - 33: {fileID: 1846300646}
   - 23: {fileID: 1846300645}
   - 64: {fileID: 1846300644}
+  - 54: {fileID: 1846300647}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (32)
   m_TagString: Untagged
@@ -10450,6 +12016,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1846300642}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1846300647
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1846300642}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1861375271
 GameObject:
   m_ObjectHideFlags: 0
@@ -10461,6 +12042,7 @@ GameObject:
   - 33: {fileID: 1861375275}
   - 23: {fileID: 1861375274}
   - 64: {fileID: 1861375273}
+  - 54: {fileID: 1861375276}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (17)
   m_TagString: Untagged
@@ -10528,6 +12110,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1861375271}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1861375276
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861375271}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1861459898
 GameObject:
   m_ObjectHideFlags: 0
@@ -10573,6 +12170,7 @@ GameObject:
   - 33: {fileID: 1882127041}
   - 23: {fileID: 1882127040}
   - 64: {fileID: 1882127039}
+  - 54: {fileID: 1882127042}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (1)
   m_TagString: Untagged
@@ -10640,6 +12238,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882127037}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1882127042
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882127037}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1891677453
 GameObject:
   m_ObjectHideFlags: 0
@@ -10651,6 +12264,7 @@ GameObject:
   - 33: {fileID: 1891677457}
   - 23: {fileID: 1891677456}
   - 64: {fileID: 1891677455}
+  - 54: {fileID: 1891677458}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2 (6)
   m_TagString: Untagged
@@ -10718,6 +12332,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1891677453}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &1891677458
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891677453}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1895519570
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,9 +12358,10 @@ GameObject:
   - 33: {fileID: 1895519574}
   - 23: {fileID: 1895519573}
   - 64: {fileID: 1895519572}
+  - 54: {fileID: 1895519575}
   m_Layer: 0
   m_Name: rockBigPillar (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10796,6 +12426,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895519570}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &1895519575
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895519570}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1900003387
 GameObject:
   m_ObjectHideFlags: 0
@@ -10807,6 +12452,7 @@ GameObject:
   - 33: {fileID: 1900003391}
   - 23: {fileID: 1900003390}
   - 64: {fileID: 1900003389}
+  - 54: {fileID: 1900003392}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (11)
   m_TagString: Untagged
@@ -10874,6 +12520,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900003387}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1900003392
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900003387}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1913084069
 GameObject:
   m_ObjectHideFlags: 0
@@ -10885,6 +12546,7 @@ GameObject:
   - 33: {fileID: 1913084073}
   - 23: {fileID: 1913084072}
   - 64: {fileID: 1913084071}
+  - 54: {fileID: 1913084074}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (37)
   m_TagString: Untagged
@@ -10952,6 +12614,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1913084069}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1913084074
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1913084069}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1923035558 stripped
 Transform:
   m_PrefabParentObject: {fileID: 402294, guid: 59f5b33a73e4343cb820b4bab8e86f68, type: 2}
@@ -10967,6 +12644,7 @@ GameObject:
   - 33: {fileID: 1923547602}
   - 23: {fileID: 1923547601}
   - 64: {fileID: 1923547600}
+  - 54: {fileID: 1923547603}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (8)
   m_TagString: Untagged
@@ -11034,6 +12712,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923547598}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1923547603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923547598}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1950991268
 GameObject:
   m_ObjectHideFlags: 0
@@ -11045,6 +12738,7 @@ GameObject:
   - 33: {fileID: 1950991272}
   - 23: {fileID: 1950991271}
   - 64: {fileID: 1950991270}
+  - 54: {fileID: 1950991273}
   m_Layer: 0
   m_Name: Altar_Wall_1_Purple
   m_TagString: Untagged
@@ -11112,6 +12806,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1950991268}
   m_Mesh: {fileID: 4300022, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1950991273
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1950991268}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1983143606
 GameObject:
   m_ObjectHideFlags: 0
@@ -11123,6 +12832,7 @@ GameObject:
   - 33: {fileID: 1983143610}
   - 23: {fileID: 1983143609}
   - 64: {fileID: 1983143608}
+  - 54: {fileID: 1983143611}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (6)
   m_TagString: Untagged
@@ -11190,6 +12900,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1983143606}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &1983143611
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983143606}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1991613689
 GameObject:
   m_ObjectHideFlags: 0
@@ -11282,9 +13007,10 @@ GameObject:
   - 33: {fileID: 2013409330}
   - 23: {fileID: 2013409329}
   - 64: {fileID: 2013409328}
+  - 54: {fileID: 2013409331}
   m_Layer: 0
   m_Name: rockBigPillar (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11349,6 +13075,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2013409326}
   m_Mesh: {fileID: 4300000, guid: dd6261cbf4772ec43b172351ce5feb9c, type: 3}
+--- !u!54 &2013409331
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2013409326}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2027150743
 GameObject:
   m_ObjectHideFlags: 0
@@ -11360,6 +13101,7 @@ GameObject:
   - 33: {fileID: 2027150747}
   - 23: {fileID: 2027150746}
   - 64: {fileID: 2027150745}
+  - 54: {fileID: 2027150748}
   m_Layer: 0
   m_Name: desk_cabinet
   m_TagString: Untagged
@@ -11427,6 +13169,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027150743}
   m_Mesh: {fileID: 4300002, guid: 4ddb5cefef1e45148a8dd8ba894d9bb5, type: 3}
+--- !u!54 &2027150748
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027150743}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2041206811
 GameObject:
   m_ObjectHideFlags: 0
@@ -11438,9 +13195,10 @@ GameObject:
   - 33: {fileID: 2041206815}
   - 23: {fileID: 2041206814}
   - 64: {fileID: 2041206813}
+  - 54: {fileID: 2041206816}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11505,6 +13263,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2041206811}
   m_Mesh: {fileID: 4300022, guid: 8fc675d7f60714c49be115aee0ed1abc, type: 3}
+--- !u!54 &2041206816
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041206811}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2061216338
 GameObject:
   m_ObjectHideFlags: 0
@@ -11516,6 +13289,7 @@ GameObject:
   - 33: {fileID: 2061216342}
   - 23: {fileID: 2061216341}
   - 64: {fileID: 2061216340}
+  - 54: {fileID: 2061216343}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (33)
   m_TagString: Untagged
@@ -11583,6 +13357,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061216338}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &2061216343
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061216338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2069837530
 GameObject:
   m_ObjectHideFlags: 0
@@ -11671,6 +13460,7 @@ GameObject:
   - 33: {fileID: 2106993085}
   - 23: {fileID: 2106993084}
   - 64: {fileID: 2106993083}
+  - 54: {fileID: 2106993086}
   m_Layer: 0
   m_Name: Altar_Wall_1_Purple (1)
   m_TagString: Untagged
@@ -11738,6 +13528,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106993081}
   m_Mesh: {fileID: 4300022, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &2106993086
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106993081}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2108116134
 GameObject:
   m_ObjectHideFlags: 0
@@ -11749,6 +13554,7 @@ GameObject:
   - 33: {fileID: 2108116138}
   - 23: {fileID: 2108116137}
   - 64: {fileID: 2108116136}
+  - 54: {fileID: 2108116139}
   m_Layer: 0
   m_Name: Celtic_Pillar_Purple_2
   m_TagString: Untagged
@@ -11816,6 +13622,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108116134}
   m_Mesh: {fileID: 4300012, guid: 95aebdae4f0de31499026e1b89e443ac, type: 3}
+--- !u!54 &2108116139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108116134}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2130768123
 GameObject:
   m_ObjectHideFlags: 0
@@ -11827,6 +13648,7 @@ GameObject:
   - 33: {fileID: 2130768127}
   - 23: {fileID: 2130768126}
   - 64: {fileID: 2130768125}
+  - 54: {fileID: 2130768128}
   m_Layer: 0
   m_Name: Altar_Base_2_Purple (22)
   m_TagString: Untagged
@@ -11894,3 +13716,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2130768123}
   m_Mesh: {fileID: 4300024, guid: c5d2ffb190c926943a4c71a36718f1e1, type: 3}
+--- !u!54 &2130768128
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130768123}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
