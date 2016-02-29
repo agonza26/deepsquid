@@ -5,7 +5,7 @@ public class simple_movement : MonoBehaviour {
 
 	public float xSpeed = 120.0f;
 	public float ySpeed = 120.0f;
-	public float yMinLimit = -20f;
+	public float yMinLimit = -80f;
 	public float yMaxLimit = 80f;
 	public float distance = 5.0f;
 	public float camRotMult = 200f;
@@ -20,6 +20,7 @@ public class simple_movement : MonoBehaviour {
 	public float distanceMax = 15f;
 	//private float tempSpeed;
 	private float carryingSpeed = 1f;
+	public float abilitySpeed;
 	//private Rigidbody rb;//used for controlling player's
 
 	bool inkJumpedBack = false;
@@ -39,31 +40,44 @@ public class simple_movement : MonoBehaviour {
 	private float deccCount = 0.025f;
 	public float deccMax = -1f;
 	public float coastD = 0.1f;
+	private bool[] abilities;
+	public GameObject abilityObject;
 
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		//tempSpeed = playerSpeed;
-        CameraTarg = transform.GetChild(0);
 		isDead = false;
-        //CameraTarg = transform.parent;
+		
+		tempSpeed = playerSpeed;
+        CameraTarg = transform.GetChild(0);
+		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(!isDead)
 		{
+	
+			abilitySpeed = GetComponent<Abilities> ().abilitySpeedVal;
+			abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 			x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
-			y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.0125f;
-			y = ClampAngle (y, yMinLimit, yMaxLimit);
+			if (y >= -90) {
+				y -= Input.GetAxis ("Mouse Y") * ySpeed * distance * 0.0025f;
+			} else {
+				y = -89.5f;
+			}
+			if (y <= 90) {
+				y -= Input.GetAxis ("Mouse Y") * ySpeed * distance * 0.0025f;
+			} else {
+				y = 89.5f;
+			}
 
 
-			vel = Vector3.forward*Time.deltaTime*playerSpeed;
+			vel = Vector3.forward * Time.deltaTime * playerSpeed * abilitySpeed;//*abilitySpeed;
 			Quaternion rotation = Quaternion.Euler (y, x, 0);
 			CameraTarg.rotation = rotation;
-
 			bubbles.Pause();
 			
 			//bubbles.Play();	
@@ -189,7 +203,7 @@ public class simple_movement : MonoBehaviour {
 	public IEnumerator inkJump(){
 		if(acc == 0 && inkJumpedBack == false){
 			acc = -1;
-			inkAccBoost = 3f;
+			inkAccBoost = 5f;
 			yield return StartCoroutine (waitThisLong(0.5f));
 			acc = 0f;
 			inkAccBoost = 1f;
@@ -197,7 +211,7 @@ public class simple_movement : MonoBehaviour {
 			
 		}
 		else if(inkJumpedBack != true){
-			inkAccBoost = 3f;
+			inkAccBoost = 5f;
 			yield return StartCoroutine (waitThisLong(0.5f));
 			inkAccBoost = 1f;
 		}
@@ -215,6 +229,4 @@ public class simple_movement : MonoBehaviour {
 	IEnumerator waitThisLong(float x){
 		yield return new WaitForSeconds(x);
 	                                                                                                                               }
-
-
-}
+		}

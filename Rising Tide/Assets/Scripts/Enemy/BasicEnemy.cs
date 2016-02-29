@@ -88,7 +88,8 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
-	void OnParticleCollision(GameObject o){
+	void OnParticleCollision(GameObject other){
+		Debug.Log("Object has been hit by ink");
 	}
 
 
