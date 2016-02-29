@@ -62,9 +62,11 @@
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
+     <Compile Include="Assets\Scripts\System\CameraSphere.cs" />
      <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
      <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
+     <Compile Include="Assets\Scripts\System\MainMenu.cs" />
      <Compile Include="Assets\Scripts\System\NextLevelButton.cs" />
      <Compile Include="Assets\Scripts\System\Player.cs" />
      <Compile Include="Assets\Scripts\System\Reload.cs" />

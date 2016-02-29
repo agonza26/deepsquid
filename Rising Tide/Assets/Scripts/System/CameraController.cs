@@ -7,13 +7,11 @@ public class CameraController : MonoBehaviour
 	public Transform player;
 	private Vector3 offset = new Vector3 (0f, 0f, -7.5f);
 	private float rcMaxDist;
-	private Vector3 camDistSave;
+	private float camDistSave;
 	public float minCameraDist = -5f;
 	public float maxCameraDist = -15f;
 	private Material temp;
 	private bool isTouching = false;
-	//private bool CameraChildTouching = false;
-	
 	public float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	public float rotationDampening = 5f; //see above, but applies to rotation
 	private float PDsave;
@@ -32,11 +30,15 @@ public class CameraController : MonoBehaviour
 	float rotationY = 0.0f;
 	float rotationX = 0.0f;
 
+	
+	/*
+	MAKE SURE THAT RIGID BODY COMPONENTS ARE ATTACHED TO ENVIRONMENT OBJECTS. THATS THE ONLY WAY THAT ONTRIGGERENTER/EXIT WILL DETECT COLLISION.
+	*/
 		
 	void Start () 
 	{
 		thisTransform = transform; //cache transform default
-		camDistSave = offset;
+		camDistSave = offset.z;
 		PDsave = positionDampening;
 	}
 	
@@ -67,35 +69,45 @@ public class CameraController : MonoBehaviour
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && offset.z < minCameraDist) 
 		{
 			offset.z += 0.8f;
-			camDistSave.z += 0.8f;
+			camDistSave += 0.8f;
 			rcMaxDist -= 0.8f;
 		} else if (Input.GetAxis ("Mouse ScrollWheel") < 0 && offset.z > maxCameraDist && !Physics.Raycast(transform.position, -transform.forward, out hit, 1f)) 
 		{
 			offset.z -= 0.8f;
-			camDistSave.z -= 0.8f;
+			camDistSave -= 0.8f;
 			rcMaxDist += 0.8f;
 		}
 
 		
-		if(Physics.Raycast(transform.position, transform.forward, out hit, rcMaxDist) && offset.z < -2f)
+		if(Physics.Raycast(playerCameraTarget.position, -transform.forward, out hit, rcMaxDist) && offset.z < -2f)
 		{
-			Debug.Log(hit.transform.tag);
 			if(hit.transform.tag == "Environment")
 			{
 				pushInFront(hit);		
+			} 
+			else if(hit.transform.tag == "MainCamera")
+			{
+				if(!isTouching)//!Physics.Raycast(transform.position, -transform.forward, out hit, 5f) )
+				{
+					offset.z = camDistSave;
+				} 
 			}
 		} 
-		else if (offset.z > camDistSave.z && !Physics.Raycast(transform.position, transform.forward, rcMaxDist) && !isTouching && !Physics.Raycast(transform.position, -transform.forward, out hit, 1f))
+		
+		if(Physics.Raycast(transform.position, transform.right, out hit, 5f) || Physics.Raycast(transform.position, -transform.right, out hit, 5f))
 		{
-			offset.z = Mathf.Lerp(offset.z, camDistSave.z, positionDampening * Time.deltaTime);
-			//Debug.Log(hit.transform.tag);
+			if(!Physics.Raycast(playerCameraTarget.position, -transform.forward, out hit, rcMaxDist))
+			{
+				offset.z += positionDampening * Time.deltaTime;	
+			}
 		}
+		//Debug.Log(isTouching);
 
-		if(isTouching && offset.z < -2f)
+		/*if(isTouching && offset.z < -2f)
 		{
 			offset.z = Mathf.Lerp(offset.z, playerCameraTarget.position.z, positionDampening * Time.deltaTime);
             Debug.Log("here");
-		}
+		}*/
 		
 		Vector3 wantedPosition = playerCameraTarget.position + (playerCameraTarget.rotation * offset);
 		Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDampening * Time.deltaTime);
@@ -112,11 +124,13 @@ public class CameraController : MonoBehaviour
 	private void pushInFront(RaycastHit hit)
 	{
 		positionDampening = Mathf.Abs(hit.distance/Time.deltaTime);
+		//positionDampening = 2f;
 		offset.z = -Mathf.Lerp(offset.z, hit.distance, positionDampening * Time.deltaTime);
 	}
 	
 	private void OnTriggerEnter(Collider collider)
 	{
+		Debug.Log("OnTriggerEnter active");
         if (collider.gameObject.transform.tag != "Environment")
         {
             return;

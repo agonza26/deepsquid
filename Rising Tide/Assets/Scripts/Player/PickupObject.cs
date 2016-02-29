@@ -172,7 +172,7 @@ public class PickupObject : MonoBehaviour
 	
 	void OnTriggerEnter(Collider c)
 	{
-		if(c.GetComponent<Pickupable>() != null)
+		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
 		{
 			grabbableInRange = true;
 		}
