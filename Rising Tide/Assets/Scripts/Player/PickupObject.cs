@@ -174,9 +174,10 @@ public class PickupObject : MonoBehaviour
 	{
 		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
 		{
+			Debug.Log("A grabbable item " + c + " is in range");
 			grabbableInRange = true;
 		}
-		Debug.Log("A grabbable item " + c + " is in range");
+		
 		InRangeItemSaver = c;
 	}
 	
