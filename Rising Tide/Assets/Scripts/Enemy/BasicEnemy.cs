@@ -37,6 +37,9 @@ public class BasicEnemy : MonoBehaviour {
 	private float timeF = 0f; 
 	private float timeS = 0f; 
 	private float timeHT = 0f; 
+
+
+	private float waitTime = 0f;
 	private float lifetime = 0f; 
 
 
@@ -77,6 +80,10 @@ public class BasicEnemy : MonoBehaviour {
 				break;
 			case "seek":
 				seek ();
+				break;
+
+			case "recharge":
+				recharge ();
 				break;
 
 			case "patrol":
@@ -219,7 +226,6 @@ public class BasicEnemy : MonoBehaviour {
 		if (message != "none") {
 			switch (message) {
 				case "seePlayer":
-					Debug.Log ("We got the message!");
 					message = "none";
 					state = "follow";
 					follow ();
@@ -284,6 +290,31 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+
+
+
+	void recharge(){
+
+
+
+		//message system to switch to another states
+		if (message != "none") {
+			//switch (message) {
+
+			//}
+		}
+
+		//get current player's location from eyes
+		currentT = lPC.position;
+
+		waitTime += Time.deltaTime;
+		if (timeF >= 5) {
+			
+			state = "patrol";
+			timeF = 0;
+		}
+
+	}
 
 
 
@@ -385,44 +416,9 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	//dump to store snippets of old code
-	void legacyCode(){
-		/*
-			 * legacy code that would have object rotate towards player through lerp, creating a full curve, not steering behavioresque
-			Vector3 direction = (currentT - transform.position);
-			Quaternion lookRotation = Quaternion.LookRotation (direction);
-			transform.rotation = Quaternion.Lerp (transform.rotation, lookRotation, RotationSpeed);
-			*/
-		//Debug.Log("with respect to X" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"x"));
-		//Debug.Log("with respect to Y" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"y"));
-		//Debug.Log("with respect to Z" + angleBetween(transform.InverseTransformPoint(heading),transform.InverseTransformPoint(target),"z"));
-
-		/*
-
-
-		void smoothSwim(){
-
-			Vector3 targetPoint = player.position;
-
-			Vector3 direction = (targetPoint - transform.position);
-
-			Quaternion lookRotation = Quaternion.LookRotation (direction);
-
-			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, 1);
-		}
-
-		*/
-		/*
-
-
-		Vector3 direction = (currentT - transform.position);
-		Quaternion lookRotation = Quaternion.LookRotation (direction);
-		transform.rotation = Quaternion.Lerp (transform.rotation, lookRotation, RotationSpeed);
-
-		*/
 
 
 
-	}
+
 		
 }

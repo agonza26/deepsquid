@@ -11019,6 +11019,30 @@ Prefab:
       propertyPath: chasee
       value: 
       objectReference: {fileID: 1089783252}
+    - target: {fileID: 13664052, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13653712, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13634704, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13620762, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13618142, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13601628, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddef26b1305bc4039bbc0dd365633b16, type: 2}
   m_IsPrefabParent: 0

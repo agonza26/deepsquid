@@ -55,6 +55,22 @@ public class Player_stats : MonoBehaviour {
 	}
 
 
+	void OnCollisionEnter(Collision other) {
+		GameObject item = other.gameObject;
+
+		Debug.Log (item.tag);
+
+		if (item.tag == "Enemy") {
+			if (item.GetComponent<BasicEnemy> ().state != "patrol") {
+				playerDamage (1f);
+				item.GetComponent<BasicEnemy> ().state = "recharge";
+
+			}
+		}
+
+	}
+
+
     public void playerDamage(float val)
 	{
 		PlayerDmged = true;
