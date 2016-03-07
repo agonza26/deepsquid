@@ -21,8 +21,6 @@ public class PickupObject : MonoBehaviour
     float objectSize;
     bool parented = false;
     bool canThrow;
-	bool grabbableInRange = false;
-	Collider InRangeItemSaver;
 	
 	public ParticleSystem blood;
 
@@ -39,31 +37,35 @@ public class PickupObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        mainCamera = GameObject.FindWithTag("MainCamera");
 
     }
 
     // Update is called once per frame
     void Update()
     {
+		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
+		blood.enableEmission = true;
+		*/
         if (carrying)
         {
-			if(carriedObject.tag == "Enemy")
-			{
-				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
+			if (carriedObject.tag == "Enemy") {
+				carriedObject.GetComponent<EnemyHealth> ().enemyTakeDmg (GetComponent<Player_stats> ().giveDmg () * 8f * Time.deltaTime);
 				
-				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
-				{
-					Debug.Log("playing blood particle system...");
+				if (carriedObject.GetComponent<EnemyHealth> ().enemyHealthCurr <= 0) {
+					Debug.Log ("playing blood particle system...");
 					carrying = false;
-					transform.GetComponent<Player_stats>().playerDamage(-carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue);
-					blood.Play();
-					dropObject();
-					grabbableInRange = false;
+					blood.Play ();
+					dropObject ();
 				}
+			} else if (carriedObject.tag == "box") {
 			}
-			if(carrying)
+				
+			if(carrying){
 				carry(carriedObject);
-            checkDrop();
+				//o.GetComponent<Collider> ().disabled;
+            	checkDrop();
+			}
         }
         else
         {
@@ -80,17 +82,12 @@ public class PickupObject : MonoBehaviour
         {
             canThrow = true;
             o.GetComponent<Rigidbody>().useGravity = false;
-			Debug.Log(o.transform.position);
             //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z);
-			float halfPlayer = player.GetComponent<Renderer>().bounds.size.z * 0.5f;
-			float totalOffset = d + halfPlayer + 1f;
-			Vector3 UnderPlayerPosition = player.transform.position + player.transform.forward;//*-4;
-			UnderPlayerPosition -= player.transform.forward * totalOffset;
-			//UnderPlayerPosition.z += d + halfPlayer;
-            //o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
-			o.transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
-            //o.transform.rotation = playerZRot; //stop picked up object from rotating independently
+            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
+            playerZRot = player.transform.rotation;
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
+            o.transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
+            o.transform.rotation = playerZRot; //stop picked up object from rotating independently
         }
 
         else //object is larger than player
@@ -117,12 +114,19 @@ public class PickupObject : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (grabbableInRange)
-            {
+            //shoot ray from center of screen
+            int x = Screen.width / 2;
+            int y = Screen.height / 2;
 
-                //Debug.Log(hit.transform.gameObject);
+            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y)); //shoot ray from middle of screen 
+            RaycastHit hit;
+            Debug.DrawRay(ray.origin, ray.direction);
+            if (Physics.Raycast(ray, out hit))
+            //if (Physics.Raycast(ray, out hit, rayDistance))
+            {
+                Debug.Log(hit.transform.gameObject);
                 //if it hits something valid, pick it up
-                Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
+                Pickupable p = hit.collider.GetComponent<Pickupable>(); 
                 if (p != null)
                 {
                    // Debug.Log("that can be picked up");
@@ -138,6 +142,8 @@ public class PickupObject : MonoBehaviour
                     //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
                     //gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
                     objectSize = p.size;
+					Debug.Log ("size:" + objectSize);
+					Debug.Log ("player:" + playerSize);
                 }
             }
         }
@@ -182,22 +188,5 @@ public class PickupObject : MonoBehaviour
         dropObject();
         //carriedObject = null;
     }
-	
-	void OnTriggerEnter(Collider c)
-	{
-		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
-		{
-			Debug.Log("A grabbable item " + c + " is in range");
-			grabbableInRange = true;
-		}
-		
-		InRangeItemSaver = c;
-	}
-	
-	void OnTriggerExit(Collider c)
-	{
-		grabbableInRange = false;
-		Debug.Log("Grabbable item " + c + " has left the grab range");
-	}
 	
 }

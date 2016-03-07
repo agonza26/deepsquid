@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 8c26d5797f44c44448f305d5c588f875
+timeCreated: 1456890868
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: crate.000
+    100002: crate.001
+    100004: crate.002
+    100006: crate.003
+    100008: crate.004
+    100010: crate.005
+    100012: crate.006
+    100014: crate.007
+    100016: crate.008
+    100018: crate.009
+    100020: crate.010
+    100022: crate.011
+    100024: crate.012
+    100026: crate.013
+    100028: crate.014
+    100030: crate.015
+    100032: crate.016
+    100034: crate.017
+    100036: crate.018
+    100038: crate.019
+    100040: crate.020
+    100042: crate.021
+    100044: crate.022
+    100046: gate
+    100048: lab
+    100050: //RootNode
+    100052: lab ceiling.001
+    100054: lab floor
+    100056: lab.002
+    100058: pressure plate
+    100060: pressure plate.001
+    400000: crate.000
+    400002: crate.001
+    400004: crate.002
+    400006: crate.003
+    400008: crate.004
+    400010: crate.005
+    400012: crate.006
+    400014: crate.007
+    400016: crate.008
+    400018: crate.009
+    400020: crate.010
+    400022: crate.011
+    400024: crate.012
+    400026: crate.013
+    400028: crate.014
+    400030: crate.015
+    400032: crate.016
+    400034: crate.017
+    400036: crate.018
+    400038: crate.019
+    400040: crate.020
+    400042: crate.021
+    400044: crate.022
+    400046: gate
+    400048: lab
+    400050: //RootNode
+    400052: lab ceiling.001
+    400054: lab floor
+    400056: lab.002
+    400058: pressure plate
+    400060: pressure plate.001
+    2300000: crate.000
+    2300002: crate.001
+    2300004: crate.002
+    2300006: crate.003
+    2300008: crate.004
+    2300010: crate.005
+    2300012: crate.006
+    2300014: crate.007
+    2300016: crate.008
+    2300018: crate.009
+    2300020: crate.010
+    2300022: crate.011
+    2300024: crate.012
+    2300026: crate.013
+    2300028: crate.014
+    2300030: crate.015
+    2300032: crate.016
+    2300034: crate.017
+    2300036: crate.018
+    2300038: crate.019
+    2300040: crate.020
+    2300042: crate.021
+    2300044: crate.022
+    2300046: gate
+    2300048: lab
+    2300050: lab ceiling.001
+    2300052: lab floor
+    2300054: lab.002
+    2300056: pressure plate
+    2300058: pressure plate.001
+    3300000: crate.000
+    3300002: crate.001
+    3300004: crate.002
+    3300006: crate.003
+    3300008: crate.004
+    3300010: crate.005
+    3300012: crate.006
+    3300014: crate.007
+    3300016: crate.008
+    3300018: crate.009
+    3300020: crate.010
+    3300022: crate.011
+    3300024: crate.012
+    3300026: crate.013
+    3300028: crate.014
+    3300030: crate.015
+    3300032: crate.016
+    3300034: crate.017
+    3300036: crate.018
+    3300038: crate.019
+    3300040: crate.020
+    3300042: crate.021
+    3300044: crate.022
+    3300046: gate
+    3300048: lab
+    3300050: lab ceiling.001
+    3300052: lab floor
+    3300054: lab.002
+    3300056: pressure plate
+    3300058: pressure plate.001
+    4300000: crate.022
+    4300002: crate.021
+    4300004: pressure plate.001
+    4300006: crate.020
+    4300008: crate.019
+    4300010: crate.018
+    4300012: crate.017
+    4300014: crate.016
+    4300016: crate.015
+    4300018: crate.014
+    4300020: crate.013
+    4300022: crate.012
+    4300024: crate.011
+    4300026: crate.010
+    4300028: crate.009
+    4300030: crate.008
+    4300032: crate.007
+    4300034: crate.006
+    4300036: crate.004
+    4300038: crate.005
+    4300040: crate.002
+    4300042: crate.001
+    4300044: crate.000
+    4300046: crate.003
+    4300048: pressure plate
+    4300050: lab.002
+    4300052: gate
+    4300054: lab ceiling.001
+    4300056: lab floor
+    4300058: lab
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
