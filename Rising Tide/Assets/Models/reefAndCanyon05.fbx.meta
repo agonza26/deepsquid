@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: aab060186bb49ca489211e01bbab4c84
+timeCreated: 1457423762
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: canyon.042_MeshPart0
+    100002: canyon.042_MeshPart1
+    100004: canyon.042_MeshPart10
+    100006: canyon.042_MeshPart11
+    100008: canyon.042_MeshPart12
+    100010: canyon.042_MeshPart13
+    100012: canyon.042_MeshPart14
+    100014: canyon.042_MeshPart15
+    100016: canyon.042_MeshPart16
+    100018: canyon.042_MeshPart2
+    100020: canyon.042_MeshPart3
+    100022: canyon.042_MeshPart4
+    100024: canyon.042_MeshPart5
+    100026: canyon.042_MeshPart6
+    100028: canyon.042_MeshPart7
+    100030: canyon.042_MeshPart8
+    100032: canyon.042_MeshPart9
+    100034: //RootNode
+    400000: canyon.042_MeshPart0
+    400002: canyon.042_MeshPart1
+    400004: canyon.042_MeshPart10
+    400006: canyon.042_MeshPart11
+    400008: canyon.042_MeshPart12
+    400010: canyon.042_MeshPart13
+    400012: canyon.042_MeshPart14
+    400014: canyon.042_MeshPart15
+    400016: canyon.042_MeshPart16
+    400018: canyon.042_MeshPart2
+    400020: canyon.042_MeshPart3
+    400022: canyon.042_MeshPart4
+    400024: canyon.042_MeshPart5
+    400026: canyon.042_MeshPart6
+    400028: canyon.042_MeshPart7
+    400030: canyon.042_MeshPart8
+    400032: canyon.042_MeshPart9
+    400034: //RootNode
+    2300000: canyon.042_MeshPart0
+    2300002: canyon.042_MeshPart1
+    2300004: canyon.042_MeshPart2
+    2300006: canyon.042_MeshPart3
+    2300008: canyon.042_MeshPart4
+    2300010: canyon.042_MeshPart5
+    3300000: canyon.042_MeshPart0
+    3300002: canyon.042_MeshPart1
+    3300004: canyon.042_MeshPart2
+    3300006: canyon.042_MeshPart3
+    3300008: canyon.042_MeshPart4
+    3300010: canyon.042_MeshPart5
+    4300000: canyon.042_MeshPart0
+    4300002: canyon.042_MeshPart1
+    4300004: canyon.042_MeshPart2
+    4300006: canyon.042_MeshPart3
+    4300008: canyon.042_MeshPart4
+    4300010: canyon.042_MeshPart5
+    4300012: canyon.042_MeshPart6
+    4300014: canyon.042_MeshPart7
+    4300016: canyon.042_MeshPart8
+    4300018: canyon.042_MeshPart9
+    4300020: canyon.042_MeshPart10
+    4300022: canyon.042_MeshPart11
+    4300024: canyon.042_MeshPart12
+    4300026: canyon.042_MeshPart13
+    4300028: canyon.042_MeshPart14
+    4300030: canyon.042_MeshPart15
+    4300032: canyon.042_MeshPart16
+    9500000: //RootNode
+    13700000: canyon.042_MeshPart0
+    13700002: canyon.042_MeshPart1
+    13700004: canyon.042_MeshPart10
+    13700006: canyon.042_MeshPart11
+    13700008: canyon.042_MeshPart12
+    13700010: canyon.042_MeshPart13
+    13700012: canyon.042_MeshPart14
+    13700014: canyon.042_MeshPart15
+    13700016: canyon.042_MeshPart16
+    13700018: canyon.042_MeshPart2
+    13700020: canyon.042_MeshPart3
+    13700022: canyon.042_MeshPart4
+    13700024: canyon.042_MeshPart5
+    13700026: canyon.042_MeshPart6
+    13700028: canyon.042_MeshPart7
+    13700030: canyon.042_MeshPart8
+    13700032: canyon.042_MeshPart9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
