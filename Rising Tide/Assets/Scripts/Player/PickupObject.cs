@@ -85,7 +85,7 @@ public class PickupObject : MonoBehaviour
             //put the object below player, move sorta smoothly with Lerp
             float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-10;
             o.transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
             o.transform.rotation = playerZRot; //stop picked up object from rotating independently
         }
