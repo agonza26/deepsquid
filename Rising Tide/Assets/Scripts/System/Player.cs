@@ -9,13 +9,12 @@ public class Player : MonoBehaviour {
 	private float playerHealthCurr;
 	public Slider healthBar;
 	public Color flashColor = new Color (1f,0f,0f,0.1f);
-	public Image hideBar;	
 	public Image DamageIndicator;
 	public float flashSpeed = 5f;
+	bool showingUI = true;
+
 
 	public CanvasGroup uiCanvas;
-	
-	//bool damaged;
 
 	bool isAlive;
 	
@@ -24,36 +23,39 @@ public class Player : MonoBehaviour {
 		//Set initial health of player;
 		//player = GameObject.FindGameObjectWithTag("Player");
 		playerHealthTotal = player.GetComponent<Player_stats>().PlayerHealthMax;
-	
 		isAlive = true;
-		StartCoroutine(hideUI());
+		//StartCoroutine (hideUI ());
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-	
-		
-		if(Input.GetKeyUp("x"))
-		{
-			player.GetComponent<Player_stats>().playerDamage(1f);
-			//damage = true;
+		if (Input.GetKeyDown (KeyCode.Tab)) {
+			if (showingUI == false) {
+				showUI ();
+				showingUI = true;
+			} else {
+				hideUI ();
+				showingUI = false;
+			}
+
+
+			//break;
 		}
+		
+
 		
 		playerHealthCurr = player.GetComponent<Player_stats>().PlayerCurrHealth;
-		healthBar.value = playerHealthCurr;
-		
-		if(playerHealthCurr <= 0f  && isAlive)
-		{
-			hideBar.color = Color.Lerp(Color.clear, Color.black, playerHealthCurr/playerHealthTotal);
-		}
+		//healthBar.value = playerHealthCurr;
+
 		
 		if (player.GetComponent<Player_stats>().PlayerDmged)
 		{
 			DamageIndicator.color = flashColor;
-			showUI();
-			StartCoroutine(hideUI());
+			//showUI();
+			//StartCoroutine(hideUI());
 		}
 		else
 		{
@@ -61,38 +63,34 @@ public class Player : MonoBehaviour {
 		}
 		
 		player.GetComponent<Player_stats>().PlayerDmged = false;
-		
-		
-		
 
 	}
 
-	/*test if UI updates when taking damage, right now just
-	reduce health by one.*/
-	/*public void simulateDamage(float val){
-		damaged = true;
-		playerHealthCurr = player.GetComponent<Player_stats>().playerHealthCurr
-		playerHealthCurr -= val;
-		healthBar.value = playerHealthCurr;
-		if(playerHealthCurr <= 0f  && isAlive){
-			hideBar.color = Color.Lerp(Color.clear, Color.black, playerHealthCurr/playerHealthTotal);
-		}
-
-	}*/
-
-	
-	IEnumerator hideUI(){
-		uiCanvas.alpha = 255;
-		Debug.Log("Before Waiting 5 seconds");
-		yield return new WaitForSeconds(5);
-		while(uiCanvas.alpha > 0){
-			yield return new WaitForSeconds(0.05f);
-			//Debug.Log(uiCanvas.alpha);
-			uiCanvas.alpha -= 0.05f;
+	public void hideUI(){
+		
+			uiCanvas.alpha = 0;
+		/*
+			if (showingUI == true) {
+				
+				while (uiCanvas.alpha > 0) {
+					if (keyPressed) {
+						keyPressed = false;
+						break;
+					}
+					yield return new WaitForSeconds (0.05f);
+					uiCanvas.alpha -= 0.05f;
+					if (uiCanvas.alpha >= 0.05) {
+						showingUI = false;
+					}
 			
-		}
+				}
+			} else {
+				yield return null;
+			}*/
+
 	}
 	public void showUI(){
+		//showingUI = true;
 		uiCanvas.alpha = 255;
 	}
 	

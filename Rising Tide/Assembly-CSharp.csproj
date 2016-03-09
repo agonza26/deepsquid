@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Player\PickupObject.cs" />
      <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
      <Compile Include="Assets\Scripts\Player\Player_stats.cs" />
+     <Compile Include="Assets\Scripts\Player\improved_movement.cs" />
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Scripts\System\AbilityProcurement.cs" />

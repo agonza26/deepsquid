@@ -2,25 +2,21 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class Player_stats : MonoBehaviour {
 	
 	public float PlayerHealthMax = 10f;
 	public float PlayerOverhealthMax;
+
 	public float PlayerCurrHealth;
     public float restartDelay = 5f;
 	public bool PlayerDmged;
 	public float PlayerDmgOutput = 30f;
+	public Image healthBar;
 	private Color lowAlph;
 	private Color normalAlph;
 
-    //private Animator anim;
-    //float restartTimer;
-
-    /*void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }*/
 
     // Use this for initialization
     void Start () {
@@ -32,41 +28,33 @@ public class Player_stats : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		healthBar.fillAmount = PlayerCurrHealth / PlayerHealthMax;
 	
-	if (PlayerCurrHealth <= 0)
-        {
-			GetComponent<simple_movement>().toggleDeathState();
-			GetComponent<Abilities>().toggleDeathState();
-            /*if (gameObject.CompareTag("Player"))
-            {
-                Destroy(gameObject);
-                Debug.Log("player dead");
-                SceneManager.LoadScene("Backup");
-            }
-            anim.SetTrigger("GameOver");
-            restartTimer += Time.deltaTime;
+		if (PlayerCurrHealth <= 0) {
+			GetComponent<improved_movement> ().toggleDeathState ();
 
-            if(restartTimer >= restartDelay)
-            {
-                SceneManager.LoadScene("Backup");
-            }*/
-        }
-	
-	}
+			/*if (gameObject.CompareTag("Player"))
+		            {
+		                Destroy(gameObject);
+		                Debug.Log("player dead");
+		                SceneManager.LoadScene("Backup");
+		            }
+		            anim.SetTrigger("GameOver");
+		            restartTimer += Time.deltaTime;
 
-
-	void OnCollisionEnter(Collision other) {
-		GameObject item = other.gameObject;
-
-		Debug.Log (item.tag);
-
-		if (item.tag == "Enemy") {
-			if (item.GetComponent<BasicEnemy> ().state != "patrol") {
-				playerDamage (1f);
-				item.GetComponent<BasicEnemy> ().state = "recharge";
-
+		            if(restartTimer >= restartDelay)
+		            {
+		                SceneManager.LoadScene("Backup");
+		            }*/
+		} else {
+			if(Input.GetKeyUp("x"))
+			{
+				playerDamage(1f);
 			}
 		}
+			
+			
+
 
 	}
 

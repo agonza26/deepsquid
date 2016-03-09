@@ -48,7 +48,6 @@ public class simple_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		isDead = false;
         CameraTarg = transform.GetChild(0);
 		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 	}

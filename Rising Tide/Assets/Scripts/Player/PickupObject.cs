@@ -23,10 +23,8 @@ public class PickupObject : MonoBehaviour
     bool canThrow;
 	
 	public ParticleSystem blood;
-
+	public bool[] abilities;
     public GameObject player;
-	public GameObject speedObject;
-	public GameObject inkObject;
     public float playerSize = 2.0f;
     public float distance = 1.5f; //offset between carried object and player
     public float smooth = 20f; //smooth carrying movement
@@ -44,28 +42,27 @@ public class PickupObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		abilities = GetComponent<Abilities> ().abilities;
 		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
 		blood.enableEmission = true;
 		*/
         if (carrying)
         {
-			if (carriedObject.tag == "Enemy") {
-				carriedObject.GetComponent<EnemyHealth> ().enemyTakeDmg (GetComponent<Player_stats> ().giveDmg () * 8f * Time.deltaTime);
+			if(carriedObject.tag == "Enemy")
+			{
+				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
 				
-				if (carriedObject.GetComponent<EnemyHealth> ().enemyHealthCurr <= 0) {
-					Debug.Log ("playing blood particle system...");
+				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
+				{
+					Debug.Log("playing blood particle system...");
 					carrying = false;
-					blood.Play ();
-					dropObject ();
+					blood.Play();
+					dropObject();
 				}
-			} else if (carriedObject.tag == "box") {
 			}
-				
-			if(carrying){
+			if(carrying)
 				carry(carriedObject);
-				//o.GetComponent<Collider> ().disabled;
-            	checkDrop();
-			}
+            checkDrop();
         }
         else
         {
@@ -85,8 +82,8 @@ public class PickupObject : MonoBehaviour
             //put the object below player, move sorta smoothly with Lerp
             float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-10;
-            o.transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
+            o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
             o.transform.rotation = playerZRot; //stop picked up object from rotating independently
         }
 
@@ -133,17 +130,19 @@ public class PickupObject : MonoBehaviour
 					//Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
                     carrying = true;
                     carriedObject = p.gameObject;
-					if (p.gameObject == speedObject) {
-						speedObject.tag = "AbilitySpeed";
-					}
+					if (p.gameObject.tag == "AbilitySpeed") {
+						Destroy(p.gameObject);
+						//speedAbilityObject.SetActive(false);
+						abilities [0] = true;
+						//player.GetComponentInParent<Abilities> ().SetAbilityArray (0);
+						carrying = false;
+					}/*
 					if (p.gameObject == inkObject) {
-						inkObject.tag = "AbilityInk";
-					}
+						//inkObject.tag = "AbilityInk";
+					}*/
                     //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
                     //gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
                     objectSize = p.size;
-					Debug.Log ("size:" + objectSize);
-					Debug.Log ("player:" + playerSize);
                 }
             }
         }

@@ -3,108 +3,159 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Abilities : MonoBehaviour {
-	public bool procured;
 
 	public ParticleSystem Ink;
 	public Transform playerPos;
 
-	//if its true, that means its on CD and cannot be used, if false then usable.
-	Color camoColor = new Color(0.0f, 0.0f, 0.0f, 0.1f);
-	Color nonCamoColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
-	Color lerpedCamo;
-	//Enemy
-	public simple_movement inkCharge;
-	//public GameObject inkAbilityObject;
-	//public GameObject speedAbilityObject;
-	public GameObject testObject;
 	//public Abilities abilities;
-	public bool inkCloudCD = false;
-	public float inkCD = 5.0f;
-	public float inkCDTimer = 0f;
 	public float abilitySpeedVal = 1f;
-    public bool[] abilities;
+	public float maxStamina = 200;
+	public float currStamina = 200;
+	public Image staminaBar;
+	//0 = speed
+	//1 = ink
+	//2 = emp
+	//3 = current
+	public bool[] abilities = new bool[4] {false, true, false, false};
+	public bool[] activeAbils = new bool[4]{false, false, false, false};
+	//ink is red
+	//speed is blue
+	//emp is purple
+	//current is yellow
+	public Image activeIcon;
+	public Image speedIcon;
+	public Image inkIcon;
+	public Image currentIcon;
+	public Image empIcon;
 
-	bool isDead;
-	
 	// Use this for initialization
 	void Start () {
-		camoColor.a = 0.1f;
-		nonCamoColor = GetComponent<Renderer>().material.color;
-		nonCamoColor.a = 1f;
-		isDead = false;
-	
+		speedIcon.enabled = false;
+		currentIcon.enabled = false;
+		empIcon.enabled = false;
+		inkIcon.enabled = true;
+		activeIcon.enabled = false;
+		StartCoroutine(replenishStam());
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if (!GetComponent<improved_movement> ().isDead) {
 
-		if(!isDead)
-		{
-			abilities = testObject.GetComponent<AbilityProcurement> ().abilities;
-			Debug.Log("in abilities: " + abilities[0] + ", " + abilities[1]);
-			//Controls inking when space is pressed and within the time CD
-
-			if (Input.GetKeyDown ("1") && Time.time > inkCDTimer && abilities[1] == true) {
-				//Debug.Log ("This is not happening");
-				inkCDTimer = Time.time + inkCD;
-				inkCharge = GetComponent<simple_movement>();
-				StartCoroutine(inkCharge.inkJump());
-				newInk ();
-
-			}  else {
+			staminaBar.fillAmount = currStamina / maxStamina;
+			setActiveAbility ();
+	
+			if (abilities [1] == true) {
+			
+				inkIcon.enabled = true;
+				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [1] == true) {
+					StartCoroutine (depleteStam (5f));
+					newInk ();
+				} else {
+					Ink.Stop ();
+				}
+			} else {
 			}
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
-			if (Input.GetKey (KeyCode.LeftShift) && abilities[0] == true) {
-				abilitySpeedVal = 3f;
-			} else {
-				abilitySpeedVal = 1f;
+			if (abilities [0] == true) {
+				speedIcon.enabled = true;
+				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true) {
+					abilitySpeedVal = 3f;
+					StartCoroutine (depleteStam (3f));
+				} else {
+					abilitySpeedVal = 1f;
+				}
+
 			}
+
 		}
 	}
-	
-	void OnParticleCollision(GameObject other){
-		Debug.Log("Object has been hit by ink");
 
+	void setActiveAbility(){
+		//speed
+		if (Input.GetKeyDown ("2")) {
+			if (abilities [0] == true) {
+				activeIcon.enabled = true;
+				for (int i = 0; i < 4; i++) {
+					activeAbils [i] = false;
+				}
+				activeAbils [0] = true;
+				activeIcon.sprite = speedIcon.sprite;
+				activeIcon.color = speedIcon.color;
+			}
+		}
+		//ink
+		else if (Input.GetKeyDown ("1")) {
+
+			if (abilities [1] == true) {
+				activeIcon.enabled = true;
+				for (int i = 0; i < 4; i++) {
+					activeAbils [i] = false;
+				}
+				activeAbils [1] = true;
+				activeIcon.sprite = inkIcon.sprite;
+				activeIcon.color = inkIcon.color;
+			}
+		}
+		//emp
+		else if (Input.GetKeyDown ("3")) {
+			if (abilities [2] == true) {
+				activeIcon.enabled = true;
+				for (int i = 0; i < 4; i++) {
+					activeAbils [i] = false;
+				}
+				activeAbils [2] = true;
+				activeIcon.sprite = currentIcon.sprite;
+				activeIcon.color = currentIcon.color;
+			}
+		}
+		//current
+		else if (Input.GetKeyDown ("4")) {
+			if (abilities [3] == true) {
+				activeIcon.enabled = true;
+				for (int i = 0; i < 4; i++) {
+					activeAbils [i] = false;
+				}
+				activeAbils [3] = true;
+				activeIcon.sprite = empIcon.sprite;
+				activeIcon.color = empIcon.color;
+			}
+		} else {
+		}
 	}
-
 
 	//Inking 
 	void newInk(){
-
-		Ink.transform.position = playerPos.transform.position;
-
-		ParticleSystem.SizeOverLifetimeModule sz = Ink.sizeOverLifetime;
-		sz.enabled = true;
-		Ink.Play ();
+		Ink.transform.position = playerPos.transform.position - playerPos.transform.forward * 5f;
+		Ink.transform.rotation = playerPos.transform.rotation;
+		Quaternion inkRotation = Ink.transform.rotation;
+		Ink.Play();
 	}
-	//Camoflouage
-	void camo(){
-		lerpedCamo = Color.Lerp (nonCamoColor, camoColor, 5f);
-		GetComponent<Renderer>().material.SetColor("_Color", lerpedCamo);
 
+	//Coroutine to wait x amount of time
+	IEnumerator replenishStam(){
+		while (true) {
+			if (currStamina < maxStamina) {
+				currStamina = currStamina + 5;
+				yield return new WaitForSeconds (2f);
+			} else {
+				yield return null;
+			}
+		}
 	}
-	//Camoflouage
-	void unCamo(){
-		//camoColor.a = 0.1f;
-		//nonCamoColor.a = 1.0f;
-		lerpedCamo = Color.Lerp (camoColor, nonCamoColor, 5f);
-		GetComponent<Renderer>().material.SetColor("_Color", lerpedCamo);
-
-	}
-	IEnumerator camouflage(Color alphaVal, float alphaTime){
-		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / alphaTime) {
-			Color newCamoVal = GetComponent<Renderer> ().material.color;
-			lerpedCamo = Color.Lerp (newCamoVal, alphaVal, i);
-			GetComponent<Renderer>().material.SetColor("_Color", lerpedCamo);
-			yield return null;
+	IEnumerator depleteStam(float cost){
+		
+		yield return new WaitForSeconds(0.1f);
+		if (currStamina < 0) {
+		} else {
+			currStamina = currStamina - cost;
 		}
 	}
 
-	public void toggleDeathState()
-	{
-		isDead = true;
-		Debug.Log("Abilities isDead = " + isDead);
-	}
+
+
+
 
 }
 

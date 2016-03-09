@@ -42,7 +42,7 @@ public class tentacleAnimator : MonoBehaviour
 		}
 
         //right click to start swim animation, and again to exit swim animation
-        if (GetComponentInParent<simple_movement>().acc > 0)//Input.GetMouseButtonDown(1)) //0 left click, 1 right click, 2 middlle click
+        if (GetComponentInParent<improved_movement>().acc > 0)//Input.GetMouseButtonDown(1)) //0 left click, 1 right click, 2 middlle click
         {
             //if (!anim.GetBool("swimming"))
             //{  //start swimming
@@ -54,7 +54,7 @@ public class tentacleAnimator : MonoBehaviour
             //}
 
         }
-		else if(GetComponentInParent<simple_movement>().acc <= 0)
+		else if(GetComponentInParent<improved_movement>().acc <= 0)
 		{
 			anim.SetBool("swimming", false);
 		}
