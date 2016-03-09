@@ -43,6 +43,7 @@ public class BoidFlocking : MonoBehaviour
 			}
 
 			float waitTime = Random.Range(0.3f, 0.5f);
+			transform.forward = GetComponent<Rigidbody>().velocity;
 			yield return new WaitForSeconds (waitTime);
 
 		}
