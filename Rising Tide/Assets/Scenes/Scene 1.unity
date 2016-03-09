@@ -4318,6 +4318,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &171033651
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1672371410}
+    m_Modifications:
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -28.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 99.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 164.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 430506, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11909264, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_IgnoreLayers.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11909264, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_Orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11909264, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_OrthographicSize
+      value: -18.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 11909264, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7d434b492d2a08d49b698de4a7ef0710, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &172148118
 GameObject:
   m_ObjectHideFlags: 0
@@ -25810,7 +25868,7 @@ Terrain:
   m_GameObject: {fileID: 1351727640}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 378aadca8ea64ba41b1883461754764e, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 643ca6c840a788141bfa4c46520797f6, type: 2}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -32045,7 +32103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: aab060186bb49ca489211e01bbab4c84, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 13700020, guid: aab060186bb49ca489211e01bbab4c84, type: 3}
       propertyPath: m_AABB.m_Center.x
