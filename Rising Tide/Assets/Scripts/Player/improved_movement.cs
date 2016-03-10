@@ -36,10 +36,8 @@ public class improved_movement : MonoBehaviour {
 
 	private float xSpeed = 120.0f;
 	private float ySpeed = 120.0f;
-	private float yMinLimit = -80f;
-	private float yMaxLimit = 80f;
+
 	private float distance = 5.0f;
-	private float camRotMult = 200f;
 	private float carryingSpeed = 1f;
 
 	public float distMag = 10f;
@@ -53,7 +51,7 @@ public class improved_movement : MonoBehaviour {
 	private Rigidbody rb;
 
 
-
+	bool sqid = false;
 
 
 	// Use this for initialization
@@ -71,6 +69,20 @@ public class improved_movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		Debug.Log (Cursor.lockState);
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			if (!sqid){
+				Cursor.lockState = CursorLockMode.Locked;
+			}else {
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+			}
+
+			sqid = !sqid;
+
+		}
+
+
 		if (!isDead) {
 			currStamina = GetComponent<Abilities> ().currStamina;
 			activeAbilities = GetComponent<Abilities> ().activeAbils;
@@ -94,6 +106,12 @@ public class improved_movement : MonoBehaviour {
 			
 			//Movement controlling elevation
 			//Up
+
+			ctRot = CameraTarg.transform.rotation;
+			transform.rotation = ctRot;
+
+
+
 			if (Input.GetKey ("r")) {
 
 			} 
@@ -105,8 +123,7 @@ public class improved_movement : MonoBehaviour {
 			//Moving forwards
 
 			if (Input.GetKey ("w") && !Input.GetKey ("s")) { 
-				ctRot = CameraTarg.transform.rotation;
-				transform.rotation = ctRot;
+				
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
 
 				if (activeAbilities [1] == true) {
@@ -146,8 +163,7 @@ public class improved_movement : MonoBehaviour {
 		//Moving backwards
 		else if (Input.GetKey ("s") && !Input.GetKey ("w")) {
 
-				ctRot = CameraTarg.transform.rotation;
-				transform.rotation = ctRot;
+			
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
@@ -264,7 +280,6 @@ public class improved_movement : MonoBehaviour {
 			///Debug.Log (outsideFactor.magnitude);
 			if (outsideFactor.magnitude < 0.01f)
 				outsideFactor = Vector3.zero;
-
 		}
 	}
 
