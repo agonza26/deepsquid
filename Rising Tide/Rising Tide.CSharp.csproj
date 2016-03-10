@@ -92,10 +92,14 @@
     <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
     <Compile Include="Assets\Scripts\System\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\System\MuralPuzzleSwitchImage.cs" />
     <Compile Include="Assets\Scripts\System\NextLevelButton.cs" />
+    <Compile Include="Assets\Scripts\System\PedestalOrbDet.cs" />
     <Compile Include="Assets\Scripts\System\Player.cs" />
     <Compile Include="Assets\Scripts\System\Reload.cs" />
     <Compile Include="Assets\Scripts\System\TutorialObject.cs" />
+    <Compile Include="Assets\Scripts\System\inkGateObject.cs" />
+    <Compile Include="Assets\Scripts\System\inkObjectPuzzle.cs" />
     <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />
     <Compile Include="Assets\Scripts\test.cs" />
   </ItemGroup>
