@@ -26,7 +26,6 @@ public class tentacleAnimator : MonoBehaviour
         {
             //if (!anim.GetBool("grabbing"))
             //{ //start grabbing
-				anim.speed = 10f;
                 anim.SetBool("grabbing", true);
             //}
             //else if (anim.GetBool("grabbing"))
