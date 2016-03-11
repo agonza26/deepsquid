@@ -5,7 +5,7 @@ public class inkObjectPuzzle : MonoBehaviour {
 
     public bool activated;
 	public bool hasAnOrb;
-    float timer = 100;
+    public float timer = 150;
     float countdown;
 	private GameObject proj;
 
@@ -34,9 +34,9 @@ public class inkObjectPuzzle : MonoBehaviour {
             }
             else if (countdown <= 0)
             {
-                activated = false;
-                countdown = timer;
+				activated = false;
 				GetComponentInChildren<MuralPuzzleSwitchImage> ().ChangeToInked (0);
+                countdown = timer;
                 //this.GetComponent<Renderer>().material = defaultMaterial;
             }
         }
@@ -60,7 +60,7 @@ public class inkObjectPuzzle : MonoBehaviour {
     {
         if (other.tag == "AbilityInk")
         {
-            if (!activated) activated = true;
+            activated = true;
         }
     }
 }

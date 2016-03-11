@@ -6,6 +6,8 @@ public class Abilities : MonoBehaviour {
 
 	public ParticleSystem Ink;
 	public Transform playerPos;
+	public AudioSource ad;
+	public ParticleSystem boostPS;
 
 	//public Abilities abilities;
 	public float abilitySpeedVal = 1f;
@@ -63,9 +65,16 @@ public class Abilities : MonoBehaviour {
 				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true) {
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
+					if(Input.GetKeyDown("space"))
+					{
+					ad.Play();
+					bubblesBoost();
+					}
+					
 				} else {
 					abilitySpeedVal = 1f;
 				}
+				
 
 			}
 
@@ -131,6 +140,15 @@ public class Abilities : MonoBehaviour {
 		Ink.transform.rotation = playerPos.transform.rotation;
 		Quaternion inkRotation = Ink.transform.rotation;
 		Ink.Play();
+	}
+	
+	void bubblesBoost()
+	{
+		boostPS.transform.position = playerPos.transform.position + playerPos.transform.forward * 5f;
+		boostPS.transform.rotation = playerPos.transform.rotation;
+		//boostPS.transform.forward *= -1f;
+		//Quaternion inkRotation = Ink.transform.rotation;
+		boostPS.Emit(20);
 	}
 
 	//Coroutine to wait x amount of time

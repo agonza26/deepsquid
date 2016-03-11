@@ -32,7 +32,7 @@ public class PickupObject : MonoBehaviour
 	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
-
+	public AudioSource grabSound;
 
 
 
@@ -89,7 +89,9 @@ public class PickupObject : MonoBehaviour
 				{
 					Debug.Log("playing blood particle system...");
 					carrying = false;
-					blood.Play();
+					blood.transform.position = player.transform.position;
+					blood.transform.forward = player.transform.forward;
+					blood.Emit(20);
 					dropObject();
 				}
 			}
@@ -128,7 +130,7 @@ public class PickupObject : MonoBehaviour
 				
 				if (p != null)
 				{
-					
+					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
 					
 					carriedObject = p.gameObject; //set our carried object to

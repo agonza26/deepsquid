@@ -16,14 +16,16 @@ public class MuralPuzzleSwitchImage : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	/*void FixedUpdate () 
 	{
 		projector.material.SetTexture ("_ShadowTex", frames [frameIndex]);
-	}
+	}*/
 
 	public void ChangeToInked(int newInd)
 	{
 		frameIndex = newInd;
+		Debug.Log ("In MuralPuzzleSwitchImage: ChangeToInked has been called, passing in " + newInd);
+		projector.material.SetTexture ("_ShadowTex", frames [frameIndex]);
 	}
 
 }

@@ -16,6 +16,16 @@ public class inkGateObject : MonoBehaviour {
     public Transform target;
     public Transform defaultPos;
     public float speed;
+	public float playPartFor;
+	float count;
+
+	public ParticleSystem g1;
+	public ParticleSystem g2;
+	public ParticleSystem g3;
+	public ParticleSystem g4;
+	public ParticleSystem g5;
+	public ParticleSystem g6;
+	public ParticleSystem g7;
 
     //public GameObject inkObject;
 
@@ -37,11 +47,24 @@ public class inkGateObject : MonoBehaviour {
 		if(Acomp && Bcomp && Ccomp && Dcomp)
 		{
 			isActive = true;
+			if (count < playPartFor) 
+			{
+				g1.Emit(15);
+				g2.Emit(15);
+				g3.Emit(15);
+				g4.Emit(15);
+				g5.Emit(15);
+				g6.Emit(15);
+				g7.Emit (15);
+				count++;
+			}
+
 		}
         if (isActive)
         {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
         }
         /*else 
         {
