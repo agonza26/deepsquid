@@ -39,6 +39,7 @@ public class PedestalOrbDet : MonoBehaviour {
 				rb.isKinematic = true;
 				rb.useGravity = false;
 				hasAnOrb = true;
+				GetComponentInParent<inkObjectPuzzle>().toggleHasAnOrb();
 
 			}
 		}

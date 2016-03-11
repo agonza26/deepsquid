@@ -4,6 +4,7 @@ using System.Collections;
 public class inkObjectPuzzle : MonoBehaviour {
 
     public bool activated;
+	public bool hasAnOrb;
     float timer = 100;
     float countdown;
 	private GameObject proj;
@@ -48,6 +49,11 @@ public class inkObjectPuzzle : MonoBehaviour {
 
         }*/
 	
+	}
+	
+	public void toggleHasAnOrb()
+	{
+		hasAnOrb = true;
 	}
 
     void OnParticleCollision(GameObject other)
