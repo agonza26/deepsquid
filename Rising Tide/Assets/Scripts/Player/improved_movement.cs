@@ -8,8 +8,6 @@ public class improved_movement : MonoBehaviour {
 	float x = 0.0f;
 	float y = 0.0f;
 
-
-
 	public float playerSpeed = 12.5f;
 	public float distanceMin = .5f;
 	public float distanceMax = 15f;
@@ -25,17 +23,17 @@ public class improved_movement : MonoBehaviour {
 
 	private float accCount = 0.025f;
 	public float acc = 0.0f;
-	private float accMax = 1f;
+	private float accMax = 2f;
 	private float coast = 0.1f;
 
 	private float deccCount = 0.025f;
-	private float deccMax = -1f;
+	private float deccMax = -1.5f;
 	private float coastD = 0.1f;
 	public bool[] activeAbilities;
 	public bool isDead = false;
 
-	private float xSpeed = 120.0f;
-	private float ySpeed = 120.0f;
+	private float xSpeed = 11.0f;
+	private float ySpeed = 11.0f;
 
 	private float distance = 5.0f;
 	private float carryingSpeed = 1f;
@@ -69,8 +67,7 @@ public class improved_movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Debug.Log (Cursor.lockState);
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+		if (Input.GetKeyUp (KeyCode.UpArrow)) {
 			if (!sqid){
 				Cursor.lockState = CursorLockMode.Locked;
 			}else {
@@ -86,29 +83,31 @@ public class improved_movement : MonoBehaviour {
 		if (!isDead) {
 			currStamina = GetComponent<Abilities> ().currStamina;
 			activeAbilities = GetComponent<Abilities> ().activeAbils;
-			Debug.Log (activeAbilities [1]);
+			//Debug.Log (activeAbilities [1]);
 			rb.velocity = Vector3.zero;
 			abilitySpeed = GetComponent<Abilities> ().abilitySpeedVal;
 			x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
-			if (y >= -90) {
+			if (y >= -85.6) {
 				y -= Input.GetAxis ("Mouse Y") * ySpeed * distance * 0.0025f;
 			} else {
-				y = -89.5f;
+				y = -85.5f;
 			}
-			if (y <= 90) {
+			if (y <= 85.6) {
 				y -= Input.GetAxis ("Mouse Y") * ySpeed * distance * 0.0025f;
 			} else {
-				y = 89.5f;
+				y = 85.5f;
 			}
 
 			Quaternion rotation = Quaternion.Euler (y, x, 0);
 			CameraTarg.rotation = rotation;
 			
-			//Movement controlling elevation
-			//Up
-
+		
 			ctRot = CameraTarg.transform.rotation;
+			//if (!GetComponent<PickupObject>.parented) {
 			transform.rotation = ctRot;
+			transform.forward *= -1;
+			//}
+
 
 
 
@@ -122,6 +121,9 @@ public class improved_movement : MonoBehaviour {
 			//Movement forward and backward
 			//Moving forwards
 
+
+
+
 			if (Input.GetKey ("w") && !Input.GetKey ("s")) { 
 				
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
@@ -129,7 +131,7 @@ public class improved_movement : MonoBehaviour {
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 					
-						inkAccBoost = -2f;
+						inkAccBoost = -3f;
 						if (acc < accMax) {
 							acc += accCount;
 							accCount += 0.005f;
@@ -167,7 +169,7 @@ public class improved_movement : MonoBehaviour {
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
-						inkAccBoost = 2f;
+						inkAccBoost = 3f;
 						if (acc > deccMax) {
 							acc -= deccCount;
 							deccCount += 0.005f;
@@ -188,6 +190,7 @@ public class improved_movement : MonoBehaviour {
 					}
 
 				} else {
+					
 					inkAccBoost = 1f;
 					if (acc > deccMax) {
 						acc -= deccCount;
@@ -203,8 +206,7 @@ public class improved_movement : MonoBehaviour {
 			} else if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 				ctRot = CameraTarg.transform.rotation;
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-				inkAccBoost = 2f;
-
+				inkAccBoost = 3f;
 				if (acc > deccMax) {
 					acc -= deccCount;
 					deccCount += 0.005f;
@@ -213,16 +215,17 @@ public class improved_movement : MonoBehaviour {
 					}
 				}
 			} else {
-				Debug.Log ("Starting to slow down");
+				
 				inkAccBoost = 1f;
 				accCount = 0.025f;
 				deccCount = 0.025f;
 				//decrease spead to 0 naturally
 				if ((acc >= 0)) {
-					Debug.Log ("acc >= 0");
+					
+					
 					acc -= coast;
 
-					if (coast > 0.01) {
+					if (coast > 0.02) {
 						coast -= 0.01f;
 					}
 
@@ -232,10 +235,10 @@ public class improved_movement : MonoBehaviour {
 					}
 
 				} else {
-					Debug.Log ("acc <= 0");
+					
 					acc += coastD;
 
-					if (coastD > 0.01) {
+					if (coastD > 0.02) {
 						coastD -= 0.01f;
 					}
 
@@ -266,6 +269,8 @@ public class improved_movement : MonoBehaviour {
 
 			//float directionFlip = -1f;
 			vel = vel * Time.deltaTime * abilitySpeed * inkAccBoost * carryingSpeed;
+
+			//if(!GetComponent<PickupObject>().parented){
 			if (acc != 0) {
 				movement = vel * acc + transform.position;
 				rb.MovePosition (movement);
@@ -274,14 +279,22 @@ public class improved_movement : MonoBehaviour {
 				rb.MovePosition (movement);
 			}
 
+			//}
 
-			//transform.Translate (vel * acc * inkAccBoost * carryingSpeed);
 			outsideFactor *= 0.5f;
 			///Debug.Log (outsideFactor.magnitude);
 			if (outsideFactor.magnitude < 0.01f)
 				outsideFactor = Vector3.zero;
 		}
 	}
+
+
+
+	public Vector3 getMovement(){
+		return movement;
+	}
+
+
 
 	public static float ClampAngle(float angle, float min, float max)
 	{
@@ -295,7 +308,7 @@ public class improved_movement : MonoBehaviour {
 	public void toggleDeathState()
 	{
 		isDead = true;
-		Debug.Log("Simple Movement isDead " + isDead);
+	
 	}
 	
 	//Coroutine to wait x amount of time
