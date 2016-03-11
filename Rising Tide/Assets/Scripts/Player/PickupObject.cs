@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /*
 press 'e' to grab an object, press 'e' again to release it
@@ -13,41 +14,73 @@ put the player model object on layer "Ignore Raycast" or it will get in the way
 */
 
 public class PickupObject : MonoBehaviour
+
+
 {
-
-    GameObject mainCamera;
-    public bool carrying = false;
-    GameObject carriedObject;
-    float objectSize;
-    bool parented = false;
-    bool canThrow;
 	
+    
+   
+    public float objectSize;
+    public bool parented = false;
+    public bool canThrow;
 	public ParticleSystem blood;
-	public bool[] abilities;
-    public GameObject player;
     public float playerSize = 2.0f;
-    public float distance = 1.5f; //offset between carried object and player
-    public float smooth = 20f; //smooth carrying movement
+    
+
+
+	public float distance = 1.5f; //offset between carried object and player
+	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
-    private Quaternion playerZRot;
-    //public float rayDistance; //how far away an object can be picked up from
+	public bool carrying = false; //must be public for improved movement;
 
-    // Use this for initialization
-    void Start()
-    {
-        mainCamera = GameObject.FindWithTag("MainCamera");
 
-    }
 
-    // Update is called once per frame
+
+
+	private Quaternion playerZRot;
+
+
+	private bool grabbableInRange = false;
+	private Collider InRangeItemSaver;
+	private GameObject carriedObject;
+	private GameObject player;
+
+   
+	void Start(){
+		player = GameObject.FindGameObjectWithTag ("Player");
+
+
+	}
+
+
     void Update()
-    {
-		abilities = GetComponent<Abilities> ().abilities;
+	{
 		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
 		blood.enableEmission = true;
 		*/
-        if (carrying)
-        {
+
+
+		if (!carrying) {
+			if(Input.GetKey (KeyCode.Mouse0))
+				pickup ();
+		} else {
+			if (Input.GetKeyDown(KeyCode.E))
+				dropObject();
+			else if (Input.GetKeyDown(KeyCode.Q))
+			{
+				if (canThrow)
+				{
+					throwObject();
+				}
+			}
+
+
+		}
+
+
+
+		if (carrying){
+			
 			if(carriedObject.tag == "Enemy")
 			{
 				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
@@ -60,111 +93,131 @@ public class PickupObject : MonoBehaviour
 					dropObject();
 				}
 			}
+
+
+
+
+
 			if(carrying)
 				carry(carriedObject);
-            checkDrop();
-        }
-        else
-        {
-            pickup();
-        }
+            
 
+
+
+
+
+
+
+        }
     }
+
+
+
+
+
+
+
+
+	//done changing
+	void pickup()
+	{
+
+			if (grabbableInRange)
+			{
+				Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
+				
+				if (p != null)
+				{
+					
+					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
+					
+					carriedObject = p.gameObject; //set our carried object to
+					objectSize = p.size;
+					grabbableInRange = false;
+
+					
+					parented = (playerSize < objectSize) && carrying;
+
+				}
+			}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     void carry(GameObject o)
     {
-        o.layer = 2; //put grabbed object on IgnoreRaycast layer (to avoid camera freakouts
 
-        if (playerSize > objectSize) //object is smaller than player
+
+        
+	
+		if (!parented) //object is smaller than player
         {
             canThrow = true;
-            o.GetComponent<Rigidbody>().useGravity = false;
-            //put the object below player, move sorta smoothly with Lerp
-            float d = (o.GetComponent<Collider>().bounds.size.z) * 0.2f;
             playerZRot = player.transform.rotation;
 			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
-            o.transform.localPosition = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
-            o.transform.rotation = playerZRot; //stop picked up object from rotating independently
+			//lerp doesn't work how we want it to, but i'm leaving the code for me to use later - alex
+           	//Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime );
+			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, playerZRot);
         }
-
         else //object is larger than player
         {
+
+
+
             canThrow = false; // get rid of this for super squid strength
-            if (!parented)
-            {
-                //position player alongside grabbed object
-                Vector3 objSize = (o.GetComponent<Collider>().bounds.size)/ 2f;
-                player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize, Time.deltaTime * smooth);
+			Vector3 objSize = (o.GetComponent<Collider>().bounds.size)/ 2f;
+			player.GetComponent<Rigidbody>().isKinematic = true; //without this it won't move with the parent
+			parented = true;
+			player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize, Time.deltaTime );
 
-                //make player child of grabbed object for movement and rotation
-                player.transform.parent = o.transform.GetChild(0); //emptyObject, child of grabbed one, to avoid distortion of player model
-                player.GetComponent<Rigidbody>().isKinematic = true; //without this it won't move with the parent
-                parented = true;
-                //o.layer = 2; //move grabbed ogject to IgnoreRaycast layer (to avoid camera freakouts)
 
-            }
-            Debug.Log("anchor to big object");
         }
     }
 
-    void pickup()
-    {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            //shoot ray from center of screen
-            int x = Screen.width / 2;
-            int y = Screen.height / 2;
 
-            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y)); //shoot ray from middle of screen 
-            RaycastHit hit;
-            Debug.DrawRay(ray.origin, ray.direction);
-            if (Physics.Raycast(ray, out hit))
-            //if (Physics.Raycast(ray, out hit, rayDistance))
-            {
-                Debug.Log(hit.transform.gameObject);
-                //if it hits something valid, pick it up
-                Pickupable p = hit.collider.GetComponent<Pickupable>(); 
-                if (p != null)
-                {
-                   // Debug.Log("that can be picked up");
-					//Debug.Log("the object carried is" + p.gameObject + "and its tag is: " + p.gameObject.tag);
-                    carrying = true;
-                    carriedObject = p.gameObject;
-					if (p.gameObject.tag == "AbilitySpeed") {
-						Destroy(p.gameObject);
-						//speedAbilityObject.SetActive(false);
-						abilities [0] = true;
-						//player.GetComponentInParent<Abilities> ().SetAbilityArray (0);
-						carrying = false;
-					}/*
-					if (p.gameObject == inkObject) {
-						//inkObject.tag = "AbilityInk";
-					}*/
-                    //p.gameObject.GetComponent<Rigidbody>().isKinematic = true; //not used //so that we can move the object around w/o it being affected by gravity, etc
-                    //gameObject.GetComponent<Rigidbody>().useGravity = false; //moved this line to carry function
-                    objectSize = p.size;
-                }
-            }
-        }
-    }
 
-    void checkDrop()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            dropObject();
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (canThrow)
-            {
-                throwObject();
-            }
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     void dropObject()
     {
+
+
         carrying = false;
         carriedObject.layer = 0; //return carried object to default layer
         if (parented)
@@ -174,18 +227,57 @@ public class PickupObject : MonoBehaviour
             player.GetComponent<Rigidbody>().isKinematic = false;            
             Debug.Log("releasing big object");
         }
-        //carriedObject.GetComponent<Rigidbody>().useGravity = true; //disabling for now
+        carriedObject.GetComponent<Rigidbody>().useGravity = true; //disabling for now
+		//carriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<improved_movement>().getMovement());
+		carriedObject.GetComponent<Rigidbody> ().drag = 1f;
         carriedObject = null;
     }
 
+
+
+
+
+
     void throwObject()
     {
-        //carrying = false;
-       
-        //carriedObject.GetComponent<Rigidbody>().useGravity = true;
-        carriedObject.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
-        dropObject();
-        //carriedObject = null;
+
+		if (canThrow) {
+			//carrying = false;
+			carrying = false;
+			carriedObject.GetComponent<Rigidbody> ().AddForce (transform.forward * -throwForce);
+			carriedObject.GetComponent<Rigidbody> ().useGravity = true;
+			carriedObject.layer = 0; //return carried object to default layer
+			carriedObject = null;
+
+		} else {
+			dropObject ();
+		}
     }
+
+
+
+
+
+
+
+
+	//leave alone, is working
+	void OnTriggerEnter(Collider c)
+	{
+		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
+		{
+			InRangeItemSaver = c;
+			grabbableInRange = true;
+		}
+
+
+	}
+
+	void OnTriggerExit(Collider c)
+	{
+		grabbableInRange = false;
+
+	}
+
 	
 }

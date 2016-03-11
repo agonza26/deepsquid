@@ -50,7 +50,10 @@ public class BasicEnemy : MonoBehaviour {
 	private Vector3 currentT;        // same as above, just vector
 	private LastPlayerSighting lPC; //used to get last player's sighting and reset valuable
 
-
+	public float outsideDec = 0f;
+	public bool waveAcc = true;
+	public Vector3 outsideFactor = Vector3.zero;
+	private Vector3 lastFactor = Vector3.zero;
 
 	void Start () {
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
@@ -82,6 +85,10 @@ public class BasicEnemy : MonoBehaviour {
 				seek ();
 				break;
 
+			case "grabbed":
+				grabbed ();
+				break;
+
 			case "recharge":
 				recharge ();
 				break;
@@ -91,8 +98,20 @@ public class BasicEnemy : MonoBehaviour {
 				patrol ();
 				break;
 		}
+		waveHandler ();
 
 	}
+
+
+	private void runAway(){
+
+
+
+	}
+
+	//start coroutine, after X seconds, go back to patrolling
+
+
 
 
 	void OnParticleCollision(GameObject other){
@@ -100,25 +119,72 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+	//returns true if escaped
+	//false if still being held
+	public bool struggle(){
+		if (state != "grabbed")
+			return true;
 
-		
-	void swim(){
-		float mag = 1f;//used for debugging when trying to spawn objects, used to project visually some direction of Vector 3 to the world
+		float theNum = Random.Range (0.00F, 1.00F);
+		print (theNum + "is the random number");
 
-
-
-		//where we would be going if we go straight
-		Vector3 currentHeading = new Vector3 (transform.position.x + (transform.forward * vel*mag).x, 
-			transform.position.y + (transform.forward * vel*mag).y, transform.position.z + (transform.forward * vel*mag).z);
-
-		//will adjust enemy's rotation within bounds
-		fixRotation (currentHeading, currentT);
-		rigBod.velocity = (transform.forward * vel );
+		return(theNum < 30);
 
 	}
 
 
-	void follow(){
+
+
+
+	private void grabbed(){
+		//message system to switch to another states
+		if (message != "none") {
+			switch (message) {
+				case "escape":
+					state = "patrol";
+					message = "none";
+					patrol();
+					break;
+			}
+		}
+
+
+
+		//basically do nothing, maybe play some different action, its now dependant on the holder
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private void follow(){
 		
 
 
@@ -336,12 +402,11 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		if (seeking) {
-			
-			//get current player's location from eyes
-			currentT = lPC.position;
+			currentT = lPC.position; //get last current player's location from eyes
 
-			//if close to last spot of player, change to looking around
-			if (false) {
+			Vector3.Distance (transform.position, currentT);
+
+			if (Vector3.Distance (transform.position, currentT) < 2) {  //if close to last spot of player, change to looking around
 				seeking = false;
 				huntT = 0;
 			} else {
@@ -389,6 +454,21 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	void swim(){
+		float mag = 1f;//used for debugging when trying to spawn objects, used to project visually some direction of Vector 3 to the world
+		//where we would be going if we go straight
+		Vector3 currentHeading = new Vector3 (transform.position.x + (transform.forward * vel*mag).x, 
+			transform.position.y + (transform.forward * vel*mag).y, transform.position.z + (transform.forward * vel*mag).z);
+
+		//will adjust enemy's rotation within bounds
+		fixRotation (currentHeading, currentT);
+		rigBod.velocity = (transform.forward * vel );
+
+	}
+
+
+
+
 
 
 
@@ -417,8 +497,42 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	private void waveHandler(){
+		rigBod.velocity += outsideFactor;
+		if (waveAcc) {
+
+			waveAccHandler ();
+		}
+
+	}
+
+	public void changeDec(){
+		lastFactor = outsideFactor;
+		outsideDec = outsideFactor.magnitude / 20;
+
+	}
 
 
+	private void waveAccHandler(){
+		if (outsideFactor.magnitude > 0) {
+			outsideFactor -= lastFactor * outsideDec;
+			if (outsideFactor.magnitude < 0.01f) {
+				outsideFactor = Vector3.zero;
 
+			}
+
+
+		}else if (outsideFactor.magnitude < 0) {
+			outsideFactor += lastFactor * outsideDec;
+			if (outsideFactor.magnitude > -0.01f) {
+				outsideFactor = Vector3.zero;
+
+			}
+
+
+		}
+
+
+	}
 		
 }

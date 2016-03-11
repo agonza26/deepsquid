@@ -32,11 +32,14 @@ public class improved_movement : MonoBehaviour {
 	public bool[] activeAbilities;
 	public bool isDead = false;
 
-	private float xSpeed = 11.0f;
-	private float ySpeed = 11.0f;
+	private float xSpeed = 13.0f;
+	private float ySpeed = 13.0f;
 
 	private float distance = 5.0f;
 	private float carryingSpeed = 1f;
+	private Vector3 lastFactor = Vector3.zero;
+	private float outsideDec = 0f;
+	public bool waveAcc = true;
 
 	public float distMag = 10f;
 	private Vector3 vel;
@@ -258,38 +261,64 @@ public class improved_movement : MonoBehaviour {
 
 
 
-			direction = transform.forward + outsideFactor;
-			//RaycastHit hit;
+			direction = transform.forward*-1 + outsideFactor;
+			RaycastHit hit;
 			// ... and if a raycast towards the player hits something...
-			//if (Physics.Raycast (rb.position, direction, out hit, distMag)) {
-			//Debug.DrawRay(transform.position, direction);
-			//vel = direction * (hit.distance - hit.distance / 1000) ;
-			//} else {
-			vel = direction * distMag;
+			//Debug.DrawRay(transform.position, direction*10000);
 
-			//float directionFlip = -1f;
-			vel = vel * Time.deltaTime * abilitySpeed * inkAccBoost * carryingSpeed;
+			//Debug.DrawRay(rb.position, direction*10000);
 
-			//if(!GetComponent<PickupObject>().parented){
-			if (acc != 0) {
-				movement = vel * acc + transform.position;
-				rb.MovePosition (movement);
+			if (!Physics.Raycast (rb.position, direction, out hit, distMag)) {
+				
+				vel = direction * (hit.distance - hit.distance / 1000) ;
 			} else {
-				movement = outsideFactor + transform.position;
-				rb.MovePosition (movement);
+				vel = direction * distMag;
+
+				//float directionFlip = -1f;
+				vel = vel * Time.deltaTime * abilitySpeed * inkAccBoost * carryingSpeed;
+
+				//if(!GetComponent<PickupObject>().parented){
+				if (acc != 0) {
+					movement = vel * acc + transform.position;
+					rb.MovePosition (movement);
+				} else {
+					movement = outsideFactor + transform.position;
+					rb.MovePosition (movement);
+				}
+
 			}
-
-			//}
-
-			outsideFactor *= 0.5f;
-			///Debug.Log (outsideFactor.magnitude);
-			if (outsideFactor.magnitude < 0.01f)
-				outsideFactor = Vector3.zero;
+			if (waveAcc) {
+				waveHadler ();
+			}
 		}
 	}
 
 
+	private void waveHadler(){
+		if (outsideFactor.magnitude > 0) {
+			outsideFactor -= lastFactor * outsideDec;
+			if (outsideFactor.magnitude < 0.01f) {
+				outsideFactor = Vector3.zero;
 
+			}
+		} else if (outsideFactor.magnitude < 0) {
+			outsideFactor += lastFactor * outsideDec;
+			if (outsideFactor.magnitude > -0.01f) {
+				outsideFactor = Vector3.zero;
+
+			}
+
+
+		}
+
+	}
+
+
+	public void changeDec(){
+		lastFactor = outsideFactor;
+		outsideDec = outsideFactor.magnitude / 20;
+
+	}
 	public Vector3 getMovement(){
 		return movement;
 	}

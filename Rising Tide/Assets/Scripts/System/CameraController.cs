@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 	private Material temp;
 	private bool isTouchingAnything = false;
 	private bool isTouchingCam = false;
-	public float tooClose = 1.5f;
+	public float tooClose = 3f;
 	
 	private float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	private float rotationDampening = 5f; //see above, but applies to rotation
@@ -30,8 +30,8 @@ public class CameraController : MonoBehaviour
 	public float sensX = 100.0f;
 	public float sensY = 100.0f;
 
-	//float rotationY = 0.0f;
-	//float rotationX = 0.0f;
+	float rotationY = 0.0f;
+	float rotationX = 0.0f;
 
 	
 	/*
@@ -50,8 +50,8 @@ public class CameraController : MonoBehaviour
 	void FixedUpdate () 
 	{
 		rcMaxDist = Vector3.Distance(transform.position, playerCameraTarget.position);
-		Debug.DrawRay(transform.position, transform.forward * rcMaxDist);
-		Debug.DrawRay(GameObject.Find ("Main Camera").transform.position, -transform.forward * 7.5f);
+		Debug.DrawRay(transform.position, -transform.forward * rcMaxDist);
+		Debug.DrawRay(GameObject.Find ("Main Camera").transform.position, transform.forward * 7.5f);
 		RaycastHit hit;
 		RaycastHit backHit;
 		//rotationX += Input.GetAxis ("Mouse X") * sensX * Time.deltaTime;
@@ -98,6 +98,7 @@ public class CameraController : MonoBehaviour
 				isTouchingAnything = true;
 				if (backHit.distance < tooClose) {
 					
+					Debug.Log ("pushinfrontoo");
 					pushInFrontToo (backHit);
 
 				} 
@@ -128,7 +129,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log ("turn touching cam on");
 				isTouchingCam = true;
 				//Vector3.Lerp(offset, new Vector3(0,0,offset.z+1),1f*Time.deltaTime);
-				//Debug.Log ("Called push in front");
+				Debug.Log ("Called push in front");
 				pushInFront (hit);		
 			}
 			

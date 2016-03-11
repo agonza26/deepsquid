@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!64 &80006
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -411,6 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &7923390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,6 +715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &29048226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,6 +3431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &135323043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9332,6 +9340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &350028396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10211,6 +10221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &399252009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10559,6 +10571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!64 &420808889
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10670,6 +10684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!54 &422165175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14780,6 +14796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &498216446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15489,6 +15507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!54 &535637541
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17934,6 +17954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &615646543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18139,6 +18161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &616882235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23482,6 +23506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!54 &778650453
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24036,6 +24062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &813774204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25235,6 +25263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &898208293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25502,6 +25532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &900859204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27483,6 +27515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!64 &913368814
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33949,6 +33983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!54 &1028937298
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36427,8 +36463,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2.8652046
-  m_Height: 8.0833645
+  m_Radius: 4.260484
+  m_Height: 10.995411
   m_Direction: 2
   m_Center: {x: 0.00003051729, y: 0.38, z: -5.65}
 --- !u!1 &1091676565
@@ -47198,6 +47234,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 5.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6463782, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 0adc3f720945d3a45b34b9e327aa95a7, type: 3}
     m_RemovedComponents:
     - {fileID: 11441004, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4d69e74bbd92a924d892cff6e0174539, type: 2}
@@ -57015,6 +57055,10 @@ Prefab:
       propertyPath: field of view
       value: 61.5
       objectReference: {fileID: 0}
+    - target: {fileID: 182540, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecaac31f56f3345409ea95ee65d36c5a, type: 2}
   m_IsPrefabParent: 0
@@ -60702,6 +60746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!64 &1967745624
 MeshCollider:
   m_ObjectHideFlags: 0
