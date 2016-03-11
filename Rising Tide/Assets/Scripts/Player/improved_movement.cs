@@ -32,8 +32,8 @@ public class improved_movement : MonoBehaviour {
 	public bool[] activeAbilities;
 	public bool isDead = false;
 
-	private float xSpeed = 13.0f;
-	private float ySpeed = 13.0f;
+	private float xSpeed = 23.0f;
+	private float ySpeed = 23.0f;
 
 	private float distance = 5.0f;
 	private float carryingSpeed = 1f;

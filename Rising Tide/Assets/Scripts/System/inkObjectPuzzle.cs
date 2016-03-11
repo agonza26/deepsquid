@@ -28,7 +28,7 @@ public class inkObjectPuzzle : MonoBehaviour {
             if (countdown >= 0)
             {
                 countdown--;
-				Debug.Log (timer);
+
 				GetComponentInChildren<MuralPuzzleSwitchImage> ().ChangeToInked (1);
                 //this.GetComponent<Renderer>().material = activeMaterial;
             }

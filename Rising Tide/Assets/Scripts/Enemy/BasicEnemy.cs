@@ -85,6 +85,8 @@ public class BasicEnemy : MonoBehaviour {
 				seek ();
 				break;
 
+
+
 			case "grabbed":
 				grabbed ();
 				break;
@@ -374,10 +376,11 @@ public class BasicEnemy : MonoBehaviour {
 		currentT = lPC.position;
 
 		waitTime += Time.deltaTime;
-		if (timeF >= 5) {
+		if (waitTime >= 0.75f) {
 			
 			state = "patrol";
-			timeF = 0;
+
+			waitTime = 0;
 		}
 
 	}
