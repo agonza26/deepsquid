@@ -8,9 +8,11 @@ public class inkGateObject : MonoBehaviour {
 	public GameObject MuralA;
 	public GameObject MuralB;
 	public GameObject MuralC;
+	public GameObject MuralD;
 	bool Acomp;
 	bool Bcomp;
 	bool Ccomp;
+	bool Dcomp;
     public Transform target;
     public Transform defaultPos;
     public float speed;
@@ -31,7 +33,8 @@ public class inkGateObject : MonoBehaviour {
 		Acomp = MuralA.GetComponent<inkObjectPuzzle>().activated && MuralA.GetComponent<inkObjectPuzzle>().hasAnOrb;
 		Bcomp = MuralB.GetComponent<inkObjectPuzzle>().activated && MuralB.GetComponent<inkObjectPuzzle>().hasAnOrb;
 		Ccomp = MuralC.GetComponent<inkObjectPuzzle>().activated && MuralC.GetComponent<inkObjectPuzzle>().hasAnOrb;
-		if(Acomp && Bcomp && Ccomp)
+		Dcomp = MuralD.GetComponent<inkObjectPuzzle>().activated && MuralD.GetComponent<inkObjectPuzzle>().hasAnOrb;
+		if(Acomp && Bcomp && Ccomp && Dcomp)
 		{
 			isActive = true;
 		}
