@@ -65,9 +65,12 @@ public class Player_stats : MonoBehaviour {
 
 
 		if (item.tag == "Enemy") {
-			if (item.GetComponent<BasicEnemy> ().state != "patrol") {
+			BasicEnemy be = item.GetComponent<BasicEnemy> ();
+			if (be.state != "patrol") {
 				playerDamage (1f);
-				item.GetComponent<BasicEnemy> ().state = "recharge";
+
+				be.state = "recharge";
+				be.stunMult = 1f;
 
 			}
 		}
@@ -79,6 +82,8 @@ public class Player_stats : MonoBehaviour {
 	{
 		PlayerDmged = true;
 		PlayerCurrHealth -= val;
+		if (PlayerCurrHealth > PlayerHealthMax)
+			PlayerCurrHealth = PlayerHealthMax;
 	}
 
     public void changePlayerAlphaDown()

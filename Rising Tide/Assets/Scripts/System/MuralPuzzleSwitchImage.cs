@@ -24,7 +24,6 @@ public class MuralPuzzleSwitchImage : MonoBehaviour {
 	public void ChangeToInked(int newInd)
 	{
 		frameIndex = newInd;
-		Debug.Log ("In MuralPuzzleSwitchImage: ChangeToInked has been called, passing in " + newInd);
 		projector.material.SetTexture ("_ShadowTex", frames [frameIndex]);
 	}
 

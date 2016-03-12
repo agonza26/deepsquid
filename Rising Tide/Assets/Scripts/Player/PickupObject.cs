@@ -19,7 +19,7 @@ public class PickupObject : MonoBehaviour
 {
 	
     
-   
+	public float healthGain;
     public float objectSize;
     public bool parented = false;
     public bool canThrow;
@@ -47,6 +47,8 @@ public class PickupObject : MonoBehaviour
 
    
 	void Start(){
+		if (healthGain == null)
+			healthGain = 20f;
 		player = GameObject.FindGameObjectWithTag ("Player");
 
 
@@ -87,7 +89,11 @@ public class PickupObject : MonoBehaviour
 				
 				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
 				{
-					Debug.Log("playing blood particle system...");
+					GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
+					Abilities a = GetComponent<Abilities> ();
+					a.currStamina += 30;
+					if (a.currStamina > a.maxStamina)
+						a.currStamina = a.maxStamina;
 					carrying = false;
 					blood.transform.position = player.transform.position;
 					blood.transform.forward = player.transform.forward;

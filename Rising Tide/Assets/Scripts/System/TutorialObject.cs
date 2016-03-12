@@ -33,7 +33,18 @@ public bool debugStatements = true;
 		}
 
 
-		
+		void OnTriggerEnter(Collider other)
+		{
+		// If the player has entered the trigger sphere...
+			if(other.gameObject == player)
+			{
+			//Debug.Log("We hella now");
+				tutorialText.SetActive(true);
+
+			}
+
+
+		}
 
 
 

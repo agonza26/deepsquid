@@ -5,6 +5,7 @@ public class Pickupable : MonoBehaviour {
 
 	public float size ;
 	public int abilityIndex = 0;
+	private string attacking = "follow";
 
 
 
@@ -57,7 +58,8 @@ public class Pickupable : MonoBehaviour {
 			case "Enemy":
 				if (GetComponent<BasicEnemy> () != null) {
 					BasicEnemy b = GetComponent<BasicEnemy> ();
-					b.state = "grabbed";
+						b.state = "grabbed";
+						//held = false;
 
 				}
 				//set state to grabbed

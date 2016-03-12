@@ -63,9 +63,11 @@
      <Compile Include="Assets\Scripts\Player\improved_movement.cs" />
      <Compile Include="Assets\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Scripts\System\Abilities.cs" />
+     <Compile Include="Assets\Scripts\System\Ability\PushWave.cs" />
      <Compile Include="Assets\Scripts\System\AbilityProcurement.cs" />
      <Compile Include="Assets\Scripts\System\AnimatedProjector.cs" />
      <Compile Include="Assets\Scripts\System\CameraController.cs" />
+     <Compile Include="Assets\Scripts\System\CurrentSystem.cs" />
      <Compile Include="Assets\Scripts\System\GameOverCanvasManager.cs" />
      <Compile Include="Assets\Scripts\System\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\System\LastPlayerSighting.cs" />
@@ -76,6 +78,7 @@
      <Compile Include="Assets\Scripts\System\Player.cs" />
      <Compile Include="Assets\Scripts\System\Reload.cs" />
      <Compile Include="Assets\Scripts\System\TutorialObject.cs" />
+     <Compile Include="Assets\Scripts\System\WaveSystem.cs" />
      <Compile Include="Assets\Scripts\System\inkGateObject.cs" />
      <Compile Include="Assets\Scripts\System\inkObjectPuzzle.cs" />
      <Compile Include="Assets\Scripts\System\tentacleAnimator.cs" />

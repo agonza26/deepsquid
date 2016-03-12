@@ -18,7 +18,7 @@ public class LabSwitch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Position: " + gate.transform.localPosition);
+		
 	}
 
 	void OnTriggerStay(Collider other) 

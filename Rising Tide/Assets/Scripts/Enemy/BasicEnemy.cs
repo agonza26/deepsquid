@@ -12,7 +12,7 @@ public class BasicEnemy : MonoBehaviour {
 	public float timeFS = 0.01f;
 	public float vel = 5f; //velocity
 	public float radius; //how far away from the patrol points should the fist start turning towards the next
-
+	public float stunMult = 1f;
 
 	public float swimT; // how frequent the fish "swims", normal
 	public float swimF; // how frequent the fish "swims", follow
@@ -117,7 +117,10 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
-		Debug.Log("Object has been hit by ink");
+
+		Debug.Log ("WE HERE");
+		state = "recharge";
+		stunMult = 5f;
 	}
 
 
@@ -376,7 +379,7 @@ public class BasicEnemy : MonoBehaviour {
 		currentT = lPC.position;
 
 		waitTime += Time.deltaTime;
-		if (waitTime >= 0.75f) {
+		if (waitTime >= 0.75f*stunMult) {
 			
 			state = "patrol";
 

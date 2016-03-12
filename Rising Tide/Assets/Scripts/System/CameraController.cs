@@ -98,7 +98,7 @@ public class CameraController : MonoBehaviour
 				isTouchingAnything = true;
 				if (backHit.distance < tooClose) {
 					
-					Debug.Log ("pushinfrontoo");
+				
 					pushInFrontToo (backHit);
 
 				} 
@@ -129,7 +129,7 @@ public class CameraController : MonoBehaviour
 				//Debug.Log ("turn touching cam on");
 				isTouchingCam = true;
 				//Vector3.Lerp(offset, new Vector3(0,0,offset.z+1),1f*Time.deltaTime);
-				Debug.Log ("Called push in front");
+			
 				pushInFront (hit);		
 			}
 			
