@@ -12,7 +12,7 @@ GameObject:
   - 154: {fileID: 15440914}
   - 54: {fileID: 5402762}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: TempleGround
   m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2067,8 +2067,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCameraTarget: {fileID: 0}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: -7.5}
   minCameraDist: -5
   maxCameraDist: -15
+  tooClose: 3
   minX: -360
   maxX: 360
   sensX: 100

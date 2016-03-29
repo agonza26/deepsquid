@@ -9792,7 +9792,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173460}
-  m_LocalRotation: {x: -0.7019651, y: 0.021996649, z: 0.71181786, w: -0.008746443}
+  m_LocalRotation: {x: -0.70196515, y: 0.02199665, z: 0.7118179, w: -0.008746444}
   m_LocalPosition: {x: -115.40448, y: 33.229065, z: 8.991211}
   m_LocalScale: {x: 2581.3425, y: 1510.4915, z: 670.90656}
   m_Children: []
@@ -22053,6 +22053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11405920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22065,6 +22067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11406672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22082,6 +22086,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22092,6 +22097,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11409956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22104,6 +22112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11417410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22121,6 +22131,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22131,6 +22142,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11421980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22162,6 +22176,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22172,6 +22187,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11423514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22189,6 +22207,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22199,6 +22218,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11426202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22211,6 +22233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11427782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22243,6 +22267,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22253,6 +22278,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11429430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22270,6 +22298,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22280,6 +22309,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11429560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22369,6 +22401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11440478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22395,6 +22429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11440924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22407,6 +22443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11443548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22419,6 +22457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11443732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22444,6 +22484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11444870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22456,6 +22498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11446458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22606,6 +22650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11463600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22640,6 +22686,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22650,6 +22697,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11464656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22676,6 +22726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11469732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22688,6 +22740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 1
+  hasAnOrb: 0
+  timer: 150
 --- !u!114 &11470998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22700,6 +22754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 1
+  hasAnOrb: 0
+  timer: 150
 --- !u!114 &11471374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22717,6 +22773,7 @@ MonoBehaviour:
   timeFS: 0.01
   vel: 10
   radius: 2
+  stunMult: 1
   swimT: 0.7
   swimF: 0
   swimA: 0
@@ -22727,6 +22784,9 @@ MonoBehaviour:
   pos1: {fileID: 0}
   pos2: {fileID: 0}
   pos3: {fileID: 0}
+  outsideDec: 0
+  waveAcc: 1
+  outsideFactor: {x: 0, y: 0, z: 0}
 --- !u!114 &11472808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22770,6 +22830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11484990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22797,6 +22859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
+  hasAnOrb: 0
+  timer: 150
 --- !u!114 &11494498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22809,6 +22873,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11498766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22821,6 +22887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11499430
 MonoBehaviour:
   m_ObjectHideFlags: 1
