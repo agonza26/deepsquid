@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Other/Standard Assets/ParticleSystems/ParticleSystemsGuidelines.txt">
     <Files>
       <File FileName="Assets/Scripts/System/WaveSystem.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/System/CurrentSystem.cs" Line="1" Column="1" />
@@ -11,6 +11,8 @@
       <File FileName="Assets/Scripts/Enemy/Legacy Boids/BoidFlocking.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Enemy/Legacy Boids/BoidWatcher.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Player/improved_movement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/System/CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Other/Standard Assets/ParticleSystems/ParticleSystemsGuidelines.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
