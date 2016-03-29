@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour
 	{
 		rcMaxDist = Vector3.Distance(transform.position, playerCameraTarget.position);
 		Debug.DrawRay(transform.position, -transform.forward * rcMaxDist);
-		Debug.DrawRay(GameObject.Find ("Main Camera").transform.position, transform.forward * 7.5f);
+		Debug.DrawRay(GameObject.FindWithTag("MainCamera").transform.position, transform.forward * 7.5f);
 		RaycastHit hit;
 		RaycastHit backHit;
 		//rotationX += Input.GetAxis ("Mouse X") * sensX * Time.deltaTime;
@@ -92,7 +92,7 @@ public class CameraController : MonoBehaviour
 			rcMaxDist += 0.8f;
 		}
 		//Debug.Log (isTouchingAnything + ", " + isTouchingCam);
-		if (Physics.Raycast (GameObject.Find ("Main Camera").transform.position, -transform.forward, out backHit, 7.5f) && offset.z < -0.5f) {
+		if (Physics.Raycast (GameObject.FindWithTag("MainCamera").transform.position, -transform.forward, out backHit, 7.5f) && offset.z < -0.5f) {
 			if (backHit.transform.tag == "Environment") {
 				//Debug.Log ("turn touching anything on");
 				isTouchingAnything = true;
