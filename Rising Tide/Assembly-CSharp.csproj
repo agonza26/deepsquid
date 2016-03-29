@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LabSwitch.cs" />
      <Compile Include="Assets\Scripts\Enemy\BE_Stats.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\BoidComponent.cs" />
@@ -57,6 +56,7 @@
      <Compile Include="Assets\Scripts\Enemy\Legacy Boids\BoidFlocking.cs" />
      <Compile Include="Assets\Scripts\Enemy\Legacy Boids\BoidWatcher.cs" />
      <Compile Include="Assets\Scripts\Enemy\Search.cs" />
+     <Compile Include="Assets\Scripts\LabSwitch.cs" />
      <Compile Include="Assets\Scripts\Player\PickupObject.cs" />
      <Compile Include="Assets\Scripts\Player\Pickupable.cs" />
      <Compile Include="Assets\Scripts\Player\Player_stats.cs" />

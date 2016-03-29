@@ -16,7 +16,7 @@ GameObject:
   - 135: {fileID: 13584710}
   - 114: {fileID: 11426438}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera2
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,14 +109,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCameraTarget: {fileID: 0}
   player: {fileID: 0}
+  offset: {x: 0, y: 0, z: -7.5}
   minCameraDist: -5
   maxCameraDist: -15
-  positionDampening: 6
-  rotationDampening: 5
+  tooClose: 3
   minX: -360
   maxX: 360
-  minY: -45
-  maxY: 45
   sensX: 100
   sensY: 100
 --- !u!124 &12455396

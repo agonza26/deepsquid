@@ -66,7 +66,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 498858}
   m_Layer: 0
-  m_Name: Abilities
+  m_Name: Abilities3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,6 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11478108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,6 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!114 &11478984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  abilityIndex: 0
+  isPickedUp: 0
 --- !u!135 &13522790
 SphereCollider:
   m_ObjectHideFlags: 1

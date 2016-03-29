@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11473268}
   - 114: {fileID: 11403352}
   m_Layer: 5
-  m_Name: HUD Canvas
+  m_Name: HUD Canvas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,8 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d1afd734851bc49908dfba3e767ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  currHealth: 0
   restartDelay: 5
 --- !u!114 &11404382
 MonoBehaviour:

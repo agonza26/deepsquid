@@ -216,13 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5730c7f66b4230d4ebe3224e51e0c553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthTotal: 0
-  playerHealthCurr: 0
+  player: {fileID: 0}
   healthBar: {fileID: 11470300}
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
-  hideBar: {fileID: 11455242}
   DamageIndicator: {fileID: 11431090}
   flashSpeed: 5
+  uiCanvas: {fileID: 0}
 --- !u!114 &11452392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,13 +287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5730c7f66b4230d4ebe3224e51e0c553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthTotal: 0
-  playerHealthCurr: 0
+  player: {fileID: 0}
   healthBar: {fileID: 11470300}
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
-  hideBar: {fileID: 11455242}
   DamageIndicator: {fileID: 11431090}
   flashSpeed: 5
+  uiCanvas: {fileID: 0}
 --- !u!114 &11466710
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -46,7 +46,7 @@ GameObject:
   - 114: {fileID: 11413838}
   - 114: {fileID: 11410744}
   m_Layer: 5
-  m_Name: PersistingUI Canvas
+  m_Name: PersistingUI Canvas3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

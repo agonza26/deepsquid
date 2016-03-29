@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466106}
   m_Layer: 2
-  m_Name: Player
+  m_Name: Player23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2914,16 +2914,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2d37939bc2ec94a908f0b4c922dd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  procured: 0
   Ink: {fileID: 0}
   playerPos: {fileID: 488698}
-  inkCharge: {fileID: 0}
-  testObject: {fileID: 0}
-  inkCloudCD: 0
-  inkCD: 5
-  inkCDTimer: 0
+  ad: {fileID: 0}
+  boostPS: {fileID: 0}
   abilitySpeedVal: 1
+  maxStamina: 200
+  currStamina: 200
+  staminaBar: {fileID: 0}
   abilities: 
+  activeAbils: 00000000
+  activeIcon: {fileID: 0}
+  speedIcon: {fileID: 0}
+  inkIcon: {fileID: 0}
+  currentIcon: {fileID: 0}
+  empIcon: {fileID: 0}
 --- !u!114 &11426090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2941,6 +2946,7 @@ MonoBehaviour:
   restartDelay: 5
   PlayerDmged: 0
   PlayerDmgOutput: 2
+  healthBar: {fileID: 0}
 --- !u!114 &11439860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2969,10 +2975,12 @@ MonoBehaviour:
   yMaxLimit: 80
   distance: 5
   camRotMult: 200
+  bubbles: {fileID: 0}
   playerSpeed: 12.5
   distanceMin: 0.5
   distanceMax: 15
   abilitySpeed: 0
+  travelSpeed: 1
   acc: 0
   accMax: 1
   coast: 0.1
@@ -3034,15 +3042,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418582713591a394097aa8f9c6f159c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carrying: 0
+  healthGain: 0
+  objectSize: 0
+  parented: 0
+  canThrow: 0
   blood: {fileID: 19801656}
-  player: {fileID: 175464}
-  speedObject: {fileID: 0}
-  inkObject: {fileID: 0}
   playerSize: 2
   distance: 1.5
   smooth: 20
   throwForce: 700
+  carrying: 0
+  grabSound: {fileID: 0}
 --- !u!114 &11469834
 MonoBehaviour:
   m_ObjectHideFlags: 1
