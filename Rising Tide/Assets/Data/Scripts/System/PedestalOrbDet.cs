@@ -5,7 +5,6 @@ public class PedestalOrbDet : MonoBehaviour {
 
 	public float speed;
 	public Transform target;
-	float step;
 	Rigidbody rb;
 	bool hasAnOrb;
 	Light orbILight;
@@ -17,7 +16,6 @@ public class PedestalOrbDet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		step = speed * Time.deltaTime;
 		if (GetComponentInParent<inkObjectPuzzle>().activated && hasAnOrb) 
 		{
 			orbILight.range = 4.25f;	

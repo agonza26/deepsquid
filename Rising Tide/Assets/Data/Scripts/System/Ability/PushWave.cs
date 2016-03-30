@@ -12,10 +12,9 @@ public class PushWave : MonoBehaviour {
 
 
 	private float lifeTime = 3f;
-	private float vel = 4f;
+	//private float vel = 4f;
 	private Vector3 homePos;
 
-	private Vector3 waveStartPos = new Vector3(0, 0, 0);
 
 	List<GameObject> encountered = new List<GameObject>();
 

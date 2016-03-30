@@ -40,7 +40,7 @@ public class simple_movement : MonoBehaviour {
 	private float deccCount = 0.025f;
 	public float deccMax = -1f;
 	public float coastD = 0.1f;
-	private bool[] abilities;
+	//private bool[] abilities;
 	public GameObject abilityObject;
 
 
@@ -49,7 +49,7 @@ public class simple_movement : MonoBehaviour {
 	void Start () 
 	{
         CameraTarg = transform.GetChild(0);
-		abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
+		//abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 	}
 	
 	// Update is called once per frame
@@ -58,7 +58,7 @@ public class simple_movement : MonoBehaviour {
 		{
 	
 			abilitySpeed = GetComponent<Abilities> ().abilitySpeedVal;
-			abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
+			//abilities = abilityObject.GetComponent<AbilityProcurement> ().abilities;
 			x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.0125f;
 			if (y >= -90) {
 				y -= Input.GetAxis ("Mouse Y") * ySpeed * distance * 0.0025f;

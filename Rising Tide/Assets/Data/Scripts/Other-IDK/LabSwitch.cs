@@ -8,7 +8,7 @@ public class LabSwitch : MonoBehaviour {
 	public Vector3 movedPos = new Vector3(0,0,0);
 	public Transform goBack;
 	public float dist = 30f;
-	bool boxCollided = false; 
+	//bool boxCollided = false; 
 
 	// Use this for initialization
 	void Start () {

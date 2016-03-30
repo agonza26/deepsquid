@@ -6,7 +6,6 @@ public class MuralPuzzleSwitchImage : MonoBehaviour {
 	public Texture[] frames;
 	public int frameIndex = 0;
 	private Projector projector;
-	private bool inked = false;
 
 	// Use this for initialization
 	void Start () 

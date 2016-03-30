@@ -5,8 +5,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 	
 	public GameObject player;
-	private float playerHealthTotal;
-	private float playerHealthCurr;
+
 	public Slider healthBar;
 	public Color flashColor = new Color (1f,0f,0f,0.1f);
 	public Image DamageIndicator;
@@ -16,14 +15,13 @@ public class Player : MonoBehaviour {
 
 	public CanvasGroup uiCanvas;
 
-	bool isAlive;
+
 	
 
 	void Start () {
 		//Set initial health of player;
-		//player = GameObject.FindGameObjectWithTag("Player");
-		playerHealthTotal = player.GetComponent<Player_stats>().PlayerHealthMax;
-		isAlive = true;
+
+
 		//StartCoroutine (hideUI ());
 
 
@@ -46,11 +44,6 @@ public class Player : MonoBehaviour {
 		}
 		
 
-		
-		playerHealthCurr = player.GetComponent<Player_stats>().PlayerCurrHealth;
-		//healthBar.value = playerHealthCurr;
-
-		
 		if (player.GetComponent<Player_stats>().PlayerDmged)
 		{
 			DamageIndicator.color = flashColor;
@@ -65,6 +58,9 @@ public class Player : MonoBehaviour {
 		player.GetComponent<Player_stats>().PlayerDmged = false;
 
 	}
+
+
+
 
 	public void hideUI(){
 		
@@ -89,6 +85,10 @@ public class Player : MonoBehaviour {
 			}*/
 
 	}
+
+
+
+
 	public void showUI(){
 		//showingUI = true;
 		uiCanvas.alpha = 255;

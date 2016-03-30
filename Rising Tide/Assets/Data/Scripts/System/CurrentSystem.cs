@@ -15,7 +15,7 @@ public class CurrentSystem : MonoBehaviour {
 
 
 
-	private Vector3 homePos;
+
 	private Vector3 waveFactor;
 	private Vector3 waveStartPos = new Vector3(0, 0, 0);
 
@@ -32,7 +32,7 @@ public class CurrentSystem : MonoBehaviour {
 
 
 		if (transform.position.z >= 740) {
-			transform.position = homePos;
+			transform.position = waveStartPos;
 		} else {
 			transform.Translate (moveDir);
 		}

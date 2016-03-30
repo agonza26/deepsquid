@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 	public float tooClose = 3f;
 	
 	private float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
-	private float rotationDampening = 5f; //see above, but applies to rotation
+	//private float rotationDampening = 5f; //see above, but applies to rotation
 	private float PDsave;
 	
 	private Transform thisTransform;
@@ -30,8 +30,8 @@ public class CameraController : MonoBehaviour
 	public float sensX = 100.0f;
 	public float sensY = 100.0f;
 
-	float rotationY = 0.0f;
-	float rotationX = 0.0f;
+	//float rotationY = 0.0f;
+	//float rotationX = 0.0f;
 
 	
 	/*

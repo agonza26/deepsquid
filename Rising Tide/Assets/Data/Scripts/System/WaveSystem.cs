@@ -14,7 +14,7 @@ public class WaveSystem : MonoBehaviour {
 
 
 
-	private Vector3 homePos;
+	//private Vector3 homePos;
 	private Vector3 waveFactor;
 	private Vector3 waveStartPos = new Vector3(0, 0, 0);
 
@@ -25,7 +25,8 @@ public class WaveSystem : MonoBehaviour {
 	void Update(){
 		Debug.DrawRay(transform.position, waveFactor);
 		if (transform.position.z >= 740) {
-			transform.position = homePos;
+			transform.position = waveStartPos;
+			//transform.position = homePos;
 		} else {
 			transform.Translate (moveDir);
 		}
