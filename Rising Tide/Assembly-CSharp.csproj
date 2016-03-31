@@ -47,6 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Data\Scripts\Enemy\BE_Stats.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BasicEnemy.cs" />
+     <Compile Include="Assets\Data\Scripts\Enemy\BobbitBrain.cs" />
+     <Compile Include="Assets\Data\Scripts\Enemy\BobbitEyes.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BoidComponent.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BoidManager.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\EnemyAttack.cs" />
