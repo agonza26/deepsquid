@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -67,7 +73,7 @@
     <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Other\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
   </ItemGroup>
