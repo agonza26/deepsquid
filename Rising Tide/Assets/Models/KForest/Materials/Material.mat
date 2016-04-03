@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: seaweed
+  m_Name: Material
   m_Shader: {fileID: 10511, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -143,6 +143,14 @@ Material:
         first:
           name: _AO
         second: 2.4
+      data:
+        first:
+          name: _TranslucencyViewDependency
+        second: 0.7
+      data:
+        first:
+          name: _ShadowStrength
+        second: 1
     m_Colors:
       data:
         first:
@@ -151,7 +159,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.012539975, g: 0.19598827, b: 0.0053149415, a: 1}
+        second: {r: 0.0168, g: 0.3588, b: 0, a: 1}
       data:
         first:
           name: _TreeInstanceColor
@@ -160,3 +168,7 @@ Material:
         first:
           name: _TreeInstanceScale
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TranslucencyColor
+        second: {r: 0.73, g: 0.85, b: 0.41, a: 1}
