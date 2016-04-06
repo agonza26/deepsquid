@@ -10,10 +10,13 @@ public class TutorialObject : MonoBehaviour {
                    // Reference to the sphere collider trigger component.
 	public GameObject tutorialText;
 	public GameObject player;                      // Reference to the player.
+	public AudioSource ding;
+	public GameObject tutorialBox;
 	private bool possiblyActive = true;
 
 	void Start(){
 		tutorialText.SetActive (false);
+		tutorialBox.SetActive (false);
 	}
 	void Awake ()
 	{
@@ -34,6 +37,7 @@ public class TutorialObject : MonoBehaviour {
 		if(other.gameObject == player)
 		{
 			if (isActive) {
+				ding.Play();
 				StartCoroutine (waitToTurnOff (5f));
 			}
 
@@ -45,11 +49,14 @@ public class TutorialObject : MonoBehaviour {
 
 
 	IEnumerator waitToTurnOff(float x){
+		
 		tutorialText.SetActive (true);
+		tutorialBox.SetActive (true);
 		yield return new WaitForSeconds(x);
 		isActive = false;
 		tutorialText.SetActive (false);
-		
+		tutorialBox.SetActive (false);
+		ding.Stop ();
 	}
 
 
