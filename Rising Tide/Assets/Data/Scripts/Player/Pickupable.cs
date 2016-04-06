@@ -5,7 +5,7 @@ public class Pickupable : MonoBehaviour {
 
 	public float size = 1.0f;
 	public int abilityIndex = 0;
-
+	public Material[] mats = new Material[2];
 
 
 
@@ -17,6 +17,7 @@ public class Pickupable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		mats [0] = GetComponentInChildren<Renderer>().material;
 		myTag = gameObject.tag;
 
 	}
@@ -166,8 +167,21 @@ public class Pickupable : MonoBehaviour {
 		*/
 	}
 
+	public void changeMatToNml()
+	{
+		if (mats [0]) 
+		{
+			GetComponentInChildren<Renderer> ().material = mats [0];
+		}
+	}
 
-
+	public void changeMatToHL()
+	{
+		if (mats [1]) 
+		{
+			GetComponentInChildren<Renderer> ().material = mats [1];
+		}
+	}
 
 
 

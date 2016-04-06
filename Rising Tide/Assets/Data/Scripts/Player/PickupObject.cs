@@ -274,6 +274,7 @@ public class PickupObject : MonoBehaviour
 		{
 			InRangeItemSaver = c;
 			grabbableInRange = true;
+			c.GetComponent<Pickupable> ().changeMatToHL ();
 		}
 
 
@@ -282,7 +283,7 @@ public class PickupObject : MonoBehaviour
 	void OnTriggerExit(Collider c)
 	{
 		grabbableInRange = false;
-
+		c.GetComponent<Pickupable> ().changeMatToNml ();
 	}
 
 	
