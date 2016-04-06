@@ -8,12 +8,13 @@ public class Player_stats : MonoBehaviour {
 	
 	public float PlayerHealthMax = 10f;
 	public float PlayerOverhealthMax;
-
+	private bool isTextActive = true;
 	public float PlayerCurrHealth;
     public float restartDelay = 5f;
 	public bool PlayerDmged;
 	public float PlayerDmgOutput = 30f;
 	public Image healthBar;
+	public GameObject healthTooltipText;
 	private Color lowAlph;
 	private Color normalAlph;
 
@@ -51,7 +52,12 @@ public class Player_stats : MonoBehaviour {
 			{
 				playerDamage(1f);
 			}
+		}if (PlayerCurrHealth < PlayerHealthMax) {
+			if (isTextActive == true) {
+				StartCoroutine (waitToTurnOff (5f));
+			}
 		}
+			
 			
 			
 
@@ -103,5 +109,13 @@ public class Player_stats : MonoBehaviour {
 	public float giveDmg()
 	{
 		return PlayerDmgOutput;
+	}
+
+	IEnumerator waitToTurnOff(float x){
+		healthTooltipText.SetActive (true);
+		yield return new WaitForSeconds(x);
+		isTextActive = false;
+		healthTooltipText.SetActive (false);
+
 	}
 }

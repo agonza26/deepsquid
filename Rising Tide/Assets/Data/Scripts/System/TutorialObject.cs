@@ -1,78 +1,81 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class TutorialObject : MonoBehaviour {
+	private bool isActive = true;
+	public bool debugStatements = true;
 
-public bool debugStatements = true;
-          // Last place this enemy spotted the player.
+                   // Reference to the sphere collider trigger component.
+	public GameObject tutorialText;
+	public GameObject player;                      // Reference to the player.
+	private bool possiblyActive = true;
 
-		public SphereCollider col;                     // Reference to the sphere collider trigger component.
-		public GameObject tutorialText;
-		public GameObject player;                      // Reference to the player.
-              // Where the player was sighted last frame.
+	void Start(){
+		tutorialText.SetActive (false);
+	}
+	void Awake ()
+	{
+		tutorialText.SetActive(false);
+		player = GameObject.FindGameObjectWithTag("Player");
+
+	}
+
+	void Update ()
+	{
 		
-		//private float timer = 0f;
-		public float timerLimit = 5f;
+	}
 
-		void Start(){
-			tutorialText.SetActive(false);
-		}
-		void Awake ()
+
+	void OnTriggerEnter(Collider other)
+	{
+
+		if(other.gameObject == player)
 		{
-			tutorialText.SetActive(false);
-			//col = GetComponent<SphereCollider>();
-			player = GameObject.FindGameObjectWithTag("Player");
-
-		}
-
-
-		void Update ()
-		{
-
+			if (isActive) {
+				StartCoroutine (waitToTurnOff (5f));
+			}
 
 		}
 
+			
 
-		void OnTriggerEnter(Collider other)
-		{
+	}
+
+
+	IEnumerator waitToTurnOff(float x){
+		tutorialText.SetActive (true);
+		yield return new WaitForSeconds(x);
+		isActive = false;
+		tutorialText.SetActive (false);
+		
+	}
+
+
+
+	void OnTriggerStay (Collider other)
+	{
 		// If the player has entered the trigger sphere...
-			if(other.gameObject == player)
-			{
-			//Debug.Log("We hella now");
-				tutorialText.SetActive(true);
-
-			}
-
-
-		}
-
-
-
-
-
-		void OnTriggerStay (Collider other)
+		if(other.gameObject == player)
 		{
-			// If the player has entered the trigger sphere...
-			if(other.gameObject == player)
-			{
-				//Debug.Log("We hella now");
-				tutorialText.SetActive(true);
-				
-			}
-
+			//Debug.Log (isActive);
 
 		}
 
 
+	}
 
 
 
-		void OnTriggerExit (Collider other)
-		{
-			// If the player leaves the trigger zone...
-			if (other.gameObject == player) {
-				tutorialText.SetActive(false);
-				
-			}
+
+
+	void OnTriggerExit (Collider other)
+	{
+		// If the player leaves the trigger zone...
+		if (other.gameObject == player) {
+			tutorialText.SetActive(false);
+
 		}
+	}
 }
