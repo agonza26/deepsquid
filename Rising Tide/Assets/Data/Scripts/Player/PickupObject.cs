@@ -95,6 +95,9 @@ public class PickupObject : MonoBehaviour
 					carrying = false;
 					blood.transform.position = player.transform.position;
 					blood.transform.forward = player.transform.forward;
+					Vector3 littlebitforward = blood.transform.position;
+					littlebitforward.z += 2f;
+					blood.transform.position = littlebitforward;
 					blood.Emit(20);
 					dropObject();
 				}
@@ -276,10 +279,18 @@ public class PickupObject : MonoBehaviour
 			grabbableInRange = true;
 			c.GetComponent<Pickupable> ().changeMatToHL ();
 		}
-
-
 	}
 
+	void OnTriggerStay(Collider c)
+	{
+		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
+		{
+		InRangeItemSaver = c;
+		grabbableInRange = true;
+		c.GetComponent<Pickupable>().changeMatToHL();
+		}
+	}
+	
 	void OnTriggerExit(Collider c)
 	{
 		grabbableInRange = false;

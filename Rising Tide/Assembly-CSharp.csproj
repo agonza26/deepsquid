@@ -78,6 +78,7 @@
      <Compile Include="Assets\Data\Scripts\System\MuralPuzzleSwitchImage.cs" />
      <Compile Include="Assets\Data\Scripts\System\NextLevelButton.cs" />
      <Compile Include="Assets\Data\Scripts\System\PedestalOrbDet.cs" />
+     <Compile Include="Assets\Data\Scripts\System\PlaceInFrontOf.cs" />
      <Compile Include="Assets\Data\Scripts\System\Player.cs" />
      <Compile Include="Assets\Data\Scripts\System\Reload.cs" />
      <Compile Include="Assets\Data\Scripts\System\TutorialObject.cs" />
@@ -86,7 +87,11 @@
      <Compile Include="Assets\Data\Scripts\System\inkObjectPuzzle.cs" />
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
+     <None Include="Assets\Shaders\Outline_Diffuser_Bumped.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
+     <None Include="Assets\Shaders\Outline_Diffuser.shader" />
+     <None Include="Assets\Shaders\OUTLINEUSAGEREADME.txt" />
+     <None Include="Assets\Shaders\Outline_Diffuser_Silhouette.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
