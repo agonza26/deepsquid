@@ -44041,6 +44041,7 @@ GameObject:
   - 114: {fileID: 1089783254}
   - 136: {fileID: 1089783262}
   - 114: {fileID: 1089783257}
+  - 136: {fileID: 1089783264}
   m_Layer: 0
   m_Name: squidHead
   m_TagString: Player
@@ -44055,7 +44056,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1089783252}
   m_LocalRotation: {x: -0.6866122, y: 0.16900814, z: 0.16900802, w: 0.6866122}
-  m_LocalPosition: {x: -165.6, y: -354.62, z: 957.69}
+  m_LocalPosition: {x: -165.6, y: -354.81, z: 957.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 86278361}
@@ -44090,7 +44091,7 @@ MonoBehaviour:
   maxStamina: 200
   currStamina: 200
   staminaBar: {fileID: 545011089}
-  abilities: 00010000
+  abilities: 01010000
   activeAbils: 00000000
   activeIcon: {fileID: 1573650646}
   speedIcon: {fileID: 1631635634}
@@ -44153,10 +44154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79fd19c9f8e8c14986567db38a4d812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 12.5
-  distanceMin: 0.5
-  distanceMax: 15
-  abilitySpeed: 0
   playerDrag: 8888888
   outsideFactor: {x: 0, y: 0, z: 0}
   acc: 0
@@ -44174,7 +44171,7 @@ MeshCollider:
   m_GameObject: {fileID: 1089783252}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 0adc3f720945d3a45b34b9e327aa95a7, type: 3}
@@ -44242,6 +44239,19 @@ CapsuleCollider:
   m_Height: 10.995411
   m_Direction: 2
   m_Center: {x: 0.00003051729, y: 0.38, z: -5.65}
+--- !u!136 &1089783264
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089783252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 5.87
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 2.61}
 --- !u!1 &1091676565
 GameObject:
   m_ObjectHideFlags: 0
@@ -67247,7 +67257,7 @@ Transform:
   m_PrefabParentObject: {fileID: 465366, guid: 55688a308f66d9549b594b1eebc68cc3, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1548557825}
-  m_LocalRotation: {x: -0.70196515, y: 0.02199665, z: 0.7118179, w: -0.008746444}
+  m_LocalRotation: {x: -0.7019651, y: 0.021996649, z: 0.71181786, w: -0.008746443}
   m_LocalPosition: {x: -115.40448, y: 33.229065, z: 8.991211}
   m_LocalScale: {x: 2581.3425, y: 1510.4915, z: 670.90656}
   m_Children: []
