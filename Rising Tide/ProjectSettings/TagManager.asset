@@ -13,6 +13,7 @@ TagManager:
   - box
   - inkMural
   - inkOrb
+  - moveText
   layers:
   - Default
   - TransparentFX
