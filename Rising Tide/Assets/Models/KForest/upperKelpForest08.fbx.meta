@@ -1,0 +1,2228 @@
+fileFormatVersion: 2
+guid: ccd4a71049760344ba6ebffa03cdcb35
+timeCreated: 1460156783
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ground
+    100002: quad lump rock
+    100004: quad lump rock.001
+    100006: quad lump rock.002
+    100008: quad lump rock.003
+    100010: quad lump rock.004
+    100012: quad lump rock.005
+    100014: quad lump rock.006
+    100016: quad lump rock.007
+    100018: quad lump rock.008
+    100020: quad lump rock.009
+    100022: quad lump rock.010
+    100024: quad lump rock.011
+    100026: quad lump rock.012
+    100028: quad lump rock.013
+    100030: quad lump rock.014
+    100032: quad lump rock.015
+    100034: quad lump rock.016
+    100036: quad lump rock.017
+    100038: quad lump rock.018
+    100040: quad lump rock.019
+    100042: quad lump rock.020
+    100044: quad lump rock.021
+    100046: quad lump rock.022
+    100048: quad lump rock.023
+    100050: quad lump rock.024
+    100052: quad lump rock.025
+    100054: quad lump rock.026
+    100056: quad lump rock.027
+    100058: quad lump rock.028
+    100060: quad lump rock.029
+    100062: quad lump rock.030
+    100064: quad lump rock.031
+    100066: quad lump rock.032
+    100068: quad lump rock.033
+    100070: quad lump rock.034
+    100072: quad lump rock.035
+    100074: quad lump rock.036
+    100076: quad lump rock.037
+    100078: quad lump rock.038
+    100080: quad lump rock.039
+    100082: quad lump rock.040
+    100084: quad lump rock.041
+    100086: quad lump rock.042
+    100088: quad lump rock.043
+    100090: quad lump rock.044
+    100092: quad lump rock.045
+    100094: quad lump rock.046
+    100096: quad lump rock.047
+    100098: quad lump rock.048
+    100100: quad lump rock.049
+    100102: quad lump rock.050
+    100104: quad lump rock.051
+    100106: quad lump rock.052
+    100108: quad lump rock.053
+    100110: quad lump rock.054
+    100112: quad lump rock.055
+    100114: quad lump rock.056
+    100116: quad lump rock.057
+    100118: quad lump rock.058
+    100120: quad lump rock.059
+    100122: quad lump rock.060
+    100124: quad lump rock.061
+    100126: quad lump rock.062
+    100128: quad lump rock.063
+    100130: quad lump rock.064
+    100132: quad lump rock.065
+    100134: quad lump rock.066
+    100136: quad lump rock.067
+    100138: quad lump rock.068
+    100140: quad lump rock.069
+    100142: quad lump rock.070
+    100144: quad lump rock.071
+    100146: quad lump rock.072
+    100148: quad lump rock.073
+    100150: quad lump rock.074
+    100152: quad lump rock.075
+    100154: quad lump rock.076
+    100156: quad lump rock.077
+    100158: quad lump rock.078
+    100160: quad lump rock.079
+    100162: quad lump rock.080
+    100164: quad lump rock.081
+    100166: quad lump rock.082
+    100168: quad lump rock.083
+    100170: quad lump rock.084
+    100172: quad lump rock.085
+    100174: quad lump rock.086
+    100176: quad lump rock.087
+    100178: quad lump rock.088
+    100180: quad lump rock.089
+    100182: quad lump rock.090
+    100184: quad lump rock.091
+    100186: quad lump rock.092
+    100188: quad lump rock.093
+    100190: quad lump rock.094
+    100192: quad lump rock.095
+    100194: quad lump rock.096
+    100196: quad lump rock.097
+    100198: quad lump rock.098
+    100200: quad lump rock.099
+    100202: quad lump rock.100
+    100204: quad lump rock.101
+    100206: quad lump rock.102
+    100208: quad lump rock.103
+    100210: reTopKelp.001
+    100212: reTopKelp.002
+    100214: reTopKelp.004
+    100216: reTopKelp.005
+    100218: reTopKelp.006
+    100220: reTopKelp.007
+    100222: reTopKelp.008
+    100224: reTopKelp.009
+    100226: reTopKelp.010
+    100228: reTopKelp.011
+    100230: reTopKelp.012
+    100232: reTopKelp.013
+    100234: reTopKelp.014
+    100236: reTopKelp.015
+    100238: reTopKelp.016
+    100240: reTopKelp.017
+    100242: reTopKelp.018
+    100244: reTopKelp.019
+    100246: reTopKelp.020
+    100248: reTopKelp.021
+    100250: reTopKelp.022
+    100252: reTopKelp.023
+    100254: reTopKelp.024
+    100256: reTopKelp.025
+    100258: reTopKelp.026
+    100260: reTopKelp.027
+    100262: reTopKelp.028
+    100264: reTopKelp.029
+    100266: reTopKelp.030
+    100268: reTopKelp.031
+    100270: reTopKelp.032
+    100272: reTopKelp.033
+    100274: reTopKelp.034
+    100276: reTopKelp.035
+    100278: reTopKelp.036
+    100280: reTopKelp.037
+    100282: reTopKelp.038
+    100284: reTopKelp.039
+    100286: reTopKelp.040
+    100288: reTopKelp.041
+    100290: reTopKelp.042
+    100292: reTopKelp.043
+    100294: reTopKelp.044
+    100296: reTopKelp.045
+    100298: reTopKelp.046
+    100300: reTopKelp.047
+    100302: reTopKelp.048
+    100304: reTopKelp.049
+    100306: reTopKelp.050
+    100308: reTopKelp.051
+    100310: reTopKelp.052
+    100312: reTopKelp.053
+    100314: reTopKelp.054
+    100316: reTopKelp.055
+    100318: reTopKelp.056
+    100320: reTopKelp.057
+    100322: reTopKelp.058
+    100324: reTopKelp.059
+    100326: reTopKelp.060
+    100328: reTopKelp.061
+    100330: reTopKelp.062
+    100332: reTopKelp.063
+    100334: reTopKelp.064
+    100336: reTopKelp.065
+    100338: reTopKelp.066
+    100340: reTopKelp.067
+    100342: reTopKelp.068
+    100344: reTopKelp.069
+    100346: reTopKelp.070
+    100348: reTopKelp.071
+    100350: reTopKelp.072
+    100352: reTopKelp.073
+    100354: reTopKelp.074
+    100356: reTopKelp.075
+    100358: reTopKelp.076
+    100360: reTopKelp.077
+    100362: reTopKelp.078
+    100364: reTopKelp.079
+    100366: reTopKelp.080
+    100368: reTopKelp.081
+    100370: reTopKelp.082
+    100372: reTopKelp.083
+    100374: reTopKelp.084
+    100376: reTopKelp.085
+    100378: reTopKelp.086
+    100380: reTopKelp.087
+    100382: reTopKelp.088
+    100384: reTopKelp.089
+    100386: reTopKelp.090
+    100388: reTopKelp.091
+    100390: reTopKelp.092
+    100392: reTopKelp.093
+    100394: reTopKelp.094
+    100396: reTopKelp.095
+    100398: reTopKelp.096
+    100400: reTopKelp.097
+    100402: reTopKelp.098
+    100404: reTopKelp.099
+    100406: reTopKelp.100
+    100408: reTopKelp.101
+    100410: reTopKelp.102
+    100412: reTopKelp.103
+    100414: reTopKelp.104
+    100416: reTopKelp.105
+    100418: reTopKelp.106
+    100420: reTopKelp.107
+    100422: reTopKelp.108
+    100424: reTopKelp.109
+    100426: reTopKelp.110
+    100428: reTopKelp.111
+    100430: reTopKelp.112
+    100432: reTopKelp.113
+    100434: reTopKelp.114
+    100436: reTopKelp.115
+    100438: reTopKelp.116
+    100440: reTopKelp.117
+    100442: reTopKelp.118
+    100444: reTopKelp.119
+    100446: reTopKelp.120
+    100448: reTopKelp.121
+    100450: reTopKelp.122
+    100452: reTopKelp.123
+    100454: reTopKelp.124
+    100456: reTopKelp.125
+    100458: reTopKelp.126
+    100460: reTopKelp.127
+    100462: reTopKelp.128
+    100464: reTopKelp.129
+    100466: reTopKelp.130
+    100468: reTopKelp.131
+    100470: reTopKelp.132
+    100472: reTopKelp.133
+    100474: reTopKelp.134
+    100476: reTopKelp.135
+    100478: reTopKelp.136
+    100480: reTopKelp.137
+    100482: reTopKelp.138
+    100484: reTopKelp.139
+    100486: reTopKelp.140
+    100488: reTopKelp.141
+    100490: reTopKelp.143
+    100492: reTopKelp.144
+    100494: reTopKelp.145
+    100496: reTopKelp.146
+    100498: reTopKelp.147
+    100500: reTopKelp.148
+    100502: reTopKelp.149
+    100504: reTopKelp.150
+    100506: reTopKelp.151
+    100508: reTopKelp.152
+    100510: reTopKelp.153
+    100512: reTopKelp.154
+    100514: reTopKelp.155
+    100516: reTopKelp.156
+    100518: reTopKelp.157
+    100520: reTopKelp.158
+    100522: reTopKelp.159
+    100524: reTopKelp.160
+    100526: reTopKelp.161
+    100528: reTopKelp.162
+    100530: reTopKelp.163
+    100532: reTopKelp.164
+    100534: reTopKelp.165
+    100536: reTopKelp.166
+    100538: reTopKelp.167
+    100540: reTopKelp.168
+    100542: reTopKelp.169
+    100544: reTopKelp.170
+    100546: reTopKelp.172
+    100548: reTopKelp.173
+    100550: reTopKelp.174
+    100552: reTopKelp.175
+    100554: reTopKelp.176
+    100556: reTopKelp.177
+    100558: reTopKelp.178
+    100560: reTopKelp.179
+    100562: reTopKelp.180
+    100564: reTopKelp.181
+    100566: reTopKelp.182
+    100568: reTopKelp.183
+    100570: reTopKelp.184
+    100572: reTopKelp.185
+    100574: reTopKelp.186
+    100576: reTopKelp.187
+    100578: reTopKelp.188
+    100580: reTopKelp.189
+    100582: reTopKelp.190
+    100584: reTopKelp.191
+    100586: reTopKelp.192
+    100588: reTopKelp.193
+    100590: reTopKelp.194
+    100592: reTopKelp.195
+    100594: reTopKelp.196
+    100596: reTopKelp.197
+    100598: reTopKelp.198
+    100600: reTopKelp.199
+    100602: reTopKelp.200
+    100604: reTopKelp.201
+    100606: reTopKelp.202
+    100608: reTopKelp.203
+    100610: reTopKelp.204
+    100612: reTopKelp.205
+    100614: reTopKelp.206
+    100616: reTopKelp.207
+    100618: reTopKelp.208
+    100620: reTopKelp.209
+    100622: reTopKelp.210
+    100624: reTopKelp.211
+    100626: reTopKelp.212
+    100628: reTopKelp.213
+    100630: reTopKelp.214
+    100632: reTopKelp.215
+    100634: reTopKelp.216
+    100636: reTopKelp.217
+    100638: reTopKelp.218
+    100640: reTopKelp.219
+    100642: reTopKelp.220
+    100644: reTopKelp.221
+    100646: reTopKelp.222
+    100648: reTopKelp.223
+    100650: reTopKelp.224
+    100652: reTopKelp.225
+    100654: reTopKelp.226
+    100656: reTopKelp.227
+    100658: reTopKelp.228
+    100660: reTopKelp.229
+    100662: reTopKelp.230
+    100664: reTopKelp.231
+    100666: reTopKelp.232
+    100668: reTopKelp.233
+    100670: reTopKelp.234
+    100672: reTopKelp.235
+    100674: reTopKelp.236
+    100676: reTopKelp.237
+    100678: reTopKelp.238
+    100680: reTopKelp.239
+    100682: reTopKelp.240
+    100684: reTopKelp.241
+    100686: reTopKelp.242
+    100688: reTopKelp.243
+    100690: reTopKelp.244
+    100692: reTopKelp.245
+    100694: reTopKelp.246
+    100696: reTopKelp.247
+    100698: reTopKelp.248
+    100700: reTopKelp.249
+    100702: reTopKelp.250
+    100704: reTopKelp.251
+    100706: reTopKelp.252
+    100708: reTopKelp.253
+    100710: reTopKelp.254
+    100712: reTopKelp.255
+    100714: reTopKelp.256
+    100716: reTopKelp.257
+    100718: reTopKelp.258
+    100720: reTopKelp.259
+    100722: reTopKelp.260
+    100724: reTopKelp.261
+    100726: reTopKelp.262
+    100728: reTopKelp.263
+    100730: reTopKelp.264
+    100732: reTopKelp.265
+    100734: reTopKelp.266
+    100736: reTopKelp.267
+    100738: reTopKelp.268
+    100740: reTopKelp.269
+    100742: reTopKelp.270
+    100744: reTopKelp.271
+    100746: reTopKelp.272
+    100748: reTopKelp.273
+    100750: reTopKelp.274
+    100752: reTopKelp.275
+    100754: reTopKelp.276
+    100756: reTopKelp.277
+    100758: reTopKelp.278
+    100760: reTopKelp.279
+    100762: reTopKelp.280
+    100764: reTopKelp.281
+    100766: reTopKelp.282
+    100768: reTopKelp.283
+    100770: reTopKelp.284
+    100772: reTopKelp.285
+    100774: reTopKelp.286
+    100776: reTopKelp.287
+    100778: reTopKelp.288
+    100780: reTopKelp.289
+    100782: reTopKelp.290
+    100784: reTopKelp.291
+    100786: reTopKelp.292
+    100788: reTopKelp.293
+    100790: reTopKelp.294
+    100792: reTopKelp.295
+    100794: reTopKelp.296
+    100796: reTopKelp.297
+    100798: reTopKelp.298
+    100800: reTopKelp.299
+    100802: reTopKelp.300
+    100804: reTopKelp.301
+    100806: reTopKelp.302
+    100808: reTopKelp.303
+    100810: reTopKelp.304
+    100812: reTopKelp.305
+    100814: reTopKelp.306
+    100816: reTopKelp.307
+    100818: reTopKelp.308
+    100820: reTopKelp.309
+    100822: reTopKelp.310
+    100824: reTopKelp.311
+    100826: reTopKelp.312
+    100828: reTopKelp.313
+    100830: reTopKelp.314
+    100832: reTopKelp.315
+    100834: reTopKelp.316
+    100836: reTopKelp.317
+    100838: reTopKelp.318
+    100840: reTopKelp.319
+    100842: reTopKelp.321
+    100844: reTopKelp.322
+    100846: reTopKelp.323
+    100848: reTopKelp.324
+    100850: reTopKelp.326
+    100852: reTopKelp.327
+    100854: reTopKelp.328
+    100856: reTopKelp.329
+    100858: reTopKelp.330
+    100860: temple
+    100862: //RootNode
+    400000: ground
+    400002: quad lump rock
+    400004: quad lump rock.001
+    400006: quad lump rock.002
+    400008: quad lump rock.003
+    400010: quad lump rock.004
+    400012: quad lump rock.005
+    400014: quad lump rock.006
+    400016: quad lump rock.007
+    400018: quad lump rock.008
+    400020: quad lump rock.009
+    400022: quad lump rock.010
+    400024: quad lump rock.011
+    400026: quad lump rock.012
+    400028: quad lump rock.013
+    400030: quad lump rock.014
+    400032: quad lump rock.015
+    400034: quad lump rock.016
+    400036: quad lump rock.017
+    400038: quad lump rock.018
+    400040: quad lump rock.019
+    400042: quad lump rock.020
+    400044: quad lump rock.021
+    400046: quad lump rock.022
+    400048: quad lump rock.023
+    400050: quad lump rock.024
+    400052: quad lump rock.025
+    400054: quad lump rock.026
+    400056: quad lump rock.027
+    400058: quad lump rock.028
+    400060: quad lump rock.029
+    400062: quad lump rock.030
+    400064: quad lump rock.031
+    400066: quad lump rock.032
+    400068: quad lump rock.033
+    400070: quad lump rock.034
+    400072: quad lump rock.035
+    400074: quad lump rock.036
+    400076: quad lump rock.037
+    400078: quad lump rock.038
+    400080: quad lump rock.039
+    400082: quad lump rock.040
+    400084: quad lump rock.041
+    400086: quad lump rock.042
+    400088: quad lump rock.043
+    400090: quad lump rock.044
+    400092: quad lump rock.045
+    400094: quad lump rock.046
+    400096: quad lump rock.047
+    400098: quad lump rock.048
+    400100: quad lump rock.049
+    400102: quad lump rock.050
+    400104: quad lump rock.051
+    400106: quad lump rock.052
+    400108: quad lump rock.053
+    400110: quad lump rock.054
+    400112: quad lump rock.055
+    400114: quad lump rock.056
+    400116: quad lump rock.057
+    400118: quad lump rock.058
+    400120: quad lump rock.059
+    400122: quad lump rock.060
+    400124: quad lump rock.061
+    400126: quad lump rock.062
+    400128: quad lump rock.063
+    400130: quad lump rock.064
+    400132: quad lump rock.065
+    400134: quad lump rock.066
+    400136: quad lump rock.067
+    400138: quad lump rock.068
+    400140: quad lump rock.069
+    400142: quad lump rock.070
+    400144: quad lump rock.071
+    400146: quad lump rock.072
+    400148: quad lump rock.073
+    400150: quad lump rock.074
+    400152: quad lump rock.075
+    400154: quad lump rock.076
+    400156: quad lump rock.077
+    400158: quad lump rock.078
+    400160: quad lump rock.079
+    400162: quad lump rock.080
+    400164: quad lump rock.081
+    400166: quad lump rock.082
+    400168: quad lump rock.083
+    400170: quad lump rock.084
+    400172: quad lump rock.085
+    400174: quad lump rock.086
+    400176: quad lump rock.087
+    400178: quad lump rock.088
+    400180: quad lump rock.089
+    400182: quad lump rock.090
+    400184: quad lump rock.091
+    400186: quad lump rock.092
+    400188: quad lump rock.093
+    400190: quad lump rock.094
+    400192: quad lump rock.095
+    400194: quad lump rock.096
+    400196: quad lump rock.097
+    400198: quad lump rock.098
+    400200: quad lump rock.099
+    400202: quad lump rock.100
+    400204: quad lump rock.101
+    400206: quad lump rock.102
+    400208: quad lump rock.103
+    400210: reTopKelp.001
+    400212: reTopKelp.002
+    400214: reTopKelp.004
+    400216: reTopKelp.005
+    400218: reTopKelp.006
+    400220: reTopKelp.007
+    400222: reTopKelp.008
+    400224: reTopKelp.009
+    400226: reTopKelp.010
+    400228: reTopKelp.011
+    400230: reTopKelp.012
+    400232: reTopKelp.013
+    400234: reTopKelp.014
+    400236: reTopKelp.015
+    400238: reTopKelp.016
+    400240: reTopKelp.017
+    400242: reTopKelp.018
+    400244: reTopKelp.019
+    400246: reTopKelp.020
+    400248: reTopKelp.021
+    400250: reTopKelp.022
+    400252: reTopKelp.023
+    400254: reTopKelp.024
+    400256: reTopKelp.025
+    400258: reTopKelp.026
+    400260: reTopKelp.027
+    400262: reTopKelp.028
+    400264: reTopKelp.029
+    400266: reTopKelp.030
+    400268: reTopKelp.031
+    400270: reTopKelp.032
+    400272: reTopKelp.033
+    400274: reTopKelp.034
+    400276: reTopKelp.035
+    400278: reTopKelp.036
+    400280: reTopKelp.037
+    400282: reTopKelp.038
+    400284: reTopKelp.039
+    400286: reTopKelp.040
+    400288: reTopKelp.041
+    400290: reTopKelp.042
+    400292: reTopKelp.043
+    400294: reTopKelp.044
+    400296: reTopKelp.045
+    400298: reTopKelp.046
+    400300: reTopKelp.047
+    400302: reTopKelp.048
+    400304: reTopKelp.049
+    400306: reTopKelp.050
+    400308: reTopKelp.051
+    400310: reTopKelp.052
+    400312: reTopKelp.053
+    400314: reTopKelp.054
+    400316: reTopKelp.055
+    400318: reTopKelp.056
+    400320: reTopKelp.057
+    400322: reTopKelp.058
+    400324: reTopKelp.059
+    400326: reTopKelp.060
+    400328: reTopKelp.061
+    400330: reTopKelp.062
+    400332: reTopKelp.063
+    400334: reTopKelp.064
+    400336: reTopKelp.065
+    400338: reTopKelp.066
+    400340: reTopKelp.067
+    400342: reTopKelp.068
+    400344: reTopKelp.069
+    400346: reTopKelp.070
+    400348: reTopKelp.071
+    400350: reTopKelp.072
+    400352: reTopKelp.073
+    400354: reTopKelp.074
+    400356: reTopKelp.075
+    400358: reTopKelp.076
+    400360: reTopKelp.077
+    400362: reTopKelp.078
+    400364: reTopKelp.079
+    400366: reTopKelp.080
+    400368: reTopKelp.081
+    400370: reTopKelp.082
+    400372: reTopKelp.083
+    400374: reTopKelp.084
+    400376: reTopKelp.085
+    400378: reTopKelp.086
+    400380: reTopKelp.087
+    400382: reTopKelp.088
+    400384: reTopKelp.089
+    400386: reTopKelp.090
+    400388: reTopKelp.091
+    400390: reTopKelp.092
+    400392: reTopKelp.093
+    400394: reTopKelp.094
+    400396: reTopKelp.095
+    400398: reTopKelp.096
+    400400: reTopKelp.097
+    400402: reTopKelp.098
+    400404: reTopKelp.099
+    400406: reTopKelp.100
+    400408: reTopKelp.101
+    400410: reTopKelp.102
+    400412: reTopKelp.103
+    400414: reTopKelp.104
+    400416: reTopKelp.105
+    400418: reTopKelp.106
+    400420: reTopKelp.107
+    400422: reTopKelp.108
+    400424: reTopKelp.109
+    400426: reTopKelp.110
+    400428: reTopKelp.111
+    400430: reTopKelp.112
+    400432: reTopKelp.113
+    400434: reTopKelp.114
+    400436: reTopKelp.115
+    400438: reTopKelp.116
+    400440: reTopKelp.117
+    400442: reTopKelp.118
+    400444: reTopKelp.119
+    400446: reTopKelp.120
+    400448: reTopKelp.121
+    400450: reTopKelp.122
+    400452: reTopKelp.123
+    400454: reTopKelp.124
+    400456: reTopKelp.125
+    400458: reTopKelp.126
+    400460: reTopKelp.127
+    400462: reTopKelp.128
+    400464: reTopKelp.129
+    400466: reTopKelp.130
+    400468: reTopKelp.131
+    400470: reTopKelp.132
+    400472: reTopKelp.133
+    400474: reTopKelp.134
+    400476: reTopKelp.135
+    400478: reTopKelp.136
+    400480: reTopKelp.137
+    400482: reTopKelp.138
+    400484: reTopKelp.139
+    400486: reTopKelp.140
+    400488: reTopKelp.141
+    400490: reTopKelp.143
+    400492: reTopKelp.144
+    400494: reTopKelp.145
+    400496: reTopKelp.146
+    400498: reTopKelp.147
+    400500: reTopKelp.148
+    400502: reTopKelp.149
+    400504: reTopKelp.150
+    400506: reTopKelp.151
+    400508: reTopKelp.152
+    400510: reTopKelp.153
+    400512: reTopKelp.154
+    400514: reTopKelp.155
+    400516: reTopKelp.156
+    400518: reTopKelp.157
+    400520: reTopKelp.158
+    400522: reTopKelp.159
+    400524: reTopKelp.160
+    400526: reTopKelp.161
+    400528: reTopKelp.162
+    400530: reTopKelp.163
+    400532: reTopKelp.164
+    400534: reTopKelp.165
+    400536: reTopKelp.166
+    400538: reTopKelp.167
+    400540: reTopKelp.168
+    400542: reTopKelp.169
+    400544: reTopKelp.170
+    400546: reTopKelp.172
+    400548: reTopKelp.173
+    400550: reTopKelp.174
+    400552: reTopKelp.175
+    400554: reTopKelp.176
+    400556: reTopKelp.177
+    400558: reTopKelp.178
+    400560: reTopKelp.179
+    400562: reTopKelp.180
+    400564: reTopKelp.181
+    400566: reTopKelp.182
+    400568: reTopKelp.183
+    400570: reTopKelp.184
+    400572: reTopKelp.185
+    400574: reTopKelp.186
+    400576: reTopKelp.187
+    400578: reTopKelp.188
+    400580: reTopKelp.189
+    400582: reTopKelp.190
+    400584: reTopKelp.191
+    400586: reTopKelp.192
+    400588: reTopKelp.193
+    400590: reTopKelp.194
+    400592: reTopKelp.195
+    400594: reTopKelp.196
+    400596: reTopKelp.197
+    400598: reTopKelp.198
+    400600: reTopKelp.199
+    400602: reTopKelp.200
+    400604: reTopKelp.201
+    400606: reTopKelp.202
+    400608: reTopKelp.203
+    400610: reTopKelp.204
+    400612: reTopKelp.205
+    400614: reTopKelp.206
+    400616: reTopKelp.207
+    400618: reTopKelp.208
+    400620: reTopKelp.209
+    400622: reTopKelp.210
+    400624: reTopKelp.211
+    400626: reTopKelp.212
+    400628: reTopKelp.213
+    400630: reTopKelp.214
+    400632: reTopKelp.215
+    400634: reTopKelp.216
+    400636: reTopKelp.217
+    400638: reTopKelp.218
+    400640: reTopKelp.219
+    400642: reTopKelp.220
+    400644: reTopKelp.221
+    400646: reTopKelp.222
+    400648: reTopKelp.223
+    400650: reTopKelp.224
+    400652: reTopKelp.225
+    400654: reTopKelp.226
+    400656: reTopKelp.227
+    400658: reTopKelp.228
+    400660: reTopKelp.229
+    400662: reTopKelp.230
+    400664: reTopKelp.231
+    400666: reTopKelp.232
+    400668: reTopKelp.233
+    400670: reTopKelp.234
+    400672: reTopKelp.235
+    400674: reTopKelp.236
+    400676: reTopKelp.237
+    400678: reTopKelp.238
+    400680: reTopKelp.239
+    400682: reTopKelp.240
+    400684: reTopKelp.241
+    400686: reTopKelp.242
+    400688: reTopKelp.243
+    400690: reTopKelp.244
+    400692: reTopKelp.245
+    400694: reTopKelp.246
+    400696: reTopKelp.247
+    400698: reTopKelp.248
+    400700: reTopKelp.249
+    400702: reTopKelp.250
+    400704: reTopKelp.251
+    400706: reTopKelp.252
+    400708: reTopKelp.253
+    400710: reTopKelp.254
+    400712: reTopKelp.255
+    400714: reTopKelp.256
+    400716: reTopKelp.257
+    400718: reTopKelp.258
+    400720: reTopKelp.259
+    400722: reTopKelp.260
+    400724: reTopKelp.261
+    400726: reTopKelp.262
+    400728: reTopKelp.263
+    400730: reTopKelp.264
+    400732: reTopKelp.265
+    400734: reTopKelp.266
+    400736: reTopKelp.267
+    400738: reTopKelp.268
+    400740: reTopKelp.269
+    400742: reTopKelp.270
+    400744: reTopKelp.271
+    400746: reTopKelp.272
+    400748: reTopKelp.273
+    400750: reTopKelp.274
+    400752: reTopKelp.275
+    400754: reTopKelp.276
+    400756: reTopKelp.277
+    400758: reTopKelp.278
+    400760: reTopKelp.279
+    400762: reTopKelp.280
+    400764: reTopKelp.281
+    400766: reTopKelp.282
+    400768: reTopKelp.283
+    400770: reTopKelp.284
+    400772: reTopKelp.285
+    400774: reTopKelp.286
+    400776: reTopKelp.287
+    400778: reTopKelp.288
+    400780: reTopKelp.289
+    400782: reTopKelp.290
+    400784: reTopKelp.291
+    400786: reTopKelp.292
+    400788: reTopKelp.293
+    400790: reTopKelp.294
+    400792: reTopKelp.295
+    400794: reTopKelp.296
+    400796: reTopKelp.297
+    400798: reTopKelp.298
+    400800: reTopKelp.299
+    400802: reTopKelp.300
+    400804: reTopKelp.301
+    400806: reTopKelp.302
+    400808: reTopKelp.303
+    400810: reTopKelp.304
+    400812: reTopKelp.305
+    400814: reTopKelp.306
+    400816: reTopKelp.307
+    400818: reTopKelp.308
+    400820: reTopKelp.309
+    400822: reTopKelp.310
+    400824: reTopKelp.311
+    400826: reTopKelp.312
+    400828: reTopKelp.313
+    400830: reTopKelp.314
+    400832: reTopKelp.315
+    400834: reTopKelp.316
+    400836: reTopKelp.317
+    400838: reTopKelp.318
+    400840: reTopKelp.319
+    400842: reTopKelp.321
+    400844: reTopKelp.322
+    400846: reTopKelp.323
+    400848: reTopKelp.324
+    400850: reTopKelp.326
+    400852: reTopKelp.327
+    400854: reTopKelp.328
+    400856: reTopKelp.329
+    400858: reTopKelp.330
+    400860: temple
+    400862: //RootNode
+    2300000: ground
+    2300002: quad lump rock
+    2300004: quad lump rock.001
+    2300006: quad lump rock.002
+    2300008: quad lump rock.003
+    2300010: quad lump rock.004
+    2300012: quad lump rock.005
+    2300014: quad lump rock.006
+    2300016: quad lump rock.007
+    2300018: quad lump rock.008
+    2300020: quad lump rock.009
+    2300022: quad lump rock.010
+    2300024: quad lump rock.011
+    2300026: quad lump rock.012
+    2300028: quad lump rock.013
+    2300030: quad lump rock.014
+    2300032: quad lump rock.015
+    2300034: quad lump rock.016
+    2300036: quad lump rock.017
+    2300038: quad lump rock.018
+    2300040: quad lump rock.019
+    2300042: quad lump rock.020
+    2300044: quad lump rock.021
+    2300046: quad lump rock.022
+    2300048: quad lump rock.023
+    2300050: quad lump rock.024
+    2300052: quad lump rock.025
+    2300054: quad lump rock.026
+    2300056: quad lump rock.027
+    2300058: quad lump rock.028
+    2300060: quad lump rock.029
+    2300062: quad lump rock.030
+    2300064: quad lump rock.031
+    2300066: quad lump rock.032
+    2300068: quad lump rock.033
+    2300070: quad lump rock.034
+    2300072: quad lump rock.035
+    2300074: quad lump rock.036
+    2300076: quad lump rock.037
+    2300078: quad lump rock.038
+    2300080: quad lump rock.039
+    2300082: quad lump rock.040
+    2300084: quad lump rock.041
+    2300086: quad lump rock.042
+    2300088: quad lump rock.043
+    2300090: quad lump rock.044
+    2300092: quad lump rock.045
+    2300094: quad lump rock.046
+    2300096: quad lump rock.047
+    2300098: quad lump rock.048
+    2300100: quad lump rock.049
+    2300102: quad lump rock.050
+    2300104: quad lump rock.051
+    2300106: quad lump rock.052
+    2300108: quad lump rock.053
+    2300110: quad lump rock.054
+    2300112: quad lump rock.055
+    2300114: quad lump rock.056
+    2300116: quad lump rock.057
+    2300118: quad lump rock.058
+    2300120: quad lump rock.059
+    2300122: quad lump rock.060
+    2300124: quad lump rock.061
+    2300126: quad lump rock.062
+    2300128: quad lump rock.063
+    2300130: quad lump rock.064
+    2300132: quad lump rock.065
+    2300134: quad lump rock.066
+    2300136: quad lump rock.067
+    2300138: quad lump rock.068
+    2300140: quad lump rock.069
+    2300142: quad lump rock.070
+    2300144: quad lump rock.071
+    2300146: quad lump rock.072
+    2300148: quad lump rock.073
+    2300150: quad lump rock.074
+    2300152: quad lump rock.075
+    2300154: quad lump rock.076
+    2300156: quad lump rock.077
+    2300158: quad lump rock.078
+    2300160: quad lump rock.079
+    2300162: quad lump rock.080
+    2300164: quad lump rock.081
+    2300166: quad lump rock.082
+    2300168: quad lump rock.083
+    2300170: quad lump rock.084
+    2300172: quad lump rock.085
+    2300174: quad lump rock.086
+    2300176: quad lump rock.087
+    2300178: quad lump rock.088
+    2300180: quad lump rock.089
+    2300182: quad lump rock.090
+    2300184: quad lump rock.091
+    2300186: quad lump rock.092
+    2300188: quad lump rock.093
+    2300190: quad lump rock.094
+    2300192: quad lump rock.095
+    2300194: quad lump rock.096
+    2300196: quad lump rock.097
+    2300198: quad lump rock.098
+    2300200: quad lump rock.099
+    2300202: quad lump rock.100
+    2300204: quad lump rock.101
+    2300206: quad lump rock.102
+    2300208: quad lump rock.103
+    2300210: reTopKelp.001
+    2300212: reTopKelp.002
+    2300214: reTopKelp.004
+    2300216: reTopKelp.005
+    2300218: reTopKelp.006
+    2300220: reTopKelp.007
+    2300222: reTopKelp.008
+    2300224: reTopKelp.009
+    2300226: reTopKelp.010
+    2300228: reTopKelp.011
+    2300230: reTopKelp.012
+    2300232: reTopKelp.013
+    2300234: reTopKelp.014
+    2300236: reTopKelp.015
+    2300238: reTopKelp.016
+    2300240: reTopKelp.017
+    2300242: reTopKelp.018
+    2300244: reTopKelp.019
+    2300246: reTopKelp.020
+    2300248: reTopKelp.021
+    2300250: reTopKelp.022
+    2300252: reTopKelp.023
+    2300254: reTopKelp.024
+    2300256: reTopKelp.025
+    2300258: reTopKelp.026
+    2300260: reTopKelp.027
+    2300262: reTopKelp.028
+    2300264: reTopKelp.029
+    2300266: reTopKelp.030
+    2300268: reTopKelp.031
+    2300270: reTopKelp.032
+    2300272: reTopKelp.033
+    2300274: reTopKelp.034
+    2300276: reTopKelp.035
+    2300278: reTopKelp.036
+    2300280: reTopKelp.037
+    2300282: reTopKelp.038
+    2300284: reTopKelp.039
+    2300286: reTopKelp.040
+    2300288: reTopKelp.041
+    2300290: reTopKelp.042
+    2300292: reTopKelp.043
+    2300294: reTopKelp.044
+    2300296: reTopKelp.045
+    2300298: reTopKelp.046
+    2300300: reTopKelp.047
+    2300302: reTopKelp.048
+    2300304: reTopKelp.049
+    2300306: reTopKelp.050
+    2300308: reTopKelp.051
+    2300310: reTopKelp.052
+    2300312: reTopKelp.053
+    2300314: reTopKelp.054
+    2300316: reTopKelp.055
+    2300318: reTopKelp.056
+    2300320: reTopKelp.057
+    2300322: reTopKelp.058
+    2300324: reTopKelp.059
+    2300326: reTopKelp.060
+    2300328: reTopKelp.061
+    2300330: reTopKelp.062
+    2300332: reTopKelp.063
+    2300334: reTopKelp.064
+    2300336: reTopKelp.065
+    2300338: reTopKelp.066
+    2300340: reTopKelp.067
+    2300342: reTopKelp.068
+    2300344: reTopKelp.069
+    2300346: reTopKelp.070
+    2300348: reTopKelp.071
+    2300350: reTopKelp.072
+    2300352: reTopKelp.073
+    2300354: reTopKelp.074
+    2300356: reTopKelp.075
+    2300358: reTopKelp.076
+    2300360: reTopKelp.077
+    2300362: reTopKelp.078
+    2300364: reTopKelp.079
+    2300366: reTopKelp.080
+    2300368: reTopKelp.081
+    2300370: reTopKelp.082
+    2300372: reTopKelp.083
+    2300374: reTopKelp.084
+    2300376: reTopKelp.085
+    2300378: reTopKelp.086
+    2300380: reTopKelp.087
+    2300382: reTopKelp.088
+    2300384: reTopKelp.089
+    2300386: reTopKelp.090
+    2300388: reTopKelp.091
+    2300390: reTopKelp.092
+    2300392: reTopKelp.093
+    2300394: reTopKelp.094
+    2300396: reTopKelp.095
+    2300398: reTopKelp.096
+    2300400: reTopKelp.097
+    2300402: reTopKelp.098
+    2300404: reTopKelp.099
+    2300406: reTopKelp.100
+    2300408: reTopKelp.101
+    2300410: reTopKelp.102
+    2300412: reTopKelp.103
+    2300414: reTopKelp.104
+    2300416: reTopKelp.105
+    2300418: reTopKelp.106
+    2300420: reTopKelp.107
+    2300422: reTopKelp.108
+    2300424: reTopKelp.109
+    2300426: reTopKelp.110
+    2300428: reTopKelp.111
+    2300430: reTopKelp.112
+    2300432: reTopKelp.113
+    2300434: reTopKelp.114
+    2300436: reTopKelp.115
+    2300438: reTopKelp.116
+    2300440: reTopKelp.117
+    2300442: reTopKelp.118
+    2300444: reTopKelp.119
+    2300446: reTopKelp.120
+    2300448: reTopKelp.121
+    2300450: reTopKelp.122
+    2300452: reTopKelp.123
+    2300454: reTopKelp.124
+    2300456: reTopKelp.125
+    2300458: reTopKelp.126
+    2300460: reTopKelp.127
+    2300462: reTopKelp.128
+    2300464: reTopKelp.129
+    2300466: reTopKelp.130
+    2300468: reTopKelp.131
+    2300470: reTopKelp.132
+    2300472: reTopKelp.133
+    2300474: reTopKelp.134
+    2300476: reTopKelp.135
+    2300478: reTopKelp.136
+    2300480: reTopKelp.137
+    2300482: reTopKelp.138
+    2300484: reTopKelp.139
+    2300486: reTopKelp.140
+    2300488: reTopKelp.141
+    2300490: reTopKelp.143
+    2300492: reTopKelp.144
+    2300494: reTopKelp.145
+    2300496: reTopKelp.146
+    2300498: reTopKelp.147
+    2300500: reTopKelp.148
+    2300502: reTopKelp.149
+    2300504: reTopKelp.150
+    2300506: reTopKelp.151
+    2300508: reTopKelp.152
+    2300510: reTopKelp.153
+    2300512: reTopKelp.154
+    2300514: reTopKelp.155
+    2300516: reTopKelp.156
+    2300518: reTopKelp.157
+    2300520: reTopKelp.158
+    2300522: reTopKelp.159
+    2300524: reTopKelp.160
+    2300526: reTopKelp.161
+    2300528: reTopKelp.162
+    2300530: reTopKelp.163
+    2300532: reTopKelp.164
+    2300534: reTopKelp.165
+    2300536: reTopKelp.166
+    2300538: reTopKelp.167
+    2300540: reTopKelp.168
+    2300542: reTopKelp.169
+    2300544: reTopKelp.170
+    2300546: reTopKelp.172
+    2300548: reTopKelp.173
+    2300550: reTopKelp.174
+    2300552: reTopKelp.175
+    2300554: reTopKelp.176
+    2300556: reTopKelp.177
+    2300558: reTopKelp.178
+    2300560: reTopKelp.179
+    2300562: reTopKelp.180
+    2300564: reTopKelp.181
+    2300566: reTopKelp.182
+    2300568: reTopKelp.183
+    2300570: reTopKelp.184
+    2300572: reTopKelp.185
+    2300574: reTopKelp.186
+    2300576: reTopKelp.187
+    2300578: reTopKelp.188
+    2300580: reTopKelp.189
+    2300582: reTopKelp.190
+    2300584: reTopKelp.191
+    2300586: reTopKelp.192
+    2300588: reTopKelp.193
+    2300590: reTopKelp.194
+    2300592: reTopKelp.195
+    2300594: reTopKelp.196
+    2300596: reTopKelp.197
+    2300598: reTopKelp.198
+    2300600: reTopKelp.199
+    2300602: reTopKelp.200
+    2300604: reTopKelp.201
+    2300606: reTopKelp.202
+    2300608: reTopKelp.203
+    2300610: reTopKelp.204
+    2300612: reTopKelp.205
+    2300614: reTopKelp.206
+    2300616: reTopKelp.207
+    2300618: reTopKelp.208
+    2300620: reTopKelp.209
+    2300622: reTopKelp.210
+    2300624: reTopKelp.211
+    2300626: reTopKelp.212
+    2300628: reTopKelp.213
+    2300630: reTopKelp.214
+    2300632: reTopKelp.215
+    2300634: reTopKelp.216
+    2300636: reTopKelp.217
+    2300638: reTopKelp.218
+    2300640: reTopKelp.219
+    2300642: reTopKelp.220
+    2300644: reTopKelp.221
+    2300646: reTopKelp.222
+    2300648: reTopKelp.223
+    2300650: reTopKelp.224
+    2300652: reTopKelp.225
+    2300654: reTopKelp.226
+    2300656: reTopKelp.227
+    2300658: reTopKelp.228
+    2300660: reTopKelp.229
+    2300662: reTopKelp.230
+    2300664: reTopKelp.231
+    2300666: reTopKelp.232
+    2300668: reTopKelp.233
+    2300670: reTopKelp.234
+    2300672: reTopKelp.235
+    2300674: reTopKelp.236
+    2300676: reTopKelp.237
+    2300678: reTopKelp.238
+    2300680: reTopKelp.239
+    2300682: reTopKelp.240
+    2300684: reTopKelp.241
+    2300686: reTopKelp.242
+    2300688: reTopKelp.243
+    2300690: reTopKelp.244
+    2300692: reTopKelp.245
+    2300694: reTopKelp.246
+    2300696: reTopKelp.247
+    2300698: reTopKelp.248
+    2300700: reTopKelp.249
+    2300702: reTopKelp.250
+    2300704: reTopKelp.251
+    2300706: reTopKelp.252
+    2300708: reTopKelp.253
+    2300710: reTopKelp.254
+    2300712: reTopKelp.255
+    2300714: reTopKelp.256
+    2300716: reTopKelp.257
+    2300718: reTopKelp.258
+    2300720: reTopKelp.259
+    2300722: reTopKelp.260
+    2300724: reTopKelp.261
+    2300726: reTopKelp.262
+    2300728: reTopKelp.263
+    2300730: reTopKelp.264
+    2300732: reTopKelp.265
+    2300734: reTopKelp.266
+    2300736: reTopKelp.267
+    2300738: reTopKelp.268
+    2300740: reTopKelp.269
+    2300742: reTopKelp.270
+    2300744: reTopKelp.271
+    2300746: reTopKelp.272
+    2300748: reTopKelp.273
+    2300750: reTopKelp.274
+    2300752: reTopKelp.275
+    2300754: reTopKelp.276
+    2300756: reTopKelp.277
+    2300758: reTopKelp.278
+    2300760: reTopKelp.279
+    2300762: reTopKelp.280
+    2300764: reTopKelp.281
+    2300766: reTopKelp.282
+    2300768: reTopKelp.283
+    2300770: reTopKelp.284
+    2300772: reTopKelp.285
+    2300774: reTopKelp.286
+    2300776: reTopKelp.287
+    2300778: reTopKelp.288
+    2300780: reTopKelp.289
+    2300782: reTopKelp.290
+    2300784: reTopKelp.291
+    2300786: reTopKelp.292
+    2300788: reTopKelp.293
+    2300790: reTopKelp.294
+    2300792: reTopKelp.295
+    2300794: reTopKelp.296
+    2300796: reTopKelp.297
+    2300798: reTopKelp.298
+    2300800: reTopKelp.299
+    2300802: reTopKelp.300
+    2300804: reTopKelp.301
+    2300806: reTopKelp.302
+    2300808: reTopKelp.303
+    2300810: reTopKelp.304
+    2300812: reTopKelp.305
+    2300814: reTopKelp.306
+    2300816: reTopKelp.307
+    2300818: reTopKelp.308
+    2300820: reTopKelp.309
+    2300822: reTopKelp.310
+    2300824: reTopKelp.311
+    2300826: reTopKelp.312
+    2300828: reTopKelp.313
+    2300830: reTopKelp.314
+    2300832: reTopKelp.315
+    2300834: reTopKelp.316
+    2300836: reTopKelp.317
+    2300838: reTopKelp.318
+    2300840: reTopKelp.319
+    2300842: reTopKelp.321
+    2300844: reTopKelp.322
+    2300846: reTopKelp.323
+    2300848: reTopKelp.324
+    2300850: reTopKelp.326
+    2300852: reTopKelp.327
+    2300854: reTopKelp.328
+    2300856: reTopKelp.329
+    2300858: reTopKelp.330
+    2300860: temple
+    3300000: ground
+    3300002: quad lump rock
+    3300004: quad lump rock.001
+    3300006: quad lump rock.002
+    3300008: quad lump rock.003
+    3300010: quad lump rock.004
+    3300012: quad lump rock.005
+    3300014: quad lump rock.006
+    3300016: quad lump rock.007
+    3300018: quad lump rock.008
+    3300020: quad lump rock.009
+    3300022: quad lump rock.010
+    3300024: quad lump rock.011
+    3300026: quad lump rock.012
+    3300028: quad lump rock.013
+    3300030: quad lump rock.014
+    3300032: quad lump rock.015
+    3300034: quad lump rock.016
+    3300036: quad lump rock.017
+    3300038: quad lump rock.018
+    3300040: quad lump rock.019
+    3300042: quad lump rock.020
+    3300044: quad lump rock.021
+    3300046: quad lump rock.022
+    3300048: quad lump rock.023
+    3300050: quad lump rock.024
+    3300052: quad lump rock.025
+    3300054: quad lump rock.026
+    3300056: quad lump rock.027
+    3300058: quad lump rock.028
+    3300060: quad lump rock.029
+    3300062: quad lump rock.030
+    3300064: quad lump rock.031
+    3300066: quad lump rock.032
+    3300068: quad lump rock.033
+    3300070: quad lump rock.034
+    3300072: quad lump rock.035
+    3300074: quad lump rock.036
+    3300076: quad lump rock.037
+    3300078: quad lump rock.038
+    3300080: quad lump rock.039
+    3300082: quad lump rock.040
+    3300084: quad lump rock.041
+    3300086: quad lump rock.042
+    3300088: quad lump rock.043
+    3300090: quad lump rock.044
+    3300092: quad lump rock.045
+    3300094: quad lump rock.046
+    3300096: quad lump rock.047
+    3300098: quad lump rock.048
+    3300100: quad lump rock.049
+    3300102: quad lump rock.050
+    3300104: quad lump rock.051
+    3300106: quad lump rock.052
+    3300108: quad lump rock.053
+    3300110: quad lump rock.054
+    3300112: quad lump rock.055
+    3300114: quad lump rock.056
+    3300116: quad lump rock.057
+    3300118: quad lump rock.058
+    3300120: quad lump rock.059
+    3300122: quad lump rock.060
+    3300124: quad lump rock.061
+    3300126: quad lump rock.062
+    3300128: quad lump rock.063
+    3300130: quad lump rock.064
+    3300132: quad lump rock.065
+    3300134: quad lump rock.066
+    3300136: quad lump rock.067
+    3300138: quad lump rock.068
+    3300140: quad lump rock.069
+    3300142: quad lump rock.070
+    3300144: quad lump rock.071
+    3300146: quad lump rock.072
+    3300148: quad lump rock.073
+    3300150: quad lump rock.074
+    3300152: quad lump rock.075
+    3300154: quad lump rock.076
+    3300156: quad lump rock.077
+    3300158: quad lump rock.078
+    3300160: quad lump rock.079
+    3300162: quad lump rock.080
+    3300164: quad lump rock.081
+    3300166: quad lump rock.082
+    3300168: quad lump rock.083
+    3300170: quad lump rock.084
+    3300172: quad lump rock.085
+    3300174: quad lump rock.086
+    3300176: quad lump rock.087
+    3300178: quad lump rock.088
+    3300180: quad lump rock.089
+    3300182: quad lump rock.090
+    3300184: quad lump rock.091
+    3300186: quad lump rock.092
+    3300188: quad lump rock.093
+    3300190: quad lump rock.094
+    3300192: quad lump rock.095
+    3300194: quad lump rock.096
+    3300196: quad lump rock.097
+    3300198: quad lump rock.098
+    3300200: quad lump rock.099
+    3300202: quad lump rock.100
+    3300204: quad lump rock.101
+    3300206: quad lump rock.102
+    3300208: quad lump rock.103
+    3300210: reTopKelp.001
+    3300212: reTopKelp.002
+    3300214: reTopKelp.004
+    3300216: reTopKelp.005
+    3300218: reTopKelp.006
+    3300220: reTopKelp.007
+    3300222: reTopKelp.008
+    3300224: reTopKelp.009
+    3300226: reTopKelp.010
+    3300228: reTopKelp.011
+    3300230: reTopKelp.012
+    3300232: reTopKelp.013
+    3300234: reTopKelp.014
+    3300236: reTopKelp.015
+    3300238: reTopKelp.016
+    3300240: reTopKelp.017
+    3300242: reTopKelp.018
+    3300244: reTopKelp.019
+    3300246: reTopKelp.020
+    3300248: reTopKelp.021
+    3300250: reTopKelp.022
+    3300252: reTopKelp.023
+    3300254: reTopKelp.024
+    3300256: reTopKelp.025
+    3300258: reTopKelp.026
+    3300260: reTopKelp.027
+    3300262: reTopKelp.028
+    3300264: reTopKelp.029
+    3300266: reTopKelp.030
+    3300268: reTopKelp.031
+    3300270: reTopKelp.032
+    3300272: reTopKelp.033
+    3300274: reTopKelp.034
+    3300276: reTopKelp.035
+    3300278: reTopKelp.036
+    3300280: reTopKelp.037
+    3300282: reTopKelp.038
+    3300284: reTopKelp.039
+    3300286: reTopKelp.040
+    3300288: reTopKelp.041
+    3300290: reTopKelp.042
+    3300292: reTopKelp.043
+    3300294: reTopKelp.044
+    3300296: reTopKelp.045
+    3300298: reTopKelp.046
+    3300300: reTopKelp.047
+    3300302: reTopKelp.048
+    3300304: reTopKelp.049
+    3300306: reTopKelp.050
+    3300308: reTopKelp.051
+    3300310: reTopKelp.052
+    3300312: reTopKelp.053
+    3300314: reTopKelp.054
+    3300316: reTopKelp.055
+    3300318: reTopKelp.056
+    3300320: reTopKelp.057
+    3300322: reTopKelp.058
+    3300324: reTopKelp.059
+    3300326: reTopKelp.060
+    3300328: reTopKelp.061
+    3300330: reTopKelp.062
+    3300332: reTopKelp.063
+    3300334: reTopKelp.064
+    3300336: reTopKelp.065
+    3300338: reTopKelp.066
+    3300340: reTopKelp.067
+    3300342: reTopKelp.068
+    3300344: reTopKelp.069
+    3300346: reTopKelp.070
+    3300348: reTopKelp.071
+    3300350: reTopKelp.072
+    3300352: reTopKelp.073
+    3300354: reTopKelp.074
+    3300356: reTopKelp.075
+    3300358: reTopKelp.076
+    3300360: reTopKelp.077
+    3300362: reTopKelp.078
+    3300364: reTopKelp.079
+    3300366: reTopKelp.080
+    3300368: reTopKelp.081
+    3300370: reTopKelp.082
+    3300372: reTopKelp.083
+    3300374: reTopKelp.084
+    3300376: reTopKelp.085
+    3300378: reTopKelp.086
+    3300380: reTopKelp.087
+    3300382: reTopKelp.088
+    3300384: reTopKelp.089
+    3300386: reTopKelp.090
+    3300388: reTopKelp.091
+    3300390: reTopKelp.092
+    3300392: reTopKelp.093
+    3300394: reTopKelp.094
+    3300396: reTopKelp.095
+    3300398: reTopKelp.096
+    3300400: reTopKelp.097
+    3300402: reTopKelp.098
+    3300404: reTopKelp.099
+    3300406: reTopKelp.100
+    3300408: reTopKelp.101
+    3300410: reTopKelp.102
+    3300412: reTopKelp.103
+    3300414: reTopKelp.104
+    3300416: reTopKelp.105
+    3300418: reTopKelp.106
+    3300420: reTopKelp.107
+    3300422: reTopKelp.108
+    3300424: reTopKelp.109
+    3300426: reTopKelp.110
+    3300428: reTopKelp.111
+    3300430: reTopKelp.112
+    3300432: reTopKelp.113
+    3300434: reTopKelp.114
+    3300436: reTopKelp.115
+    3300438: reTopKelp.116
+    3300440: reTopKelp.117
+    3300442: reTopKelp.118
+    3300444: reTopKelp.119
+    3300446: reTopKelp.120
+    3300448: reTopKelp.121
+    3300450: reTopKelp.122
+    3300452: reTopKelp.123
+    3300454: reTopKelp.124
+    3300456: reTopKelp.125
+    3300458: reTopKelp.126
+    3300460: reTopKelp.127
+    3300462: reTopKelp.128
+    3300464: reTopKelp.129
+    3300466: reTopKelp.130
+    3300468: reTopKelp.131
+    3300470: reTopKelp.132
+    3300472: reTopKelp.133
+    3300474: reTopKelp.134
+    3300476: reTopKelp.135
+    3300478: reTopKelp.136
+    3300480: reTopKelp.137
+    3300482: reTopKelp.138
+    3300484: reTopKelp.139
+    3300486: reTopKelp.140
+    3300488: reTopKelp.141
+    3300490: reTopKelp.143
+    3300492: reTopKelp.144
+    3300494: reTopKelp.145
+    3300496: reTopKelp.146
+    3300498: reTopKelp.147
+    3300500: reTopKelp.148
+    3300502: reTopKelp.149
+    3300504: reTopKelp.150
+    3300506: reTopKelp.151
+    3300508: reTopKelp.152
+    3300510: reTopKelp.153
+    3300512: reTopKelp.154
+    3300514: reTopKelp.155
+    3300516: reTopKelp.156
+    3300518: reTopKelp.157
+    3300520: reTopKelp.158
+    3300522: reTopKelp.159
+    3300524: reTopKelp.160
+    3300526: reTopKelp.161
+    3300528: reTopKelp.162
+    3300530: reTopKelp.163
+    3300532: reTopKelp.164
+    3300534: reTopKelp.165
+    3300536: reTopKelp.166
+    3300538: reTopKelp.167
+    3300540: reTopKelp.168
+    3300542: reTopKelp.169
+    3300544: reTopKelp.170
+    3300546: reTopKelp.172
+    3300548: reTopKelp.173
+    3300550: reTopKelp.174
+    3300552: reTopKelp.175
+    3300554: reTopKelp.176
+    3300556: reTopKelp.177
+    3300558: reTopKelp.178
+    3300560: reTopKelp.179
+    3300562: reTopKelp.180
+    3300564: reTopKelp.181
+    3300566: reTopKelp.182
+    3300568: reTopKelp.183
+    3300570: reTopKelp.184
+    3300572: reTopKelp.185
+    3300574: reTopKelp.186
+    3300576: reTopKelp.187
+    3300578: reTopKelp.188
+    3300580: reTopKelp.189
+    3300582: reTopKelp.190
+    3300584: reTopKelp.191
+    3300586: reTopKelp.192
+    3300588: reTopKelp.193
+    3300590: reTopKelp.194
+    3300592: reTopKelp.195
+    3300594: reTopKelp.196
+    3300596: reTopKelp.197
+    3300598: reTopKelp.198
+    3300600: reTopKelp.199
+    3300602: reTopKelp.200
+    3300604: reTopKelp.201
+    3300606: reTopKelp.202
+    3300608: reTopKelp.203
+    3300610: reTopKelp.204
+    3300612: reTopKelp.205
+    3300614: reTopKelp.206
+    3300616: reTopKelp.207
+    3300618: reTopKelp.208
+    3300620: reTopKelp.209
+    3300622: reTopKelp.210
+    3300624: reTopKelp.211
+    3300626: reTopKelp.212
+    3300628: reTopKelp.213
+    3300630: reTopKelp.214
+    3300632: reTopKelp.215
+    3300634: reTopKelp.216
+    3300636: reTopKelp.217
+    3300638: reTopKelp.218
+    3300640: reTopKelp.219
+    3300642: reTopKelp.220
+    3300644: reTopKelp.221
+    3300646: reTopKelp.222
+    3300648: reTopKelp.223
+    3300650: reTopKelp.224
+    3300652: reTopKelp.225
+    3300654: reTopKelp.226
+    3300656: reTopKelp.227
+    3300658: reTopKelp.228
+    3300660: reTopKelp.229
+    3300662: reTopKelp.230
+    3300664: reTopKelp.231
+    3300666: reTopKelp.232
+    3300668: reTopKelp.233
+    3300670: reTopKelp.234
+    3300672: reTopKelp.235
+    3300674: reTopKelp.236
+    3300676: reTopKelp.237
+    3300678: reTopKelp.238
+    3300680: reTopKelp.239
+    3300682: reTopKelp.240
+    3300684: reTopKelp.241
+    3300686: reTopKelp.242
+    3300688: reTopKelp.243
+    3300690: reTopKelp.244
+    3300692: reTopKelp.245
+    3300694: reTopKelp.246
+    3300696: reTopKelp.247
+    3300698: reTopKelp.248
+    3300700: reTopKelp.249
+    3300702: reTopKelp.250
+    3300704: reTopKelp.251
+    3300706: reTopKelp.252
+    3300708: reTopKelp.253
+    3300710: reTopKelp.254
+    3300712: reTopKelp.255
+    3300714: reTopKelp.256
+    3300716: reTopKelp.257
+    3300718: reTopKelp.258
+    3300720: reTopKelp.259
+    3300722: reTopKelp.260
+    3300724: reTopKelp.261
+    3300726: reTopKelp.262
+    3300728: reTopKelp.263
+    3300730: reTopKelp.264
+    3300732: reTopKelp.265
+    3300734: reTopKelp.266
+    3300736: reTopKelp.267
+    3300738: reTopKelp.268
+    3300740: reTopKelp.269
+    3300742: reTopKelp.270
+    3300744: reTopKelp.271
+    3300746: reTopKelp.272
+    3300748: reTopKelp.273
+    3300750: reTopKelp.274
+    3300752: reTopKelp.275
+    3300754: reTopKelp.276
+    3300756: reTopKelp.277
+    3300758: reTopKelp.278
+    3300760: reTopKelp.279
+    3300762: reTopKelp.280
+    3300764: reTopKelp.281
+    3300766: reTopKelp.282
+    3300768: reTopKelp.283
+    3300770: reTopKelp.284
+    3300772: reTopKelp.285
+    3300774: reTopKelp.286
+    3300776: reTopKelp.287
+    3300778: reTopKelp.288
+    3300780: reTopKelp.289
+    3300782: reTopKelp.290
+    3300784: reTopKelp.291
+    3300786: reTopKelp.292
+    3300788: reTopKelp.293
+    3300790: reTopKelp.294
+    3300792: reTopKelp.295
+    3300794: reTopKelp.296
+    3300796: reTopKelp.297
+    3300798: reTopKelp.298
+    3300800: reTopKelp.299
+    3300802: reTopKelp.300
+    3300804: reTopKelp.301
+    3300806: reTopKelp.302
+    3300808: reTopKelp.303
+    3300810: reTopKelp.304
+    3300812: reTopKelp.305
+    3300814: reTopKelp.306
+    3300816: reTopKelp.307
+    3300818: reTopKelp.308
+    3300820: reTopKelp.309
+    3300822: reTopKelp.310
+    3300824: reTopKelp.311
+    3300826: reTopKelp.312
+    3300828: reTopKelp.313
+    3300830: reTopKelp.314
+    3300832: reTopKelp.315
+    3300834: reTopKelp.316
+    3300836: reTopKelp.317
+    3300838: reTopKelp.318
+    3300840: reTopKelp.319
+    3300842: reTopKelp.321
+    3300844: reTopKelp.322
+    3300846: reTopKelp.323
+    3300848: reTopKelp.324
+    3300850: reTopKelp.326
+    3300852: reTopKelp.327
+    3300854: reTopKelp.328
+    3300856: reTopKelp.329
+    3300858: reTopKelp.330
+    3300860: temple
+    4300000: quad lump rock.103
+    4300002: quad lump rock.102
+    4300004: quad lump rock.101
+    4300006: quad lump rock.100
+    4300008: quad lump rock.099
+    4300010: quad lump rock.098
+    4300012: quad lump rock.097
+    4300014: quad lump rock.096
+    4300016: quad lump rock.095
+    4300018: quad lump rock.094
+    4300020: quad lump rock.093
+    4300022: quad lump rock.092
+    4300024: quad lump rock.091
+    4300026: quad lump rock.090
+    4300028: quad lump rock.089
+    4300030: quad lump rock.088
+    4300032: quad lump rock.087
+    4300034: quad lump rock.086
+    4300036: quad lump rock.085
+    4300038: quad lump rock.084
+    4300040: quad lump rock.083
+    4300042: quad lump rock.082
+    4300044: quad lump rock.081
+    4300046: quad lump rock.080
+    4300048: quad lump rock.079
+    4300050: quad lump rock.078
+    4300052: quad lump rock.077
+    4300054: quad lump rock.076
+    4300056: quad lump rock.075
+    4300058: quad lump rock.074
+    4300060: quad lump rock.073
+    4300062: quad lump rock.072
+    4300064: quad lump rock.071
+    4300066: quad lump rock.070
+    4300068: quad lump rock.069
+    4300070: quad lump rock.068
+    4300072: quad lump rock.067
+    4300074: quad lump rock.066
+    4300076: quad lump rock.065
+    4300078: quad lump rock.064
+    4300080: quad lump rock.063
+    4300082: quad lump rock.062
+    4300084: quad lump rock.061
+    4300086: quad lump rock.060
+    4300088: quad lump rock.059
+    4300090: quad lump rock.058
+    4300092: quad lump rock.057
+    4300094: quad lump rock.056
+    4300096: quad lump rock.055
+    4300098: quad lump rock.054
+    4300100: quad lump rock.053
+    4300102: quad lump rock.052
+    4300104: quad lump rock.051
+    4300106: quad lump rock.050
+    4300108: quad lump rock.049
+    4300110: quad lump rock.048
+    4300112: quad lump rock.047
+    4300114: quad lump rock.046
+    4300116: quad lump rock.045
+    4300118: quad lump rock.044
+    4300120: quad lump rock.043
+    4300122: quad lump rock.042
+    4300124: quad lump rock.041
+    4300126: quad lump rock.040
+    4300128: quad lump rock.039
+    4300130: quad lump rock.038
+    4300132: quad lump rock.037
+    4300134: quad lump rock.036
+    4300136: quad lump rock.035
+    4300138: quad lump rock.034
+    4300140: quad lump rock.033
+    4300142: quad lump rock.032
+    4300144: quad lump rock.031
+    4300146: quad lump rock.030
+    4300148: quad lump rock.029
+    4300150: quad lump rock.028
+    4300152: quad lump rock.027
+    4300154: quad lump rock.026
+    4300156: quad lump rock.025
+    4300158: quad lump rock.024
+    4300160: quad lump rock.023
+    4300162: quad lump rock.022
+    4300164: quad lump rock.021
+    4300166: quad lump rock.020
+    4300168: quad lump rock.019
+    4300170: quad lump rock.018
+    4300172: quad lump rock.017
+    4300174: quad lump rock.016
+    4300176: quad lump rock.015
+    4300178: quad lump rock.014
+    4300180: quad lump rock.013
+    4300182: quad lump rock.012
+    4300184: quad lump rock.011
+    4300186: quad lump rock.010
+    4300188: quad lump rock.009
+    4300190: quad lump rock.008
+    4300192: quad lump rock.007
+    4300194: quad lump rock.006
+    4300196: quad lump rock.005
+    4300198: quad lump rock.004
+    4300200: quad lump rock.003
+    4300202: quad lump rock.002
+    4300204: quad lump rock.001
+    4300206: reTopKelp.330
+    4300208: reTopKelp.329
+    4300210: reTopKelp.328
+    4300212: reTopKelp.327
+    4300214: reTopKelp.326
+    4300216: reTopKelp.324
+    4300218: reTopKelp.323
+    4300220: reTopKelp.322
+    4300222: reTopKelp.321
+    4300224: reTopKelp.319
+    4300226: reTopKelp.318
+    4300228: reTopKelp.317
+    4300230: reTopKelp.316
+    4300232: reTopKelp.315
+    4300234: reTopKelp.314
+    4300236: reTopKelp.313
+    4300238: reTopKelp.312
+    4300240: reTopKelp.311
+    4300242: reTopKelp.310
+    4300244: reTopKelp.309
+    4300246: reTopKelp.308
+    4300248: reTopKelp.307
+    4300250: reTopKelp.306
+    4300252: reTopKelp.305
+    4300254: reTopKelp.304
+    4300256: reTopKelp.303
+    4300258: reTopKelp.302
+    4300260: reTopKelp.301
+    4300262: reTopKelp.300
+    4300264: reTopKelp.299
+    4300266: reTopKelp.298
+    4300268: reTopKelp.297
+    4300270: reTopKelp.296
+    4300272: reTopKelp.295
+    4300274: reTopKelp.294
+    4300276: reTopKelp.293
+    4300278: reTopKelp.292
+    4300280: reTopKelp.291
+    4300282: reTopKelp.290
+    4300284: reTopKelp.289
+    4300286: reTopKelp.288
+    4300288: reTopKelp.287
+    4300290: reTopKelp.286
+    4300292: reTopKelp.285
+    4300294: reTopKelp.284
+    4300296: reTopKelp.283
+    4300298: reTopKelp.282
+    4300300: reTopKelp.281
+    4300302: reTopKelp.280
+    4300304: reTopKelp.279
+    4300306: reTopKelp.278
+    4300308: reTopKelp.277
+    4300310: reTopKelp.276
+    4300312: reTopKelp.275
+    4300314: reTopKelp.274
+    4300316: reTopKelp.273
+    4300318: reTopKelp.272
+    4300320: reTopKelp.271
+    4300322: reTopKelp.270
+    4300324: reTopKelp.269
+    4300326: reTopKelp.268
+    4300328: reTopKelp.267
+    4300330: reTopKelp.266
+    4300332: reTopKelp.265
+    4300334: reTopKelp.264
+    4300336: reTopKelp.263
+    4300338: reTopKelp.262
+    4300340: reTopKelp.261
+    4300342: reTopKelp.260
+    4300344: reTopKelp.259
+    4300346: reTopKelp.258
+    4300348: reTopKelp.257
+    4300350: reTopKelp.256
+    4300352: reTopKelp.255
+    4300354: reTopKelp.254
+    4300356: reTopKelp.253
+    4300358: reTopKelp.252
+    4300360: reTopKelp.251
+    4300362: reTopKelp.250
+    4300364: reTopKelp.249
+    4300366: reTopKelp.248
+    4300368: reTopKelp.247
+    4300370: reTopKelp.246
+    4300372: reTopKelp.245
+    4300374: reTopKelp.244
+    4300376: reTopKelp.243
+    4300378: reTopKelp.242
+    4300380: reTopKelp.241
+    4300382: reTopKelp.240
+    4300384: reTopKelp.239
+    4300386: reTopKelp.238
+    4300388: reTopKelp.237
+    4300390: reTopKelp.236
+    4300392: reTopKelp.235
+    4300394: reTopKelp.234
+    4300396: reTopKelp.233
+    4300398: reTopKelp.232
+    4300400: reTopKelp.231
+    4300402: reTopKelp.230
+    4300404: reTopKelp.229
+    4300406: reTopKelp.228
+    4300408: reTopKelp.227
+    4300410: reTopKelp.226
+    4300412: reTopKelp.225
+    4300414: reTopKelp.224
+    4300416: reTopKelp.223
+    4300418: reTopKelp.222
+    4300420: reTopKelp.221
+    4300422: reTopKelp.220
+    4300424: reTopKelp.219
+    4300426: reTopKelp.218
+    4300428: reTopKelp.217
+    4300430: reTopKelp.216
+    4300432: reTopKelp.215
+    4300434: reTopKelp.214
+    4300436: reTopKelp.213
+    4300438: reTopKelp.212
+    4300440: reTopKelp.211
+    4300442: reTopKelp.210
+    4300444: reTopKelp.209
+    4300446: reTopKelp.208
+    4300448: reTopKelp.207
+    4300450: reTopKelp.206
+    4300452: reTopKelp.205
+    4300454: reTopKelp.204
+    4300456: reTopKelp.203
+    4300458: reTopKelp.202
+    4300460: reTopKelp.201
+    4300462: reTopKelp.200
+    4300464: reTopKelp.199
+    4300466: reTopKelp.198
+    4300468: reTopKelp.197
+    4300470: reTopKelp.196
+    4300472: reTopKelp.195
+    4300474: reTopKelp.194
+    4300476: reTopKelp.193
+    4300478: reTopKelp.192
+    4300480: reTopKelp.191
+    4300482: reTopKelp.190
+    4300484: reTopKelp.189
+    4300486: reTopKelp.188
+    4300488: reTopKelp.187
+    4300490: reTopKelp.186
+    4300492: reTopKelp.185
+    4300494: reTopKelp.184
+    4300496: reTopKelp.183
+    4300498: reTopKelp.182
+    4300500: reTopKelp.181
+    4300502: reTopKelp.180
+    4300504: reTopKelp.179
+    4300506: reTopKelp.178
+    4300508: reTopKelp.177
+    4300510: reTopKelp.176
+    4300512: reTopKelp.175
+    4300514: reTopKelp.174
+    4300516: reTopKelp.173
+    4300518: reTopKelp.172
+    4300520: reTopKelp.170
+    4300522: reTopKelp.169
+    4300524: reTopKelp.168
+    4300526: reTopKelp.167
+    4300528: reTopKelp.166
+    4300530: reTopKelp.165
+    4300532: reTopKelp.164
+    4300534: reTopKelp.163
+    4300536: reTopKelp.162
+    4300538: reTopKelp.161
+    4300540: reTopKelp.160
+    4300542: reTopKelp.159
+    4300544: reTopKelp.158
+    4300546: reTopKelp.157
+    4300548: reTopKelp.156
+    4300550: reTopKelp.155
+    4300552: reTopKelp.154
+    4300554: reTopKelp.153
+    4300556: reTopKelp.152
+    4300558: reTopKelp.151
+    4300560: reTopKelp.150
+    4300562: reTopKelp.149
+    4300564: reTopKelp.148
+    4300566: reTopKelp.147
+    4300568: reTopKelp.146
+    4300570: reTopKelp.145
+    4300572: reTopKelp.144
+    4300574: reTopKelp.143
+    4300576: reTopKelp.141
+    4300578: reTopKelp.140
+    4300580: reTopKelp.139
+    4300582: reTopKelp.138
+    4300584: reTopKelp.137
+    4300586: reTopKelp.136
+    4300588: reTopKelp.135
+    4300590: reTopKelp.134
+    4300592: reTopKelp.133
+    4300594: reTopKelp.132
+    4300596: reTopKelp.131
+    4300598: reTopKelp.130
+    4300600: reTopKelp.129
+    4300602: reTopKelp.128
+    4300604: reTopKelp.127
+    4300606: reTopKelp.126
+    4300608: reTopKelp.125
+    4300610: reTopKelp.124
+    4300612: reTopKelp.123
+    4300614: reTopKelp.122
+    4300616: reTopKelp.121
+    4300618: reTopKelp.120
+    4300620: reTopKelp.119
+    4300622: reTopKelp.118
+    4300624: reTopKelp.117
+    4300626: reTopKelp.001
+    4300628: reTopKelp.116
+    4300630: reTopKelp.115
+    4300632: reTopKelp.114
+    4300634: reTopKelp.113
+    4300636: reTopKelp.112
+    4300638: reTopKelp.111
+    4300640: reTopKelp.110
+    4300642: reTopKelp.109
+    4300644: reTopKelp.108
+    4300646: reTopKelp.107
+    4300648: reTopKelp.106
+    4300650: reTopKelp.105
+    4300652: reTopKelp.104
+    4300654: reTopKelp.103
+    4300656: reTopKelp.102
+    4300658: reTopKelp.101
+    4300660: reTopKelp.100
+    4300662: reTopKelp.099
+    4300664: reTopKelp.098
+    4300666: reTopKelp.097
+    4300668: reTopKelp.096
+    4300670: reTopKelp.095
+    4300672: reTopKelp.094
+    4300674: reTopKelp.093
+    4300676: reTopKelp.092
+    4300678: reTopKelp.091
+    4300680: reTopKelp.090
+    4300682: reTopKelp.089
+    4300684: reTopKelp.088
+    4300686: reTopKelp.087
+    4300688: reTopKelp.086
+    4300690: reTopKelp.085
+    4300692: reTopKelp.084
+    4300694: reTopKelp.083
+    4300696: reTopKelp.082
+    4300698: reTopKelp.081
+    4300700: reTopKelp.080
+    4300702: reTopKelp.079
+    4300704: reTopKelp.078
+    4300706: reTopKelp.077
+    4300708: reTopKelp.076
+    4300710: reTopKelp.075
+    4300712: reTopKelp.074
+    4300714: reTopKelp.073
+    4300716: reTopKelp.072
+    4300718: reTopKelp.071
+    4300720: reTopKelp.070
+    4300722: reTopKelp.069
+    4300724: reTopKelp.068
+    4300726: reTopKelp.067
+    4300728: reTopKelp.066
+    4300730: reTopKelp.065
+    4300732: reTopKelp.064
+    4300734: reTopKelp.063
+    4300736: reTopKelp.062
+    4300738: reTopKelp.061
+    4300740: reTopKelp.060
+    4300742: reTopKelp.059
+    4300744: reTopKelp.058
+    4300746: reTopKelp.057
+    4300748: reTopKelp.056
+    4300750: reTopKelp.055
+    4300752: reTopKelp.054
+    4300754: reTopKelp.053
+    4300756: reTopKelp.052
+    4300758: reTopKelp.051
+    4300760: reTopKelp.050
+    4300762: reTopKelp.049
+    4300764: reTopKelp.048
+    4300766: reTopKelp.047
+    4300768: reTopKelp.046
+    4300770: reTopKelp.045
+    4300772: reTopKelp.044
+    4300774: reTopKelp.043
+    4300776: reTopKelp.042
+    4300778: reTopKelp.041
+    4300780: reTopKelp.040
+    4300782: reTopKelp.039
+    4300784: reTopKelp.038
+    4300786: reTopKelp.037
+    4300788: reTopKelp.036
+    4300790: reTopKelp.035
+    4300792: reTopKelp.034
+    4300794: reTopKelp.033
+    4300796: reTopKelp.032
+    4300798: reTopKelp.031
+    4300800: reTopKelp.030
+    4300802: reTopKelp.029
+    4300804: reTopKelp.028
+    4300806: reTopKelp.027
+    4300808: reTopKelp.026
+    4300810: reTopKelp.025
+    4300812: reTopKelp.024
+    4300814: reTopKelp.023
+    4300816: reTopKelp.022
+    4300818: reTopKelp.021
+    4300820: reTopKelp.020
+    4300822: reTopKelp.019
+    4300824: reTopKelp.018
+    4300826: reTopKelp.017
+    4300828: reTopKelp.016
+    4300830: reTopKelp.015
+    4300832: reTopKelp.014
+    4300834: reTopKelp.013
+    4300836: reTopKelp.012
+    4300838: reTopKelp.011
+    4300840: reTopKelp.010
+    4300842: reTopKelp.009
+    4300844: reTopKelp.008
+    4300846: reTopKelp.007
+    4300848: reTopKelp.006
+    4300850: reTopKelp.005
+    4300852: reTopKelp.004
+    4300854: reTopKelp.002
+    4300856: ground
+    4300858: temple
+    4300860: quad lump rock
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
