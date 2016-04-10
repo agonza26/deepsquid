@@ -98,10 +98,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Outline
-        second: 0.03
-      data:
-        first:
           name: _ZWrite
         second: 0
       data:
@@ -136,6 +132,10 @@ Material:
         first:
           name: _Mode
         second: 2
+      data:
+        first:
+          name: _Outline
+        second: 0.03
     m_Colors:
       data:
         first:
@@ -144,7 +144,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0.253}
       data:
         first:
           name: _OutlineColor

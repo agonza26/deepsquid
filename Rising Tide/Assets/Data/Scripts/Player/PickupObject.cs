@@ -98,7 +98,7 @@ public class PickupObject : MonoBehaviour
 					Vector3 littlebitforward = blood.transform.position;
 					littlebitforward.z += 2f;
 					blood.transform.position = littlebitforward;
-					blood.Emit(20);
+					blood.Emit(25);
 					dropObject();
 				}
 			}
@@ -182,7 +182,7 @@ public class PickupObject : MonoBehaviour
         {
             canThrow = true;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-2.25f;
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-2f;
 			//lerp doesn't work how we want it to, but i'm leaving the code for me to use later - alex
            	//Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime );
 			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, playerZRot);
@@ -302,7 +302,10 @@ public class PickupObject : MonoBehaviour
 	void OnTriggerExit(Collider c)
 	{
 		grabbableInRange = false;
-		c.GetComponent<Pickupable> ().changeMatToNml ();
+		if(c)
+		{
+			c.GetComponent<Pickupable> ().changeMatToNml ();
+		}
 	}
 
 	
