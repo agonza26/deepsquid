@@ -182,7 +182,7 @@ public class PickupObject : MonoBehaviour
         {
             canThrow = true;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-2.25f;
 			//lerp doesn't work how we want it to, but i'm leaving the code for me to use later - alex
            	//Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime );
 			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, playerZRot);
@@ -196,7 +196,7 @@ public class PickupObject : MonoBehaviour
 			Vector3 objSize = (o.GetComponent<Collider>().bounds.size)/ 2f;
 			player.GetComponent<Rigidbody>().isKinematic = true; //without this it won't move with the parent
 			parented = true;
-			player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize, Time.deltaTime );
+			player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize , Time.deltaTime );
 
 
         }
@@ -287,7 +287,15 @@ public class PickupObject : MonoBehaviour
 		{
 		InRangeItemSaver = c;
 		grabbableInRange = true;
+		if(!carrying)
+		{
 		c.GetComponent<Pickupable>().changeMatToHL();
+		} 
+		else
+		{
+		c.GetComponent<Pickupable>().changeMatToNml();
+		}
+		
 		}
 	}
 	

@@ -8,6 +8,7 @@ public class Abilities : MonoBehaviour {
 	public Transform playerPos;
 	public AudioSource ad;
 	public ParticleSystem boostPS;
+	public int boostParticles = 35;
 
 	//public Abilities abilities;
 	public float abilitySpeedVal = 1f;
@@ -149,7 +150,7 @@ public class Abilities : MonoBehaviour {
 		//boostPS.transform.forward *= -1f;
 		//Quaternion inkRotation = Ink.transform.rotation;
 		ad.Play();
-		boostPS.Emit(35);
+		boostPS.Emit(boostParticles);
 	}
 
 	//Coroutine to wait x amount of time

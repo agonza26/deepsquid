@@ -103,6 +103,7 @@ public class Pickupable : MonoBehaviour {
 				if (GetComponent<BasicEnemy> () != null) {
 					GetComponent<BasicEnemy> ().struggle (); //returns if escaped
 				}
+				isPickedUp = true;
 				transform.position = position;
 				transform.rotation = rotation * Quaternion.Euler(0, 90f, 0);// euler to rotate on its side like we're eating it
 				
@@ -133,6 +134,7 @@ public class Pickupable : MonoBehaviour {
 
 		switch (myTag) {
 		case "Enemy":
+			isPickedUp = false;
 			break;
 		case "Boids":
 
