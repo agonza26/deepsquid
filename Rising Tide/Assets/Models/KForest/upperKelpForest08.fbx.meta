@@ -540,6 +540,16 @@ ModelImporter:
     101064: reTopKelp.430
     101066: reTopKelp.431
     101068: reTopKelp.432
+    101070: reTopKelp.433
+    101072: reTopKelp.434
+    101074: reTopKelp.435
+    101076: reTopKelp.436
+    101078: reTopKelp.437
+    101080: reTopKelp.438
+    101082: reTopKelp.439
+    101084: reTopKelp.440
+    101086: reTopKelp.441
+    101088: reTopKelp.442
     400000: ground
     400002: quad lump rock
     400004: quad lump rock.001
@@ -1075,6 +1085,16 @@ ModelImporter:
     401064: reTopKelp.430
     401066: reTopKelp.431
     401068: reTopKelp.432
+    401070: reTopKelp.433
+    401072: reTopKelp.434
+    401074: reTopKelp.435
+    401076: reTopKelp.436
+    401078: reTopKelp.437
+    401080: reTopKelp.438
+    401082: reTopKelp.439
+    401084: reTopKelp.440
+    401086: reTopKelp.441
+    401088: reTopKelp.442
     2300000: ground
     2300002: quad lump rock
     2300004: quad lump rock.001
@@ -1610,6 +1630,16 @@ ModelImporter:
     2301064: reTopKelp.430
     2301066: reTopKelp.431
     2301068: reTopKelp.432
+    2301070: reTopKelp.433
+    2301072: reTopKelp.434
+    2301074: reTopKelp.435
+    2301076: reTopKelp.436
+    2301078: reTopKelp.437
+    2301080: reTopKelp.438
+    2301082: reTopKelp.439
+    2301084: reTopKelp.440
+    2301086: reTopKelp.441
+    2301088: reTopKelp.442
     3300000: ground
     3300002: quad lump rock
     3300004: quad lump rock.001
@@ -2145,6 +2175,16 @@ ModelImporter:
     3301064: reTopKelp.430
     3301066: reTopKelp.431
     3301068: reTopKelp.432
+    3301070: reTopKelp.433
+    3301072: reTopKelp.434
+    3301074: reTopKelp.435
+    3301076: reTopKelp.436
+    3301078: reTopKelp.437
+    3301080: reTopKelp.438
+    3301082: reTopKelp.439
+    3301084: reTopKelp.440
+    3301086: reTopKelp.441
+    3301088: reTopKelp.442
     4300000: quad lump rock.103
     4300002: quad lump rock.102
     4300004: quad lump rock.101
@@ -2679,6 +2719,16 @@ ModelImporter:
     4301062: reTopKelp.332
     4301064: reTopKelp.331
     4301066: reTopKelp.003
+    4301068: reTopKelp.442
+    4301070: reTopKelp.441
+    4301072: reTopKelp.440
+    4301074: reTopKelp.439
+    4301076: reTopKelp.438
+    4301078: reTopKelp.437
+    4301080: reTopKelp.436
+    4301082: reTopKelp.435
+    4301084: reTopKelp.434
+    4301086: reTopKelp.433
   materials:
     importMaterials: 1
     materialName: 0
