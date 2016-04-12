@@ -155,8 +155,8 @@ public class Abilities : MonoBehaviour {
 	IEnumerator replenishStam(){
 		while (true) {
 			if (currStamina < maxStamina) {
-				currStamina = currStamina + 5;
-				yield return new WaitForSeconds (2f);
+				currStamina = currStamina + 3;
+				yield return new WaitForSeconds (0.2f);
 			} else {
 				yield return null;
 			}
