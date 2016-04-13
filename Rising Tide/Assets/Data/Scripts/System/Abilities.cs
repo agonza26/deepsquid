@@ -8,6 +8,7 @@ public class Abilities : MonoBehaviour {
 	public Transform playerPos;
 	public AudioSource ad;
 	public ParticleSystem boostPS;
+	public int boostParticles = 35;
 
 	//public Abilities abilities;
 	public float abilitySpeedVal = 1f;
@@ -65,14 +66,13 @@ public class Abilities : MonoBehaviour {
 				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true) {
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
-					if(Input.GetKeyDown("space"))
+					if (Input.GetKeyDown ("space")) 
 					{
-					ad.Play();
-					bubblesBoost();
+						bubblesBoost();	
 					}
-					
 				} else {
 					abilitySpeedVal = 1f;
+					boostPS.Stop ();
 				}
 				
 
@@ -144,19 +144,21 @@ public class Abilities : MonoBehaviour {
 	
 	void bubblesBoost()
 	{
-		boostPS.transform.position = playerPos.transform.position + playerPos.transform.forward * 5f;
+		boostPS.transform.position = playerPos.transform.position;
+		//boostPS.transform.Translate (Vector3.forward * 5);
 		boostPS.transform.rotation = playerPos.transform.rotation;
 		//boostPS.transform.forward *= -1f;
 		//Quaternion inkRotation = Ink.transform.rotation;
-		boostPS.Emit(20);
+		ad.Play();
+		boostPS.Emit(boostParticles);
 	}
 
 	//Coroutine to wait x amount of time
 	IEnumerator replenishStam(){
 		while (true) {
 			if (currStamina < maxStamina) {
-				currStamina = currStamina + 5;
-				yield return new WaitForSeconds (2f);
+				currStamina = currStamina + 3;
+				yield return new WaitForSeconds (0.2f);
 			} else {
 				yield return null;
 			}
