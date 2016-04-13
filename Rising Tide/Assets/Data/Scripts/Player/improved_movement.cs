@@ -8,10 +8,8 @@ public class improved_movement : MonoBehaviour {
 	float x = 0.0f;
 	float y = 0.0f;
 
-	public float playerSpeed = 12.5f;
-	public float distanceMin = .5f;
-	public float distanceMax = 15f;
-	public float abilitySpeed;
+
+	private float abilitySpeed;
 	//private Rigidbody rb;//used for controlling player's
 
 
@@ -114,12 +112,11 @@ public class improved_movement : MonoBehaviour {
 
 
 
-			if (Input.GetKey ("r")) {
-
-			} 
-			//Down
-			if (Input.GetKey ("f")) { 
-
+			Vector3 elevation = Vector3.zero;
+			if (Input.GetKey ("r") && ! Input.GetKey ("f")) {
+				elevation += transform.up * 0.3f;
+			} else if (Input.GetKey ("f") && ! Input.GetKey ("r")) { 
+				elevation += transform.up * -0.3f;
 			}
 			//Movement forward and backward
 			//Moving forwards
@@ -128,13 +125,10 @@ public class improved_movement : MonoBehaviour {
 
 
 			if (Input.GetKey ("w") && !Input.GetKey ("s")) { 
-				
-				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 					
-						inkAccBoost = -3f;
+						inkAccBoost = -5f;
 						if (acc < accMax) {
 							acc += accCount;
 							accCount += 0.005f;
@@ -204,12 +198,10 @@ public class improved_movement : MonoBehaviour {
 					}
 				}
 
-				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-
 			} else if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 				ctRot = CameraTarg.transform.rotation;
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-				inkAccBoost = 3f;
+				inkAccBoost = 5f;
 				if (acc > deccMax) {
 					acc -= deccCount;
 					deccCount += 0.005f;
@@ -263,15 +255,23 @@ public class improved_movement : MonoBehaviour {
 
 			direction = transform.forward*-1 + outsideFactor;
 			RaycastHit hit;
+			RaycastHit wallCheck;
 			// ... and if a raycast towards the player hits something...
 			//Debug.DrawRay(transform.position, direction*10000);
 
-			//Debug.DrawRay(rb.position, direction*10000);
+			Debug.DrawRay(rb.position, direction*15);
+			if(Physics.Raycast(rb.position, direction, out wallCheck, 15f) ){
+				if(wallCheck.transform.tag == "Environment"){
+					Debug.Log ("hi");
+				}
+			}
 
 			if (!Physics.Raycast (rb.position, direction, out hit, distMag)) {
-				
+				//Debug.Log (vel);
 				vel = direction * (hit.distance - hit.distance / 1000) ;
-			} else {
+				//Debug.Log ("hi");
+			}
+			else {
 				vel = direction * distMag;
 
 				//float directionFlip = -1f;
@@ -279,12 +279,15 @@ public class improved_movement : MonoBehaviour {
 
 				//if(!GetComponent<PickupObject>().parented){
 				if (acc != 0) {
-					movement = vel * acc + transform.position;
+					movement = vel * acc + transform.position + elevation;
 					rb.MovePosition (movement);
 				} else {
-					movement = outsideFactor + transform.position;
+					movement = outsideFactor + transform.position + elevation;
 					rb.MovePosition (movement);
 				}
+
+			}
+			if(Physics.Raycast(rb.position, direction, out wallCheck, distMag) ){
 
 			}
 			if (waveAcc) {
