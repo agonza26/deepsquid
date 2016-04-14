@@ -304,7 +304,7 @@ public class PickupObject : MonoBehaviour
 		grabbableInRange = false;
 		if(c)
 		{
-			c.GetComponent<Pickupable> ().changeMatToNml ();
+			//c.GetComponent<Pickupable> ().changeMatToNml ();
 		}
 	}
 
