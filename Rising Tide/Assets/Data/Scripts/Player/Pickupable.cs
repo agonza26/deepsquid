@@ -188,7 +188,7 @@ public class Pickupable : MonoBehaviour {
 			if (transform.childCount > 0) {
 				GetComponentInChildren<Renderer> ().material = mats [1];
 			} else {
-				//GetComponent<Renderer> ().material = mats [1];
+				GetComponent<Renderer> ().material = mats [1];
 			}
 		}
 	}

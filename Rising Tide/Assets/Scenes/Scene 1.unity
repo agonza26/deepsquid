@@ -5030,7 +5030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &145314987
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12935,7 +12935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &392107451
 Transform:
   m_ObjectHideFlags: 0
@@ -55283,7 +55283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1408505669
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63338,7 +63338,7 @@ Transform:
   m_PrefabParentObject: {fileID: 465366, guid: 55688a308f66d9549b594b1eebc68cc3, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1548557825}
-  m_LocalRotation: {x: -0.70196515, y: 0.02199665, z: 0.7118179, w: -0.008746444}
+  m_LocalRotation: {x: -0.7019651, y: 0.021996649, z: 0.71181786, w: -0.008746443}
   m_LocalPosition: {x: -115.40448, y: 33.229065, z: 8.991211}
   m_LocalScale: {x: 2581.3425, y: 1510.4915, z: 670.90656}
   m_Children: []
@@ -69277,7 +69277,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878989029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.8, y: 32.86, z: 56.1}
+  m_LocalPosition: {x: 379.29, y: 32.86, z: -196.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1089783253}
@@ -78990,15 +78990,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 436396, guid: 1ed8497e4378449528df3f67b629a0af, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 507.9
       objectReference: {fileID: 0}
     - target: {fileID: 436396, guid: 1ed8497e4378449528df3f67b629a0af, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 34.31
       objectReference: {fileID: 0}
     - target: {fileID: 436396, guid: 1ed8497e4378449528df3f67b629a0af, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -153.43
       objectReference: {fileID: 0}
     - target: {fileID: 436396, guid: 1ed8497e4378449528df3f67b629a0af, type: 2}
       propertyPath: m_LocalRotation.x
