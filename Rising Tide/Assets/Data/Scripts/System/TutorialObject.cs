@@ -28,6 +28,7 @@ public class TutorialObject : MonoBehaviour {
 	private int distToInteract;
 	private int clampedDist;
 
+
 	void Start(){
 		narrTextTrigger [0] = true;
 		fillNarrativeString ();
@@ -35,6 +36,7 @@ public class TutorialObject : MonoBehaviour {
 		tutorialText.SetActive (false);
 		tutorialBox.SetActive (false);
 		tutText = tutorialText.GetComponent<Text> ();
+
 	}
 
 	//Max fontsize = 20, minimum = 5. at Max distance, font = 5, outside the distance text doesnt show. 
@@ -84,8 +86,12 @@ public class TutorialObject : MonoBehaviour {
 				inRangeToInt = true;
 				triggerNarrText ();
 				Debug.Log ("Close enough to interact");
+				GameObject.FindWithTag("BorkNPCLocation").GetComponent<NPCHighlighting>().changeMatToHL ();
+				//GetComponent<NPCHighlighting>().changeMatToHL ();
+
 			} else {
 				inRangeToInt = false;
+				GameObject.FindWithTag("BorkNPCLocation").GetComponent<NPCHighlighting>().changeMatToNml();
 			}
 
 		} else {

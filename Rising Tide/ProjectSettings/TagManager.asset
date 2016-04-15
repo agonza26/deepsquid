@@ -15,6 +15,7 @@ TagManager:
   - inkOrb
   - moveText
   - borkVisualCollider
+  - BorkNPCLocation
   layers:
   - Default
   - TransparentFX

@@ -277,7 +277,7 @@ public class PickupObject : MonoBehaviour
 		{
 			InRangeItemSaver = c;
 			grabbableInRange = true;
-			c.GetComponent<Pickupable> ().changeMatToHL ();
+			c.GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 	}
 
@@ -289,11 +289,11 @@ public class PickupObject : MonoBehaviour
 		grabbableInRange = true;
 		if(!carrying)
 		{
-		c.GetComponent<Pickupable>().changeMatToHL();
+				c.GetComponent<NPCHighlighting>().changeMatToHL();
 		} 
 		else
 		{
-		c.GetComponent<Pickupable>().changeMatToNml();
+				c.GetComponent<NPCHighlighting>().changeMatToNml();
 		}
 		
 		}
