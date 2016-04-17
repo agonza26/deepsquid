@@ -16,6 +16,7 @@ TagManager:
   - moveText
   - borkVisualCollider
   - BorkNPCLocation
+  - krakenEgg
   layers:
   - Default
   - TransparentFX

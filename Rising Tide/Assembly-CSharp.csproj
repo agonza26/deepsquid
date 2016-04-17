@@ -65,7 +65,6 @@
      <Compile Include="Assets\Data\Scripts\Player\PickupObject.cs" />
      <Compile Include="Assets\Data\Scripts\Player\Pickupable.cs" />
      <Compile Include="Assets\Data\Scripts\Player\Player_stats.cs" />
-     <Compile Include="Assets\Data\Scripts\Player\improved_movement.cs" />
      <Compile Include="Assets\Data\Scripts\Player\simple_movement.cs" />
      <Compile Include="Assets\Data\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Data\Scripts\System\Ability\PushWave.cs" />
@@ -84,11 +83,12 @@
      <Compile Include="Assets\Data\Scripts\System\PlaceInFrontOf.cs" />
      <Compile Include="Assets\Data\Scripts\System\Player.cs" />
      <Compile Include="Assets\Data\Scripts\System\Reload.cs" />
-     <Compile Include="Assets\Data\Scripts\System\TutorialObject.cs" />
      <Compile Include="Assets\Data\Scripts\System\WaveSystem.cs" />
      <Compile Include="Assets\Data\Scripts\System\inkGateObject.cs" />
      <Compile Include="Assets\Data\Scripts\System\inkObjectPuzzle.cs" />
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
+     <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
+     <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Shaders\Outline_Diffuser_Bumped.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />

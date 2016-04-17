@@ -38,13 +38,14 @@ public class improved_movement : MonoBehaviour {
 	private Vector3 lastFactor = Vector3.zero;
 	private float outsideDec = 0f;
 	public bool waveAcc = true;
-
-	public float distMag = 10f;
+	public float speedMod = 1.5f;
+	private float distMag = 10f;
 	private Vector3 vel;
 	private Vector3 direction;
 	private Vector3 movement;
 	public float currStamina;
-
+	private bool isEgg;
+	private GameObject helperObject;
 	private Transform CameraTarg;
 	private Quaternion ctRot;
 	private Rigidbody rb;
@@ -56,8 +57,8 @@ public class improved_movement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
-
+		helperObject = GameObject.FindGameObjectWithTag ("borkVisualCollider");
+		isEgg = helperObject.GetComponent<TutorialObject> ().isEgg;
 		isDead = false;
 		currStamina = GetComponent<Abilities> ().currStamina;
 		rb = GetComponent<Rigidbody> ();
@@ -68,6 +69,7 @@ public class improved_movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		isEgg = helperObject.GetComponent<TutorialObject> ().isEgg;
 		if (Input.GetKeyUp (KeyCode.UpArrow)) {
 			if (!sqid){
 				Cursor.lockState = CursorLockMode.Locked;
@@ -79,9 +81,16 @@ public class improved_movement : MonoBehaviour {
 			sqid = !sqid;
 
 		}
+		Quaternion rotation = Quaternion.Euler (y, x, 0);
+		CameraTarg.rotation = rotation;
 
 
-		if (!isDead) {
+		ctRot = CameraTarg.transform.rotation;
+		//if (!GetComponent<PickupObject>.parented) {
+		transform.rotation = ctRot;
+		transform.forward *= -1;
+
+		if (!isDead && !isEgg){// && !isEgg) {
 			currStamina = GetComponent<Abilities> ().currStamina;
 			activeAbilities = GetComponent<Abilities> ().activeAbils;
 			//Debug.Log (activeAbilities [1]);
@@ -99,24 +108,26 @@ public class improved_movement : MonoBehaviour {
 				y = 85.5f;
 			}
 
-			Quaternion rotation = Quaternion.Euler (y, x, 0);
-			CameraTarg.rotation = rotation;
-			
-		
-			ctRot = CameraTarg.transform.rotation;
-			//if (!GetComponent<PickupObject>.parented) {
-			transform.rotation = ctRot;
-			transform.forward *= -1;
+
 			//}
 
 
 
 
 			Vector3 elevation = Vector3.zero;
+			//Control moving up an down
 			if (Input.GetKey ("r") && ! Input.GetKey ("f")) {
 				elevation += transform.up * 0.3f;
 			} else if (Input.GetKey ("f") && ! Input.GetKey ("r")) { 
 				elevation += transform.up * -0.3f;
+			}
+			Vector3 horzPos = Vector3.zero;
+			//Control moving left and right
+			if (Input.GetKey ("a") && !Input.GetKey ("d")) {
+				horzPos += transform.right * 0.3f;
+			}
+			else if (Input.GetKey ("d") && ! Input.GetKey ("a")) { 
+				horzPos += transform.right * -0.3f;
 			}
 			//Movement forward and backward
 			//Moving forwards
@@ -128,7 +139,7 @@ public class improved_movement : MonoBehaviour {
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 					
-						inkAccBoost = -5f;
+						inkAccBoost = -4f;
 						if (acc < accMax) {
 							acc += accCount;
 							accCount += 0.005f;
@@ -166,7 +177,7 @@ public class improved_movement : MonoBehaviour {
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
 				if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
-						inkAccBoost = 3f;
+						inkAccBoost = 4f;
 						if (acc > deccMax) {
 							acc -= deccCount;
 							deccCount += 0.005f;
@@ -201,7 +212,7 @@ public class improved_movement : MonoBehaviour {
 			} else if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 				ctRot = CameraTarg.transform.rotation;
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-				inkAccBoost = 5f;
+				inkAccBoost = 4f;
 				if (acc > deccMax) {
 					acc -= deccCount;
 					deccCount += 0.005f;
@@ -216,10 +227,7 @@ public class improved_movement : MonoBehaviour {
 				deccCount = 0.025f;
 				//decrease spead to 0 naturally
 				if ((acc >= 0)) {
-					
-					
 					acc -= coast;
-
 					if (coast > 0.02) {
 						coast -= 0.01f;
 					}
@@ -245,12 +253,13 @@ public class improved_movement : MonoBehaviour {
 			}
 
 			//change players position
+			/*
 			if (GetComponent<PickupObject> ().carrying) {
 				carryingSpeed = 0.5f;
 			} else {
 				carryingSpeed = 1f;
 			}
-
+*/
 
 
 			direction = transform.forward*-1 + outsideFactor;
@@ -275,14 +284,14 @@ public class improved_movement : MonoBehaviour {
 				vel = direction * distMag;
 
 				//float directionFlip = -1f;
-				vel = vel * Time.deltaTime * abilitySpeed * inkAccBoost * carryingSpeed;
+				vel = vel * Time.deltaTime * abilitySpeed * inkAccBoost * speedMod;// * carryingSpeed;
 
 				//if(!GetComponent<PickupObject>().parented){
 				if (acc != 0) {
-					movement = vel * acc + transform.position + elevation;
+					movement = vel * acc + transform.position + elevation + horzPos;
 					rb.MovePosition (movement);
 				} else {
-					movement = outsideFactor + transform.position + elevation;
+					movement = outsideFactor + transform.position + elevation + horzPos;
 					rb.MovePosition (movement);
 				}
 

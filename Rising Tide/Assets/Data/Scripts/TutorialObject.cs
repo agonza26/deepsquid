@@ -12,18 +12,25 @@ public class TutorialObject : MonoBehaviour {
 	public GameObject tutorialText;
 	private Text tutText;
 	public GameObject player;
-	public AudioSource ding;
+	private GameObject egg;
 	public GameObject tutorialBox;
 	public GameObject tutOrigin;
 	RectTransform rt;
+	private Mesh squidMesh;
+	private Mesh tempMesh;
+	private Mesh eggMesh;
+	private bool dialogStarted = false;
 	private bool inLOS = false;
 	private bool inRangeToHear = false;
 	private bool inRangeToInt = false;
 	private bool inLOS_inRange = false;
 	public string[] narrText = new string[20];
 	public bool[] narrTextTrigger = new bool[20];
-	private int posInDialogue = 0;
+	private int posInDialogue;
 	private bool firstDialogueTrigger = false;
+	private bool secondDialogueTrigger = false;
+	private bool canPressE = false;
+	public bool isEgg = true;
 	private int dist;
 	private int distToInteract;
 	private int clampedDist;
@@ -33,35 +40,47 @@ public class TutorialObject : MonoBehaviour {
 		narrTextTrigger [0] = true;
 		fillNarrativeString ();
 		player = GameObject.FindGameObjectWithTag("Player");
+		egg = GameObject.FindGameObjectWithTag ("krakenEgg");
 		tutorialText.SetActive (false);
 		tutorialBox.SetActive (false);
 		tutText = tutorialText.GetComponent<Text> ();
+		rt = tutorialText.GetComponent<RectTransform> ();
 
 	}
 
-	//Max fontsize = 20, minimum = 5. at Max distance, font = 5, outside the distance text doesnt show. 
+
 	void Update ()
 	{
+		
+		if (isEgg) {
+			if (!dialogStarted) {
+				dialogStarted = true;
+				StartCoroutine (waitForFirstDialogueTrigger (4f));
+				//StartCoroutine (waitForDialogueTrigger (4f));
+			}
+
+		}
 		if (inLOS && inRangeToHear) {
 			inLOS_inRange = true;
 		} else {
 			inLOS_inRange = false;
 		}
-		if (inLOS_inRange) {
+		if (inLOS_inRange && firstDialogueTrigger) {
+			Debug.Log ("trigger one");
 			tutorialText.SetActive (true);
 			tutorialBox.SetActive (true);
-			rt = tutorialText.GetComponent<RectTransform> ();
 			tutText.text = narrText [posInDialogue];
-			rt.sizeDelta = Vector2.Lerp (rt.sizeDelta, new Vector2 (550, 35), Time.deltaTime / 0.5f);
-			if(Input.GetKeyDown("e") && firstDialogueTrigger && inRangeToInt && narrTextTrigger[posInDialogue+1]){
-				posInDialogue++;
-				Debug.Log (posInDialogue);
+			rt.sizeDelta = Vector2.Lerp (rt.sizeDelta, new Vector2 (550, 35), Time.deltaTime / 2f);
+			if (Input.GetKeyDown ("e") && secondDialogueTrigger && narrTextTrigger [posInDialogue + 1] && isEgg && canPressE) {
+				isEgg = false;
+				egg.SetActive (false);
 				rt.sizeDelta = new Vector2(100, 23);
+				posInDialogue++;
 			}
-			if (!firstDialogueTrigger) {
-				firstDialogueTrigger = true;
-				StartCoroutine (waitForDialogueTrigger(5f));
-
+			if(Input.GetKeyDown("e") && secondDialogueTrigger && inRangeToInt && narrTextTrigger[posInDialogue+1] && !isEgg && canPressE){
+				posInDialogue++;
+				//Debug.Log (posInDialogue);
+				rt.sizeDelta = new Vector2(100, 23);
 			}
 		} else {
 			tutorialText.SetActive (false);
@@ -70,7 +89,6 @@ public class TutorialObject : MonoBehaviour {
 		}
 		distanceNotify ();
 		Debug.Log (posInDialogue);
-		//Debug.Log ("In Range: " + inRangeToHear + ", In LOS: " + inLOS + ", In LOSINRANGE: " + inLOS_inRange);
 
 
 	}
@@ -84,8 +102,7 @@ public class TutorialObject : MonoBehaviour {
 			//Debug.Log ("In Range");
 			if (dist <= 20) {
 				inRangeToInt = true;
-				triggerNarrText ();
-				Debug.Log ("Close enough to interact");
+				//Debug.Log ("Close enough to interact");
 				GameObject.FindWithTag("BorkNPCLocation").GetComponent<NPCHighlighting>().changeMatToHL ();
 				//GetComponent<NPCHighlighting>().changeMatToHL ();
 
@@ -117,7 +134,7 @@ public class TutorialObject : MonoBehaviour {
 		if(other.gameObject == player)
 		{
 			inLOS = true;
-			Debug.Log ("In LOS");
+			//Debug.Log ("In LOS");
 
 
 		}
@@ -133,18 +150,36 @@ public class TutorialObject : MonoBehaviour {
 
 		}
 	}
+	IEnumerator waitForFirstDialogueTrigger (float x){
+		yield return new WaitForSeconds (x);
+		firstDialogueTrigger = true;
+		rt.sizeDelta = new Vector2(100, 23);
+		posInDialogue = 0;
+		triggerNarrText ();
+		StartCoroutine (waitForDialogueTrigger (10f));
+	}
 
 	IEnumerator waitForDialogueTrigger (float x){
 		yield return new WaitForSeconds (x);
 		rt.sizeDelta = new Vector2(100, 23);
+		secondDialogueTrigger = true;
 		posInDialogue++;
+		triggerNarrText ();
+		StartCoroutine (waitForInteraction (6f));
+	}
+
+	IEnumerator waitForInteraction (float x){
+		yield return new WaitForSeconds (x);
+		canPressE = true;
 	}
 
 
+
 	void fillNarrativeString(){
-		narrText [0] = "Hey! Calimari brain! Come over here and help an old geezer out!";
-		narrText [1] = "If you want me to start moving the conversation forward... press something called... [E]? What a strange thing to say.";
-		narrText [2] = "Lovely, you are smart! Now come closer and break me out of here. Try picking up one of those boxes [Hold LMB] and tossing it at the glass [While holding LMB, RMB].";
+		narrText [0] = "Hey, my lil' Krakenling, it would be very helpful if you were to hatch sometime soon.";
+		narrText [1] = "Look... we don't have all day, we have important work to attend to and this container is cramped and stuffy. Shake a tentacle and break out of that prison of yours.";
+		narrText [2] = "Oh thank goodness you are relatively intelligent. Now come yonder and help me out of here. Try picking up one of those boxes [Hold LMB] and tossing it at the glass [While holding LMB, RMB].";
+		narrText [3] = "Lovely, you are smart! Now come closer and break me out of here. Try picking up one of those boxes [Hold LMB] and tossing it at the glass [While holding LMB, RMB].";
 	}
 	void triggerNarrText(){
 		narrTextTrigger [posInDialogue+1] = true;
