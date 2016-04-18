@@ -17,6 +17,9 @@ TagManager:
   - borkVisualCollider
   - BorkNPCLocation
   - krakenEgg
+  - PressE
+  - uiMissionText
+  - uiQuestOne
   layers:
   - Default
   - TransparentFX

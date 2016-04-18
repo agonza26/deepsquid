@@ -89,6 +89,7 @@
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
+     <Compile Include="Assets\Data\Scripts\spellItOut.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Shaders\Outline_Diffuser_Bumped.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
