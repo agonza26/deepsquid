@@ -11,6 +11,7 @@
 		public float fieldOfViewAngle = 110f;           // Number of degrees, centred on forward, for the enemy see.
 		public bool playerInSight;                      // Whether or not the player is currently sighted.
 		public Vector3 personalLastSighting;            // Last place this enemy spotted the player.
+		public bool inked = false;
 
 		public SphereCollider col;                     // Reference to the sphere collider trigger component.
 		private LastPlayerSighting lastPlayerSighting;  // Reference to last global sighting of the player.
@@ -88,16 +89,19 @@
 					{
 						Debug.DrawRay(transform.position, direction);
 						
-						if(hit.collider.gameObject == player)
-						{
-							
-							BasicEnemy brain = GetComponent<BasicEnemy>();
-							brain.message = "seePlayer";
-							playerInSight = true;
-							// Set the last global sighting is the players current position.
-							lastPlayerSighting.position = player.transform.position;
+						if (hit.collider.gameObject == player) {
+							if (!inked) {	
+								BasicEnemy brain = GetComponent<BasicEnemy> ();
+								brain.message = "foundPlayer";
+								playerInSight = true;
+								// Set the last global sighting is the players current position.
+								lastPlayerSighting.position = player.transform.position;
+								lastPlayerSighting.positionTransform = player.transform;
+							} else {
+								BasicEnemy brain = GetComponent<BasicEnemy> ();
+								brain.message = "cantSeePlayer";
+							}
 						}
-
 					}
 
 				}	

@@ -5,12 +5,12 @@ using System;
 using UnityEngine.UI;
 
 public class Player_stats : MonoBehaviour {
-	
+
 	public float PlayerHealthMax = 10f;
 	public float PlayerOverhealthMax;
 	private bool isTextActive = true;
 	public float PlayerCurrHealth;
-    public float restartDelay = 5f;
+	public float restartDelay = 5f;
 	public bool PlayerDmged;
 	public float PlayerDmgOutput = 30f;
 	public Image healthBar;
@@ -21,19 +21,19 @@ public class Player_stats : MonoBehaviour {
 	private Color normalAlph;
 
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		tutorialBox.SetActive (false);
 		PlayerCurrHealth = PlayerHealthMax;
 		normalAlph = GetComponent<Renderer>().material.color;
 		lowAlph = GetComponent<Renderer>().material.color;
 		lowAlph.a = 0.3f;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		healthBar.fillAmount = PlayerCurrHealth / PlayerHealthMax;
-	
+
 		if (PlayerCurrHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
 
@@ -61,9 +61,9 @@ public class Player_stats : MonoBehaviour {
 				StartCoroutine (waitToTurnOff (5f));
 			}
 		}
-			
-			
-			
+
+
+
 
 
 	}
@@ -76,11 +76,14 @@ public class Player_stats : MonoBehaviour {
 
 		if (item.tag == "Enemy") {
 			BasicEnemy be = item.GetComponent<BasicEnemy> ();
-			if (be.state != "patrol") {
-				playerDamage (1f);
+			if (be.state == "follow") {
 
-				be.state = "recharge";
-				be.stunMult = 1f;
+				playerDamage (1f);
+				GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ().positionTransform = transform;
+				GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ().position = transform.position;
+				be.flee ();
+
+				//be.stunMult = 1f;
 
 			}
 		}
@@ -88,7 +91,7 @@ public class Player_stats : MonoBehaviour {
 	}
 
 
-    public void playerDamage(float val)
+	public void playerDamage(float val)
 	{
 		PlayerDmged = true;
 		PlayerCurrHealth -= val;
@@ -96,11 +99,11 @@ public class Player_stats : MonoBehaviour {
 			PlayerCurrHealth = PlayerHealthMax;
 	}
 
-    public void changePlayerAlphaDown()
+	public void changePlayerAlphaDown()
 	{
 		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, lowAlph, 5f * Time.deltaTime);		
 	}
-	
+
 	public void changePlayerAlphaUp()
 	{
 		if(GetComponent<Renderer>().material.color.a > normalAlph.a)
@@ -109,14 +112,14 @@ public class Player_stats : MonoBehaviour {
 		}
 		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, normalAlph, 5f * Time.deltaTime); 
 	}
-	
+
 	public float giveDmg()
 	{
 		return PlayerDmgOutput;
 	}
 
 	IEnumerator waitToTurnOff(float x){
-		
+
 		healthTooltipText.SetActive (true);
 		tutorialBox.SetActive (true);
 		yield return new WaitForSeconds(x);
