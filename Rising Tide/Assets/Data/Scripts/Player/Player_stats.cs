@@ -19,7 +19,8 @@ public class Player_stats : MonoBehaviour {
 	private Color lowAlph;
 	public AudioSource ding;
 	private Color normalAlph;
-
+	public bool isDead;
+	public float stamDmgModifier;
 
 	// Use this for initialization
 	void Start () {
@@ -28,12 +29,12 @@ public class Player_stats : MonoBehaviour {
 		normalAlph = GetComponent<Renderer>().material.color;
 		lowAlph = GetComponent<Renderer>().material.color;
 		lowAlph.a = 0.3f;
+		isDead = false;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		healthBar.fillAmount = PlayerCurrHealth / PlayerHealthMax;
-
 		if (PlayerCurrHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
 
@@ -95,6 +96,10 @@ public class Player_stats : MonoBehaviour {
 	{
 		PlayerDmged = true;
 		PlayerCurrHealth -= val;
+		if(GetComponent<PickupObject>().carrying)
+		{
+			GetComponent<Abilities>().stamDmg(val*stamDmgModifier);
+		}
 		if (PlayerCurrHealth > PlayerHealthMax)
 			PlayerCurrHealth = PlayerHealthMax;
 	}
@@ -118,6 +123,7 @@ public class Player_stats : MonoBehaviour {
 		return PlayerDmgOutput;
 	}
 
+	
 	IEnumerator waitToTurnOff(float x){
 
 		healthTooltipText.SetActive (true);

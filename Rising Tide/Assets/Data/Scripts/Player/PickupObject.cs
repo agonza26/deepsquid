@@ -58,58 +58,77 @@ public class PickupObject : MonoBehaviour
 		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
 		blood.enableEmission = true;
 		*/
-
-
-		if (!carrying) {
-			if(Input.GetKey (KeyCode.Mouse0))
-				pickup ();
-		} else {
-			if (Input.GetKeyDown(KeyCode.E))
-				dropObject();
-			else if (Input.GetKeyDown(KeyCode.Q))
+		
+		if(GetComponent<Abilities>().currStamina <= 0f)
+		{
+			if(carrying)
 			{
-				if (canThrow)
-				{
-					throwObject();
-				}
+				dropObject();
 			}
-
-
 		}
 
-
-
-		if (carrying){
-			
-			if(carriedObject.tag == "Enemy")
+		if(!GetComponent<Player_stats>().isDead)
+		{
+			if (!carrying) 
 			{
-				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
-				
-				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
+				if(Input.GetKeyDown(KeyCode.Mouse0))
 				{
-					GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
-					Abilities a = GetComponent<Abilities> ();
-					a.currStamina += 30;
-					if (a.currStamina > a.maxStamina)
-						a.currStamina = a.maxStamina;
-					carrying = false;
-					blood.transform.position = player.transform.position;
-					blood.transform.forward = player.transform.forward;
-					Vector3 littlebitforward = blood.transform.position;
-					littlebitforward.z += 2f;
-					blood.transform.position = littlebitforward;
-					blood.Emit(25);
+					pickup ();
+				} 
+	
+			} else {
+				//if (Input.GetKeyUp(KeyCode.E))
+					//dropObject();
+				//else
+				if(Input.GetKeyUp(KeyCode.Mouse0))
+				{
 					dropObject();
 				}
+				
+					if (Input.GetKeyDown(KeyCode.Mouse1))
+				{
+					if (canThrow)
+					{
+						throwObject();
+					}
+				}
+
+
 			}
 
 
 
+			if (carrying){
+				
+				if(carriedObject.tag == "Enemy")
+				{
+					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
+					//GetComponent<Abilities>().depleteStam(10f);
+					if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
+					{
+						GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
+						Abilities a = GetComponent<Abilities> ();
+						a.currStamina += 30;
+						if (a.currStamina > a.maxStamina)
+							a.currStamina = a.maxStamina;
+						carrying = false;
+						blood.transform.position = player.transform.position;
+						blood.transform.forward = player.transform.forward;
+						Vector3 littlebitforward = blood.transform.position;
+						littlebitforward.z += 2f;
+						blood.transform.position = littlebitforward;
+						blood.Emit(25);
+						dropObject();
+					}
+				}
 
 
-			if(carrying)
-				carry(carriedObject);
-            
+
+
+
+				if(carrying)
+					carry(carriedObject);
+				
 
 
 
@@ -117,7 +136,8 @@ public class PickupObject : MonoBehaviour
 
 
 
-        }
+			}
+		}
     }
 
 
@@ -182,7 +202,7 @@ public class PickupObject : MonoBehaviour
         {
             canThrow = true;
             playerZRot = player.transform.rotation;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-2f;
+			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-3.5f;
 			//lerp doesn't work how we want it to, but i'm leaving the code for me to use later - alex
            	//Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime );
 			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, playerZRot);
@@ -277,7 +297,9 @@ public class PickupObject : MonoBehaviour
 		{
 			InRangeItemSaver = c;
 			grabbableInRange = true;
-			c.GetComponent<NPCHighlighting> ().changeMatToHL ();
+			if(c.GetComponent<NPCHighlighting> () != null){
+				c.GetComponent<NPCHighlighting> ().changeMatToHL (); //getting null
+			}
 		}
 	}
 
@@ -289,11 +311,15 @@ public class PickupObject : MonoBehaviour
 		grabbableInRange = true;
 		if(!carrying)
 		{
-				c.GetComponent<NPCHighlighting>().changeMatToHL();
+				if (c.GetComponent<NPCHighlighting> () != null) {
+					c.GetComponent<NPCHighlighting> ().changeMatToHL ();
+				}
 		} 
 		else
 		{
-				c.GetComponent<NPCHighlighting>().changeMatToNml();
+				if (c.GetComponent<NPCHighlighting> () != null) {
+					c.GetComponent<NPCHighlighting> ().changeMatToNml ();
+				}
 		}
 		
 		}
@@ -304,7 +330,9 @@ public class PickupObject : MonoBehaviour
 		grabbableInRange = false;
 		if(c)
 		{
-			//c.GetComponent<Pickupable> ().changeMatToNml ();
+			if (c.GetComponent<NPCHighlighting> () != null) {
+				c.GetComponent<NPCHighlighting> ().changeMatToNml ();
+			}
 		}
 	}
 

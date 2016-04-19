@@ -14,7 +14,9 @@ public class Abilities : MonoBehaviour {
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
+	public float stamRegenVal = 0.3f;
 	public Image staminaBar;
+	public bool pauseStam = false;
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -38,24 +40,36 @@ public class Abilities : MonoBehaviour {
 		empIcon.enabled = false;
 		inkIcon.enabled = true;
 		activeIcon.enabled = false;
-		StartCoroutine(replenishStam());
+//		StartCoroutine(replenishStam());
 
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if(!GetComponent<PickupObject>().carrying)
+		{
+			if(pauseStam == false)
+			{
+				StartCoroutine(replenishStam());
+			}
+		} else 
+		{
+			StartCoroutine(depleteStam(2f));
+		}
 		if (!GetComponent<improved_movement> ().isDead) {
 
 			staminaBar.fillAmount = currStamina / maxStamina;
 			setActiveAbility ();
 	
-			if (abilities [1] == true) {
+			if (abilities [1] == true && !GetComponent<PickupObject>().carrying) {
 			
 				inkIcon.enabled = true;
 				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [1] == true) {
+					pauseStam = true;
 					StartCoroutine (depleteStam (5f));
 					newInk ();
 				} else {
+					pauseStam = false;
 					Ink.Stop ();
 				}
 			} else {
@@ -63,7 +77,8 @@ public class Abilities : MonoBehaviour {
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
-				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true) {
+				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+					pauseStam = true;
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
 					if (Input.GetKeyDown ("space")) 
@@ -73,6 +88,7 @@ public class Abilities : MonoBehaviour {
 				} else {
 					abilitySpeedVal = 1f;
 					boostPS.Stop ();
+					pauseStam = false;
 				}
 				
 
@@ -155,22 +171,29 @@ public class Abilities : MonoBehaviour {
 
 	//Coroutine to wait x amount of time
 	IEnumerator replenishStam(){
-		while (true) {
-			if (currStamina < maxStamina) {
-				currStamina = currStamina + 3;
-				yield return new WaitForSeconds (0.2f);
-			} else {
-				yield return null;
-			}
-		}
+			//while (!GetComponent<PickupObject>().carrying) {
+				if (currStamina < maxStamina) {
+					currStamina = currStamina + stamRegenVal;
+					yield return new WaitForSeconds (0.2f);
+				} else {
+					yield return null;
+				}
+			//}
+
 	}
-	IEnumerator depleteStam(float cost){
+	
+	public IEnumerator depleteStam(float cost){
 		
 		yield return new WaitForSeconds(0.1f);
 		if (currStamina < 0) {
 		} else {
 			currStamina = currStamina - cost;
 		}
+	}
+	
+	public void stamDmg(float stamDmgVal)
+	{
+		currStamina = currStamina - stamDmgVal;
 	}
 
 
