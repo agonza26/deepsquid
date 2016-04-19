@@ -32101,6 +32101,68 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 925080576}
   m_Mesh: {fileID: 4300004, guid: 7ecfaae7f60dec94fb57254191cdb57e, type: 3}
+--- !u!1001 &926393527
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 279.97333
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -190.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.0020363189
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071039
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.002036319
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071038
+      objectReference: {fileID: 0}
+    - target: {fileID: 458008, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439628, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: tutorialBox
+      value: 
+      objectReference: {fileID: 1751081545}
+    - target: {fileID: 11439628, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: tutorialText
+      value: 
+      objectReference: {fileID: 1908942431}
+    - target: {fileID: 11439628, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: tutOrigin
+      value: 
+      objectReference: {fileID: 857684782}
+    - target: {fileID: 11439628, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: pressEText
+      value: 
+      objectReference: {fileID: 1336890291}
+    - target: {fileID: 11439628, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1089783252}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c0b55f4ba3def4f3aa2d6c0e58306bb7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &930015670
 GameObject:
   m_ObjectHideFlags: 0
@@ -56377,6 +56439,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1335575936}
   m_Mesh: {fileID: 4300048, guid: 8c26d5797f44c44448f305d5c588f875, type: 3}
+--- !u!1 &1336890291 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 141042, guid: e017b17a940c04d48b60a113c1526fa1, type: 2}
+  m_PrefabInternal: {fileID: 1294466149}
 --- !u!1 &1339863656
 GameObject:
   m_ObjectHideFlags: 0
@@ -74740,6 +74806,10 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &1908942431 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 197366, guid: e017b17a940c04d48b60a113c1526fa1, type: 2}
+  m_PrefabInternal: {fileID: 1294466149}
 --- !u!1 &1910049999
 GameObject:
   m_ObjectHideFlags: 0
