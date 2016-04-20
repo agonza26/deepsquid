@@ -1,8 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\TutorialObject.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\Player\Player_stats.cs">
     <Files>
+      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="147" Column="20" />
       <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="85" Column="11" />
+      <File FileName="Assets\Data\Scripts\Player\Player_stats.cs" Line="61" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

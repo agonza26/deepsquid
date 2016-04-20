@@ -58,8 +58,8 @@ public class Player_stats : MonoBehaviour {
 			}
 		}if (PlayerCurrHealth < PlayerHealthMax) {
 			if (isTextActive == true) {
-				ding.Play ();
-				StartCoroutine (waitToTurnOff (5f));
+				//ding.Play ();
+				//StartCoroutine (waitToTurnOff (5f));
 			}
 		}
 

@@ -138,7 +138,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-		if (message != "none" && switchedStates) {
+		if (message != "none" && !switchedStates) {
 			if(!effects.Contains("ink")){
 				switch (message) {
 				

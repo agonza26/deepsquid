@@ -56,7 +56,7 @@ public class Abilities : MonoBehaviour {
 			}
 		} else 
 		{
-			StartCoroutine(depleteStam(2f));
+			StartCoroutine(depleteStam(0.5f));
 		}
 		if (!GetComponent<improved_movement> ().isDead) {
 
@@ -96,10 +96,10 @@ public class Abilities : MonoBehaviour {
 
 			}
 			
-			if(abilities[2] == true )
+			if(abilities[2] == true)
 			{
 				empIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5)
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5 && activeAbils[2])
 				{
 					pauseStam = true;
 					stamDmg(EMPcost);

@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: adb7c6dce7353bc46871cf4bc808302c
+timeCreated: 1461183199
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: book.001
+    100002: book.002
+    100004: book.003
+    100006: eggCave
+    100008: lab
+    100010: //RootNode
+    100012: lab ceiling
+    100014: lab ceiling_MeshPart0
+    100016: lab ceiling_MeshPart1
+    100018: lab ceiling_MeshPart2
+    100020: lab ceiling_MeshPart3
+    100022: lab ceiling_MeshPart4
+    100024: lab ceiling_MeshPart5
+    100026: lab ceiling_MeshPart6
+    100028: lab_MeshPart0
+    100030: lab_MeshPart1
+    100032: lab_MeshPart2
+    100034: lab_MeshPart3
+    100036: lab_MeshPart4
+    100038: lab_MeshPart5
+    100040: lab_MeshPart6
+    100042: lab_MeshPart7
+    100044: lab_MeshPart8
+    100046: lab_MeshPart9
+    100048: testtubeBroken
+    100050: testtubeWhole
+    400000: book.001
+    400002: book.002
+    400004: book.003
+    400006: eggCave
+    400008: lab
+    400010: //RootNode
+    400012: lab ceiling
+    400014: lab ceiling_MeshPart0
+    400016: lab ceiling_MeshPart1
+    400018: lab ceiling_MeshPart2
+    400020: lab ceiling_MeshPart3
+    400022: lab ceiling_MeshPart4
+    400024: lab ceiling_MeshPart5
+    400026: lab ceiling_MeshPart6
+    400028: lab_MeshPart0
+    400030: lab_MeshPart1
+    400032: lab_MeshPart2
+    400034: lab_MeshPart3
+    400036: lab_MeshPart4
+    400038: lab_MeshPart5
+    400040: lab_MeshPart6
+    400042: lab_MeshPart7
+    400044: lab_MeshPart8
+    400046: lab_MeshPart9
+    400048: testtubeBroken
+    400050: testtubeWhole
+    2300000: book.001
+    2300002: book.002
+    2300004: book.003
+    2300006: eggCave
+    2300008: lab ceiling_MeshPart0
+    2300010: lab ceiling_MeshPart1
+    2300012: lab ceiling_MeshPart2
+    2300014: lab ceiling_MeshPart3
+    2300016: lab ceiling_MeshPart4
+    2300018: lab ceiling_MeshPart5
+    2300020: lab ceiling_MeshPart6
+    2300022: lab_MeshPart0
+    2300024: lab_MeshPart1
+    2300026: lab_MeshPart2
+    2300028: lab_MeshPart3
+    2300030: lab_MeshPart4
+    2300032: lab_MeshPart5
+    2300034: lab_MeshPart6
+    2300036: lab_MeshPart7
+    2300038: lab_MeshPart8
+    2300040: lab_MeshPart9
+    2300042: testtubeBroken
+    2300044: testtubeWhole
+    3300000: book.001
+    3300002: book.002
+    3300004: book.003
+    3300006: eggCave
+    3300008: lab ceiling_MeshPart0
+    3300010: lab ceiling_MeshPart1
+    3300012: lab ceiling_MeshPart2
+    3300014: lab ceiling_MeshPart3
+    3300016: lab ceiling_MeshPart4
+    3300018: lab ceiling_MeshPart5
+    3300020: lab ceiling_MeshPart6
+    3300022: lab_MeshPart0
+    3300024: lab_MeshPart1
+    3300026: lab_MeshPart2
+    3300028: lab_MeshPart3
+    3300030: lab_MeshPart4
+    3300032: lab_MeshPart5
+    3300034: lab_MeshPart6
+    3300036: lab_MeshPart7
+    3300038: lab_MeshPart8
+    3300040: lab_MeshPart9
+    3300042: testtubeBroken
+    3300044: testtubeWhole
+    4300000: testtubeBroken
+    4300002: book.003
+    4300004: book.001
+    4300006: book.002
+    4300008: testtubeWhole
+    4300010: eggCave
+    4300012: lab ceiling_MeshPart0
+    4300014: lab ceiling_MeshPart1
+    4300016: lab ceiling_MeshPart2
+    4300018: lab ceiling_MeshPart3
+    4300020: lab ceiling_MeshPart4
+    4300022: lab ceiling_MeshPart5
+    4300024: lab ceiling_MeshPart6
+    4300026: lab_MeshPart0
+    4300028: lab_MeshPart1
+    4300030: lab_MeshPart2
+    4300032: lab_MeshPart3
+    4300034: lab_MeshPart4
+    4300036: lab_MeshPart5
+    4300038: lab_MeshPart6
+    4300040: lab_MeshPart7
+    4300042: lab_MeshPart8
+    4300044: lab_MeshPart9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
