@@ -31,6 +31,9 @@ public class BasicEnemy : MonoBehaviour {
 	private GameObject eco;
 	private float fleeLifeTime = 0f;
 	private float doubleBackTime = 0f;
+	public bool released = false;
+
+
 
 
 
@@ -41,7 +44,13 @@ public class BasicEnemy : MonoBehaviour {
 	private float steeringRangeMax = 4f;
 
 
-
+	private float empTimer = 0;
+	public float empLimit = 5f;
+	private string lastState = "idle";
+	public bool debug = true;
+	private bool inkDaze = false;
+	private bool switchedStates = false;
+	public List<string> effects = new List<string>();
 
 
 
@@ -61,8 +70,12 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
-		if(other.name == "ink" || other.name == "Ink"){
-			state = "recharge";
+		if( !effects.Contains(other.name)){
+			if (other.name == "ink" || other.name == "Ink") {
+				effects.Add("ink");
+			} else if (other.name == "emp" || other.name == "EMP") {
+				effects.Add("emp");
+			}
 		}
 	}
 
@@ -76,10 +89,10 @@ public class BasicEnemy : MonoBehaviour {
 			case "follow": //sees player, currently following
 				follow ();
 				break;
-			case "seek": //saw player, currently looking for player
-				seek ();
-				break;
 
+			case "empDaze":
+				empDaze ();
+				break;
 
 
 			case "grabbed": //being grabbed by the player
@@ -99,59 +112,99 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//idle doessn't handle emp yet
 	void idle(){
-
-
-		if (message != "none") {
-			switch (message) {
-			
-			case "foundPlayer":
-				currentTarget = lPC.positionTransform;
-				state = "follow";
-				message = "none";
-				follow();
-				break;
-			}
+		if (effects.Contains ("emp")) {
+			lastState = state;
+			state = "empDaze";
+			effects.Remove ("emp");
+			empDaze ();
+			switchedStates = true;
 		}
 
 
 
+		if (message != "none" && switchedStates) {
+			if(!effects.Contains("ink")){
+				switch (message) {
+				
+				case "foundPlayer":
+					currentTarget = lPC.positionTransform;
+					state = "follow";
+					message = "none";
+					follow ();
+					switchedStates = true;
+					break;
+				}
+			}
+		}
 
 
-		//assume haven't seen player
-
-
-		if(currentTarget!= null)
-			Debug.DrawRay (transform.position, currentTarget.position - transform.position);
-
-
-		if (Random.value < 0.9f) {
-			if (!eco.GetComponent<EcoPoints>().Enemies.ContainsKey(name)) {
-				//if i left the area start turning around
-				currentTarget = eco.transform;
+		if (!switchedStates) {
+			
+			if (effects.Contains ("ink")) {
+				effects.Remove ("ink");
+				inkDaze = true;
 			} else {
-				if(currentTarget == null || Random.value < 0.01f){
-					GameObject[] keyList = new List<GameObject>(eco.GetComponent<EcoPoints>().Ecopoints.Values).ToArray();
-					currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length   )].transform;
+				if (inkDaze) {
+					inkDaze = false;
 				}
 			}
 
-			velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-			steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
+
+
+
+			//assume haven't seen player
+
+			if (!inkDaze) {
+				if (currentTarget != null && debug)
+					Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+
+
+				if (Random.value < 0.9f) {
+					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
+						//if i left the area start turning around
+						currentTarget = eco.transform;
+					} else {
+						if (currentTarget == null || Random.value < 0.01f) {
+							GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
+							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
+						}
+					}
+
+					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
 			
-			Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-			Vector3 desired_velocity = toTarget * velocityMax;
-			Vector3 steering = desired_velocity - rigBod.velocity;
-			steering = Vector3.ClampMagnitude (steering, steeringMax);
-			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * 5f;
+					Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
+					Vector3 desired_velocity = toTarget * velocityMax;
+					Vector3 steering = desired_velocity - rigBod.velocity;
+					steering = Vector3.ClampMagnitude (steering, steeringMax);
+					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * 5f;
 
+				}
+
+
+				thing.transform.position = transform.position + rigBod.velocity;
+				transform.LookAt (thing.transform);
+			}
+		} else {
+			switchedStates = false;
 		}
-
-
-		thing.transform.position = transform.position + rigBod.velocity;
-		transform.LookAt (thing.transform);
-
 	}
 
 
@@ -181,50 +234,93 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+
 		
 	private void grabbed(){
+		if (released) {
+			
+			lPC.positionTransform = GameObject.FindGameObjectWithTag ("Player").transform;
+			lPC.position = GameObject.FindGameObjectWithTag ("Player").transform.position;
+			released = false;
+			flee ();
+		}
 	}
+
+
+
+
+	private void empDaze(){
+		
+
+	}
+
+
 		
 	private void follow(){
-		
-		if (testBool) {
-			state = "runAway";
-			currentTarget = lPC.positionTransform;
-			fleeLifeTime = 0f;
-			doubleBackTime = 0f;
-			runAway ();
-			testBool = false;
+
+
+		if (effects.Contains ("emp")) {
+			lastState = state;
+			state = "empDaze";
+			effects.Remove ("emp");
+			empDaze ();
+			switchedStates = true;
 		}
 
 
-	
-		
 
 
-		velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-		steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
 
-		Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-		Vector3 desired_velocity = toTarget * velocityMax*5f;
-		Vector3 steering = desired_velocity - rigBod.velocity;
-		steering = Vector3.ClampMagnitude (steering, steeringMax);
+		if (!effects.Contains ("ink")) {
+			if (testBool) {
+				state = "runAway";
+				currentTarget = lPC.positionTransform;
+				fleeLifeTime = 0f;
+				doubleBackTime = 0f;
+				runAway ();
+				testBool = false;
+			}
 
 
-		float distVar = Vector3.Distance (currentTarget.position, transform.position);
-		if(currentTarget!= null)
-			Debug.DrawRay (transform.position, currentTarget.position - transform.position);
-
-		//5,20
-		rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax*Mathf.Min( distVar/5 +1,2f)) + transform.forward * Mathf.Min( 8*32/(distVar), 10f) ;
 
 	
 
 
-		thing.transform.position = transform.position + rigBod.velocity;
-		transform.LookAt (thing.transform);
+			velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+			steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
+
+
+			Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
+			Vector3 desired_velocity = toTarget * velocityMax * 5f;
+			Vector3 steering = desired_velocity - rigBod.velocity;
+			steering = Vector3.ClampMagnitude (steering, steeringMax);
+
+
+			float distVar = Vector3.Distance (currentTarget.position, transform.position);
+			if (currentTarget != null)
+				Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+
+			//5,20
+			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, 2f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 10f);
+
+
+
+
+			thing.transform.position = transform.position + rigBod.velocity;
+			transform.LookAt (thing.transform);
+		} else {
+			effects.Remove ("ink");
+		}
+
 	}
-		
+
+
+
+
+
+
+
 	public void flee(){
 		testBool = true;
 		state = "runAway";
@@ -235,71 +331,101 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+
+
+
+
+
 	private void runAway(){
-
-		fleeLifeTime += Time.deltaTime;
-		float counter = 1f;
-		if (fleeLifeTime > 15) {
-			print ("double back");
-			counter = -1f;
-			doubleBackTime += Time.deltaTime;
-
+		if (effects.Contains ("emp")) {
+			lastState = state;
+			state = "empDaze";
+			effects.Remove ("emp");
+			empDaze ();
+			switchedStates = true;
 		}
 
 
-		if (doubleBackTime > 20 || message == "foundPlayer" ) {
-			if (message == "foundPlayer") {
-				message = "none";
-				print("we did it");
-				state = "follow";
-				follow ();
+		if (!switchedStates) {
+		
+			if (!effects.Contains ("ink")) {
+				fleeLifeTime += Time.deltaTime;
+				float counter = 1f;
+				if (fleeLifeTime > 15) {
+					print ("double back");
+					counter = -1f;
+					doubleBackTime += Time.deltaTime;
+
+				}
+
+
+				if (doubleBackTime > 20 || message == "foundPlayer") {
+					if (message == "foundPlayer") {
+						message = "none";
+						print ("we did it");
+						state = "follow";
+						follow ();
+
+					} else {
+						print ("lost player");
+						state = "idle";
+						idle ();
+					}
+					fleeLifeTime = 0f;
+					doubleBackTime = 0f;
+
+				}
+
+
+
+
+				velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+				steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
+
+
+				Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
+				Vector3 desired_velocity = toTarget * velocityMax * 5f;
+				Vector3 steering = desired_velocity - rigBod.velocity;
+				steering = Vector3.ClampMagnitude (steering, steeringMax);
+
+
+				float distVar = Vector3.Distance (currentTarget.position, transform.position);
+				if (currentTarget != null)
+					Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+			
+				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, 5f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 20f);
+
+
+
+
+				thing.transform.position = transform.position + rigBod.velocity;
+				transform.LookAt (thing.transform);
 
 			} else {
-				print("lost player");
-				state = "idle";
-				idle ();
+				effects.Remove ("ink");
 			}
-			fleeLifeTime = 0f;
-			doubleBackTime = 0f;
 
+		} else {
+
+			switchedStates = false;
 		}
 
 
-
-
-		velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-		steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
-
-
-		Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-		Vector3 desired_velocity = toTarget * velocityMax*5f;
-		Vector3 steering = desired_velocity - rigBod.velocity;
-		steering = Vector3.ClampMagnitude (steering, steeringMax);
-
-
-		float distVar = Vector3.Distance (currentTarget.position, transform.position);
-		if(currentTarget!= null)
-			Debug.DrawRay (transform.position, currentTarget.position - transform.position);
-		
-		rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering*(-1*counter) , velocityMax*Mathf.Min( distVar/5 + 5,5f))  + transform.forward * Mathf.Min( 8*32/(distVar), 20f) ;
-
-
-
-
-		thing.transform.position = transform.position + rigBod.velocity;
-		transform.LookAt (thing.transform);
-
-
 	}
 
 
 
 
-	private void seek(){
-	}
-		
-	private void recharge(){
-	}
+
+
+
+
+
+
+
+
+
+
 
 
 

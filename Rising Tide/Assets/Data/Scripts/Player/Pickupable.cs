@@ -134,6 +134,7 @@ public class Pickupable : MonoBehaviour {
 
 		switch (myTag) {
 		case "Enemy":
+			GetComponent<BasicEnemy> ().released = true;
 			isPickedUp = false;
 			break;
 		case "Boids":
