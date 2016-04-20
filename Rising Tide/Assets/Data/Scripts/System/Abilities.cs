@@ -5,6 +5,7 @@ using System.Collections;
 public class Abilities : MonoBehaviour {
 
 	public ParticleSystem Ink;
+	public ParticleSystem EMPps;
 	public Transform playerPos;
 	public AudioSource ad;
 	public ParticleSystem boostPS;
@@ -17,6 +18,7 @@ public class Abilities : MonoBehaviour {
 	public float stamRegenVal = 0.3f;
 	public Image staminaBar;
 	public bool pauseStam = false;
+	public float EMPcost = 35f;
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -77,7 +79,7 @@ public class Abilities : MonoBehaviour {
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
-				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+				if (Input.GetKey ("space") && currStamina >= 15 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
 					pauseStam = true;
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
@@ -92,6 +94,21 @@ public class Abilities : MonoBehaviour {
 				}
 				
 
+			}
+			
+			if(abilities[2] == true )
+			{
+				empIcon.enabled = true;
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5)
+				{
+					pauseStam = true;
+					stamDmg(EMPcost);
+					EMPps.Emit(1);
+				} else if (Input.GetKeyUp("space"))
+				{
+					EMPps.Stop();
+					pauseStam = false;
+				}
 			}
 
 		}
