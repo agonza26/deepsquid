@@ -7,6 +7,7 @@ public class PushWave : MonoBehaviour {
 
 
 	[Range(-3.000f, 3.000f)] public float pushFactor;
+	public float speed = 1f;
 
 	private GameObject cameraObject;
 
@@ -29,7 +30,7 @@ public class PushWave : MonoBehaviour {
 	void Update(){
 
 
-		//transform.position += transform.forward;
+		transform.position += transform.forward*speed;
 		Physics.IgnoreCollision (cameraObject.GetComponent<Collider> (), GetComponent<Collider>());
 	}
 
