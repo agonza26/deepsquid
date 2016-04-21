@@ -71,7 +71,7 @@ public class PickupObject : MonoBehaviour
 			}
 		}
 
-		if(!GetComponent<Player_stats>().isDead && isEgg)
+		if(!GetComponent<Player_stats>().isDead && !isEgg)
 		{
 			if (!carrying) 
 			{

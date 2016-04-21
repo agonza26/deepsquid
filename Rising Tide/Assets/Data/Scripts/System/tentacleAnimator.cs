@@ -26,7 +26,7 @@ public class tentacleAnimator : MonoBehaviour
 		
 		anim.SetBool("swimming", isSwimming);
 		
-		if(Input.GetKey(KeyCode.Mouse0) &&!isEgg)
+		if(Input.GetKey(KeyCode.Mouse0) && !isEgg)
 		{
 		anim.SetBool("grabbing", isGrabbing);
 		anim.Play("grab");
