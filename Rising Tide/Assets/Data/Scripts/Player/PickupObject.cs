@@ -25,7 +25,8 @@ public class PickupObject : MonoBehaviour
     public bool canThrow;
 	public ParticleSystem blood;
     public float playerSize = 2.0f;
-    
+	private bool hasGrabbed;
+	private bool isEgg;
 
 
 	public float distance = 1.5f; //offset between carried object and player
@@ -33,6 +34,7 @@ public class PickupObject : MonoBehaviour
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
 	public AudioSource grabSound;
+
 
 
 
@@ -48,8 +50,8 @@ public class PickupObject : MonoBehaviour
    
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
-
-
+		hasGrabbed = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed;
+		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
 	}
 
 
@@ -58,21 +60,26 @@ public class PickupObject : MonoBehaviour
 		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
 		blood.enableEmission = true;
 		*/
-		
+		Debug.Log (isEgg);
+		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
 		if(GetComponent<Abilities>().currStamina <= 0f)
 		{
 			if(carrying)
 			{
+				
 				dropObject();
 			}
 		}
 
-		if(!GetComponent<Player_stats>().isDead)
+		if(!GetComponent<Player_stats>().isDead && isEgg)
 		{
 			if (!carrying) 
 			{
 				if(Input.GetKeyDown(KeyCode.Mouse0))
 				{
+					if (!hasGrabbed) {
+						
+					}
 					pickup ();
 				} 
 	
@@ -151,12 +158,14 @@ public class PickupObject : MonoBehaviour
 	void pickup()
 	{
 
-			if (grabbableInRange)
+			if (grabbableInRange && !isEgg)
 			{
 				Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
 				
 				if (p != null)
 				{
+					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
+					
 					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
 					
