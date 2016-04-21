@@ -5,55 +5,50 @@ using System.Collections.Generic;
 public class BasicEnemy : MonoBehaviour {
 
 
+	public bool debug = true;
 	public string ecosystem = "Eco-Test-1";
-	public bool debugStatements = true;
-	public string state = "idle";
-	public string message = "none";
-
-
-
-	public float outsideDec = 0f;
-	public bool waveAcc = true;
-	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from currents
-	private Vector3 lastFactor = Vector3.zero; //stores the last iteration of the facter after we exit the currents
+	public float damage = 3f;
+	public float empLimit = 5f;
 	public float steeringMax = 1f; //maximum steering magnitude
 	public float velocityMax = 9f; //maximum velocity magnitude
-
-	private bool testBool = false;
-
-
+	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
+									// might modify to a list
 
 	public GameObject thing; //eventually make it a child of an object
-	private bool leftEco = false;
-	private Rigidbody rigBod; //reference to the rigid body
-	private Transform currentTarget = null; //where the enemy is currently trying to go towards
-	private LastPlayerSighting lPC; //used to get last player's sighting and reset valuable
-	private GameObject eco;
+	public bool waveAcc = true; //to know when we have accelerated from an outside wave, controlled only with waves
+	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
+
+
+	private string state = "idle";
+	private bool inkDaze = false;
+	private bool released = false;
+	private bool fleeingAway = false;
+	private bool switchedStates = false;
+
+	private float outsideDec = 0f;
 	private float fleeLifeTime = 0f;
 	private float doubleBackTime = 0f;
-	public bool released = false;
-
-
-
-
-
 
 	private float velocityRangeMin = 2f;//5f;
 	private float velocityRangeMax = 5f;//10f;
 	private float steeringRangeMin = 0.5f;
 	private float steeringRangeMax = 4f;
+	private Vector3 lastFactor = Vector3.zero; //stores the last iteration of the facter after we exit the currents
+
+	private GameObject eco;
+	private Rigidbody rigBod; //reference to the rigid body
+	private Transform currentTarget = null; //where the enemy is currently trying to go towards
+	private LastPlayerSighting lPC; //used to get last player's sighting and reset valuable
 
 
-	private float empTimer = 0;
-	public float empLimit = 5f;
-	private string lastState = "idle";
-	public bool debug = true;
-	private bool inkDaze = false;
-	private bool switchedStates = false;
-	public List<string> effects = new List<string>();
+	private List<string> effects = new List<string>();
+	private List<string> statesList = new List<string> ();
 
-
-
+	//private bool leftEco = false;
+	//private float empTimer = 0;
+	//private float straightRangeMin = 0f;
+	//private float straightRangeMax = 0f;
+	//private string lastState = "idle";
 
 	void Start () {
 		 
@@ -65,11 +60,46 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+	public bool modifyState(string s){
+		if (statesList.Contains(s)) {
+			state = s;
+			return true;
+		} else {
 
+			return false;
+		}
+
+	}
+
+
+
+
+
+
+	void OnCollisionStay(Collision c){
+		GameObject other = c.gameObject;
+		print ("Game Object " + other.name);
+		if (other.tag == "Player") {
+			Player_stats p = other.GetComponent<Player_stats> ();
+			if (state == "follow") {
+
+				p.playerDamage (1f);
+				flee ();
+
+				//be.stunMult = 1f;
+
+			}
+		}
+	}
 
 
 
 	void OnParticleCollision(GameObject other){
+		print ("Particle " + other.name);
+
+
+
+
 		if( !effects.Contains(other.name)){
 			if (other.name == "ink" || other.name == "Ink") {
 				effects.Add("ink");
@@ -129,7 +159,7 @@ public class BasicEnemy : MonoBehaviour {
 	//idle doessn't handle emp yet
 	void idle(){
 		if (effects.Contains ("emp")) {
-			lastState = state;
+			//lastState = state;
 			state = "empDaze";
 			effects.Remove ("emp");
 			empDaze ();
@@ -154,8 +184,14 @@ public class BasicEnemy : MonoBehaviour {
 		}
 
 
+
+
+
 		if (!switchedStates) {
-			
+
+
+
+
 			if (effects.Contains ("ink")) {
 				effects.Remove ("ink");
 				inkDaze = true;
@@ -169,23 +205,29 @@ public class BasicEnemy : MonoBehaviour {
 
 
 			//assume haven't seen player
-
 			if (!inkDaze) {
+
+
+
 				if (currentTarget != null && debug)
 					Debug.DrawRay (transform.position, currentTarget.position - transform.position);
 
 
 				if (Random.value < 0.9f) {
+
+
 					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
 						//if i left the area start turning around
 						currentTarget = eco.transform;
+
+
 					} else {
+						
 						if (currentTarget == null || Random.value < 0.01f) {
 							GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
 							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
 						}
 					}
-
 					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
 					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
@@ -193,12 +235,11 @@ public class BasicEnemy : MonoBehaviour {
 					Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
 					Vector3 desired_velocity = toTarget * velocityMax;
 					Vector3 steering = desired_velocity - rigBod.velocity;
+
+
 					steering = Vector3.ClampMagnitude (steering, steeringMax);
 					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * 5f;
-
 				}
-
-
 				thing.transform.position = transform.position + rigBod.velocity;
 				transform.LookAt (thing.transform);
 			}
@@ -235,7 +276,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-		
+	//state for when we are grabbed
 	private void grabbed(){
 		if (released) {
 			
@@ -248,7 +289,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	//state for when we have been shocked
 	private void empDaze(){
 		
 
@@ -260,7 +301,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		if (effects.Contains ("emp")) {
-			lastState = state;
 			state = "empDaze";
 			effects.Remove ("emp");
 			empDaze ();
@@ -273,13 +313,13 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		if (!effects.Contains ("ink")) {
-			if (testBool) {
+			if (fleeingAway) {
 				state = "runAway";
 				currentTarget = lPC.positionTransform;
 				fleeLifeTime = 0f;
 				doubleBackTime = 0f;
 				runAway ();
-				testBool = false;
+				fleeingAway = false;
 			}
 
 
@@ -322,7 +362,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	public void flee(){
-		testBool = true;
+		fleeingAway = true;
 		state = "runAway";
 		currentTarget = lPC.positionTransform;
 		fleeLifeTime = 0f;
@@ -338,7 +378,6 @@ public class BasicEnemy : MonoBehaviour {
 
 	private void runAway(){
 		if (effects.Contains ("emp")) {
-			lastState = state;
 			state = "empDaze";
 			effects.Remove ("emp");
 			empDaze ();
@@ -351,7 +390,7 @@ public class BasicEnemy : MonoBehaviour {
 			if (!effects.Contains ("ink")) {
 				fleeLifeTime += Time.deltaTime;
 				float counter = 1f;
-				if (fleeLifeTime > 15) {
+				if (fleeLifeTime > 5) {
 					print ("double back");
 					counter = -1f;
 					doubleBackTime += Time.deltaTime;
@@ -359,10 +398,9 @@ public class BasicEnemy : MonoBehaviour {
 				}
 
 
-				if (doubleBackTime > 20 || message == "foundPlayer") {
+				if (doubleBackTime > 10 || message == "foundPlayer") {
 					if (message == "foundPlayer") {
 						message = "none";
-						print ("we did it");
 						state = "follow";
 						follow ();
 
@@ -481,7 +519,9 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	public void release(){
+		released = true;
+	}
 
 
 

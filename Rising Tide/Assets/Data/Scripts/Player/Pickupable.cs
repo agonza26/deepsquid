@@ -56,7 +56,7 @@ public class Pickupable : MonoBehaviour {
 			case "Enemy":
 				if (GetComponent<BasicEnemy> () != null) {
 					BasicEnemy b = GetComponent<BasicEnemy> ();
-						b.state = "grabbed";
+					b.modifyState("grabbed");
 						//held = false;
 
 				}
@@ -134,7 +134,7 @@ public class Pickupable : MonoBehaviour {
 
 		switch (myTag) {
 		case "Enemy":
-			GetComponent<BasicEnemy> ().released = true;
+			GetComponent<BasicEnemy> ().release();
 			isPickedUp = false;
 			break;
 		case "Boids":

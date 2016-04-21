@@ -71,23 +71,7 @@ public class Player_stats : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision other) {
-		GameObject item = other.gameObject;
-
-
-
-		if (item.tag == "Enemy") {
-			BasicEnemy be = item.GetComponent<BasicEnemy> ();
-			if (be.state == "follow") {
-
-				playerDamage (1f);
-				GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ().positionTransform = transform;
-				GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ().position = transform.position;
-				be.flee ();
-
-				//be.stunMult = 1f;
-
-			}
-		}
+		
 
 	}
 
