@@ -6,31 +6,34 @@ public class tentacleAnimator : MonoBehaviour
 {
 
     Animator anim;
+	private bool isEgg;
+
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
-
+		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
     }
 
     // Update is called once per frame
     void Update()
     {
+		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
         //if moving forward (pressing W), play swimming animation, stop when key released
         bool isSwimming = Input.GetKey("w");
 		bool isGrabbing = GetComponentInParent<PickupObject>().carrying;
 		
 		anim.SetBool("swimming", isSwimming);
 		
-		if(Input.GetKey(KeyCode.Mouse0))
+		if(Input.GetKey(KeyCode.Mouse0) &&!isEgg)
 		{
 		anim.SetBool("grabbing", isGrabbing);
 		anim.Play("grab");
 		}
 		
         //press grab/throw button or left click to start grab animation, press again to exit grab animation
-        if (GetComponentInParent<PickupObject>().carrying)//Input.GetMouseButtonDown(0))//Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) ||) 
+        if (GetComponentInParent<PickupObject>().carrying )//Input.GetMouseButtonDown(0))//Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) ||) 
         {
             //if (!anim.GetBool("grabbing"))
             //{ //start grabbing

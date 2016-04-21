@@ -29,13 +29,16 @@ public class TutorialObject : MonoBehaviour {
 	private bool inRangeToInt = false;
 	private bool inLOS_inRange = false;
 	public float letterPause = 0.1f;
-	public string[] narrText = new string[20];
-	public bool[] narrTextTrigger = new bool[20];
+	public string[] narrText = new string[200];
+	public bool[] narrTextTrigger = new bool[200];
 	private int posInDialogue;
+	private int posInDialogueHolder;
 	private bool firstDialogueTrigger = false;
 	private bool secondDialogueTrigger = false;
 	private bool canPressE = true;
 	public bool isEgg = true;
+	public bool hasGrabbed = false;
+	public bool hasGrabbedCheck = false;
 	private bool acceptQuest = false;
 	private int dist;
 	private int distToInteract;
@@ -44,13 +47,14 @@ public class TutorialObject : MonoBehaviour {
 
 	void Start(){
 		fillNarrativeString ();
+		tutText = tutorialText.GetComponent<Text> ();
 		uiQuestOne = GameObject.FindGameObjectWithTag ("uiQuestOne");
 		uiMissionText = GameObject.FindGameObjectWithTag ("uiMissionText");
 		player = GameObject.FindGameObjectWithTag("Player");
 		egg = GameObject.FindGameObjectWithTag ("krakenEgg");
 		tutorialText.SetActive (false);
 		tutorialBox.SetActive (false);
-		tutText = tutorialText.GetComponent<Text> ();
+
 		rt = tutorialText.GetComponent<RectTransform> ();
 		//textHolder.text = "";
 	}
@@ -86,6 +90,13 @@ public class TutorialObject : MonoBehaviour {
 				tutText.text = "";
 				StartCoroutine (spellItOut ());
 				narrTextTrigger [posInDialogue] = false;
+			}
+			if (hasGrabbed && !hasGrabbedCheck) {
+				posInDialogueHolder = posInDialogue;
+				narrTextTrigger [100] = true;
+				posInDialogue = 100;
+				hasGrabbed = false;
+				hasGrabbedCheck = true;
 			}
 			if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg && posInDialogue == 0) {
 				posInDialogue++;
@@ -216,8 +227,9 @@ public class TutorialObject : MonoBehaviour {
 
 
 	void fillNarrativeString(){
-		narrText [0] = "Hey, my lil' Krakenling, it would be very helpful if you were to hatch sometime soon. [E]";
 		narrTextTrigger [0] = true;
+		narrText [0] = "Hey, my lil' Krakenling, it would be very helpful if you were to hatch sometime soon. [E]";
+
 		narrText [1] = "Look... we don't have all day, we have important work to attend to and this container is getting cramped and stuffy. Shake a tentacle and break out of that prison of yours. [E]";
 		//narrTextTrigger [1] = true;
 		narrText [2] = "Oh thank goodness you are relatively intelligent. My name is Bork the Delightful, now come yonder and help me out of here. [E]";
@@ -226,6 +238,10 @@ public class TutorialObject : MonoBehaviour {
 		//narrTextTrigger [3] = true;
 		narrText[4] = "Try picking up one of those boxes [Hold LMB] and tossing it at this blasted glass [While holding LMB, RMB]. [E]";
 		//narrTextTrigger [4] = false;
+
+
+		//This shit is tooltip stuff
+		narrText [100] = "Oh look, when you grab something your stamina drops. Oh also look, your stamina regenerates on its own. How fascinatingly bland your species is, isn't it?";
 	}
 	//Pos 3 = first quest - break bork out.
 	void triggerNarrText(){
