@@ -8,7 +8,7 @@ public class PushWave : MonoBehaviour {
 
 	[Range(-3.000f, 3.000f)] public float pushFactor;
 
-	public GameObject cameraObject;
+	private GameObject cameraObject;
 
 
 	private float lifeTime = 3f;
@@ -19,6 +19,7 @@ public class PushWave : MonoBehaviour {
 	List<GameObject> encountered = new List<GameObject>();
 
 	void Start(){
+		cameraObject = GameObject.FindGameObjectWithTag ("MainCamera");
 		//StartCoroutine(destroyMe ());
 	}
 
@@ -41,7 +42,7 @@ public class PushWave : MonoBehaviour {
 			encountered.Add (it);
 			Debug.Log (it);
 			if (it.GetComponent<BasicEnemy> () != null) {
-				it.GetComponent<BasicEnemy> ().outsideFactor+=transform.forward;
+				it.GetComponent<BasicEnemy> ().outsideFactor+=transform.forward * pushFactor;
 				it.GetComponent<BasicEnemy> ().waveAcc = true;
 				it.GetComponent<BasicEnemy> ().changeDec ();
 			}
