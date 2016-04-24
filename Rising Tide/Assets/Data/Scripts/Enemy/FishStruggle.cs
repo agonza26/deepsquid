@@ -14,6 +14,7 @@ public class FishStruggle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		/*
 		if(GetComponentInParent<Pickupable>().isPickedUp)
 		{
 			anim.speed = 10f;
@@ -22,5 +23,6 @@ public class FishStruggle : MonoBehaviour {
 		{
 			anim.speed = 1f;
 		}
+		*/
 	}
 }
