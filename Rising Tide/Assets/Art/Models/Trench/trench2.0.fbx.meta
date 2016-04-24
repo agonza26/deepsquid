@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8f20c71648c95744e93139eaf4721448
-timeCreated: 1461091243
+guid: 1d66c5ac6cabb144baf15c5a4594b52a
+timeCreated: 1461483574
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: lab.001
-    4300002: wholeTestTube
+    4300000: Icosphere
   materials:
     importMaterials: 1
     materialName: 0
