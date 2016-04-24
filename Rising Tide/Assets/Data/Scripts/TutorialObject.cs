@@ -195,26 +195,19 @@ public class TutorialObject : MonoBehaviour {
 		firstDialogueTrigger = true;
 		posInDialogue = 0;
 	}
-
-	IEnumerator waitForDialogueTrigger (float x){
-		yield return new WaitForSeconds (x);
-		//rt.sizeDelta = new Vector2(100, 23);
-		posInDialogue++;
-		triggerNarrText ();
-		//StartCoroutine (waitForInteraction (6f));
-	}
-
-	IEnumerator waitForInteraction (float x){
-		yield return new WaitForSeconds (x);
-		canPressE = true;
-	}
+		
 
 	IEnumerator spellItOut(){
 		foreach (char letter in narrText[posInDialogue].ToCharArray()) {
+			if(Input.GetKeyDown("e")){
+				break;
+			}
 			tutText.text += letter;
 			yield return new WaitForSeconds (letterPause);
 		}
-			narrTextTrigger [posInDialogue + 1] = true;
+		tutText.text = "";
+		tutText.text = narrText [posInDialogue];
+		narrTextTrigger [posInDialogue + 1] = true;
 	}
 
 
@@ -223,12 +216,9 @@ public class TutorialObject : MonoBehaviour {
 		narrTextTrigger [0] = true;
 		narrText [0] = "Hey, my lil' Krakenling, it would be very helpful if you were to hatch sometime soon. [E]";
 		narrText [1] = "Look... we don't have all day, we have important work to attend to and this container is getting cramped and stuffy. Shake a tentacle and break out of that prison of yours. [E]";
-		//narrTextTrigger [1] = true;
 		narrText [2] = "Oh thank goodness you are relatively intelligent. My name is Bork the Delightful, now come yonder and so I can see you. [E]";
-		//narrTextTrigger [2] = true;
 		narrText [3] = "Bork: My goodness you are interesting looking. Regardless of your appearance, we do not have much time to chat. Please get me out of here, those rude red eyes will back soon. Do so and you can help me save the neighborhood. [E]";
-		//narrTextTrigger [3] = true;
-		narrText[4] = "Bork: I suggest finding a box, picking it up [Hold LMB], and tossing it at this sinister glass [While holding LMB, RMB]. [E]";
+		narrText [4] = "Bork: I suggest finding a box, picking it up [Hold LMB], and tossing it at this sinister glass [While holding LMB, RMB]. [E]";
 		//narrTextTrigger [4] = false;
 
 

@@ -136,7 +136,7 @@ public class improved_movement : MonoBehaviour {
 
 
 			if (Input.GetKey ("w") && !Input.GetKey ("s")) { 
-				if (activeAbilities [1] == true) {
+				/*if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 					
 						inkAccBoost = -4f;
@@ -159,7 +159,7 @@ public class improved_movement : MonoBehaviour {
 						}
 					}
 				
-				} else {
+				} else {*/
 					inkAccBoost = 1f;
 					if (acc < accMax) {
 						acc += accCount;
@@ -168,14 +168,14 @@ public class improved_movement : MonoBehaviour {
 							acc = accMax;
 						}
 					}
-				}
+				//}
 			}
 		//Moving backwards
 		else if (Input.GetKey ("s") && !Input.GetKey ("w")) {
 
 			
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
-				if (activeAbilities [1] == true) {
+				/*if (activeAbilities [1] == true) {
 					if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 						inkAccBoost = 4f;
 						if (acc > deccMax) {
@@ -197,7 +197,7 @@ public class improved_movement : MonoBehaviour {
 						}
 					}
 
-				} else {
+				}else {*/
 					
 					inkAccBoost = 1f;
 					if (acc > deccMax) {
@@ -207,9 +207,9 @@ public class improved_movement : MonoBehaviour {
 							acc = deccMax;
 						}
 					}
-				}
+				//}
 
-			} else if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
+			} /*else if (Input.GetKey ("space") && activeAbilities [1] == true && currStamina > 5) {
 				ctRot = CameraTarg.transform.rotation;
 				//transform.rotation = ctRot * Quaternion.Euler (Vector3.up * 180);
 				inkAccBoost = 4f;
@@ -220,7 +220,7 @@ public class improved_movement : MonoBehaviour {
 						acc = deccMax;
 					}
 				}
-			} else {
+			}*/ else {
 				
 				inkAccBoost = 1f;
 				accCount = 0.025f;

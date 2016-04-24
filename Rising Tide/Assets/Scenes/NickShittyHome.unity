@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &11665327
 Transform:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ Transform:
   - {fileID: 832406903}
   - {fileID: 1027316479}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &11665328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,7 +2438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &48860068
 Transform:
   m_ObjectHideFlags: 0
@@ -2452,7 +2452,7 @@ Transform:
   - {fileID: 255305015}
   - {fileID: 1674698898}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &48860069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5099,7 +5099,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 693746213}
-  - {fileID: 1070963547}
   - {fileID: 2052679973}
   - {fileID: 1005746225}
   m_Father: {fileID: 0}
@@ -19272,7 +19271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!199 &537306744
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -24275,7 +24274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &637267427
 Transform:
   m_ObjectHideFlags: 0
@@ -24289,7 +24288,7 @@ Transform:
   - {fileID: 475518281}
   - {fileID: 251244713}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &637267428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31443,7 +31442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &872908310
 Transform:
   m_ObjectHideFlags: 0
@@ -31457,7 +31456,7 @@ Transform:
   - {fileID: 736076949}
   - {fileID: 13148234}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &872908311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34432,7 +34431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &943191649
 Transform:
   m_ObjectHideFlags: 0
@@ -34446,7 +34445,7 @@ Transform:
   - {fileID: 1339863657}
   - {fileID: 1136856044}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &943191650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38147,7 +38146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 137246781}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!137 &1005746226
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -42385,10 +42384,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070963546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00000001228959, z: 0.16527702}
+  m_LocalPosition: {x: 19.096008, y: -4.5780754, z: -14.142273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 137246781}
+  m_Father: {fileID: 1089783253}
   m_RootOrder: 1
 --- !u!137 &1070963548
 SkinnedMeshRenderer:
@@ -44397,6 +44396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 86278361}
+  - {fileID: 1070963547}
   - {fileID: 872908310}
   - {fileID: 1968432359}
   - {fileID: 637267427}
@@ -57866,7 +57866,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -73528,7 +73527,7 @@ GameObject:
   - 4: {fileID: 1707691409}
   - 96: {fileID: 1707691410}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: trailRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73545,7 +73544,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!96 &1707691410
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -75840,7 +75839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1856304654
 Transform:
   m_ObjectHideFlags: 0
@@ -75854,7 +75853,7 @@ Transform:
   - {fileID: 1318132267}
   - {fileID: 551046045}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1856304655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78541,7 +78540,7 @@ GameObject:
   - 4: {fileID: 1920442525}
   - 96: {fileID: 1920442526}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: trailRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78558,7 +78557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!96 &1920442526
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -79229,7 +79228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1968432359
 Transform:
   m_ObjectHideFlags: 0
@@ -79243,7 +79242,7 @@ Transform:
   - {fileID: 1927311029}
   - {fileID: 302914026}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1968432360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83658,7 +83657,7 @@ Transform:
   m_Children:
   - {fileID: 1421391101}
   m_Father: {fileID: 137246781}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &2055959559
 GameObject:
   m_ObjectHideFlags: 0
@@ -85994,7 +85993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2098578224
 Transform:
   m_ObjectHideFlags: 0
@@ -86008,7 +86007,7 @@ Transform:
   - {fileID: 500111380}
   - {fileID: 1030334766}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &2098578225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86055,7 +86054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2100785174
 Transform:
   m_ObjectHideFlags: 0
@@ -86069,7 +86068,7 @@ Transform:
   - {fileID: 932067758}
   - {fileID: 2106044710}
   m_Father: {fileID: 1089783253}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &2100785175
 MonoBehaviour:
   m_ObjectHideFlags: 0
