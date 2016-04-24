@@ -60,8 +60,8 @@ public class PickupObject : MonoBehaviour
 		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
 		blood.enableEmission = true;
 		*/
-		Debug.Log (isEgg);
 		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
+
 		if(GetComponent<Abilities>().currStamina <= 0f)
 		{
 			if(carrying)
@@ -77,9 +77,7 @@ public class PickupObject : MonoBehaviour
 			{
 				if(Input.GetKeyDown(KeyCode.Mouse0))
 				{
-					if (!hasGrabbed) {
-						
-					}
+					
 					pickup ();
 				} 
 	
@@ -130,29 +128,13 @@ public class PickupObject : MonoBehaviour
 				}
 
 
-
-
-
 				if(carrying)
 					carry(carriedObject);
-				
-
-
-
-
-
-
 
 			}
 		}
     }
-
-
-
-
-
-
-
+		
 
 	//done changing
 	void pickup()
@@ -164,11 +146,11 @@ public class PickupObject : MonoBehaviour
 				
 				if (p != null)
 				{
+				
 					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
-					
+
 					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
-					
 					carriedObject = p.gameObject; //set our carried object to
 					objectSize = p.size;
 					grabbableInRange = false;
