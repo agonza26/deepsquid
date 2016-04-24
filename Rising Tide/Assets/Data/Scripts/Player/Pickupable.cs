@@ -3,29 +3,43 @@ using System.Collections;
 
 public class Pickupable : MonoBehaviour {
 
+	public string ttName = "testtubeWhole";
 	public float size = 1.0f;
 	public int abilityIndex = 0;
-	//public Material[] mats = new Material[2];
 
 
 
-	public bool isPickedUp;
+
+
 	private string myTag = "none";
-
+	private bool thrown = false; 
 
 
 	// Use this for initialization
 	void Start () {
-
 		//mats [0] = GetComponentInChildren<Renderer>().material;
 		myTag = gameObject.tag;
 
 	}
 
+
+
+
 	// Update is called once per frame
 	void Update () {
-		
 
+
+	}
+
+
+
+
+	void OnCollisionEnter(Collision o){
+		if (thrown) {
+			if (o.gameObject.name != ttName) {
+				thrown = false;
+			}
+		}
 	}
 
 
@@ -103,7 +117,7 @@ public class Pickupable : MonoBehaviour {
 				if (GetComponent<BasicEnemy> () != null) {
 					GetComponent<BasicEnemy> ().struggle (); //returns if escaped
 				}
-				isPickedUp = true;
+				//isPickedUp = true;
 				transform.position = position;
 				transform.rotation = rotation * Quaternion.Euler(0, 90f, 0);// euler to rotate on its side like we're eating it
 				
@@ -135,7 +149,7 @@ public class Pickupable : MonoBehaviour {
 		switch (myTag) {
 		case "Enemy":
 			GetComponent<BasicEnemy> ().release();
-			isPickedUp = false;
+			//isPickedUp = false;
 			break;
 		case "Boids":
 
@@ -152,7 +166,13 @@ public class Pickupable : MonoBehaviour {
 	}
 
 
+	public bool isThrown(){
+		return thrown;
+	}
 
+	public void changeThrown(){
+		thrown = !thrown;
+	}
 
 
 
