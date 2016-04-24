@@ -21,6 +21,8 @@ TagManager:
   - uiMissionText
   - uiQuestOne
   - AbilityEMP
+  - EcoPoint
+  - uiQuestBox
   layers:
   - Default
   - TransparentFX

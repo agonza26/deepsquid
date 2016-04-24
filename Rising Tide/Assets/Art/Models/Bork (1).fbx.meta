@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: 8ef7d1877c97a804b8351a61ade2cc23
+timeCreated: 1461536138
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature Bork
+    100002: Bork
+    100004: //RootNode
+    100006: lowerHead
+    100008: mustache1.L
+    100010: mustache1.R
+    100012: mustache2.L
+    100014: mustache2.L_end
+    100016: mustache2.R
+    100018: mustache2.R_end
+    100020: Root
+    100022: tentacle 1-1.L
+    100024: tentacle 1-1.R
+    100026: tentacle 1-2.L
+    100028: tentacle 1-2.L_end
+    100030: tentacle 1-2.R
+    100032: tentacle 1-2.R_end
+    100034: tentacle 2-1.L
+    100036: tentacle 2-1.R
+    100038: tentacle 2-2.L
+    100040: tentacle 2-2.L_end
+    100042: tentacle 2-2.R
+    100044: tentacle 2-2.R_end
+    100046: tentacle 3-1.L
+    100048: tentacle 3-1.R
+    100050: tentacle 3-2.L
+    100052: tentacle 3-2.L_end
+    100054: tentacle 3-2.R
+    100056: tentacle 3-2.R_end
+    100058: upperHead
+    100060: upperHead_end
+    400000: Armature Bork
+    400002: Bork
+    400004: //RootNode
+    400006: lowerHead
+    400008: mustache1.L
+    400010: mustache1.R
+    400012: mustache2.L
+    400014: mustache2.L_end
+    400016: mustache2.R
+    400018: mustache2.R_end
+    400020: Root
+    400022: tentacle 1-1.L
+    400024: tentacle 1-1.R
+    400026: tentacle 1-2.L
+    400028: tentacle 1-2.L_end
+    400030: tentacle 1-2.R
+    400032: tentacle 1-2.R_end
+    400034: tentacle 2-1.L
+    400036: tentacle 2-1.R
+    400038: tentacle 2-2.L
+    400040: tentacle 2-2.L_end
+    400042: tentacle 2-2.R
+    400044: tentacle 2-2.R_end
+    400046: tentacle 3-1.L
+    400048: tentacle 3-1.R
+    400050: tentacle 3-2.L
+    400052: tentacle 3-2.L_end
+    400054: tentacle 3-2.R
+    400056: tentacle 3-2.R_end
+    400058: upperHead
+    400060: upperHead_end
+    4300000: Bork
+    7400000: Armature Bork|Armature BorkAction
+    9500000: //RootNode
+    13700000: Bork
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

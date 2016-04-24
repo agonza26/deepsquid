@@ -177,6 +177,10 @@ ModelImporter:
     4300006: Plane
     7400000: Default Take
     7400002: Armature_babySquid_Action
+    7400004: Grab
+    7400006: Swim
+    7400008: Idle
+    7400010: Death
     9500000: //RootNode
     13700000: babySquid
     13700002: Bork
@@ -200,7 +204,1147 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 57
+      lastFrame: 1052
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature_babySquid_Action
+      takeName: Armature_babySquid_Action
+      firstFrame: -1
+      lastFrame: 1049
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Grab
+      takeName: Default Take
+      firstFrame: 58
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 57
+    - serializedVersion: 16
+      name: Swim
+      takeName: Default Take
+      firstFrame: 78
+      lastFrame: 426
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 57
+    - serializedVersion: 16
+      name: Idle
+      takeName: Default Take
+      firstFrame: 427
+      lastFrame: 898
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 57
+    - serializedVersion: 16
+      name: Death
+      takeName: Default Take
+      firstFrame: 899
+      lastFrame: 1052
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature_babySquid_
+        weight: 1
+      - path: Armature_babySquid_/Root_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_L/feedingTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/feedingTentacle01_R/feedingTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/fin_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/lowerHead_0/upperHead_0
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_L/mainTentacle01_L/mainTentacle02_L/mainTentacle03_L/mainTentacle04_L/mainTentacle05_L/mainTentacle06_L/mainTentacle07_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/mainTentacleBase_R/mainTentacle01_R/mainTentacle02_R/mainTentacle03_R/mainTentacle04_R/mainTentacle05_R/mainTentacle06_R/mainTentacle07_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_L/tentacle1-01_L/tentacle1-02_L/tentacle1-03_L/tentacle1-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle1Base_R/tentacle1-01_R/tentacle1-02_R/tentacle1-03_R/tentacle1-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04_L
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_L_001/tentacle2-01_001/tentacle2-02_001/tentacle2-03_001/tentacle2-04_L_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R/tentacle2-01_004/tentacle2-02_004/tentacle2-03_004/tentacle2-04_R
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002
+        weight: 1
+      - path: Armature_babySquid_/Root_0/tentacle2Base_R_001/tentacle2-01_002/tentacle2-02_002/tentacle2-03_002/tentacle2-04_R_001
+        weight: 1
+      - path: Armature_Bork
+        weight: 1
+      - path: Armature_Bork/Root
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_L/mustache2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/mustache1_R/mustache2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_L/tentacle_1-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_1-1_R/tentacle_1-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_L/tentacle_2-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_2-1_R/tentacle_2-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_L/tentacle_3-2_L
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/tentacle_3-1_R/tentacle_3-2_R
+        weight: 1
+      - path: Armature_Bork/Root/lowerHead/upperHead
+        weight: 1
+      - path: babySquid
+        weight: 1
+      - path: Bork
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Plane_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 57
     isReadable: 1
   meshes:
     lODScreenPercentages: []

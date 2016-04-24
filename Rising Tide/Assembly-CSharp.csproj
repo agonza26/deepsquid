@@ -80,6 +80,7 @@
      <Compile Include="Assets\Data\Scripts\System\MainMenu.cs" />
      <Compile Include="Assets\Data\Scripts\System\MuralPuzzleSwitchImage.cs" />
      <Compile Include="Assets\Data\Scripts\System\NextLevelButton.cs" />
+     <Compile Include="Assets\Data\Scripts\System\Pause.cs" />
      <Compile Include="Assets\Data\Scripts\System\PedestalOrbDet.cs" />
      <Compile Include="Assets\Data\Scripts\System\PlaceInFrontOf.cs" />
      <Compile Include="Assets\Data\Scripts\System\Player.cs" />
