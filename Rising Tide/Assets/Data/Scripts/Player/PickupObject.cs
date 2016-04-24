@@ -50,18 +50,31 @@ public class PickupObject : MonoBehaviour
 	}
 
 
-    void Update(){
-		//if we aren't dead or in the egg
-		if(!GetComponent<Player_stats>().isDead && !isEgg){
 
-			isEgg = bork.GetComponent<TutorialObject> ().isEgg;
-			if((GetComponent<Abilities>().currStamina <= 0f)&&(carrying)){
+    void Update()
+	{
+		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
+		blood.enableEmission = true;
+		*/
+		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
+
+		if(GetComponent<Abilities>().currStamina <= 0f)
+		{
+			if(carrying)
+			{
+				
+
 				dropObject();
 			}
 
-			//if we arent carrying anything
-			if (!carrying){
-				if(Input.GetKeyDown(KeyCode.Mouse0)) {
+
+		if(!GetComponent<Player_stats>().isDead && !isEgg)
+		{
+			if (!carrying) 
+			{
+				if(Input.GetKeyDown(KeyCode.Mouse0))
+				{
+					
 					pickup ();
 				} 
 			} else {
@@ -109,17 +122,13 @@ public class PickupObject : MonoBehaviour
 
 
 
+				if(carrying)
+					carry(carriedObject);
 
-
+			}
 		}
     }
-
-
-
-
-
-
-
+		
 
 	//done changing
 	void pickup()
@@ -131,11 +140,11 @@ public class PickupObject : MonoBehaviour
 				
 				if (p != null)
 				{
+				
 					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
-					
+
 					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
-					
 					carriedObject = p.gameObject; //set our carried object to
 					objectSize = p.size;
 					grabbableInRange = false;
