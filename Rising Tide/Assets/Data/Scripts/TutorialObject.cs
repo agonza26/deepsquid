@@ -7,8 +7,6 @@ using System.Collections;
 public class TutorialObject : MonoBehaviour {
 
 	public bool debugStatements = true;
-	private int minimumDist = 20;
-	private int maximumDist = 120;
 	public GameObject tutorialText;
 	private Text tutText;
 	//private Text textHolder = GetComponent<Text>();
@@ -19,7 +17,7 @@ public class TutorialObject : MonoBehaviour {
 	public GameObject pressEText;
 	private GameObject uiQuestOne;
 	private GameObject uiMissionText;
-	RectTransform rt;
+	private GameObject uiMissionBox;
 	private Mesh squidMesh;
 	private Mesh tempMesh;
 	private Mesh eggMesh;
@@ -36,14 +34,12 @@ public class TutorialObject : MonoBehaviour {
 	private bool firstDialogueTrigger = false;
 	private bool tooltipStamCom = false;
 	private bool tooltipInProgress = false;
-	private bool canPressE = true;
 	public bool isEgg = true;
 	public bool hasGrabbed = false;
 	public bool hasGrabbedCheck = false;
 	private bool acceptQuest = false;
 	private int dist;
 	private int distToInteract;
-	int count = 0;
 
 
 	void Start(){
@@ -53,11 +49,14 @@ public class TutorialObject : MonoBehaviour {
 		uiQuestOne.SetActive (false);
 		uiMissionText = GameObject.FindGameObjectWithTag ("uiMissionText");
 		uiMissionText.SetActive (false);
+		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
+		uiMissionBox.SetActive (false);
+
 		player = GameObject.FindGameObjectWithTag("Player");
 		egg = GameObject.FindGameObjectWithTag ("krakenEgg");
 		tutorialText.SetActive (false);
 		tutorialBox.SetActive (false);
-		rt = tutorialText.GetComponent<RectTransform> ();
+		//rt = tutorialText.GetComponent<RectTransform> ();
 	}
 
 
@@ -80,6 +79,9 @@ public class TutorialObject : MonoBehaviour {
 
 		if ((inLOS_inRange || inRangeToHear && firstDialogueTrigger)) {
 			//If youve accepted a quest, turn off the textbox. else keep it up while youre in range and los
+			Debug.Log("inrangeInt, acceptQuest, tooltipinprogress: " + inRangeToInt + "," + acceptQuest + "," + tooltipInProgress);
+			Debug.Log("hasgrabbedcheck, tooltipStamCom, tooltipinprogress: " + hasGrabbedCheck + "," + tooltipStamCom + "," + tooltipInProgress);
+			Debug.Log (posInDialogue);
 			if (!acceptQuest || tooltipInProgress) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -95,16 +97,19 @@ public class TutorialObject : MonoBehaviour {
 
 			}
 			if (hasGrabbed) {
-				tooltipInProgress = true;
+				
 				if (!hasGrabbedCheck) {
+					tooltipInProgress = true;
 					hasGrabbedCheck = true;
 					posInDialogueHolder = posInDialogue;
+					narrTextTrigger [posInDialogueHolder+1] = false;
 					posInDialogue = 100;
 					narrTextTrigger [posInDialogue] = true;
 					narrTextTrigger [posInDialogue+1] = true;
 				}
 			}
 			if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1]) {
+				//Debug.Log ("Pressing E and narrTextTrigger pos+! is true");
 					if (isEgg) {
 						if (posInDialogue == 0) {
 							posInDialogue++;
@@ -119,13 +124,18 @@ public class TutorialObject : MonoBehaviour {
 						narrTextTrigger [posInDialogue] = false;
 						narrTextTrigger [posInDialogue + 1] = false;
 						posInDialogue = posInDialogueHolder;
-					} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
+						narrTextTrigger [posInDialogue] = true;
+						narrTextTrigger [posInDialogue+1] = true;
+				} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
+					//Debug.Log ("inrangeto int, !acceptquest, !tooltipinProgress");
 						posInDialogue++;
 					}
 				}
 				if (posInDialogue == 5) {
+				//Debug.Log ("Got in here for somereason");
 					uiMissionText.SetActive (true);
 					uiQuestOne.SetActive (true);
+					uiMissionBox.SetActive (true);
 					tutorialText.SetActive (false);
 					tutorialBox.SetActive (false);
 					acceptQuest = true;
@@ -207,7 +217,11 @@ public class TutorialObject : MonoBehaviour {
 		}
 		tutText.text = "";
 		tutText.text = narrText [posInDialogue];
-		narrTextTrigger [posInDialogue + 1] = true;
+		if (!tooltipStamCom) {
+			narrTextTrigger [posInDialogue + 1] = true;
+		}
+
+
 	}
 
 
