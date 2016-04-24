@@ -25,9 +25,6 @@ public class PickupObject : MonoBehaviour
     public bool canThrow;
 	public ParticleSystem blood;
     public float playerSize = 2.0f;
-	private bool hasGrabbed;
-	private bool isEgg;
-
 
 	public float distance = 1.5f; //offset between carried object and player
 	public float smooth = 20f; //smooth carrying movement
@@ -36,75 +33,58 @@ public class PickupObject : MonoBehaviour
 	public AudioSource grabSound;
 
 
+	private bool isEgg;
 
-
-
-	private Quaternion playerZRot;
 
 
 	private bool grabbableInRange = false;
 	private Collider InRangeItemSaver;
 	private GameObject carriedObject;
 	private GameObject player;
+	private GameObject bork;
 
    
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
-		hasGrabbed = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed;
-		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
+		bork = GameObject.FindGameObjectWithTag ("borkVisualCollider");
 	}
 
 
-    void Update()
-	{
-		/*blood = gameObject.GetComponentInChildren<ParticleSystem>();
-		blood.enableEmission = true;
-		*/
-		isEgg = GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isEgg;
-
-		if(GetComponent<Abilities>().currStamina <= 0f)
-		{
-			if(carrying)
-			{
-				
+    void Update(){
+		//if we aren't dead or in the egg
+		isEgg = bork.GetComponent<TutorialObject> ().isEgg;
+		if(!GetComponent<Player_stats>().isDead && !isEgg){
+			
+			if((GetComponent<Abilities>().currStamina <= 0f)&&(carrying)){
 				dropObject();
 			}
-		}
 
-		if(!GetComponent<Player_stats>().isDead && !isEgg)
-		{
-			if (!carrying) 
-			{
-				if(Input.GetKeyDown(KeyCode.Mouse0))
-				{
-					
+			//if we arent carrying anything
+			if (!carrying){
+				if(Input.GetKeyDown(KeyCode.Mouse0)) {
+					print ("we picked up");
 					pickup ();
 				} 
-	
 			} else {
-				//if (Input.GetKeyUp(KeyCode.E))
-					//dropObject();
-				//else
 				if(Input.GetKeyUp(KeyCode.Mouse0))
 				{
 					dropObject();
 				}
 				
-					if (Input.GetKeyDown(KeyCode.Mouse1))
-				{
-					if (canThrow)
-					{
-						throwObject();
+				if (Input.GetKeyDown(KeyCode.Mouse1)){
+					if (canThrow) {
+						throwObject ();
+					} else {
+						dropObject ();
 					}
 				}
-
-
 			}
 
 
 
 			if (carrying){
-				
+				carry(carriedObject);
+
 				if(carriedObject.tag == "Enemy")
 				{
 					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
@@ -126,15 +106,21 @@ public class PickupObject : MonoBehaviour
 						dropObject();
 					}
 				}
-
-
-				if(carrying)
-					carry(carriedObject);
-
 			}
+
+
+
+
+
 		}
     }
-		
+
+
+
+
+
+
+
 
 	//done changing
 	void pickup()
@@ -146,11 +132,11 @@ public class PickupObject : MonoBehaviour
 				
 				if (p != null)
 				{
-				
 					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
-
+					
 					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
+					
 					carriedObject = p.gameObject; //set our carried object to
 					objectSize = p.size;
 					grabbableInRange = false;
@@ -192,11 +178,8 @@ public class PickupObject : MonoBehaviour
 		if (!parented) //object is smaller than player
         {
             canThrow = true;
-            playerZRot = player.transform.rotation;
 			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-3.5f;
-			//lerp doesn't work how we want it to, but i'm leaving the code for me to use later - alex
-           	//Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime );
-			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, playerZRot);
+			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
         }
         else //object is larger than player
         {
@@ -240,8 +223,7 @@ public class PickupObject : MonoBehaviour
 
         carrying = false;
         carriedObject.layer = 0; //return carried object to default layer
-        if (parented)
-        {
+        if (parented){
             player.transform.parent = null;
             parented = false;
             player.GetComponent<Rigidbody>().isKinematic = false;            
@@ -266,8 +248,10 @@ public class PickupObject : MonoBehaviour
 			carrying = false;
 			carriedObject.GetComponent<Rigidbody> ().AddForce (transform.forward * -throwForce);
 			carriedObject.GetComponent<Rigidbody> ().useGravity = true;
+			carriedObject.GetComponent<Pickupable> ().changeThrown ();
 			carriedObject.layer = 0; //return carried object to default layer
 			carriedObject = null;
+
 
 		} else {
 			dropObject ();
