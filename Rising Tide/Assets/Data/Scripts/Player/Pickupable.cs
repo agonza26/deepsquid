@@ -36,12 +36,9 @@ public class Pickupable : MonoBehaviour {
 
 	void OnCollisionEnter(Collision o){
 		if (thrown) {
-			if (o.gameObject.name == ttName) {
-				if (o.gameObject.GetComponent<test> ()) {
-					//o.gameObject.GetComponent< >().breakWall();
-				}
+			if (o.gameObject.name != ttName) {
+				thrown = false;
 			}
-			thrown = false;
 		}
 	}
 
@@ -169,7 +166,13 @@ public class Pickupable : MonoBehaviour {
 	}
 
 
+	public bool isThrown(){
+		return thrown;
+	}
 
+	public void changeThrown(){
+		thrown = !thrown;
+	}
 
 
 
