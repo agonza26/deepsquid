@@ -27,7 +27,7 @@ public class modelSwitch : MonoBehaviour {
 				print ("here in is Thrown");
 				o.gameObject.GetComponent<Pickupable> ().changeThrown ();
 				changeModels ();
-
+				GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isGlassBroken = true;
 			}
 
 		}

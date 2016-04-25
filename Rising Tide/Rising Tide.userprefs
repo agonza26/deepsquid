@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\TutorialObject.cs">
     <Files>
-      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="51" Column="1" />
-      <File FileName="Assets\Data\Scripts\improved_movement.cs" Line="191" Column="21" />
+      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="152" Column="38" />
+      <File FileName="Assets\Data\Scripts\modelSwitch.cs" Line="30" Column="114" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

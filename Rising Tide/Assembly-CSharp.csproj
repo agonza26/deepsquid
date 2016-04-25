@@ -91,8 +91,8 @@
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
+     <Compile Include="Assets\Data\Scripts\modelSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\spellItOut.cs" />
-     <Compile Include="Assets\modelSwitch.cs" />
      <Compile Include="Assets\testscript.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

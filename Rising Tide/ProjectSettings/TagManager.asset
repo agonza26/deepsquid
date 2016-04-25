@@ -23,6 +23,12 @@ TagManager:
   - AbilityEMP
   - EcoPoint
   - uiQuestBox
+  - incomplete
+  - complete
+  - QuestReturn
+  - brokenTT
+  - borkAttached
+  - borkunattached
   layers:
   - Default
   - TransparentFX
