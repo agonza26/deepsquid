@@ -22,6 +22,8 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject incompleteMissionText;
 	private GameObject completeMissionText;
 	private GameObject returnToBorkText;
+	private GameObject borkObjectAttached;
+	private GameObject borkObjectUnattached;
 	private Mesh squidMesh;
 	private Mesh tempMesh;
 	private Mesh eggMesh;
@@ -39,11 +41,14 @@ public class TutorialObject : MonoBehaviour {
 	private bool firstDialogueTrigger = false;
 	private bool playedStamTT = false;
 	private bool tooltipInProgress = false;
+	private bool nothingToSay = false;
 	public bool isEgg = true;
 	public bool hasGrabbed = false;
 	public bool hasGrabbedCheck = false;
+	private bool borkAttached = false;
 	private bool acceptQuest = false;
 	private bool questOneComplete = false;
+	private bool tempBool;
 	public bool isGlassBroken;
 	private int dist;
 	private int distToInteract;
@@ -58,6 +63,9 @@ public class TutorialObject : MonoBehaviour {
 		uiMissionText.SetActive (false);
 		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
 		uiMissionBox.SetActive (false);
+		borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttached");
+		borkObjectAttached.SetActive (false);
+		borkObjectUnattached = GameObject.FindGameObjectWithTag ("borkunattached");
 		incompleteMissionText = GameObject.FindGameObjectWithTag ("incomplete");
 		incompleteMissionText.SetActive (false);
 		completeMissionText = GameObject.FindGameObjectWithTag ("complete");
@@ -73,7 +81,14 @@ public class TutorialObject : MonoBehaviour {
 
 	void Update ()
 	{
-		distanceNotify ();
+		Debug.Log (posInDialogue);
+		if (!borkAttached) {
+			distanceNotify ();
+		} else {
+			inRangeToHear = false;
+			inLOS = false;
+
+		}
 		if (isGlassBroken && acceptQuest && !questOneComplete) {
 			
 			acceptQuest = false;
@@ -84,25 +99,46 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestOne.SetActive (false);
 			//posInDialogue++;
 			narrTextTrigger[posInDialogue] = true;
+			//narrTextTrigger[posInDialogue+1] = true;
 
 		}
-
+		/*
 		if (hasGrabbed && !hasGrabbedCheck) {
 			tooltipInProgress = true;
 			hasGrabbedCheck = true;
+			narrTextTrigger[posInDialogue] = false;
+			tempBool = narrTextTrigger [posInDialogue + 1];
+			narrTextTrigger[posInDialogue + 1] = false;
 			posInDialogueHolder = posInDialogue;
-			narrTextTrigger[posInDialogueHolder] = false;
-			narrTextTrigger[posInDialogueHolder + 1] = false;
 			posInDialogue = 100;
 			narrTextTrigger [100] = true;
 			narrTextTrigger [posInDialogue + 1] = true;
-		}
+		}*/
 
 		if (isEgg) {
 			if (!dialogStarted) {
 				dialogStarted = true;
 				StartCoroutine (waitForFirstDialogueTrigger (1f));
 			}
+		}
+		//If you are on pos 5 in dialogue and you havent accepted a quest, you will now accept one.
+
+		if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestOne.SetActive(true);
+			incompleteMissionText.SetActive (true);
+		}
+		if (posInDialogue == 6) {
+			borkAttached = true;
+			uiMissionBox.SetActive (false);
+			uiMissionText.SetActive (false);
+			uiQuestOne.SetActive (false);
+			completeMissionText.SetActive (false);
+			returnToBorkText.SetActive (false);
+			borkObjectAttached.SetActive (true);
+			borkObjectUnattached.SetActive (false);
 		}
 
 		if (inLOS && inRangeToHear) {
@@ -111,21 +147,21 @@ public class TutorialObject : MonoBehaviour {
 			inLOS_inRange = false;
 		}
 
-		if (inLOS_inRange || inRangeToHear && firstDialogueTrigger) {
+		if (inRangeToHear && firstDialogueTrigger && !borkAttached) {
 			//If youve accepted a quest, turn off the textbox. else keep it up while youre in range and los
 			//Debug.Log("inrangeInt, acceptQuest, tooltipinprogress: " + inRangeToInt + "," + acceptQuest + "," + tooltipInProgress);
 			//Debug.Log("hasgrabbedcheck, tooltipStamCom, tooltipinprogress: " + hasGrabbedCheck + "," + tooltipStamCom + "," + tooltipInProgress);
 			//Debug.Log (posInDialogue);
-			if (!acceptQuest || tooltipInProgress) {
+			if (!acceptQuest) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
 			} else {
 				tutorialText.SetActive (false);
 				tutorialBox.SetActive (false);
 			}
-
+			//if the current dialogue is active and hasnt been spelled out yet, spell it out
 			if (narrTextTrigger [posInDialogue]) {
-				if (posInDialogue == 5) {
+				if (posInDialogue == 5 && acceptQuest && !questOneComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				} else {
 					tutText.text = "";
@@ -134,30 +170,74 @@ public class TutorialObject : MonoBehaviour {
 				}
 			}
 
-			if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1]) {
-				//Debug.Log ("Pressing E and narrTextTrigger pos+! is true");
-				if (isEgg) {
+			if (isEgg) {
+				eggECaller ();
+			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete) {
+				posInDialogue++;
+			} else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
+				//Debug.Log ("calling this one now");
+				posInDialogue++;
+			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
+				Debug.Log ("calling this one now");
+				posInDialogue++;
+			}
+		} else if (borkAttached) {
+			if (!acceptQuest) {
+				tutorialText.SetActive (true);
+				tutorialBox.SetActive (true);
+			} else {
+				tutorialText.SetActive (false);
+				tutorialBox.SetActive (false);
+			}
+			if (narrTextTrigger [posInDialogue]) {
+				if (posInDialogue == 5 && acceptQuest && !questOneComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
+				else if (nothingToSay){
+
+				}
+				else {
+					tutText.text = "";
+					narrTextTrigger [posInDialogue] = false;
+					StartCoroutine (spellItOut ());
+				}
+			}
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !nothingToSay) {
+				Debug.Log ("calling this one now");
+				posInDialogue++;
+			}
+		}
+		else  {
+			tutorialText.SetActive (false);
+			tutorialBox.SetActive (false);
+
+		}
+
+
+				/*if (isEgg) {
 					
-					if (posInDialogue == 0) {
+					/*if (posInDialogue == 0) {
 						posInDialogue++;
 					} else {
 						isEgg = false;
 						egg.SetActive (false);
 						posInDialogue++;
 					}
-				} else if (hasGrabbedCheck && !playedStamTT && tooltipInProgress && !questOneComplete) {
-					tooltipInProgress = false;
-					playedStamTT = true;
-					narrTextTrigger [posInDialogue] = false;
+				} /*else if (hasGrabbedCheck && !playedStamTT && tooltipInProgress && !questOneComplete) {
+					Debug.Log (tooltipInProgress + "in e");
+					//tooltipInProgress = false;
+					//playedStamTT = true;
 					narrTextTrigger [posInDialogue + 1] = false;
 					posInDialogue = posInDialogueHolder;
-					narrTextTrigger [posInDialogue] = false;
+					narrTextTrigger [posInDialogue] = true;
+					narrTextTrigger [posInDialogue+1] = tempBool;
+					//narrTextTrigger [posInDialogue + 1] = true;
 
 				} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
 				    posInDialogue++;
-				}
-			}
-			if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
+				}*/
+			
+			/*if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
 				uiMissionText.SetActive (true);
 				uiQuestOne.SetActive (true);
 				uiMissionBox.SetActive (true);
@@ -166,13 +246,9 @@ public class TutorialObject : MonoBehaviour {
 				tutorialBox.SetActive (false);
 				acceptQuest = true;
 
-			}
-				//If youre not in range or los or on a quest turn off textboxes
-			} else  {
-				tutorialText.SetActive (false);
-				tutorialBox.SetActive (false);
-
-			}
+			}*/
+			//If youre not in range or los or on a quest turn off textboxes
+			 
 
 	}
 
@@ -231,6 +307,20 @@ public class TutorialObject : MonoBehaviour {
 		firstDialogueTrigger = true;
 		posInDialogue = 0;
 	}
+
+	void eggECaller(){
+		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg) {
+			//Debug.Log ("Pressing E and narrTextTrigger pos+! is true");
+			if (posInDialogue == 0) {
+				posInDialogue++;
+			} else {
+				isEgg = false;
+				egg.SetActive (false);
+				posInDialogue++;
+			}
+		}
+
+	}
 		
 
 	IEnumerator spellItOut(){
@@ -243,12 +333,8 @@ public class TutorialObject : MonoBehaviour {
 		}
 		tutText.text = "";
 		tutText.text = narrText [posInDialogue];
-		if (!tooltipInProgress) {
-			Debug.Log ("inspell");
+	
 			narrTextTrigger [posInDialogue + 1] = true;
-		} 
-
-
 	}
 
 
