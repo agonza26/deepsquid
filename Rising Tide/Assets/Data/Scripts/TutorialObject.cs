@@ -18,9 +18,14 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject uiQuestOne;
 	private GameObject uiMissionText;
 	private GameObject uiMissionBox;
+	private GameObject brokenGlassTube;
+	private GameObject incompleteMissionText;
+	private GameObject completeMissionText;
+	private GameObject returnToBorkText;
 	private Mesh squidMesh;
 	private Mesh tempMesh;
 	private Mesh eggMesh;
+
 	private bool dialogStarted = false;
 	private bool inLOS = false;
 	private bool inRangeToHear = false;
@@ -32,12 +37,14 @@ public class TutorialObject : MonoBehaviour {
 	private int posInDialogue;
 	private int posInDialogueHolder;
 	private bool firstDialogueTrigger = false;
-	private bool tooltipStamCom = false;
+	private bool playedStamTT = false;
 	private bool tooltipInProgress = false;
 	public bool isEgg = true;
 	public bool hasGrabbed = false;
 	public bool hasGrabbedCheck = false;
 	private bool acceptQuest = false;
+	private bool questOneComplete = false;
+	public bool isGlassBroken;
 	private int dist;
 	private int distToInteract;
 
@@ -51,18 +58,45 @@ public class TutorialObject : MonoBehaviour {
 		uiMissionText.SetActive (false);
 		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
 		uiMissionBox.SetActive (false);
-
+		incompleteMissionText = GameObject.FindGameObjectWithTag ("incomplete");
+		incompleteMissionText.SetActive (false);
+		completeMissionText = GameObject.FindGameObjectWithTag ("complete");
+		completeMissionText.SetActive (false);
+		returnToBorkText = GameObject.FindGameObjectWithTag ("QuestReturn");
+		returnToBorkText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag("Player");
 		egg = GameObject.FindGameObjectWithTag ("krakenEgg");
 		tutorialText.SetActive (false);
 		tutorialBox.SetActive (false);
-		//rt = tutorialText.GetComponent<RectTransform> ();
 	}
 
 
 	void Update ()
 	{
 		distanceNotify ();
+		if (isGlassBroken && acceptQuest && !questOneComplete) {
+			
+			acceptQuest = false;
+			questOneComplete = true;
+			completeMissionText.SetActive (true);
+			returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestOne.SetActive (false);
+			//posInDialogue++;
+			narrTextTrigger[posInDialogue] = true;
+
+		}
+
+		if (hasGrabbed && !hasGrabbedCheck) {
+			tooltipInProgress = true;
+			hasGrabbedCheck = true;
+			posInDialogueHolder = posInDialogue;
+			narrTextTrigger[posInDialogueHolder] = false;
+			narrTextTrigger[posInDialogueHolder + 1] = false;
+			posInDialogue = 100;
+			narrTextTrigger [100] = true;
+			narrTextTrigger [posInDialogue + 1] = true;
+		}
 
 		if (isEgg) {
 			if (!dialogStarted) {
@@ -77,11 +111,11 @@ public class TutorialObject : MonoBehaviour {
 			inLOS_inRange = false;
 		}
 
-		if ((inLOS_inRange || inRangeToHear && firstDialogueTrigger)) {
+		if (inLOS_inRange || inRangeToHear && firstDialogueTrigger) {
 			//If youve accepted a quest, turn off the textbox. else keep it up while youre in range and los
-			Debug.Log("inrangeInt, acceptQuest, tooltipinprogress: " + inRangeToInt + "," + acceptQuest + "," + tooltipInProgress);
-			Debug.Log("hasgrabbedcheck, tooltipStamCom, tooltipinprogress: " + hasGrabbedCheck + "," + tooltipStamCom + "," + tooltipInProgress);
-			Debug.Log (posInDialogue);
+			//Debug.Log("inrangeInt, acceptQuest, tooltipinprogress: " + inRangeToInt + "," + acceptQuest + "," + tooltipInProgress);
+			//Debug.Log("hasgrabbedcheck, tooltipStamCom, tooltipinprogress: " + hasGrabbedCheck + "," + tooltipStamCom + "," + tooltipInProgress);
+			//Debug.Log (posInDialogue);
 			if (!acceptQuest || tooltipInProgress) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -91,62 +125,54 @@ public class TutorialObject : MonoBehaviour {
 			}
 
 			if (narrTextTrigger [posInDialogue]) {
-				tutText.text = "";
-				narrTextTrigger [posInDialogue] = false;
-				StartCoroutine (spellItOut ());
-
-			}
-			if (hasGrabbed) {
-				
-				if (!hasGrabbedCheck) {
-					tooltipInProgress = true;
-					hasGrabbedCheck = true;
-					posInDialogueHolder = posInDialogue;
-					narrTextTrigger [posInDialogueHolder+1] = false;
-					posInDialogue = 100;
-					narrTextTrigger [posInDialogue] = true;
-					narrTextTrigger [posInDialogue+1] = true;
+				if (posInDialogue == 5) {
+					narrTextTrigger [posInDialogue] = false;
+				} else {
+					tutText.text = "";
+					narrTextTrigger [posInDialogue] = false;
+					StartCoroutine (spellItOut ());
 				}
 			}
+
 			if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1]) {
 				//Debug.Log ("Pressing E and narrTextTrigger pos+! is true");
-					if (isEgg) {
-						if (posInDialogue == 0) {
-							posInDialogue++;
-						} else {
-							isEgg = false;
-							egg.SetActive (false);
-							posInDialogue++;
-						}
-				} else if (hasGrabbedCheck && !tooltipStamCom && tooltipInProgress) {
-						tooltipInProgress = false;
-						tooltipStamCom = true;
-						narrTextTrigger [posInDialogue] = false;
-						narrTextTrigger [posInDialogue + 1] = false;
-						posInDialogue = posInDialogueHolder;
-						narrTextTrigger [posInDialogue] = true;
-						narrTextTrigger [posInDialogue+1] = true;
-				} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
-					//Debug.Log ("inrangeto int, !acceptquest, !tooltipinProgress");
+				if (isEgg) {
+					
+					if (posInDialogue == 0) {
+						posInDialogue++;
+					} else {
+						isEgg = false;
+						egg.SetActive (false);
 						posInDialogue++;
 					}
+				} else if (hasGrabbedCheck && !playedStamTT && tooltipInProgress && !questOneComplete) {
+					tooltipInProgress = false;
+					playedStamTT = true;
+					narrTextTrigger [posInDialogue] = false;
+					narrTextTrigger [posInDialogue + 1] = false;
+					posInDialogue = posInDialogueHolder;
+					narrTextTrigger [posInDialogue] = false;
+
+				} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
+				    posInDialogue++;
 				}
-				if (posInDialogue == 5) {
-				//Debug.Log ("Got in here for somereason");
-					uiMissionText.SetActive (true);
-					uiQuestOne.SetActive (true);
-					uiMissionBox.SetActive (true);
-					tutorialText.SetActive (false);
-					tutorialBox.SetActive (false);
-					acceptQuest = true;
-				}
+			}
+			if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
+				uiMissionText.SetActive (true);
+				uiQuestOne.SetActive (true);
+				uiMissionBox.SetActive (true);
+				incompleteMissionText.SetActive (true);					
+				tutorialText.SetActive (false);
+				tutorialBox.SetActive (false);
+				acceptQuest = true;
+
+			}
 				//If youre not in range or los or on a quest turn off textboxes
-			} else {
+			} else  {
 				tutorialText.SetActive (false);
 				tutorialBox.SetActive (false);
 
 			}
-
 
 	}
 
@@ -209,7 +235,7 @@ public class TutorialObject : MonoBehaviour {
 
 	IEnumerator spellItOut(){
 		foreach (char letter in narrText[posInDialogue].ToCharArray()) {
-			if(Input.GetKeyDown("e")){
+			if(Input.GetKeyDown("e") && !tooltipInProgress){
 				break;
 			}
 			tutText.text += letter;
@@ -217,9 +243,10 @@ public class TutorialObject : MonoBehaviour {
 		}
 		tutText.text = "";
 		tutText.text = narrText [posInDialogue];
-		if (!tooltipStamCom) {
+		if (!tooltipInProgress) {
+			Debug.Log ("inspell");
 			narrTextTrigger [posInDialogue + 1] = true;
-		}
+		} 
 
 
 	}
@@ -233,19 +260,15 @@ public class TutorialObject : MonoBehaviour {
 		narrText [2] = "Oh thank goodness you are relatively intelligent. My name is Bork the Delightful, now come yonder and so I can see you. [E]";
 		narrText [3] = "Bork: My goodness you are interesting looking. Regardless of your appearance, we do not have much time to chat. Please get me out of here, those rude red eyes will back soon. Do so and you can help me save the neighborhood. [E]";
 		narrText [4] = "Bork: I suggest finding a box, picking it up [Hold LMB], and tossing it at this sinister glass [While holding LMB, RMB]. [E]";
+		narrText [5] = "Bork: Oh how charming of you to throw glass everywhere. Now that youv'e made a lovely mess of the place, let's move on. There is something seriously wrong with this ocean and for no reason whatsoever it is your responsibility to fix it. [E]";
+		narrText [6] = "Bork: This seems like a cozy place, though you are incredibly clammy.";
+		narrText [7] = "Bork: Anyway, the fish around here seem to be behaving in a rather perturbed manner. Recently, their eyes have turned red and they have become incredibly hostile and we need to find out why, now come along let's escape this decrepit place. [E]"; 
 		//narrTextTrigger [4] = false;
 
 
 		//This shit is tooltip stuff
 		narrText [100] = "Bork: Oh by the way, when you grab something you'll probably get tired and lose stamina, 'cause youre a weak infant. How fascinatingly bland your species is. [E]";
 	}
-	//Pos 3 = first quest - break bork out.
-	void triggerNarrText(){
-		narrTextTrigger [posInDialogue+1] = true;
-	}
-
-	//Do break glass scenario, if break glass increment the dialogue update the dialogue text to the next one, and print it
-	// out again.
 
 
 
