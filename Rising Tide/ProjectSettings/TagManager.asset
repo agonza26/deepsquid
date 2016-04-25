@@ -23,6 +23,10 @@ TagManager:
   - AbilityEMP
   - EcoPoint
   - uiQuestBox
+  - incomplete
+  - complete
+  - QuestReturn
+  - brokenTT
   layers:
   - Default
   - TransparentFX
