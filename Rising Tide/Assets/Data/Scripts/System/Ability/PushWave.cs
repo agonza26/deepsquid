@@ -12,10 +12,10 @@ public class PushWave : MonoBehaviour {
 	private GameObject cameraObject;
 
 
-	private float lifeTime = 3f;
+	public float lifeTime = 0.5f;
 	//private float vel = 4f;
 	private Vector3 homePos;
-
+	private float timePassed = 0f;
 
 	List<GameObject> encountered = new List<GameObject>();
 
@@ -29,9 +29,17 @@ public class PushWave : MonoBehaviour {
 
 	void Update(){
 
-
+		//speed *= -1f;
 		transform.position += transform.forward*speed;
 		Physics.IgnoreCollision (cameraObject.GetComponent<Collider> (), GetComponent<Collider>());
+		timePassed += Time.deltaTime;
+		if (timePassed > lifeTime) {
+			//Debug.Log ("after");
+			if (GetComponentInChildren<DetachPS> ()) {
+				GetComponentInChildren<DetachPS> ().DetachParticles ();
+			}
+			Destroy (gameObject);
+		}
 	}
 
 
@@ -41,40 +49,20 @@ public class PushWave : MonoBehaviour {
 
 		if (!encountered.Contains (it)) {
 			encountered.Add (it);
-			Debug.Log (it);
 			if (it.GetComponent<BasicEnemy> () != null) {
-				it.GetComponent<BasicEnemy> ().outsideFactor+=transform.forward * pushFactor;
+				it.GetComponent<BasicEnemy> ().outsideFactor+=   transform.TransformDirection (transform.forward) * pushFactor;
 				it.GetComponent<BasicEnemy> ().waveAcc = true;
 				it.GetComponent<BasicEnemy> ().changeDec ();
 			}
 
 		}
+		//Destroy (gameObject);
 
 	}
 
 
 
 
-
-
-	public IEnumerator destroyMe(){
-		Debug.Log ("before");
-		yield return StartCoroutine (waitThisLong (lifeTime));
-		Debug.Log ("after");
-		Destroy (gameObject);
-
-	}
-
-
-
-
-
-
-	//Coroutine to wait x amount of time
-	IEnumerator waitThisLong(float x){
-		yield return new WaitForSeconds(x);
-
-	}
 
 
 

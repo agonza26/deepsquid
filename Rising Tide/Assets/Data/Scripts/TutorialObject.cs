@@ -81,7 +81,6 @@ public class TutorialObject : MonoBehaviour {
 
 	void Update ()
 	{
-		Debug.Log (posInDialogue);
 		if (!borkAttached) {
 			distanceNotify ();
 		} else {

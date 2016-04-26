@@ -10,6 +10,7 @@ public class Abilities : MonoBehaviour {
 	public AudioSource ad;
 	public ParticleSystem boostPS;
 	public int boostParticles = 35;
+	public GameObject waveBullet;
 
 	//public Abilities abilities;
 	public float abilitySpeedVal = 1f;
@@ -19,6 +20,7 @@ public class Abilities : MonoBehaviour {
 	public Image staminaBar;
 	public bool pauseStam = false;
 	public float EMPcost = 35f;
+	public float currAbilCost = 25f;
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -96,10 +98,10 @@ public class Abilities : MonoBehaviour {
 
 			}
 			
-			if(abilities[2] == true)
+			if(abilities[3] == true)
 			{
 				empIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5 && activeAbils[2])
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5 && activeAbils[3])
 				{
 					pauseStam = true;
 					stamDmg(EMPcost);
@@ -108,6 +110,16 @@ public class Abilities : MonoBehaviour {
 				{
 					EMPps.Stop();
 					pauseStam = false;
+				}
+			}
+			
+			if(abilities[2] == true)
+			{
+				currentIcon.enabled = true;
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 20f && activeAbils[2])
+				{
+					stamDmg(currAbilCost);
+					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
 			}
 

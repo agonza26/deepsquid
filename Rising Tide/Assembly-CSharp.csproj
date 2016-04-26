@@ -72,6 +72,7 @@
      <Compile Include="Assets\Data\Scripts\System\AnimatedProjector.cs" />
      <Compile Include="Assets\Data\Scripts\System\CameraController.cs" />
      <Compile Include="Assets\Data\Scripts\System\CurrentSystem.cs" />
+     <Compile Include="Assets\Data\Scripts\System\DetachPS.cs" />
      <Compile Include="Assets\Data\Scripts\System\DynamicObjAv.cs" />
      <Compile Include="Assets\Data\Scripts\System\EcoPoints.cs" />
      <Compile Include="Assets\Data\Scripts\System\GameOverCanvasManager.cs" />

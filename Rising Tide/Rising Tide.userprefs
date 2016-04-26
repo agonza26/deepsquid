@@ -1,9 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\TutorialObject.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\System\Abilities.cs">
     <Files>
-      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="67" Column="21" />
+      <File FileName="Assets\Data\Scripts\System\Abilities.cs" Line="119" Column="114" />
+      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="81" Column="2" />
       <File FileName="Assets\Data\Scripts\modelSwitch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\Player\PickupObject.cs" Line="28" Column="2" />
+      <File FileName="Assets\Data\Scripts\System\tentacleAnimator.cs" Line="23" Column="4" />
+      <File FileName="Assets\Data\Scripts\Player\Player_stats.cs" Line="41" Column="6" />
+      <File FileName="Assets\Data\Scripts\System\EcoPoints.cs" Line="29" Column="54" />
+      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="8" Column="19" />
+      <File FileName="Assets\Data\Scripts\System\Ability\PushWave.cs" Line="51" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
