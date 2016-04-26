@@ -193,7 +193,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &6161401
@@ -983,6 +988,24 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300004, guid: adb7c6dce7353bc46871cf4bc808302c, type: 3}
+--- !u!1 &33776844 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1847027756}
+--- !u!114 &33776845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 33776844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &35325566
 GameObject:
   m_ObjectHideFlags: 0
@@ -5833,7 +5856,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &84681990 stripped
@@ -7412,7 +7440,12 @@ Prefab:
       propertyPath: chaseStraight
       value: 30
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &174938855
@@ -8709,10 +8742,28 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 129496, guid: e017b17a940c04d48b60a113c1526fa1, type: 2}
   m_PrefabInternal: {fileID: 1294466149}
+--- !u!1 &212466288 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1455639222}
 --- !u!4 &212466289 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 1455639222}
+--- !u!114 &212466295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212466288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &212601054
 GameObject:
   m_ObjectHideFlags: 0
@@ -10815,6 +10866,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1688816295}
   m_RootOrder: 0
+--- !u!1 &236654855 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1703767891}
+--- !u!114 &236654856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236654855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &238417735
 GameObject:
   m_ObjectHideFlags: 0
@@ -13186,7 +13255,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &255305014
@@ -13803,7 +13877,12 @@ Prefab:
       propertyPath: steerMult
       value: 25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &283955139 stripped
@@ -14403,6 +14482,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.172985, y: 1.9750975, z: -0.28333735}
     m_Extent: {x: 0.54000825, y: 2.1736355, z: 0.63986456}
   m_DirtyAABB: 0
+--- !u!1 &321433281 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 899535862}
+--- !u!114 &321433282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321433281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &323062180
 GameObject:
   m_ObjectHideFlags: 0
@@ -17910,7 +18007,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &416953241 stripped
@@ -18377,7 +18479,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &432585971
@@ -18773,6 +18880,24 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4294967039
+--- !u!1 &449680171 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1250121908}
+--- !u!114 &449680172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449680171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &450298794
 GameObject:
   m_ObjectHideFlags: 0
@@ -20893,6 +21018,24 @@ Transform:
   - {fileID: 193911294}
   m_Father: {fileID: 637267427}
   m_RootOrder: 0
+--- !u!1 &476105786 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 805845404}
+--- !u!114 &476105787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 476105786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &476467786
 GameObject:
   m_ObjectHideFlags: 0
@@ -22918,7 +23061,12 @@ Prefab:
       propertyPath: steerMult
       value: 25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &492346466
@@ -23547,7 +23695,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &513936757
@@ -31204,7 +31357,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &686471960 stripped
@@ -31630,6 +31788,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 697446358}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &698906977 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1612616145}
+--- !u!114 &698906978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698906977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &699777086
 GameObject:
   m_ObjectHideFlags: 0
@@ -32167,6 +32343,24 @@ WindZone:
   m_WindTurbulence: 2
   m_WindPulseMagnitude: 2
   m_WindPulseFrequency: 2
+--- !u!1 &722936051 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 996464097}
+--- !u!114 &722936052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722936051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &723591020
 GameObject:
   m_ObjectHideFlags: 0
@@ -32242,7 +32436,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &732396755
@@ -32568,7 +32767,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &743244065
@@ -34244,6 +34448,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754312278}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &756912884 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 686471959}
+--- !u!114 &756912885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756912884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &757354732
 GameObject:
   m_ObjectHideFlags: 0
@@ -34401,10 +34623,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757454997}
   m_Mesh: {fileID: 4300000, guid: 3a116b598335bed4cb40b8d2836223af, type: 3}
+--- !u!1 &759440570 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 980153259}
 --- !u!4 &759440571 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 980153259}
+--- !u!114 &759440577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 759440570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &764822481
 GameObject:
   m_ObjectHideFlags: 0
@@ -37365,7 +37605,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &805845405 stripped
@@ -38508,7 +38753,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &847266998
@@ -38874,6 +39124,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7e51f1b3c5bf7e45a56ba7511198dc3, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &859510280 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1555140804}
+--- !u!114 &859510281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859510280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &860702539
 GameObject:
   m_ObjectHideFlags: 0
@@ -39746,7 +40014,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &898807570
@@ -39820,7 +40093,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &899535863 stripped
@@ -42391,7 +42669,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &926393527
@@ -45298,7 +45581,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &985586740
@@ -45400,7 +45688,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &985806263
@@ -47119,7 +47412,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &996464098 stripped
@@ -51194,21 +51492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mats:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1027392646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1027392635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: 171a82b7acfc66e4db75aafb41cf768d, type: 2}
+  - {fileID: 2100000, guid: bf5aab4d9b625a846b80a65608bcf7fa, type: 2}
   - {fileID: 2100000, guid: 8b31194ac42f105408456a02ed0d7284, type: 2}
 --- !u!1 &1030334765
 GameObject:
@@ -58341,21 +58625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mats:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1119649094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1119649083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: 171a82b7acfc66e4db75aafb41cf768d, type: 2}
+  - {fileID: 2100000, guid: bf5aab4d9b625a846b80a65608bcf7fa, type: 2}
   - {fileID: 2100000, guid: 8b31194ac42f105408456a02ed0d7284, type: 2}
 --- !u!1 &1121609143
 GameObject:
@@ -60013,6 +60283,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122448336}
   m_Mesh: {fileID: 4300000, guid: 3c46c12c122d88c4ba103eff2f8e3bc5, type: 3}
+--- !u!1 &1128223135 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1591041866}
+--- !u!114 &1128223136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128223135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1132836982
 GameObject:
   m_ObjectHideFlags: 0
@@ -61749,10 +62037,28 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.172985, y: 1.9750975, z: -0.28333735}
     m_Extent: {x: 0.54000825, y: 2.1736355, z: 0.63986456}
   m_DirtyAABB: 0
+--- !u!1 &1138098001 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 925575930}
 --- !u!4 &1138098002 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 925575930}
+--- !u!114 &1138098008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138098001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1138430425
 GameObject:
   m_ObjectHideFlags: 0
@@ -62246,21 +62552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mats:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1152748246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1152748235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: 171a82b7acfc66e4db75aafb41cf768d, type: 2}
+  - {fileID: 2100000, guid: bf5aab4d9b625a846b80a65608bcf7fa, type: 2}
   - {fileID: 2100000, guid: 8b31194ac42f105408456a02ed0d7284, type: 2}
 --- !u!1 &1153457319
 GameObject:
@@ -62894,6 +63186,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1171747094}
   m_Mesh: {fileID: 4300014, guid: 7ecfaae7f60dec94fb57254191cdb57e, type: 3}
+--- !u!1 &1171812677 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 416953240}
+--- !u!114 &1171812678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171812677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1174691113
 GameObject:
   m_ObjectHideFlags: 0
@@ -66757,7 +67067,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1208199797 stripped
@@ -67100,7 +67415,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1220499877
@@ -67842,7 +68162,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1246875593 stripped
@@ -67918,7 +68243,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1250121909 stripped
@@ -68619,7 +68949,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1273055893 stripped
@@ -69032,7 +69367,12 @@ Prefab:
       propertyPath: steerMult
       value: 25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1286248195 stripped
@@ -72038,7 +72378,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1407504775
@@ -74311,7 +74656,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1427567027
@@ -75999,7 +76349,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1438248359
@@ -78068,7 +78423,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1462930055
@@ -82549,10 +82909,28 @@ MonoBehaviour:
   mats:
   - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
   - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
+--- !u!1 &1531334727 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1425634022}
 --- !u!4 &1531334728 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 1425634022}
+--- !u!114 &1531334734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1531334727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1534012864
 GameObject:
   m_ObjectHideFlags: 0
@@ -83100,13 +83478,36 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1555140805 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 1555140804}
+--- !u!1 &1555268420 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1208199796}
+--- !u!114 &1555268421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1555268420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1556988949
 GameObject:
   m_ObjectHideFlags: 0
@@ -83532,7 +83933,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1591041867 stripped
@@ -83996,7 +84402,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1605168767
@@ -84331,7 +84742,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1612616146 stripped
@@ -86013,7 +86429,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1684853312
@@ -87896,7 +88317,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1703767892 stripped
@@ -89000,7 +89426,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1736294205
@@ -89431,6 +89862,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752412212}
   m_Mesh: {fileID: 4300002, guid: adb7c6dce7353bc46871cf4bc808302c, type: 3}
+--- !u!1 &1753419058 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 84681989}
+--- !u!114 &1753419059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753419058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1755596104
 GameObject:
   m_ObjectHideFlags: 0
@@ -90739,7 +91188,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1803678904
@@ -91517,7 +91971,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1843400663
@@ -91848,7 +92307,12 @@ Prefab:
       propertyPath: m_Name
       value: AnimatedEnemyFish (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1847027757 stripped
@@ -92547,10 +93011,28 @@ Transform:
   - {fileID: 39358731}
   m_Father: {fileID: 86322173}
   m_RootOrder: 1
+--- !u!1 &1883697300 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1404210149}
 --- !u!4 &1883697301 stripped
 Transform:
   m_PrefabParentObject: {fileID: 406388, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_PrefabInternal: {fileID: 1404210149}
+--- !u!114 &1883697307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1883697300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &1883866129
 GameObject:
   m_ObjectHideFlags: 0
@@ -93225,7 +93707,12 @@ Prefab:
       propertyPath: ecosystem
       value: Eco-Test-3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11434014, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+      propertyPath: enemyHealthMax
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2383872, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1907336342
@@ -94925,21 +95412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mats:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1916841508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1916841497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: 171a82b7acfc66e4db75aafb41cf768d, type: 2}
+  - {fileID: 2100000, guid: bf5aab4d9b625a846b80a65608bcf7fa, type: 2}
   - {fileID: 2100000, guid: 8b31194ac42f105408456a02ed0d7284, type: 2}
 --- !u!1 &1920442524
 GameObject:
@@ -100909,6 +101382,24 @@ MonoBehaviour:
   ttName: testtubeWhole
   size: 1
   abilityIndex: 0
+--- !u!1 &2048298481 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146402, guid: c0110903e2e208b48b1dcfb177c7f464, type: 2}
+  m_PrefabInternal: {fileID: 1246875592}
+--- !u!114 &2048298482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048298481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78f258a16bbbd246aa60d19d9278c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14c29ddd088ced54c9365f7f80ff0bd2, type: 2}
+  - {fileID: 2100000, guid: b067af5375795df4cacc0c555586fdd7, type: 2}
 --- !u!1 &2049831399
 GameObject:
   m_ObjectHideFlags: 0
