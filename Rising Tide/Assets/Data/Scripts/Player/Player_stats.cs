@@ -37,7 +37,7 @@ public class Player_stats : MonoBehaviour {
 		healthBar.fillAmount = PlayerCurrHealth / PlayerHealthMax;
 		if (PlayerCurrHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
-
+			isDead = true;
 			/*if (gameObject.CompareTag("Player"))
 		            {
 		                Destroy(gameObject);

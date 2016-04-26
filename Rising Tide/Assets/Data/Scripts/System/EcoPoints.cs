@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EcoPoints : MonoBehaviour {
 
-
+	SphereCollider dynamicCollider; 
 	 
 	public Dictionary<string,GameObject> Ecopoints = new Dictionary<string,GameObject>();
 	public Dictionary<string,GameObject> Enemies = new Dictionary<string,GameObject>();

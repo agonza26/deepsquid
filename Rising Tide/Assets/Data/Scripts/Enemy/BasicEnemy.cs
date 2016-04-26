@@ -15,7 +15,7 @@ public class BasicEnemy : MonoBehaviour {
 									// might modify to a list
 
 	public GameObject thing; //eventually make it a child of an object
-	public bool waveAcc = true; //to know when we have accelerated from an outside wave, controlled only with waves
+	public bool waveAcc = true; //to know when we have accelerated from aen outside wave, controlled only with waves
 	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
 
 
@@ -78,7 +78,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	void OnCollisionStay(Collision c){
 		GameObject other = c.gameObject;
-		print ("Game Object " + other.name);
+	
 		if (other.tag == "Player") {
 			Player_stats p = other.GetComponent<Player_stats> ();
 			if (state == "follow") {
@@ -95,7 +95,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
-		print ("Particle " + other.name);
+
 
 
 
@@ -113,7 +113,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	void Update () {
 
-		print (state);
+	
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
 			case "follow": //sees player, currently following
@@ -209,8 +209,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-				if (currentTarget != null && debug)
-					Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+
 
 
 				if (Random.value < 0.9f) {
@@ -338,8 +337,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 			float distVar = Vector3.Distance (currentTarget.position, transform.position);
-			if (currentTarget != null)
-				Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+
 
 			//5,20
 			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, 2f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 10f);
@@ -391,7 +389,7 @@ public class BasicEnemy : MonoBehaviour {
 				fleeLifeTime += Time.deltaTime;
 				float counter = 1f;
 				if (fleeLifeTime > 5) {
-					print ("double back");
+
 					counter = -1f;
 					doubleBackTime += Time.deltaTime;
 
@@ -405,7 +403,7 @@ public class BasicEnemy : MonoBehaviour {
 						follow ();
 
 					} else {
-						print ("lost player");
+
 						state = "idle";
 						idle ();
 					}
@@ -428,8 +426,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 				float distVar = Vector3.Distance (currentTarget.position, transform.position);
-				if (currentTarget != null)
-					Debug.DrawRay (transform.position, currentTarget.position - transform.position);
+
 			
 				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, 5f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 20f);
 
