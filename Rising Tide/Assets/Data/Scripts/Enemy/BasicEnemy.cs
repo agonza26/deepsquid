@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BasicEnemy : MonoBehaviour {
-
-
+	public float steerMult = 1f;
+	public float followStraight = 5f;
+	public float chaseSteer = 2f;
+	public float	chaseStraight = 10f;
 	public bool debug = true;
 	public string ecosystem = "Eco-Test-1";
 	public float damage = 3f;
@@ -236,8 +238,8 @@ public class BasicEnemy : MonoBehaviour {
 					Vector3 steering = desired_velocity - rigBod.velocity;
 
 
-					steering = Vector3.ClampMagnitude (steering, steeringMax);
-					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * 5f;
+					steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
+					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
 				}
 				thing.transform.position = transform.position + rigBod.velocity;
 				transform.LookAt (thing.transform);
@@ -333,14 +335,14 @@ public class BasicEnemy : MonoBehaviour {
 			Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
 			Vector3 desired_velocity = toTarget * velocityMax * 5f;
 			Vector3 steering = desired_velocity - rigBod.velocity;
-			steering = Vector3.ClampMagnitude (steering, steeringMax);
+			steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
 
 
 			float distVar = Vector3.Distance (currentTarget.position, transform.position);
 
 
 			//5,20
-			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, 2f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 10f);
+			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, chaseSteer)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight);
 
 
 
@@ -422,14 +424,13 @@ public class BasicEnemy : MonoBehaviour {
 				Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
 				Vector3 desired_velocity = toTarget * velocityMax * 5f;
 				Vector3 steering = desired_velocity - rigBod.velocity;
-				steering = Vector3.ClampMagnitude (steering, steeringMax);
+				steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
 
 
 				float distVar = Vector3.Distance (currentTarget.position, transform.position);
 
 			
-				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, 5f)) + transform.forward * Mathf.Min (8 * 32 / (distVar), 20f);
-
+				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, chaseSteer*2)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight*2);
 
 
 
