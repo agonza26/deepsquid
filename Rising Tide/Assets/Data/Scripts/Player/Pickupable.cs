@@ -35,11 +35,11 @@ public class Pickupable : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision o){
-		if (thrown) {
+		/*if (thrown) {
 			if (o.gameObject.name != ttName) {
 				thrown = false;
 			}
-		}
+		}*/
 	}
 
 
@@ -84,6 +84,7 @@ public class Pickupable : MonoBehaviour {
 			case "box":
 			default:
 				GetComponent<Rigidbody> ().useGravity = false;
+                thrown = false;
 				//i//f(GetComponent<Rigidbody
 				break;
 
@@ -131,7 +132,7 @@ public class Pickupable : MonoBehaviour {
 			default:
 				transform.position = position;
 				transform.rotation = rotation;
-
+                thrown = false;
 					//i//f(GetComponent<Rigidbody
 					break;
 
@@ -156,7 +157,8 @@ public class Pickupable : MonoBehaviour {
 
 		case "box":
 		default:
-			//i//f(GetComponent<Rigidbody
+                //i//f(GetComponent<Rigidbody
+                thrown = true;
 			break;
 
 
