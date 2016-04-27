@@ -24,6 +24,7 @@ public class LabSwitch : MonoBehaviour {
 	void OnTriggerStay(Collider other) 
 	{
 		if (other.gameObject.CompareTag ("box")) {
+			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().gateIsOpen = true;
 			if (movedPos.x < dist) {
 				gate.transform.localPosition += new Vector3 (0.1f, 0, 0);
 				movedPos += new Vector3 (0.1f, 0, 0);

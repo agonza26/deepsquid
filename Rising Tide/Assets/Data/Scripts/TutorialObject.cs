@@ -16,6 +16,7 @@ public class TutorialObject : MonoBehaviour {
 	public GameObject tutOrigin;
 	public GameObject pressEText;
 	private GameObject uiQuestOne;
+	private GameObject uiQuestTwo;
 	private GameObject uiMissionText;
 	private GameObject uiMissionBox;
 	private GameObject brokenGlassTube;
@@ -27,7 +28,7 @@ public class TutorialObject : MonoBehaviour {
 	private Mesh squidMesh;
 	private Mesh tempMesh;
 	private Mesh eggMesh;
-
+	private bool somethingToSay;
 	private bool dialogStarted = false;
 	private bool inLOS = false;
 	private bool inRangeToHear = false;
@@ -41,13 +42,14 @@ public class TutorialObject : MonoBehaviour {
 	private bool firstDialogueTrigger = false;
 	private bool playedStamTT = false;
 	private bool tooltipInProgress = false;
-	private bool nothingToSay = false;
 	public bool isEgg = true;
 	public bool hasGrabbed = false;
+	public bool gateIsOpen = false;
 	public bool hasGrabbedCheck = false;
 	private bool borkAttached = false;
 	private bool acceptQuest = false;
 	private bool questOneComplete = false;
+	private bool questTwoComplete = false;
 	private bool tempBool;
 	public bool isGlassBroken;
 	private int dist;
@@ -59,6 +61,8 @@ public class TutorialObject : MonoBehaviour {
 		tutText = tutorialText.GetComponent<Text> ();
 		uiQuestOne = GameObject.FindGameObjectWithTag ("uiQuestOne");
 		uiQuestOne.SetActive (false);
+		uiQuestTwo = GameObject.FindGameObjectWithTag ("uiQuestTwo");
+		uiQuestTwo.SetActive (false);
 		uiMissionText = GameObject.FindGameObjectWithTag ("uiMissionText");
 		uiMissionText.SetActive (false);
 		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
@@ -81,38 +85,32 @@ public class TutorialObject : MonoBehaviour {
 
 	void Update ()
 	{
+		//Debug.Log (posInDialogue);
 		if (!borkAttached) {
 			distanceNotify ();
 		} else {
 			inRangeToHear = false;
 			inLOS = false;
-
 		}
 		if (isGlassBroken && acceptQuest && !questOneComplete) {
-			
 			acceptQuest = false;
 			questOneComplete = true;
 			completeMissionText.SetActive (true);
 			returnToBorkText.SetActive (true);
 			incompleteMissionText.SetActive (false);
 			uiQuestOne.SetActive (false);
-			//posInDialogue++;
 			narrTextTrigger[posInDialogue] = true;
-			//narrTextTrigger[posInDialogue+1] = true;
+		}
+		if (gateIsOpen && acceptQuest && !questTwoComplete) {
+			acceptQuest = false;
+			questTwoComplete = true;
+			completeMissionText.SetActive (true);
+			returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestTwo.SetActive (false);
+			narrTextTrigger [posInDialogue] = true;
 
 		}
-		/*
-		if (hasGrabbed && !hasGrabbedCheck) {
-			tooltipInProgress = true;
-			hasGrabbedCheck = true;
-			narrTextTrigger[posInDialogue] = false;
-			tempBool = narrTextTrigger [posInDialogue + 1];
-			narrTextTrigger[posInDialogue + 1] = false;
-			posInDialogueHolder = posInDialogue;
-			posInDialogue = 100;
-			narrTextTrigger [100] = true;
-			narrTextTrigger [posInDialogue + 1] = true;
-		}*/
 
 		if (isEgg) {
 			if (!dialogStarted) {
@@ -120,16 +118,17 @@ public class TutorialObject : MonoBehaviour {
 				StartCoroutine (waitForFirstDialogueTrigger (1f));
 			}
 		}
-		//If you are on pos 5 in dialogue and you havent accepted a quest, you will now accept one.
+		//Quest one
 
-		if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
+		if (posInDialogue == 4 && !acceptQuest && !questOneComplete) {
 			acceptQuest = true;
 			uiMissionBox.SetActive (true);
 			uiMissionText.SetActive (true);
 			uiQuestOne.SetActive(true);
 			incompleteMissionText.SetActive (true);
 		}
-		if (posInDialogue == 6) {
+		//Complete quest one
+		if (posInDialogue == 5) {
 			borkAttached = true;
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
@@ -139,19 +138,26 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.SetActive (true);
 			borkObjectUnattached.SetActive (false);
 		}
+		//Quest Two
+		if (posInDialogue == 6 && !acceptQuest && !questTwoComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestTwo.SetActive (true);
+			incompleteMissionText.SetActive (true);
+			pressEText.SetActive (false);
+		}
+	
 
 		if (inLOS && inRangeToHear) {
 			inLOS_inRange = true;
 		} else {
 			inLOS_inRange = false;
 		}
-
+		//Before bork is attached
 		if (inRangeToHear && firstDialogueTrigger && !borkAttached) {
-			//If youve accepted a quest, turn off the textbox. else keep it up while youre in range and los
-			//Debug.Log("inrangeInt, acceptQuest, tooltipinprogress: " + inRangeToInt + "," + acceptQuest + "," + tooltipInProgress);
-			//Debug.Log("hasgrabbedcheck, tooltipStamCom, tooltipinprogress: " + hasGrabbedCheck + "," + tooltipStamCom + "," + tooltipInProgress);
-			//Debug.Log (posInDialogue);
 			if (!acceptQuest) {
+				Debug.Log ("Calling this");
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
 			} else {
@@ -160,7 +166,9 @@ public class TutorialObject : MonoBehaviour {
 			}
 			//if the current dialogue is active and hasnt been spelled out yet, spell it out
 			if (narrTextTrigger [posInDialogue]) {
-				if (posInDialogue == 5 && acceptQuest && !questOneComplete) {
+				if (posInDialogue == 4 && acceptQuest && !questOneComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				} else if (posInDialogue == 6 && acceptQuest && !questTwoComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				} else {
 					tutText.text = "";
@@ -168,7 +176,6 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-
 			if (isEgg) {
 				eggECaller ();
 			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete) {
@@ -177,9 +184,9 @@ public class TutorialObject : MonoBehaviour {
 				//Debug.Log ("calling this one now");
 				posInDialogue++;
 			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
-				Debug.Log ("calling this one now");
 				posInDialogue++;
 			}
+			//Once Bork is attached use this
 		} else if (borkAttached) {
 			if (!acceptQuest) {
 				tutorialText.SetActive (true);
@@ -191,9 +198,8 @@ public class TutorialObject : MonoBehaviour {
 			if (narrTextTrigger [posInDialogue]) {
 				if (posInDialogue == 5 && acceptQuest && !questOneComplete) {
 					narrTextTrigger [posInDialogue] = false;
-				}
-				else if (nothingToSay){
-
+				} else if (posInDialogue == 6 && acceptQuest && !questTwoComplete) {
+					narrTextTrigger [posInDialogue] = false;
 				}
 				else {
 					tutText.text = "";
@@ -201,53 +207,19 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !nothingToSay) {
-				Debug.Log ("calling this one now");
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questTwoComplete) {
 				posInDialogue++;
 			}
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questTwoComplete) {
+				posInDialogue++;
+			}
+
 		}
 		else  {
 			tutorialText.SetActive (false);
 			tutorialBox.SetActive (false);
 
 		}
-
-
-				/*if (isEgg) {
-					
-					/*if (posInDialogue == 0) {
-						posInDialogue++;
-					} else {
-						isEgg = false;
-						egg.SetActive (false);
-						posInDialogue++;
-					}
-				} /*else if (hasGrabbedCheck && !playedStamTT && tooltipInProgress && !questOneComplete) {
-					Debug.Log (tooltipInProgress + "in e");
-					//tooltipInProgress = false;
-					//playedStamTT = true;
-					narrTextTrigger [posInDialogue + 1] = false;
-					posInDialogue = posInDialogueHolder;
-					narrTextTrigger [posInDialogue] = true;
-					narrTextTrigger [posInDialogue+1] = tempBool;
-					//narrTextTrigger [posInDialogue + 1] = true;
-
-				} else if (inRangeToInt && !acceptQuest && !tooltipInProgress) {
-				    posInDialogue++;
-				}*/
-			
-			/*if (posInDialogue == 5 && !acceptQuest && !questOneComplete) {
-				uiMissionText.SetActive (true);
-				uiQuestOne.SetActive (true);
-				uiMissionBox.SetActive (true);
-				incompleteMissionText.SetActive (true);					
-				tutorialText.SetActive (false);
-				tutorialBox.SetActive (false);
-				acceptQuest = true;
-
-			}*/
-			//If youre not in range or los or on a quest turn off textboxes
-			 
 
 	}
 
@@ -279,7 +251,6 @@ public class TutorialObject : MonoBehaviour {
 		if(other.gameObject == player)
 		{
 			inLOS = true;
-
 		}
 
 	}
@@ -287,7 +258,6 @@ public class TutorialObject : MonoBehaviour {
 		if(other.gameObject == player)
 		{
 			inLOS = true;
-
 		}
 
 	}
@@ -297,8 +267,6 @@ public class TutorialObject : MonoBehaviour {
 			inLOS = false;
 			tutorialText.SetActive (false);
 			tutorialBox.SetActive (false);
-			//Debug.Log ("Not In LOS");
-
 		}
 	}
 	IEnumerator waitForFirstDialogueTrigger (float x){
@@ -309,16 +277,10 @@ public class TutorialObject : MonoBehaviour {
 
 	void eggECaller(){
 		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg) {
-			//Debug.Log ("Pressing E and narrTextTrigger pos+! is true");
-			if (posInDialogue == 0) {
-				posInDialogue++;
-			} else {
-				isEgg = false;
-				egg.SetActive (false);
-				posInDialogue++;
-			}
+			posInDialogue++;
+			isEgg = false;
+			egg.SetActive (false);
 		}
-
 	}
 		
 
@@ -332,27 +294,21 @@ public class TutorialObject : MonoBehaviour {
 		}
 		tutText.text = "";
 		tutText.text = narrText [posInDialogue];
-	
-			narrTextTrigger [posInDialogue + 1] = true;
+		narrTextTrigger [posInDialogue + 1] = true;
 	}
 
 
 
 	void fillNarrativeString(){
 		narrTextTrigger [0] = true;
-		narrText [0] = "Hey, my lil' Krakenling, it would be very helpful if you were to hatch sometime soon. [E]";
-		narrText [1] = "Look... we don't have all day, we have important work to attend to and this container is getting cramped and stuffy. Shake a tentacle and break out of that prison of yours. [E]";
-		narrText [2] = "Oh thank goodness you are relatively intelligent. My name is Bork the Delightful, now come yonder and so I can see you. [E]";
-		narrText [3] = "Bork: My goodness you are interesting looking. Regardless of your appearance, we do not have much time to chat. Please get me out of here, those rude red eyes will back soon. Do so and you can help me save the neighborhood. [E]";
-		narrText [4] = "Bork: I suggest finding a box, picking it up [Hold LMB], and tossing it at this sinister glass [While holding LMB, RMB]. [E]";
-		narrText [5] = "Bork: Oh how charming of you to throw glass everywhere. Now that youv'e made a lovely mess of the place, let's move on. There is something seriously wrong with this ocean and for no reason whatsoever it is your responsibility to fix it. [E]";
-		narrText [6] = "Bork: This seems like a cozy place, though you are incredibly clammy.";
-		narrText [7] = "Bork: Anyway, the fish around here seem to be behaving in a rather perturbed manner. Recently, their eyes have turned red and they have become incredibly hostile and we need to find out why, now come along let's escape this decrepit place. [E]"; 
-		//narrTextTrigger [4] = false;
+		narrText [0] = "Hey it would be very helpful if you were to hatch sometime soon. [E]";
+		narrText [1] = "Oh you are relatively intelligent. Please come over to the glass so I can see you. [E]";
+		narrText [2] = "Bork: My goodness you are interesting looking. Please break the glass, someone left the volcano on and you need to turn it off. [E]";
+		narrText [3] = "Bork: I suggest finding a box or book, picking it up [Hold LMB], and tossing it at the glass [While holding LMB, press RMB]. [E]";
+		narrText [4] = "Bork: Oh how charming of you to throw glass everywhere. Well, let's get to it I suppose. [E]";
+		narrText [5] = "Bork: Now onto that blasted gate. [E]";
+		narrText [6] = "How nice, let's leave this decrepit place, but be weary of fish out here. [E]";
 
-
-		//This shit is tooltip stuff
-		narrText [100] = "Bork: Oh by the way, when you grab something you'll probably get tired and lose stamina, 'cause youre a weak infant. How fascinatingly bland your species is. [E]";
 	}
 
 
