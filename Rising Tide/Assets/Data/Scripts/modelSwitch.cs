@@ -24,8 +24,8 @@ public class modelSwitch : MonoBehaviour {
 		if (o.gameObject.GetComponent<Pickupable> () && other) {
 			print ("here in collision");
 			if (o.gameObject.GetComponent<Pickupable> ().isThrown ()) {
-				print ("here in is Thrown");
-				o.gameObject.GetComponent<Pickupable> ().changeThrown ();
+				/*print ("here in is Thrown");
+				o.gameObject.GetComponent<Pickupable> ().changeThrown ();*/
 				changeModels ();
 				GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().isGlassBroken = true;
 			}
@@ -33,8 +33,25 @@ public class modelSwitch : MonoBehaviour {
 		}
 	}
 
+    //allow breakage even if thrown while already in collider?
+    void OnCollisionStay(Collision o)
+    {
+        if (o.gameObject.GetComponent<Pickupable>() && other)
+        {
+            print("here in collision");
+            if (o.gameObject.GetComponent<Pickupable>().isThrown())
+            {
+                print ("here in is Thrown");
+				o.gameObject.GetComponent<Pickupable> ().changeThrown ();
+                changeModels();
+                GameObject.FindGameObjectWithTag("borkVisualCollider").GetComponent<TutorialObject>().isGlassBroken = true;
+            }
 
-	private void changeModels(){
+        }
+    }
+
+
+    private void changeModels(){
 		other.SetActive (true);
 		gameObject.SetActive (false);
 	}

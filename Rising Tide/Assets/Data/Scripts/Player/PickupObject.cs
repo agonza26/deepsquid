@@ -53,7 +53,7 @@ public class PickupObject : MonoBehaviour {
 
 			//if we arent carrying anything
 			if (!carrying){
-				if(Input.GetKeyDown(KeyCode.Mouse0)) {
+				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 35) {
 					print ("we picked up");
 					pickup ();
 				} 
