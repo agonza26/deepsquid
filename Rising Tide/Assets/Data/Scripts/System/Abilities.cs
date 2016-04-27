@@ -21,6 +21,7 @@ public class Abilities : MonoBehaviour {
 	public bool pauseStam = false;
 	public float EMPcost = 35f;
 	public float currAbilCost = 25f;
+	public float depStamAmt = 4f;
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -60,7 +61,7 @@ public class Abilities : MonoBehaviour {
 		{
 			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") 
 			{
-				StartCoroutine(depleteStam(1f));
+				StartCoroutine(depleteStam(depStamAmt));
 			}
 		}
 		if (!GetComponent<improved_movement> ().isDead) {
@@ -84,7 +85,7 @@ public class Abilities : MonoBehaviour {
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
-				if (Input.GetKey ("space") && currStamina >= 15 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+				if (Input.GetKey ("space") && currStamina >= 25 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
 					pauseStam = true;
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
@@ -104,7 +105,7 @@ public class Abilities : MonoBehaviour {
 			if(abilities[3] == true)
 			{
 				empIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 5 && activeAbils[3])
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3])
 				{
 					pauseStam = true;
 					stamDmg(EMPcost);
