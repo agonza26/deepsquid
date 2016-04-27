@@ -75,7 +75,6 @@ public class Player_stats : MonoBehaviour {
 
 	}
 
-
 	public void playerDamage(float val)
 	{
 		PlayerDmged = true;
@@ -83,10 +82,17 @@ public class Player_stats : MonoBehaviour {
 		if(GetComponent<PickupObject>().carrying)
 		{
 			GetComponent<Abilities>().stamDmg(val*stamDmgModifier);
+			Debug.Log (val * stamDmgModifier);
 		}
 		if (PlayerCurrHealth > PlayerHealthMax)
 			PlayerCurrHealth = PlayerHealthMax;
 	}
+
+	public void playerRestoreHealth(float val)
+	{
+		PlayerCurrHealth += val;
+	}
+
 
 	public void changePlayerAlphaDown()
 	{
@@ -109,7 +115,6 @@ public class Player_stats : MonoBehaviour {
 
 	
 	IEnumerator waitToTurnOff(float x){
-
 		healthTooltipText.SetActive (true);
 		tutorialBox.SetActive (true);
 		yield return new WaitForSeconds(x);
@@ -117,6 +122,5 @@ public class Player_stats : MonoBehaviour {
 		tutorialBox.SetActive (false);
 		healthTooltipText.SetActive (false);
 		ding.Stop ();
-
 	}
 }

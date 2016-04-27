@@ -16,7 +16,7 @@ public class Abilities : MonoBehaviour {
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
-	public float stamRegenVal = 0.3f;
+	public float stamRegenVal = 0.65f;
 	public Image staminaBar;
 	public bool pauseStam = false;
 	public float EMPcost = 35f;
@@ -58,7 +58,10 @@ public class Abilities : MonoBehaviour {
 			}
 		} else 
 		{
-			StartCoroutine(depleteStam(0.5f));
+			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") 
+			{
+				StartCoroutine(depleteStam(1f));
+			}
 		}
 		if (!GetComponent<improved_movement> ().isDead) {
 

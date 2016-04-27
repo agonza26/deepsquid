@@ -13,19 +13,14 @@ attach PickupObject script to player
 put the player model object on layer "Ignore Raycast" or it will get in the way
 */
 
-public class PickupObject : MonoBehaviour
-
-
-{
-	
-    
+public class PickupObject : MonoBehaviour {
+ 
 	public float healthGain = 20f;
     public float objectSize;
     public bool parented = false;
     public bool canThrow;
 	public ParticleSystem blood;
     public float playerSize = 2.0f;
-
 	public float distance = 1.5f; //offset between carried object and player
 	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
@@ -34,12 +29,9 @@ public class PickupObject : MonoBehaviour
 
 
 	private bool isEgg;
-
-
-
 	private bool grabbableInRange = false;
 	private Collider InRangeItemSaver;
-	private GameObject carriedObject;
+	public GameObject carriedObject;
 	private GameObject player;
 	private GameObject bork;
 
@@ -80,20 +72,17 @@ public class PickupObject : MonoBehaviour
 				}
 			}
 
-
-
 			if (carrying){
 				carry(carriedObject);
-
 				if(carriedObject.tag == "Enemy")
 				{
 					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
 					//GetComponent<Abilities>().depleteStam(10f);
 					if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
 					{
-						GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
+						GetComponent<Player_stats> ().playerRestoreHealth(carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue); 
 						Abilities a = GetComponent<Abilities> ();
-						a.currStamina += 30;
+						a.currStamina += carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue*15f;
 						if (a.currStamina > a.maxStamina)
 							a.currStamina = a.maxStamina;
 						carrying = false;
@@ -107,11 +96,6 @@ public class PickupObject : MonoBehaviour
 					}
 				}
 			}
-
-
-
-
-
 		}
     }
 
@@ -133,15 +117,11 @@ public class PickupObject : MonoBehaviour
 				if (p != null)
 				{
 					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
-					
 					grabSound.Play();
 					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
-					
 					carriedObject = p.gameObject; //set our carried object to
 					objectSize = p.size;
 					grabbableInRange = false;
-
-					
 					parented = (playerSize < objectSize) && carrying;
 
 				}
@@ -195,24 +175,6 @@ public class PickupObject : MonoBehaviour
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
