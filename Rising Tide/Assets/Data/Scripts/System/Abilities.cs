@@ -13,6 +13,7 @@ public class Abilities : MonoBehaviour {
 	public GameObject waveBullet;
 
 	//public Abilities abilities;
+	public bool firstTimeInking = false;
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
@@ -43,7 +44,7 @@ public class Abilities : MonoBehaviour {
 		speedIcon.enabled = false;
 		currentIcon.enabled = false;
 		empIcon.enabled = false;
-		inkIcon.enabled = true;
+		inkIcon.enabled = false;
 		activeIcon.enabled = false;
 //		StartCoroutine(replenishStam());
 
@@ -73,6 +74,7 @@ public class Abilities : MonoBehaviour {
 			
 				inkIcon.enabled = true;
 				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [1] == true) {
+					firstTimeInking = true;
 					pauseStam = true;
 					StartCoroutine (depleteStam (5f));
 					newInk ();

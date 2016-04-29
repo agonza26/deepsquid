@@ -11,11 +11,12 @@ public class CameraController : MonoBehaviour
 	public float minCameraDist = -5f;
 	public float maxCameraDist = -15f;
 	private Material temp;
+	private bool touchingEnvironment;
 	private bool isTouchingAnything = false;
 	private bool isTouchingCam = false;
-	public float tooClose = 3f;
+	public float tooClose = 1.75f;
 	
-	private float positionDampening = 8f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
+    float positionDampening = 25f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	//private float rotationDampening = 5f; //see above, but applies to rotation
 	private float PDsave;
 	
@@ -82,6 +83,23 @@ public class CameraController : MonoBehaviour
 			rcMaxDist += 0.8f;
 		}
 
+		if (Physics.Raycast (GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward, out backHit, 7.5f) || ) {
+			if (backHit.transform.tag == "Environment") {
+				touchingEnvironment = true;
+				if (backHit.distance < tooClose) {
+					pushInFront (backHit);
+
+				} 
+
+			}
+		} else {
+			touchingEnvironment = false;
+		}
+		if (!touchingEnvironment) {
+			offset.z = camDistSave;
+		}
+
+		/*
 		if (Physics.Raycast (GameObject.FindWithTag("MainCamera").transform.position, -transform.forward, out backHit, 7.5f) && offset.z < -0.5f) {
 			if (backHit.transform.tag == "Environment") {
 				isTouchingAnything = true;
@@ -128,7 +146,7 @@ public class CameraController : MonoBehaviour
 
 				offset.z += positionDampening * Time.deltaTime;	
 			}
-		}
+		}*/
 
 		
 		Vector3 wantedPosition = playerCameraTarget.position + (playerCameraTarget.rotation * offset);
@@ -141,26 +159,26 @@ public class CameraController : MonoBehaviour
 	private void pushInFront(RaycastHit hit)
 	{
 
-		offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+0.2f)), 1000f*Time.deltaTime);
+		offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+0.2f)), 1f*Time.deltaTime);
 		//offset = -(new Vector3(0,0,hit.distance+0.1f));
 
 	}
 	private void pushInFrontToo(RaycastHit heckHit){
 		
-		offset = Vector3.Lerp(offset, new Vector3(0,0,offset.z+1.1f),1000f*Time.deltaTime);
+		offset = Vector3.Lerp(offset, new Vector3(0,0,offset.z+1.1f),1f*Time.deltaTime);
 		//offset = new Vector3(0,0,heckHit.distance+0.1f);
 	}
 	
 	private void OnTriggerEnter(Collider collider)
 	{
 
-        if (collider.gameObject.transform.tag != "Environment")
+        /*if (collider.gameObject.transform.tag != "Environment")
         {
             return;
         }
 		if(collider.gameObject.tag == "MainCamera"){
 			isTouchingCam = true;
-		}
+		}*/
 	
 	}
 

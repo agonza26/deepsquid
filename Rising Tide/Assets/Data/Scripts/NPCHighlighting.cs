@@ -15,25 +15,23 @@ public class NPCHighlighting : MonoBehaviour {
 
 	public void changeMatToNml()
 	{
-		if (mats [0]) 
-		{
+		if (mats [0]) {
 			if (transform.childCount > 0) {
 				GetComponentInChildren<Renderer> ().material = mats [0];
 			} else {
-				GetComponent<Renderer> ().material = mats [0];
+				gameObject.GetComponent<Renderer> ().material = mats [0];
 			}
-		}
+		} 
 	}
 
 	public void changeMatToHL()
 	{
-		if (mats [1]) 
-		{
+		if (mats [1]) {
 			if (transform.childCount > 0) {
 				GetComponentInChildren<Renderer> ().material = mats [1];
 			} else {
-				GetComponent<Renderer> ().material = mats [1];
+				gameObject.GetComponent<Renderer> ().material = mats [1];
 			}
-		}
+		} 
 	}
 }
