@@ -12,9 +12,12 @@ public class CameraController : MonoBehaviour
 	public float maxCameraDist = -15f;
 	private Material temp;
 	private bool touchingEnvironment;
-	private bool isTouchingAnything = false;
-	private bool isTouchingCam = false;
-	public float tooClose = 1.75f;
+	private bool touchingCamera;
+	private bool isFrontTouchingEnvironment = false;
+	private bool isFrontTouchingAnything = false;
+	private bool isBackTouchingAnything = false;
+	private bool dontPush = false;
+	public float tooClose = 0.5f;
 	
     float positionDampening = 25f; //controls how snappy the camera follows the camera object. a higher number means more snappy. lower number means more flowy
 	//private float rotationDampening = 5f; //see above, but applies to rotation
@@ -46,9 +49,9 @@ public class CameraController : MonoBehaviour
 	void FixedUpdate () 
 	{
 		rcMaxDist = Vector3.Distance(transform.position, playerCameraTarget.position);
-		Debug.DrawRay(transform.position, -transform.forward * rcMaxDist);
-		Debug.DrawRay(GameObject.FindWithTag("MainCamera").transform.position, transform.forward * 7.5f);
+
 		RaycastHit hit;
+		RaycastHit frontHit;
 		RaycastHit backHit;
 
 		if(-rcMaxDist > minCameraDist)
@@ -69,32 +72,70 @@ public class CameraController : MonoBehaviour
 		{
 			return;
 		}
+		Mathf.Clamp (camDistSave, -1f, -20f);
+		Mathf.Clamp (offset.z, -1f, -20f);
+		Mathf.Clamp (rcMaxDist, -1f, -20f);
 		//mouse scroll wheel. positive means that mousewheel scroll up. negative means mousewheel scroll down.
 		//controls moving the camera forward and backward facing the object
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && offset.z < minCameraDist) 
 		{
 			offset.z += 0.8f;
 			camDistSave += 0.8f;
+			//Mathf.Clamp (camDistSave, -1, rcMaxDist);
 			rcMaxDist -= 0.8f;
 		} else if (Input.GetAxis ("Mouse ScrollWheel") < 0 && offset.z > maxCameraDist && !Physics.Raycast(transform.position, -transform.forward, out hit, 1f)) 
 		{
 			offset.z -= 0.8f;
 			camDistSave -= 0.8f;
+			//Mathf.Clamp (camDistSave, -1, rcMaxDist);
 			rcMaxDist += 0.8f;
 		}
+		//Debug.DrawRay(transform.position, -transform.forward * rcMaxDist);
+		//Debug.DrawRay(GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward * 10.0f);
+		Debug.DrawRay(playerCameraTarget.transform.position, -transform.forward * (rcMaxDist+ 10f));
+		//Debug.DrawRay(GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward * offset.z);
+		//Debug.DrawRay(GameObject.Find("Camera Target").transform.position, transform.forward * offset.z+(new Vector3(0,0,-2.5f)));
 
-		if (Physics.Raycast (GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward, out backHit, 7.5f) || ) {
+
+		if (Physics.Raycast (GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward, out backHit, 10f) && touchingCamera) {
+			//Debug.Log("true");
 			if (backHit.transform.tag == "Environment") {
 				touchingEnvironment = true;
-				if (backHit.distance < tooClose) {
+				if (backHit.distance <= tooClose) {
 					pushInFront (backHit);
-
 				} 
-
 			}
-		} else {
+
+		} 
+		else {
 			touchingEnvironment = false;
 		}
+		if (Physics.Raycast (playerCameraTarget.transform.position, -transform.forward, out frontHit, rcMaxDist + 10f)) {
+			
+			if (frontHit.transform.tag == "Environment") {
+				Debug.Log ("touching environment");
+				isFrontTouchingEnvironment = true;
+				touchingCamera = false;
+				pushInFrontToo (frontHit);
+			} else if (frontHit.transform.tag == "MainCamera") {
+				Debug.Log ("touching camera");
+				touchingCamera = true;
+				isFrontTouchingEnvironment = false;
+
+			}
+
+		} 
+		/*else if(Physics.Raycast (GameObject.Find ("Camera Target").transform.position, -transform.forward, out frontHit, offset.z+ 10f)){
+			Debug.Log (f);
+			if (frontHit.transform.tag == "Environment") {
+				touchingEnvironment = true;
+				if (frontHit.distance < tooClose) {
+					pushInFront (frontHit);
+				}
+			} else if (frontHit.transform.tag == "MainCamera") {
+				Debug.Log ("True");
+			}
+		}*/
 		if (!touchingEnvironment) {
 			offset.z = camDistSave;
 		}
@@ -159,19 +200,19 @@ public class CameraController : MonoBehaviour
 	private void pushInFront(RaycastHit hit)
 	{
 
-		offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+0.2f)), 1f*Time.deltaTime);
-		//offset = -(new Vector3(0,0,hit.distance+0.1f));
+		offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+1.2f)), 10f*Time.deltaTime);
+		//offset = new Vector3(0,0,hit.distance-1.1f);
 
 	}
 	private void pushInFrontToo(RaycastHit heckHit){
-		
-		offset = Vector3.Lerp(offset, new Vector3(0,0,offset.z+1.1f),1f*Time.deltaTime);
+		offset = Vector3.Lerp(offset, (new Vector3(0,0,offset.z + 1.2f)), 10f*Time.deltaTime);
+		//offset = Vector3.Lerp(offset, new Vector3(0,0,(Mathf.Clamp(offset.z,-1f, -20f)))  ,1f*Time.deltaTime);
 		//offset = new Vector3(0,0,heckHit.distance+0.1f);
 	}
 	
 	private void OnTriggerEnter(Collider collider)
 	{
-
+		touchingEnvironment = true;
         /*if (collider.gameObject.transform.tag != "Environment")
         {
             return;
@@ -184,7 +225,7 @@ public class CameraController : MonoBehaviour
 
 	private void OnTriggerExit (Collider collider)
 	{
-
+		touchingEnvironment = false;
 	}
 
 	
