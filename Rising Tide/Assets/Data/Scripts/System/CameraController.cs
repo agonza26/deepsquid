@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 	private bool touchingCamera;
 	private bool isFrontTouchingEnvironment = false;
 	private bool isFrontTouchingAnything = false;
+	private bool isTouchingAnything;
+	private bool isTouchingCam;
 	private bool isBackTouchingAnything = false;
 	private bool dontPush = false;
 	public float tooClose = 0.5f;
@@ -46,6 +48,15 @@ public class CameraController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
+	void Update(){
+		if (offset.z >= -1) {
+			offset.z = -1f;
+		} else if (offset.z <= -20) {
+			offset.z = -20f;
+			rcMaxDist = -20f;
+			camDistSave = -20f;
+		}
+	}
 	void FixedUpdate () 
 	{
 		rcMaxDist = Vector3.Distance(transform.position, playerCameraTarget.position);
@@ -63,10 +74,7 @@ public class CameraController : MonoBehaviour
 			player.GetComponent<Player_stats>().changePlayerAlphaUp();
 		}		
 		
-		if(offset.z >= -1)
-		{
-			offset.z = -1f;
-		}
+
 		
 		if(!playerCameraTarget)
 		{
@@ -79,6 +87,7 @@ public class CameraController : MonoBehaviour
 		//controls moving the camera forward and backward facing the object
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0 && offset.z < minCameraDist) 
 		{
+			
 			offset.z += 0.8f;
 			camDistSave += 0.8f;
 			//Mathf.Clamp (camDistSave, -1, rcMaxDist);
@@ -97,34 +106,32 @@ public class CameraController : MonoBehaviour
 		//Debug.DrawRay(GameObject.Find("Camera Target").transform.position, transform.forward * offset.z+(new Vector3(0,0,-2.5f)));
 
 
-		if (Physics.Raycast (GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward, out backHit, 10f) && touchingCamera) {
+		if (Physics.Raycast (GameObject.FindGameObjectWithTag ("MainCamera").transform.position, -transform.forward, out backHit, 10f)) {
 			//Debug.Log("true");
 			if (backHit.transform.tag == "Environment") {
 				touchingEnvironment = true;
 				if (backHit.distance <= tooClose) {
-					pushInFront (backHit);
+					pushInFrontToo (backHit);
 				} 
 			}
 
 		} 
 		else {
 			touchingEnvironment = false;
-		}
+		}/*
 		if (Physics.Raycast (playerCameraTarget.transform.position, -transform.forward, out frontHit, rcMaxDist + 10f)) {
 			
 			if (frontHit.transform.tag == "Environment") {
 				Debug.Log ("touching environment");
-				isFrontTouchingEnvironment = true;
-				touchingCamera = false;
 				pushInFrontToo (frontHit);
 			} else if (frontHit.transform.tag == "MainCamera") {
 				Debug.Log ("touching camera");
-				touchingCamera = true;
-				isFrontTouchingEnvironment = false;
+
+
 
 			}
 
-		} 
+		} */
 		/*else if(Physics.Raycast (GameObject.Find ("Camera Target").transform.position, -transform.forward, out frontHit, offset.z+ 10f)){
 			Debug.Log (f);
 			if (frontHit.transform.tag == "Environment") {
@@ -160,7 +167,7 @@ public class CameraController : MonoBehaviour
 		} else {
 			isTouchingAnything = false;
 		}
-
+*/
 
 		if (Physics.Raycast (playerCameraTarget.position, -transform.forward, out hit, rcMaxDist + 3f) && offset.z < -0.5f) {
 			if (hit.transform.tag == "Environment") {
@@ -179,7 +186,7 @@ public class CameraController : MonoBehaviour
 		} else {
 			isTouchingCam = false;
 		}
-		
+		/*
 		if(Physics.Raycast(transform.position, transform.right, out hit, 5f) || Physics.Raycast(transform.position, -transform.right, out hit, 5f))
 		{
 			if(!Physics.Raycast(playerCameraTarget.position, -transform.forward, out hit, rcMaxDist))
@@ -187,8 +194,8 @@ public class CameraController : MonoBehaviour
 
 				offset.z += positionDampening * Time.deltaTime;	
 			}
-		}*/
-
+		}
+*/
 		
 		Vector3 wantedPosition = playerCameraTarget.position + (playerCameraTarget.rotation * offset);
 		Vector3 currentPosition = Vector3.Lerp(thisTransform.position, wantedPosition, positionDampening * Time.deltaTime);
@@ -199,9 +206,9 @@ public class CameraController : MonoBehaviour
 	
 	private void pushInFront(RaycastHit hit)
 	{
-
-		offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+1.2f)), 10f*Time.deltaTime);
-		//offset = new Vector3(0,0,hit.distance-1.1f);
+		//Debug.Log ("calling fucky");
+		//offset = Vector3.Lerp(offset, -(new Vector3(0,0,hit.distance+1.2f)), 10f*Time.deltaTime);
+		offset = -new Vector3(0,0,hit.distance+1.2f);
 
 	}
 	private void pushInFrontToo(RaycastHit heckHit){
