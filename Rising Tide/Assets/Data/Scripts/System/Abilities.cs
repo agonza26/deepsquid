@@ -14,6 +14,8 @@ public class Abilities : MonoBehaviour {
 
 	//public Abilities abilities;
 	public bool firstTimeInking = false;
+	public bool firstTimeSpeeding = false;
+	public bool firstTimeSanic = false;
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
@@ -88,6 +90,7 @@ public class Abilities : MonoBehaviour {
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
 				if (Input.GetKey ("space") && currStamina >= 25 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+					firstTimeSpeeding = true;
 					pauseStam = true;
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
@@ -124,6 +127,7 @@ public class Abilities : MonoBehaviour {
 				currentIcon.enabled = true;
 				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 20f && activeAbils[2])
 				{
+					firstTimeSanic = true;
 					stamDmg(currAbilCost);
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
