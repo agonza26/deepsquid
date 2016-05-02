@@ -16,6 +16,7 @@ public class Abilities : MonoBehaviour {
 	public bool firstTimeInking = false;
 	public bool firstTimeSpeeding = false;
 	public bool firstTimeSanic = false;
+	public bool firstTimeEmp = false;
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
@@ -112,6 +113,7 @@ public class Abilities : MonoBehaviour {
 				empIcon.enabled = true;
 				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3])
 				{
+					firstTimeEmp = true;
 					pauseStam = true;
 					stamDmg(EMPcost);
 					EMPps.Emit(1);
