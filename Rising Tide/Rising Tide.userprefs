@@ -1,14 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\Player\Player_stats.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\TutorialObject.cs">
     <Files>
-      <File FileName="Assets\Data\Scripts\System\Abilities.cs" Line="207" Column="29" />
-      <File FileName="Assets\Data\Scripts\Player\PickupObject.cs" Line="85" Column="93" />
-      <File FileName="Assets\Data\Scripts\Player\Player_stats.cs" Line="95" Column="1" />
-      <File FileName="Assets\Data\Scripts\modelSwitch.cs" Line="1" Column="1" />
-      <File FileName="Assets\Data\Scripts\improved_movement.cs" Line="287" Column="82" />
-      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="262" Column="48" />
-      <File FileName="Assets\Data\Scripts\Enemy\EnemyHealth.cs" Line="8" Column="39" />
+      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="129" Column="99" />
+      <File FileName="Assets\Data\Scripts\LocationTracking.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\System\Abilities.cs" Line="130" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

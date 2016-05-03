@@ -13,6 +13,10 @@ public class Abilities : MonoBehaviour {
 	public GameObject waveBullet;
 
 	//public Abilities abilities;
+	public bool firstTimeInking = false;
+	public bool firstTimeSpeeding = false;
+	public bool firstTimeSanic = false;
+	public bool firstTimeEmp = false;
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
@@ -43,7 +47,7 @@ public class Abilities : MonoBehaviour {
 		speedIcon.enabled = false;
 		currentIcon.enabled = false;
 		empIcon.enabled = false;
-		inkIcon.enabled = true;
+		inkIcon.enabled = false;
 		activeIcon.enabled = false;
 //		StartCoroutine(replenishStam());
 
@@ -73,6 +77,7 @@ public class Abilities : MonoBehaviour {
 			
 				inkIcon.enabled = true;
 				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [1] == true) {
+					firstTimeInking = true;
 					pauseStam = true;
 					StartCoroutine (depleteStam (5f));
 					newInk ();
@@ -86,6 +91,7 @@ public class Abilities : MonoBehaviour {
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
 				if (Input.GetKey ("space") && currStamina >= 25 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+					firstTimeSpeeding = true;
 					pauseStam = true;
 					abilitySpeedVal = 3f;
 					StartCoroutine (depleteStam (3f));
@@ -107,6 +113,7 @@ public class Abilities : MonoBehaviour {
 				empIcon.enabled = true;
 				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3])
 				{
+					firstTimeEmp = true;
 					pauseStam = true;
 					stamDmg(EMPcost);
 					EMPps.Emit(1);
@@ -122,6 +129,7 @@ public class Abilities : MonoBehaviour {
 				currentIcon.enabled = true;
 				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 20f && activeAbils[2])
 				{
+					firstTimeSanic = true;
 					stamDmg(currAbilCost);
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
