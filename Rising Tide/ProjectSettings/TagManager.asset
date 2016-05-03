@@ -30,6 +30,7 @@ TagManager:
   - borkAttached
   - borkunattached
   - uiQuestTwo
+  - uiQuestThree
   layers:
   - Default
   - TransparentFX
