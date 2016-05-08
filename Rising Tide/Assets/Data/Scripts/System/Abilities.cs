@@ -30,7 +30,7 @@ public class Abilities : MonoBehaviour {
 	//1 = ink
 	//2 = emp
 	//3 = current
-	public bool[] abilities = new bool[4] {false, true, false, false};
+	public bool[] abilities = new bool[4] {false, false, false, false};
 	public bool[] activeAbils = new bool[4]{false, false, false, false};
 	//ink is red
 	//speed is blue

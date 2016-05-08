@@ -21,7 +21,7 @@ public class EcoPoints : MonoBehaviour {
 	public GameObject barracudaPrefab;
 
 
-
+	public Dictionary<int, GameObject> EnemContainer = new Dictionary<int, GameObject>();
 
 
 
@@ -29,6 +29,7 @@ public class EcoPoints : MonoBehaviour {
 	public Dictionary<string,GameObject> Ecopoints = new Dictionary<string,GameObject>();
 	public Dictionary<string,GameObject> Enemies = new Dictionary<string,GameObject>();
 	public Dictionary<string,GameObject> Dump = new Dictionary<string,GameObject>();
+	private static int fishCount = -1;
 	private string name = "none";
 
 
@@ -39,7 +40,7 @@ public class EcoPoints : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		name = gameObject.name;
-		for (int i = 0; i < yellowSnappers; ++i) {
+		for (int i = 0; /*i < yellowSnappers*/ false; ++i) {
 
 			float x = transform.position.x;
 			float y = transform.position.x;
@@ -67,6 +68,9 @@ public class EcoPoints : MonoBehaviour {
 			//setup the component scripts
 		}
 	}
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -78,10 +82,31 @@ public class EcoPoints : MonoBehaviour {
 
 
 
+	public int addEnem(GameObject idiotFish){
+		EnemContainer.Add (++fishCount, gameObject);
+		return fishCount;
+
+
+	}
 
 
 
 
+
+
+	public void despawn(){
+		foreach (KeyValuePair<int, GameObject> pair in EnemContainer) {
+			pair.Value.SetActive (false);
+		}
+	}
+
+
+
+	public void respawn(){
+		foreach (KeyValuePair<int, GameObject> pair in EnemContainer) {
+			pair.Value.SetActive (true);
+		}
+	}
 
 
 
