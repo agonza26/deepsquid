@@ -46,6 +46,8 @@ public class BasicEnemy : MonoBehaviour {
 	private List<string> effects = new List<string>();
 	private List<string> statesList = new List<string> ();
 
+	private int ecoID = -1;
+
 	//private bool leftEco = false;
 	//private float empTimer = 0;
 	//private float straightRangeMin = 0f;
@@ -53,12 +55,14 @@ public class BasicEnemy : MonoBehaviour {
 	//private string lastState = "idle";
 
 	void Start () {
-		 
+		print ("i are starting");
 		eco = GameObject.Find (ecosystem);
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 		//look towards target on start
 		//transform.LookAt(currentTarget);//start off looking at the first point
 		rigBod = GetComponent<Rigidbody>();//init rigitbody
+		ecoID = eco.GetComponent<EcoPoints>().addEnem(gameObject);
+
 	}
 
 
@@ -78,7 +82,8 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	void OnCollisionStay(Collision c){
+	void OnCollisionEnter(Collision c){
+		
 		GameObject other = c.gameObject;
 	
 		if (other.tag == "Player") {
@@ -87,7 +92,7 @@ public class BasicEnemy : MonoBehaviour {
 
 				p.playerDamage (1f);
 				flee ();
-
+				print ("attacking");
 				//be.stunMult = 1f;
 
 			}
@@ -97,11 +102,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
-
-
-
-
-
 		if( !effects.Contains(other.name)){
 			if (other.name == "ink" || other.name == "Ink") {
 				effects.Add("ink");
@@ -114,8 +114,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void Update () {
-
-	
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
 			case "follow": //sees player, currently following
@@ -141,17 +139,6 @@ public class BasicEnemy : MonoBehaviour {
 		}
 		waveHandler (); //always move with the wave independant of the state
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -184,16 +171,8 @@ public class BasicEnemy : MonoBehaviour {
 				}
 			}
 		}
-
-
-
-
-
+			
 		if (!switchedStates) {
-
-
-
-
 			if (effects.Contains ("ink")) {
 				effects.Remove ("ink");
 				inkDaze = true;
@@ -202,28 +181,13 @@ public class BasicEnemy : MonoBehaviour {
 					inkDaze = false;
 				}
 			}
-
-
-
-
 			//assume haven't seen player
 			if (!inkDaze) {
-
-
-
-
-
-
 				if (Random.value < 0.9f) {
-
-
 					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
 						//if i left the area start turning around
 						currentTarget = eco.transform;
-
-
 					} else {
-						
 						if (currentTarget == null || Random.value < 0.01f) {
 							GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
 							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
@@ -232,11 +196,9 @@ public class BasicEnemy : MonoBehaviour {
 					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
 					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
-			
 					Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
 					Vector3 desired_velocity = toTarget * velocityMax;
 					Vector3 steering = desired_velocity - rigBod.velocity;
-
 
 					steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
 					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
@@ -251,36 +213,30 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	public void release(){
+		released = true;
+	}
 
 
-	/*
-			if(carriedObject.tag == "Enemy"){
-				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
-				
-				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
-				{
-					GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
-					Abilities a = GetComponent<Abilities> ();
-					a.currStamina += 30;
-					if (a.currStamina > a.maxStamina)
-						a.currStamina = a.maxStamina;
-					carrying = false;
-					blood.transform.position = player.transform.position;
-					blood.transform.forward = player.transform.forward;
-					blood.Emit(20);
-					dropObject();
-				}
-			}
-	*/
+
+	//returns true if escaped
+	//false if still being held
+	public bool struggle(){
+		if (state != "grabbed")
+			return true;
+
+		float theNum = Random.Range (0.00F, 1.00F);
 
 
+		return(theNum < 30);
+
+	}
 
 
 
 	//state for when we are grabbed
 	private void grabbed(){
 		if (released) {
-			
 			lPC.positionTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 			lPC.position = GameObject.FindGameObjectWithTag ("Player").transform.position;
 			released = false;
@@ -297,6 +253,8 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+	//tune ink ability a bit
+
 		
 	private void follow(){
 
@@ -308,11 +266,6 @@ public class BasicEnemy : MonoBehaviour {
 			switchedStates = true;
 		}
 
-
-
-
-
-
 		if (!effects.Contains ("ink")) {
 			if (fleeingAway) {
 				state = "runAway";
@@ -322,12 +275,7 @@ public class BasicEnemy : MonoBehaviour {
 				runAway ();
 				fleeingAway = false;
 			}
-
-
-
-	
-
-
+				
 			velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
 			steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
@@ -337,15 +285,9 @@ public class BasicEnemy : MonoBehaviour {
 			Vector3 steering = desired_velocity - rigBod.velocity;
 			steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
 
-
 			float distVar = Vector3.Distance (currentTarget.position, transform.position);
-
-
 			//5,20
 			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, chaseSteer)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight);
-
-
-
 
 			thing.transform.position = transform.position + rigBod.velocity;
 			transform.LookAt (thing.transform);
@@ -354,11 +296,6 @@ public class BasicEnemy : MonoBehaviour {
 		}
 
 	}
-
-
-
-
-
 
 
 	public void flee(){
@@ -452,6 +389,22 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	//do the wiggle dance
+	public void wiggle(){
+		//add fruits to the salad
+
+		float circleDist = rigBod.velocity.magnitude / 3;
+		Vector3 circleCenter = rigBod.velocity.normalized * circleDist;
+
+
+		var randomPoint = Random.insideUnitCircle;
+		var CircleRadius = circleCenter.magnitude/3;
+		var displacement = new Vector3(randomPoint.x, randomPoint.y) * CircleRadius;
+		displacement = Quaternion.LookRotation(rigBod.velocity) * displacement;
+
+		rigBod.velocity += (circleCenter + displacement);
+		//yummy yummy
+	}
 
 
 
@@ -465,16 +418,24 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-
-	/* message paradigm
-
+	/*
+			if(carriedObject.tag == "Enemy"){
+				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
+				
+				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
+				{
+					GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
+					Abilities a = GetComponent<Abilities> ();
+					a.currStamina += 30;
+					if (a.currStamina > a.maxStamina)
+						a.currStamina = a.maxStamina;
+					carrying = false;
+					blood.transform.position = player.transform.position;
+					blood.transform.forward = player.transform.forward;
+					blood.Emit(20);
+					dropObject();
+				}
+			}
 	*/
 
 
@@ -488,53 +449,9 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	//do the wiggle dance
-	public void wiggle(){
-		//add fruits to the salad
-
-
-		float circleDist = rigBod.velocity.magnitude / 3;
-		Vector3 circleCenter = rigBod.velocity.normalized * circleDist;
-
-
-		var randomPoint = Random.insideUnitCircle;
-		var CircleRadius = circleCenter.magnitude/3;
-		var displacement = new Vector3(randomPoint.x, randomPoint.y) * CircleRadius;
-		displacement = Quaternion.LookRotation(rigBod.velocity) * displacement;
-
-		rigBod.velocity += (circleCenter + displacement);
 
 
 
-
-		//yummy yummy
-	}
-
-
-
-
-
-
-
-
-	public void release(){
-		released = true;
-	}
-
-
-
-	//returns true if escaped
-	//false if still being held
-	public bool struggle(){
-		if (state != "grabbed")
-			return true;
-
-		float theNum = Random.Range (0.00F, 1.00F);
-
-
-		return(theNum < 30);
-
-	}
 
 
 
