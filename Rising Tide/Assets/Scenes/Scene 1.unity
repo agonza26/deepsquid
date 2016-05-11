@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.01555
   m_LinearFogStart: 0
-  m_LinearFogEnd: 250
+  m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -7554,6 +7554,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 284151523}
   m_RootOrder: 0
+--- !u!1 &521686503 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 187354, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+  m_PrefabInternal: {fileID: 1886952160}
 --- !u!1 &526845296
 GameObject:
   m_ObjectHideFlags: 0
@@ -34313,6 +34317,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 11486666, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+      propertyPath: t2
+      value: 
+      objectReference: {fileID: 521686503}
+    - target: {fileID: 11486666, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+      propertyPath: t1
+      value: 
+      objectReference: {fileID: 2126702333}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
   m_IsPrefabParent: 0
@@ -43371,6 +43383,10 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &2126702333 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 187148, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+  m_PrefabInternal: {fileID: 1886952160}
 --- !u!1 &2130086753
 GameObject:
   m_ObjectHideFlags: 0

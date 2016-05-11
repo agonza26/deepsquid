@@ -77,7 +77,7 @@ public class improved_movement : MonoBehaviour {
 			print("rotation speed" + rotationSpeedMax);
 
 			x += Input.GetAxis ("Mouse X") * 4000f; //left and right
-			//y = Mathf.Clamp ( y-Input.GetAxis ("Mouse Y")  * 0.25f, -85.5f, 85.5f); //up and down
+			y = Mathf.Clamp ( y-Input.GetAxis ("Mouse Y") * rotationSpeedMax, -85.5f, 85.5f); //up and down
 
 
 			
@@ -96,11 +96,7 @@ public class improved_movement : MonoBehaviour {
 				currentY -= Mathf.Min (rotationSpeedMax, currentY - x + rotationDeadZone);
 
 			} 
-
-	
-
-
-
+				
 
 		}
 
