@@ -7,9 +7,7 @@ public class LastPlayerSighting : MonoBehaviour
 	public Transform positionTransform = null;
 	public Vector3 resetPosition = new Vector3(1000f, 1000f, 1000f);    // The default position if the player is not in sight.
 	public string currentEcosystem = "none";
-
-
-
+	public float changeRotation = 0.5f;
 
 
 
