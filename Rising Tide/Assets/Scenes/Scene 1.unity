@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.01555
   m_LinearFogStart: 0
-  m_LinearFogEnd: 250
+  m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -1723,7 +1723,7 @@ GameObject:
   - 224: {fileID: 108192737}
   - 114: {fileID: 108192738}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: RotationSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1788,16 +1788,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1202513537}
   m_HandleRect: {fileID: 1984698027}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.01
+  m_MaxValue: 4
   m_WholeNumbers: 0
-  m_Value: 0.55
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 565327696}
+      - m_Target: {fileID: 133452556}
         m_MethodName: getSlider
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2006,6 +2006,12 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 470334, guid: bf55fcaea71389147b1dba304d8b9f60, type: 2}
   m_PrefabInternal: {fileID: 323044517}
+--- !u!114 &133452556 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11483996, guid: bf55fcaea71389147b1dba304d8b9f60,
+    type: 2}
+  m_PrefabInternal: {fileID: 323044517}
+  m_Script: {fileID: 11500000, guid: b79fd19c9f8e8c14986567db38a4d812, type: 3}
 --- !u!1 &144936157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5277,6 +5283,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11483996, guid: bf55fcaea71389147b1dba304d8b9f60, type: 2}
+      propertyPath: rotationSpeedMax
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483996, guid: bf55fcaea71389147b1dba304d8b9f60, type: 2}
+      propertyPath: rotationDeadZone
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf55fcaea71389147b1dba304d8b9f60, type: 2}
   m_IsPrefabParent: 0
@@ -7540,6 +7554,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 284151523}
   m_RootOrder: 0
+--- !u!1 &521686503 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 187354, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+  m_PrefabInternal: {fileID: 1886952160}
 --- !u!1 &526845296
 GameObject:
   m_ObjectHideFlags: 0
@@ -8168,12 +8186,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 564816647}
   m_Mesh: {fileID: 4300010, guid: ef00d2b02e61517429c70c2133195f1f, type: 3}
---- !u!114 &565327696 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11431652, guid: d9a0b9954aecd496884d21be3a3bf2c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 288367790}
-  m_Script: {fileID: 11500000, guid: e9a2a73ecb9a046dc89e0328eadf3690, type: 3}
 --- !u!1 &568733092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12171,6 +12183,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 133452554}
+    - target: {fileID: 11433132, guid: bdaddc6b63bf1174c9a07698e9df5d1f, type: 2}
+      propertyPath: sliderName
+      value: RotationSlider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdaddc6b63bf1174c9a07698e9df5d1f, type: 2}
   m_IsPrefabParent: 0
@@ -34301,6 +34317,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 11486666, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+      propertyPath: t2
+      value: 
+      objectReference: {fileID: 521686503}
+    - target: {fileID: 11486666, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+      propertyPath: t1
+      value: 
+      objectReference: {fileID: 2126702333}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
   m_IsPrefabParent: 0
@@ -43359,6 +43383,10 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &2126702333 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 187148, guid: e0ddec10dbaced74abadd7650b6a3f64, type: 2}
+  m_PrefabInternal: {fileID: 1886952160}
 --- !u!1 &2130086753
 GameObject:
   m_ObjectHideFlags: 0

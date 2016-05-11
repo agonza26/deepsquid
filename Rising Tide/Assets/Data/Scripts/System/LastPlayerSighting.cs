@@ -10,15 +10,7 @@ public class LastPlayerSighting : MonoBehaviour
 	public float changeRotation = 0.5f;
 
 
-	public void getSlider(float rate){
-		changeRotation = rate;
 
-	}
-
-	void Update(){
-		Debug.Log ("Hi");
-
-	}
 
 
 }

@@ -17,6 +17,7 @@ public class Pause : MonoBehaviour {
 	void Start  (){
 		if(!Slider)
 			Slider = GameObject.Find (sliderName);
+			GameObject.Find ("Player").GetComponent<improved_movement> ().rotationSpeedMax = Slider.GetComponent<Slider> ().value;
 
 	}
 	// Update is called once per frame
@@ -27,6 +28,7 @@ public class Pause : MonoBehaviour {
 		if(isPause)
 		{
 			Slider.SetActive (true);
+			Slider.GetComponent<Slider> ().value = Mathf.Min(GameObject.Find ("Player").GetComponent<improved_movement>().rotationSpeedMax,Slider.GetComponent<Slider> ().maxValue) ;
 			ResumeGameBut.SetActive(true);
 			QuitGameBut.SetActive(true);
 			pausedInd.SetActive(true);
@@ -36,6 +38,7 @@ public class Pause : MonoBehaviour {
 		} 
 		else 
 		{
+			
 			Slider.SetActive (false);
 			ResumeGameBut.SetActive(false);
 			QuitGameBut.SetActive(false);

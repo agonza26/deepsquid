@@ -64,27 +64,30 @@ public class improved_movement : MonoBehaviour {
         //CameraTarg = transform.parent;
 	}
 
+	public void getSlider(float rate){
+		rotationSpeedMax = rate;
 
+	}
 
 
 	private void rotationHandler2(bool isEgg){
 		if (!isEgg) {
 
 			//target rotations
+			print("rotation speed" + rotationSpeedMax);
+
+			x += Input.GetAxis ("Mouse X") * 4000f; //left and right
+			y = Mathf.Clamp ( y-Input.GetAxis ("Mouse Y") * rotationSpeedMax, -85.5f, 85.5f); //up and down
 
 
-			x += Mathf.Clamp(Input.GetAxis ("Mouse X") * 0.5f, -rotationSpeedMax*1.5f,rotationSpeedMax*1.5f); //left and right
-			y = Mathf.Clamp ( y-Input.GetAxis ("Mouse Y")  * 0.25f, -85.5f, 85.5f); //up and down
-
-
-	
-		
+			
+			currentX += Input.GetAxis ("Mouse X") * rotationSpeedMax ;
 
 			if (currentX < x - rotationDeadZone) {
-				currentX += Mathf.Min(rotationSpeedMax, x-rotationDeadZone - currentX) ;
+				//currentX += Mathf.Min(200, x-rotationDeadZone - currentX) ;
 
 			} else if (currentX > x + rotationDeadZone) {
-				currentX -= Mathf.Min (rotationSpeedMax, currentX - x + rotationDeadZone);
+				//currentX -= Mathf.Min (200, currentX - x + rotationDeadZone);
 
 			} if (currentY < y) {
 				currentY +=  Mathf.Min(rotationSpeedMax, y-rotationDeadZone - currentY) ;
@@ -93,11 +96,7 @@ public class improved_movement : MonoBehaviour {
 				currentY -= Mathf.Min (rotationSpeedMax, currentY - x + rotationDeadZone);
 
 			} 
-
-	
-
-
-
+				
 
 		}
 
@@ -152,7 +151,7 @@ public class improved_movement : MonoBehaviour {
 			sqid = !sqid;
 		}
 			
-		rotationHandler (isEgg);
+		rotationHandler2 (isEgg);
 
 		if (!isDead && !isEgg){
 			rb.velocity = Vector3.zero;
