@@ -86,6 +86,7 @@
      <Compile Include="Assets\Data\Scripts\System\PedestalOrbDet.cs" />
      <Compile Include="Assets\Data\Scripts\System\PlaceInFrontOf.cs" />
      <Compile Include="Assets\Data\Scripts\System\Player.cs" />
+     <Compile Include="Assets\Data\Scripts\System\QuitGame.cs" />
      <Compile Include="Assets\Data\Scripts\System\Reload.cs" />
      <Compile Include="Assets\Data\Scripts\System\Spawner.cs" />
      <Compile Include="Assets\Data\Scripts\System\WaveSystem.cs" />
