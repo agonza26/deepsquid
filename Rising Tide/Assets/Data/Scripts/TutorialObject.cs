@@ -24,6 +24,7 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject uiQuestSix;
 	private GameObject uiQuestSeven;
 	private GameObject uiQuestEight;
+	private GameObject uiQuestNine;
 	private GameObject uiMissionText;
 	private GameObject uiMissionBox;
 	private GameObject brokenGlassTube;
@@ -144,6 +145,7 @@ public class TutorialObject : MonoBehaviour {
 			inRangeToHear = false;
 			inLOS = false;
 		}
+		//These are quest completion conditions
 		if (hasPressedEveryKey && inRangeToInt && acceptQuest && !questZeroComplete) {
 			acceptQuest = false;
 			questZeroComplete = true;
@@ -231,12 +233,14 @@ public class TutorialObject : MonoBehaviour {
 			narrTextTrigger [posInDialogue] = true;
 		}
 
+
 		if (isEgg) {
 			if (!dialogStarted) {
 				dialogStarted = true;
 				StartCoroutine (waitForFirstDialogueTrigger (1f));
 			}
 		}
+		////These are quest
 		// Quest Zero
 		if (posInDialogue == 1 && !acceptQuest && !questZeroComplete) {
 			acceptQuest = true;
@@ -253,10 +257,7 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestZero.SetActive (false);
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
-			//borkObjectAttached.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
-			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
-			//borkObjectUnattached.SetActive (false);
+
 		}
 
 
@@ -574,31 +575,9 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questTwoComplete) {
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
 				posInDialogue++;
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questTwoComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questThreeComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questFourComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questFiveComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questSixComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questSevenComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questEightComplete) {
-				posInDialogue++;
-			}
-
 		}
 		else  {
 			tutorialText.SetActive (false);
