@@ -7,10 +7,13 @@ public class Pause : MonoBehaviour {
 	
 	private bool isPause;
 	public GameObject pausedInd;
+	public GameObject deathInd;
 	public GameObject ResumeGameBut;
+	public GameObject RestartBut;
 	public GameObject QuitGameBut;
 	public GameObject MenuBezzle;
 	public GameObject player;
+	public GameObject MouseSlideText;
 	public string sliderName = "Slider"; 
 	private GameObject Slider;
 
@@ -18,6 +21,8 @@ public class Pause : MonoBehaviour {
 		if(!Slider)
 			Slider = GameObject.Find (sliderName);
 			GameObject.Find ("Player").GetComponent<improved_movement> ().rotationSpeedMax = Slider.GetComponent<Slider> ().value;
+		deathInd.GetComponent<Image> ().CrossFadeAlpha (0, 0.1f, true);
+		deathInd.SetActive (false);
 
 	}
 	// Update is called once per frame
@@ -30,21 +35,48 @@ public class Pause : MonoBehaviour {
 			Slider.SetActive (true);
 			Slider.GetComponent<Slider> ().value = Mathf.Min(GameObject.Find ("Player").GetComponent<improved_movement>().rotationSpeedMax,Slider.GetComponent<Slider> ().maxValue) ;
 			ResumeGameBut.SetActive(true);
+			RestartBut.SetActive (true);
 			QuitGameBut.SetActive(true);
 			pausedInd.SetActive(true);
 			MenuBezzle.SetActive(true);
+			MouseSlideText.SetActive (true);
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		} 
 		else 
 		{
-			
+			MouseSlideText.SetActive (false);
 			Slider.SetActive (false);
 			ResumeGameBut.SetActive(false);
+			RestartBut.SetActive (false);
 			QuitGameBut.SetActive(false);
 			pausedInd.SetActive(false);
 			MenuBezzle.SetActive(false);
-			Cursor.lockState = CursorLockMode.Locked;
+			if (!player.GetComponent<Player_stats> ().isDead) 
+			{
+				Cursor.lockState = CursorLockMode.Locked;	
+				Cursor.visible = false;
+			}
+		}
+
+		if (player.GetComponent<Player_stats> ().isDead) 
+		{
+			deathInd.SetActive (true);
+			int a = 1;
+			//isPause = true;
+			//ResumeGameBut.SetActive(true);
+			RestartBut.SetActive (true);
+			QuitGameBut.SetActive(true);
+			pausedInd.SetActive(false);
+			MenuBezzle.SetActive(true);
+			Time.timeScale = 0.25f;
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			deathInd.GetComponent<Image> ().CrossFadeAlpha (a, 2f, true);
+			if (a <= 255) 
+			{
+				a += 1;
+			}
 		}
 	}
 
