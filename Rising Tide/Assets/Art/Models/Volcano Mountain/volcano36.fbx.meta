@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5986840fc068ed84da74443798190805
-timeCreated: 1462400408
+guid: b5811afb88b244c45a4830e075a3862d
+timeCreated: 1463188442
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Icosphere.001
+    4300000: volcano
   materials:
     importMaterials: 1
     materialName: 0

@@ -67,6 +67,7 @@
      <Compile Include="Assets\Data\Scripts\Player\Pickupable.cs" />
      <Compile Include="Assets\Data\Scripts\Player\Player_stats.cs" />
      <Compile Include="Assets\Data\Scripts\Player\simple_movement.cs" />
+     <Compile Include="Assets\Data\Scripts\ScrollTexture.cs" />
      <Compile Include="Assets\Data\Scripts\System\Abilities.cs" />
      <Compile Include="Assets\Data\Scripts\System\Ability\PushWave.cs" />
      <Compile Include="Assets\Data\Scripts\System\AbilityProcurement.cs" />
