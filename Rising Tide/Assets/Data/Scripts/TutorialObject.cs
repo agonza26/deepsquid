@@ -24,6 +24,10 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject uiQuestSix;
 	private GameObject uiQuestSeven;
 	private GameObject uiQuestEight;
+	private GameObject uiQuestNine;
+	private GameObject uiQuestTen;
+	private GameObject uiQuestEleven;
+	private GameObject uiQuestTwelve;
 	private GameObject uiMissionText;
 	private GameObject uiMissionBox;
 	private GameObject brokenGlassTube;
@@ -34,6 +38,7 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject borkObjectUnattached;
 	private GameObject plateWithScript;
 	private GameObject plateNoScript;
+	private GameObject chadLocOrigin;
 	private Mesh squidMesh;
 	private Mesh tempMesh;
 	private Mesh eggMesh;
@@ -42,14 +47,16 @@ public class TutorialObject : MonoBehaviour {
 	private bool inLOS = false;
 	private bool inRangeToHear = false;
 	private bool inRangeToInt = false;
-	private bool inLOS_inRange = false;
+
+	private bool inRangeToHearChad = false;
+	private bool inRangeToIntChad = false;
+
 	public float letterPause;
 	public string[] narrText = new string[200];
 	public bool[] narrTextTrigger = new bool[200];
 	public int posInDialogue;
 	private int posInDialogueHolder;
 	private bool firstDialogueTrigger = false;
-	private bool playedStamTT = false;
 	private bool tooltipInProgress = false;
 	public bool isEgg = true;
 	public bool hasGrabbed = false;
@@ -66,6 +73,10 @@ public class TutorialObject : MonoBehaviour {
 	private bool questSixComplete = false;
 	private bool questSevenComplete = false;
 	private bool questEightComplete = false;
+	private bool questNineComplete = false;
+	private bool questTenComplete = false;
+	private bool questElevenComplete = false;
+	private bool questTwelveComplete = false;
 	private bool inCavern = false;
 	private bool tempBool;
 	public bool isGlassBroken;
@@ -75,6 +86,10 @@ public class TutorialObject : MonoBehaviour {
 	private bool hasSanic;
 	private bool hasEmp;
 	private bool hasEnteredTemple;
+	private bool hasEnteredReef;
+	private bool hasEnteredVolcVicinity;
+	private bool hasSpokenToChadOne;
+	private bool inRangeToSeeChad;
 	private int dist;
 	private int distToInteract;
 	private bool w;
@@ -83,6 +98,8 @@ public class TutorialObject : MonoBehaviour {
 	private bool d;
 	private bool r;
 	private bool f;
+
+	private bool turtleTalk = false;
 
 
 	void Start(){
@@ -106,6 +123,14 @@ public class TutorialObject : MonoBehaviour {
 		uiQuestSeven.SetActive (false);
 		uiQuestEight = GameObject.Find ("QuestEight");
 		uiQuestEight.SetActive (false);
+		uiQuestNine = GameObject.Find ("QuestNine");
+		uiQuestNine.SetActive (false);
+		uiQuestTen = GameObject.Find ("QuestTen");
+		uiQuestTen.SetActive (false);
+		uiQuestEleven = GameObject.Find ("QuestEleven");
+		uiQuestEleven.SetActive (false);
+		uiQuestTwelve = GameObject.Find ("QuestTwelve");
+		uiQuestTwelve.SetActive (false);
 		uiMissionText = GameObject.FindGameObjectWithTag ("uiMissionText");
 		uiMissionText.SetActive (false);
 		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
@@ -120,6 +145,7 @@ public class TutorialObject : MonoBehaviour {
 		returnToBorkText = GameObject.FindGameObjectWithTag ("QuestReturn");
 		returnToBorkText.SetActive (false);
 		player = GameObject.FindGameObjectWithTag("Player");
+		chadLocOrigin = GameObject.Find ("chadLocationObject");
 		egg = GameObject.FindGameObjectWithTag ("krakenEgg");
 		plateWithScript = GameObject.Find ("pressurewithscript");
 		plateWithScript.SetActive (false);
@@ -132,8 +158,17 @@ public class TutorialObject : MonoBehaviour {
 	void Update ()
 	{
 		keyCheck ();
+		if (turtleTalk) {
+			distanceNotifyChad ();
+		}
+		if (!inRangeToSeeChad && inRangeToHearChad) {
+			inRangeToSeeChad = true;
+		}
 		//Debug.Log (posInDialogue);
 		inCavern = GameObject.Find("Cavern").GetComponent<LocationTracking>().here;
+		hasEnteredTemple = GameObject.Find("TempleLoc").GetComponent<LocationTracking>().here;
+		hasEnteredReef = GameObject.Find("ReefLoc").GetComponent<LocationTracking>().here;
+		hasEnteredVolcVicinity = GameObject.Find("VolcLoc").GetComponent<LocationTracking>().here;
 		hasInked = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeInking;
 		hasSped = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeSpeeding;
 		hasSanic = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeSanic;
@@ -230,6 +265,34 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestEight.SetActive (false);
 			narrTextTrigger [posInDialogue] = true;
 		}
+		if (hasEnteredReef && acceptQuest && !questNineComplete && questEightComplete) {
+			acceptQuest = false;
+			questNineComplete = true;
+			completeMissionText.SetActive (true);
+			returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestNine.SetActive (false);
+			narrTextTrigger [posInDialogue] = true;
+		}
+		if (hasEnteredVolcVicinity && acceptQuest && !questTenComplete && questNineComplete) {
+			acceptQuest = false;
+			questTenComplete = true;
+			completeMissionText.SetActive (true);
+			returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestTen.SetActive (false);
+			narrTextTrigger [posInDialogue] = true;
+		}
+		if (inRangeToSeeChad && acceptQuest && !questElevenComplete && questTenComplete) {
+			acceptQuest = false;
+			questElevenComplete = true;
+			completeMissionText.SetActive (true);
+			returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestEleven.SetActive (false);
+			narrTextTrigger [posInDialogue] = true;
+		}
+
 
 		if (isEgg) {
 			if (!dialogStarted) {
@@ -253,10 +316,6 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestZero.SetActive (false);
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
-			//borkObjectAttached.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
-			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
-			//borkObjectUnattached.SetActive (false);
 		}
 
 
@@ -277,12 +336,10 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			borkObjectAttached.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			borkObjectUnattached.SetActive (false);
 		}
 		//Quest Two
-		Debug.Log(acceptQuest + "," + questTwoComplete);
 		if (posInDialogue == 5 && !acceptQuest && !questTwoComplete) {
 			acceptQuest = true;
 			uiMissionBox.SetActive (true);
@@ -290,26 +347,22 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestTwo.SetActive (true);
 			incompleteMissionText.SetActive (true);
 			pressEText.SetActive (false);
-			//borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		} else if (posInDialogue == 5 && acceptQuest && !questTwoComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
-			//borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		} else if (posInDialogue == 5 && !acceptQuest && questTwoComplete) {
 			Debug.Log ("Calling this one");
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
+
 		}
 		//Complete Quest Two
 		if (posInDialogue == 6) {
-			
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwo.SetActive (false);
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Three
@@ -322,7 +375,6 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToNml ();
 		}else if (posInDialogue == 7 && acceptQuest && !questThreeComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -339,7 +391,6 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Four
@@ -354,7 +405,6 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToNml ();
 		}else if (posInDialogue == 9 && acceptQuest && !questFourComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -372,7 +422,6 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Five
@@ -438,7 +487,6 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Seven
@@ -453,7 +501,6 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToNml ();
 		}else if (posInDialogue == 15 && acceptQuest && !questSevenComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -471,7 +518,6 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToHL ();
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest 8
@@ -486,7 +532,6 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-			//borkObjectAttached.GetComponent<NPCHighlighting>().changeMatToNml ();
 		}else if (posInDialogue == 17 && acceptQuest && !questEightComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -495,13 +540,119 @@ public class TutorialObject : MonoBehaviour {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-
-
-		if (inLOS && inRangeToHear) {
-			inLOS_inRange = true;
-		} else {
-			inLOS_inRange = false;
+		//Complete Quest Eight
+		if (posInDialogue == 18) {
+			uiMissionBox.SetActive (false);
+			uiMissionText.SetActive (false);
+			uiQuestEight.SetActive (false);
+			completeMissionText.SetActive (false);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
+		//Dialogue
+		if (posInDialogue == 19) {
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+		}
+		//Quest Nine
+		if (posInDialogue == 20 && !acceptQuest && !questNineComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestNine.SetActive (true);
+			completeMissionText.SetActive (false);
+			incompleteMissionText.SetActive (true);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+		}else if (posInDialogue == 20 && acceptQuest && !questNineComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		}
+		else if (posInDialogue == 20 && !acceptQuest && questNineComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+		//Complete Quest Nine
+		if (posInDialogue == 21) {
+			uiMissionBox.SetActive (false);
+			uiMissionText.SetActive (false);
+			uiQuestNine.SetActive (false);
+			completeMissionText.SetActive (false);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+		}
+		//Quest Ten
+		if (posInDialogue == 22 && !acceptQuest && !questTenComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestTen.SetActive (true);
+			completeMissionText.SetActive (false);
+			incompleteMissionText.SetActive (true);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+		}else if (posInDialogue == 22 && acceptQuest && !questTenComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		}
+		else if (posInDialogue == 22 && !acceptQuest && questTenComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+		//Complete Quest Ten
+		if (posInDialogue == 23) {
+			uiMissionBox.SetActive (false);
+			uiMissionText.SetActive (false);
+			uiQuestTen.SetActive (false);
+			completeMissionText.SetActive (false);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+		}
+		//Quest Eleven
+		if (posInDialogue == 24 && !acceptQuest && !questElevenComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestEleven.SetActive (true);
+			completeMissionText.SetActive (false);
+			incompleteMissionText.SetActive (true);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+
+			turtleTalk = true;
+		}else if (posInDialogue == 24 && acceptQuest && !questElevenComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		}
+		else if (posInDialogue == 24 && !acceptQuest && questElevenComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+		//Quest Twelve
+		if (posInDialogue == 25 && !acceptQuest && !questTwelveComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestTwelve.SetActive (true);
+			completeMissionText.SetActive (false);
+			incompleteMissionText.SetActive (true);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+			turtleTalk = true;
+		}else if (posInDialogue == 25 && acceptQuest && !questTwelveComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		}
+		else if (posInDialogue == 25 && !acceptQuest && questTwelveComplete) {
+			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+
+
+
 		//Before bork is attached
 		if (inRangeToHear && firstDialogueTrigger && !borkAttached) {
 			if (!acceptQuest) {
@@ -538,7 +689,7 @@ public class TutorialObject : MonoBehaviour {
 				posInDialogue++;
 			}
 			//Once Bork is attached use this
-		} else if (borkAttached) {
+		} else if (borkAttached && !turtleTalk) {
 			if (!acceptQuest) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -568,34 +719,49 @@ public class TutorialObject : MonoBehaviour {
 				else if (posInDialogue == 17 && acceptQuest && !questEightComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				}
+				else if (posInDialogue == 20 && acceptQuest && !questNineComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
+				else if (posInDialogue == 22 && acceptQuest && !questTenComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
+				else if (posInDialogue == 24 && acceptQuest && !questElevenComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
 				else {
 					tutText.text = "";
 					narrTextTrigger [posInDialogue] = false;
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questTwoComplete) {
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
 				posInDialogue++;
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questTwoComplete) {
+
+		} else if (borkAttached && turtleTalk) {
+			if (!acceptQuest) {
+				tutorialText.SetActive (true);
+				tutorialBox.SetActive (true);
+			} else {
+				tutorialText.SetActive (false);
+				tutorialBox.SetActive (false);
+			}
+			if (narrTextTrigger [posInDialogue]) {
+				if (posInDialogue == 24 && acceptQuest && !questElevenComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}else if (posInDialogue == 25 && acceptQuest && !questTwelveComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
+				else {
+					tutText.text = "";
+					narrTextTrigger [posInDialogue] = false;
+					StartCoroutine (spellItOut ());
+				}
+			}
+			else if (Input.GetKeyDown ("e") && inRangeToIntChad && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
 				posInDialogue++;
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questThreeComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questFourComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questFiveComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questSixComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questSevenComplete) {
-				posInDialogue++;
-			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questEightComplete) {
+			else if (Input.GetKeyDown ("e") && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
 				posInDialogue++;
 			}
 
@@ -627,6 +793,28 @@ public class TutorialObject : MonoBehaviour {
 
 		} else {
 			inRangeToHear = false;
+		}
+	}
+
+	void distanceNotifyChad(){
+		dist = (int)Vector3.Distance (player.transform.position, chadLocOrigin.transform.position);
+		if (dist <= 150) {
+			inRangeToHearChad = true;
+			if (dist <= 20) {
+				inRangeToIntChad = true;
+				chadLocOrigin.GetComponent<NPCHighlighting>().changeMatToHL ();
+				if (!acceptQuest)
+					pressEText.SetActive (true);
+				else
+					pressEText.SetActive (false);
+			} else {
+				pressEText.SetActive (false);
+				inRangeToIntChad = false;
+				chadLocOrigin.GetComponent<NPCHighlighting>().changeMatToNml();
+			}
+
+		} else {
+			inRangeToHearChad = false;
 		}
 	}
 
@@ -728,7 +916,14 @@ public class TutorialObject : MonoBehaviour {
 		narrText [14] = "Bork: Your final ability I shall unlock is the EMP, activate it [4] and use it[Space]. [E]";
 		narrText [15] = "Bork: The EMP ability is useful when it comes to stopping enemies in their tracks, stunning them and dealing a small amount of damage. [E]";
 		narrText [16] = "Bork: Finally, as you can see, each of your abilities will drain your stamina [Top Left]. Now let's explore this cavern, however be wary of those fish, they are not themselves. [E]";
-
+		narrText [17] = "Bork: Oh come now, this cave could not possibly be this dull... there must be a way out. [E]";
+		narrText [18] = "Bork: Ah how nice, there is a precariously placed hole in the ceiling. [E]";
+		narrText [19] = "Bork: Now, I know you seem capable, but please take care out in the world, we are still attached and I would rather you not be the last thing I see in this world. [E]";
+		narrText [20] = "Bork: Dear lord the fog is dense, must be a product of the volcano, or some developers.... [E]";
+		narrText [21] = "Bork: Let's move through this reef towards the volcano and see if my second worst fear has come true. [E]";
+		narrText [22] = "Bork: I mean, normally things are rather dull around here, but considering the hostility around here. Things are not bueno. [E]";
+		narrText [23] = "Bork: Ah... I see yes it looks like some irresponsible peasant left the volcano on... let's go turn it off so I can get back to the Karfishians. [E]";
+		narrText [24] = "Bork: Ugh... it's Chad. Let's go talk to him I guess. [E]";
 
 	}
 
