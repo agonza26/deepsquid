@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 5efe60a3a2f964946b90f279504d3d80
+timeCreated: 1463529837
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: body
+    100004: Head
+    100006: Head_end
+    100008: LowerArmBone.L
+    100010: LowerArmBone.L_end
+    100012: LowerArmBone.R
+    100014: LowerArmBone.R_end
+    100016: MidBody
+    100018: MidBody.001
+    100020: MidBody.002
+    100022: MidBody.003
+    100024: MidBody.004
+    100026: TailBone.L
+    100028: TailBone.L_end
+    100030: TailBone.R
+    100032: TailBone.R_end
+    100034: UpperArmBone.L
+    100036: UpperArmBone.R
+    100038: //RootNode
+    400000: Armature
+    400002: body
+    400004: Head
+    400006: Head_end
+    400008: LowerArmBone.L
+    400010: LowerArmBone.L_end
+    400012: LowerArmBone.R
+    400014: LowerArmBone.R_end
+    400016: MidBody
+    400018: MidBody.001
+    400020: MidBody.002
+    400022: MidBody.003
+    400024: MidBody.004
+    400026: TailBone.L
+    400028: TailBone.L_end
+    400030: TailBone.R
+    400032: TailBone.R_end
+    400034: UpperArmBone.L
+    400036: UpperArmBone.R
+    400038: //RootNode
+    4300000: body
+    7400000: idle
+    9500000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Armature|Swim
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/MidBody
+        weight: 1
+      - path: Armature/MidBody/Head
+        weight: 1
+      - path: Armature/MidBody/Head/Head_end
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.L
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.L/LowerArmBone.L
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.L/LowerArmBone.L/LowerArmBone.L_end
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.R
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.R/LowerArmBone.R
+        weight: 1
+      - path: Armature/MidBody/UpperArmBone.R/LowerArmBone.R/LowerArmBone.R_end
+        weight: 1
+      - path: Armature/MidBody.001
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003/MidBody.004
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003/MidBody.004/TailBone.L
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003/MidBody.004/TailBone.L/TailBone.L_end
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003/MidBody.004/TailBone.R
+        weight: 1
+      - path: Armature/MidBody.001/MidBody.002/MidBody.003/MidBody.004/TailBone.R/TailBone.R_end
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

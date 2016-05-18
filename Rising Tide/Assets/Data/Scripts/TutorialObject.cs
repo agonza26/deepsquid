@@ -399,7 +399,7 @@ public class TutorialObject : MonoBehaviour {
 		} else if (posInDialogue == 5 && acceptQuest && !questTwoComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		} else if (posInDialogue == 5 && !acceptQuest && questTwoComplete) {
-			
+
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 
@@ -799,7 +799,7 @@ public class TutorialObject : MonoBehaviour {
 				if (posInDialogue == 3 && acceptQuest && !questOneComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				} else if (posInDialogue == 1 && acceptQuest && !questZeroComplete) {
-						narrTextTrigger [posInDialogue] = false;
+					narrTextTrigger [posInDialogue] = false;
 				} else if (posInDialogue == 5 && acceptQuest && !questTwoComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				} else if (posInDialogue == 7 && acceptQuest && !questThreeComplete) {
@@ -886,10 +886,10 @@ public class TutorialObject : MonoBehaviour {
 			}
 			if (narrTextTrigger [posInDialogue]) {
 				if (posInDialogue == 24 && acceptQuest && !questElevenComplete) {
-					
+
 					narrTextTrigger [posInDialogue] = false;
 				}else if (posInDialogue == 25 && acceptQuest && !questTwelveComplete) {
-					
+
 					narrTextTrigger [posInDialogue] = false;
 				}
 				else {
@@ -899,7 +899,7 @@ public class TutorialObject : MonoBehaviour {
 				}
 			}
 			else if (Input.GetKeyDown ("e") && inRangeToIntChad && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
-				
+
 				posInDialogue++;
 			}
 
@@ -1029,7 +1029,7 @@ public class TutorialObject : MonoBehaviour {
 			interactWithChadOne = true;
 		}
 	}
-		
+
 
 	IEnumerator spellItOut(){
 		foreach (char letter in narrText[posInDialogue].ToCharArray()) {

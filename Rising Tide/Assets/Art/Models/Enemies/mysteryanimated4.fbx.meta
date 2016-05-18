@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: 13e8cf240916b1142bbd91fc3a5b50ae
+timeCreated: 1463529806
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: body
+    100004: Bone
+    100006: Bone.001
+    100008: Bone.002
+    100010: Bone.003
+    100012: Bone.004
+    100014: Bone.005
+    100016: Bone.006
+    100018: Bone.007
+    100020: Bone.007_end
+    100022: Bone.008
+    100024: Bone.009
+    100026: Bone.010
+    100028: Bone.011
+    100030: Bone.012
+    100032: Bone.013
+    100034: Bone.014
+    100036: Bone.014_end
+    100038: Bone.015
+    100040: Bone.015_end
+    100042: Bone.016
+    100044: Bone.016_end
+    100046: Bone_end
+    100048: bubble
+    100050: Camera
+    100052: coral
+    100054: coral2
+    100056: Icosphere
+    100058: Lamp
+    100060: //RootNode
+    100062: Plane
+    100064: Sun
+    100066: Weesnaw
+    400000: Armature
+    400002: body
+    400004: Bone
+    400006: Bone.001
+    400008: Bone.002
+    400010: Bone.003
+    400012: Bone.004
+    400014: Bone.005
+    400016: Bone.006
+    400018: Bone.007
+    400020: Bone.007_end
+    400022: Bone.008
+    400024: Bone.009
+    400026: Bone.010
+    400028: Bone.011
+    400030: Bone.012
+    400032: Bone.013
+    400034: Bone.014
+    400036: Bone.014_end
+    400038: Bone.015
+    400040: Bone.015_end
+    400042: Bone.016
+    400044: Bone.016_end
+    400046: Bone_end
+    400048: bubble
+    400050: Camera
+    400052: coral
+    400054: coral2
+    400056: Icosphere
+    400058: Lamp
+    400060: //RootNode
+    400062: Plane
+    400064: Sun
+    400066: Weesnaw
+    2300000: bubble
+    2300002: coral
+    2300004: coral2
+    2300006: Icosphere
+    2300008: Plane
+    2300010: Weesnaw
+    3300000: bubble
+    3300002: coral
+    3300004: coral2
+    3300006: Icosphere
+    3300008: Plane
+    3300010: Weesnaw
+    4300000: body
+    4300002: bubble
+    4300004: coral2
+    4300006: coral
+    4300008: Icosphere
+    4300010: Plane
+    4300012: Weesnaw
+    7400000: idle
+    9500000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Armature|ArmatureAction
+      firstFrame: 0
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone.001
+        weight: 1
+      - path: Armature/Bone.001/Bone
+        weight: 1
+      - path: Armature/Bone.001/Bone/Bone_end
+        weight: 1
+      - path: Armature/Bone.001/Bone.002
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003/Bone.004
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006/Bone.007
+        weight: 1
+      - path: Armature/Bone.001/Bone.002/Bone.003/Bone.004/Bone.005/Bone.006/Bone.007/Bone.007_end
+        weight: 1
+      - path: Armature/Bone.008
+        weight: 1
+      - path: Armature/Bone.008/Bone.009
+        weight: 1
+      - path: Armature/Bone.008/Bone.009/Bone.010
+        weight: 1
+      - path: Armature/Bone.008/Bone.009/Bone.010/Bone.013
+        weight: 1
+      - path: Armature/Bone.008/Bone.009/Bone.010/Bone.013/Bone.014
+        weight: 1
+      - path: Armature/Bone.008/Bone.009/Bone.010/Bone.013/Bone.014/Bone.014_end
+        weight: 1
+      - path: Armature/Bone.008/Bone.011
+        weight: 1
+      - path: Armature/Bone.008/Bone.011/Bone.015
+        weight: 1
+      - path: Armature/Bone.008/Bone.011/Bone.015/Bone.015_end
+        weight: 1
+      - path: Armature/Bone.008/Bone.012
+        weight: 1
+      - path: Armature/Bone.008/Bone.012/Bone.016
+        weight: 1
+      - path: Armature/Bone.008/Bone.012/Bone.016/Bone.016_end
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bubble
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: coral
+        weight: 1
+      - path: coral2
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Plane
+        weight: 1
+      - path: Sun
+        weight: 1
+      - path: Weesnaw
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
