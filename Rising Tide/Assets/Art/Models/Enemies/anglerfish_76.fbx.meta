@@ -1,0 +1,456 @@
+fileFormatVersion: 2
+guid: e59c46c2c31c9c64ca0952f3a25794a3
+timeCreated: 1463533114
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: antennae01
+    100004: antennae02
+    100006: ArmatureAngler
+    100008: body
+    100010: body 1
+    100012: bottom Jaw
+    100014: fin01.L
+    100016: fin01.R
+    100018: fin02.L
+    100020: fin02.L_end
+    100022: fin02.R
+    100024: fin02.R_end
+    100026: finBottom
+    100028: finBottom_end
+    100030: jawLower
+    100032: jawLower_end
+    100034: jawUpper
+    100036: jawUpper_end
+    100038: light
+    100040: light_end
+    100042: root
+    100044: tail01
+    100046: tail02
+    100048: tail02_end
+    100050: top jaw
+    400000: //RootNode
+    400002: antennae01
+    400004: antennae02
+    400006: ArmatureAngler
+    400008: body
+    400010: body 1
+    400012: bottom Jaw
+    400014: fin01.L
+    400016: fin01.R
+    400018: fin02.L
+    400020: fin02.L_end
+    400022: fin02.R
+    400024: fin02.R_end
+    400026: finBottom
+    400028: finBottom_end
+    400030: jawLower
+    400032: jawLower_end
+    400034: jawUpper
+    400036: jawUpper_end
+    400038: light
+    400040: light_end
+    400042: root
+    400044: tail01
+    400046: tail02
+    400048: tail02_end
+    400050: top jaw
+    2300000: bottom Jaw
+    2300002: top jaw
+    3300000: bottom Jaw
+    3300002: top jaw
+    4300000: top jaw
+    4300002: bottom Jaw
+    4300004: body
+    7400000: idle
+    7400002: top jaw|top jawAction
+    7400004: bottom Jaw|bottom JawAction
+    7400006: attack
+    9500000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: ArmatureAngler|ArmatureAction
+      firstFrame: 0
+      lastFrame: 163
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmatureAngler
+        weight: 1
+      - path: ArmatureAngler/body 1
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02/tail02_end
+        weight: 1
+      - path: ArmatureAngler/fin01.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L/fin02.L_end
+        weight: 1
+      - path: ArmatureAngler/fin01.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R/fin02.R_end
+        weight: 1
+      - path: ArmatureAngler/finBottom
+        weight: 1
+      - path: ArmatureAngler/finBottom/finBottom_end
+        weight: 1
+      - path: ArmatureAngler/jawLower
+        weight: 1
+      - path: ArmatureAngler/jawLower/bottom Jaw
+        weight: 1
+      - path: ArmatureAngler/jawLower/jawLower_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper
+        weight: 1
+      - path: ArmatureAngler/jawUpper/jawUpper_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper/top jaw
+        weight: 1
+      - path: ArmatureAngler/root
+        weight: 1
+      - path: ArmatureAngler/root/antennae01
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light/light_end
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: top jaw|top jawAction
+      takeName: top jaw|top jawAction
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmatureAngler
+        weight: 1
+      - path: ArmatureAngler/body 1
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02/tail02_end
+        weight: 1
+      - path: ArmatureAngler/fin01.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L/fin02.L_end
+        weight: 1
+      - path: ArmatureAngler/fin01.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R/fin02.R_end
+        weight: 1
+      - path: ArmatureAngler/finBottom
+        weight: 1
+      - path: ArmatureAngler/finBottom/finBottom_end
+        weight: 1
+      - path: ArmatureAngler/jawLower
+        weight: 1
+      - path: ArmatureAngler/jawLower/bottom Jaw
+        weight: 1
+      - path: ArmatureAngler/jawLower/jawLower_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper
+        weight: 1
+      - path: ArmatureAngler/jawUpper/jawUpper_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper/top jaw
+        weight: 1
+      - path: ArmatureAngler/root
+        weight: 1
+      - path: ArmatureAngler/root/antennae01
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light/light_end
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: bottom Jaw|bottom JawAction
+      takeName: bottom Jaw|bottom JawAction
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmatureAngler
+        weight: 1
+      - path: ArmatureAngler/body 1
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02/tail02_end
+        weight: 1
+      - path: ArmatureAngler/fin01.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L/fin02.L_end
+        weight: 1
+      - path: ArmatureAngler/fin01.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R/fin02.R_end
+        weight: 1
+      - path: ArmatureAngler/finBottom
+        weight: 1
+      - path: ArmatureAngler/finBottom/finBottom_end
+        weight: 1
+      - path: ArmatureAngler/jawLower
+        weight: 1
+      - path: ArmatureAngler/jawLower/bottom Jaw
+        weight: 1
+      - path: ArmatureAngler/jawLower/jawLower_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper
+        weight: 1
+      - path: ArmatureAngler/jawUpper/jawUpper_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper/top jaw
+        weight: 1
+      - path: ArmatureAngler/root
+        weight: 1
+      - path: ArmatureAngler/root/antennae01
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light/light_end
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: attack
+      takeName: ArmatureAngler|ArmatureAction
+      firstFrame: 98
+      lastFrame: 154
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmatureAngler
+        weight: 1
+      - path: ArmatureAngler/body 1
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02
+        weight: 1
+      - path: ArmatureAngler/body 1/tail01/tail02/tail02_end
+        weight: 1
+      - path: ArmatureAngler/fin01.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L
+        weight: 1
+      - path: ArmatureAngler/fin01.L/fin02.L/fin02.L_end
+        weight: 1
+      - path: ArmatureAngler/fin01.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R
+        weight: 1
+      - path: ArmatureAngler/fin01.R/fin02.R/fin02.R_end
+        weight: 1
+      - path: ArmatureAngler/finBottom
+        weight: 1
+      - path: ArmatureAngler/finBottom/finBottom_end
+        weight: 1
+      - path: ArmatureAngler/jawLower
+        weight: 1
+      - path: ArmatureAngler/jawLower/bottom Jaw
+        weight: 1
+      - path: ArmatureAngler/jawLower/jawLower_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper
+        weight: 1
+      - path: ArmatureAngler/jawUpper/jawUpper_end
+        weight: 1
+      - path: ArmatureAngler/jawUpper/top jaw
+        weight: 1
+      - path: ArmatureAngler/root
+        weight: 1
+      - path: ArmatureAngler/root/antennae01
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light
+        weight: 1
+      - path: ArmatureAngler/root/antennae01/antennae02/light/light_end
+        weight: 1
+      - path: body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

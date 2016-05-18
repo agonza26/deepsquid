@@ -1,0 +1,1416 @@
+fileFormatVersion: 2
+guid: eee281f3cb1ba0b42afdbf6f4e601211
+timeCreated: 1463544386
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature krakenJuvenile
+    100002: Bork
+    100004: feedingTentacle01.L
+    100006: feedingTentacle01.R
+    100008: feedingTentacle02.L
+    100010: feedingTentacle02.L_end
+    100012: feedingTentacle02.R
+    100014: feedingTentacle02.R_end
+    100016: fin.L
+    100018: fin.L.001
+    100020: fin.L.001_end
+    100022: fin.L_end
+    100024: fin.R
+    100026: fin.R.001
+    100028: fin.R.001_end
+    100030: fin.R_end
+    100032: krakenJuvenile
+    100034: //RootNode
+    100036: lowerHead
+    100038: mainTentacle01.L
+    100040: mainTentacle01.R
+    100042: mainTentacle02.L
+    100044: mainTentacle02.R
+    100046: mainTentacle03.L
+    100048: mainTentacle03.R
+    100050: mainTentacle04.L
+    100052: mainTentacle04.R
+    100054: mainTentacle05.L
+    100056: mainTentacle05.R
+    100058: mainTentacle06.L
+    100060: mainTentacle06.R
+    100062: mainTentacle07.L
+    100064: mainTentacle07.L_end
+    100066: mainTentacle07.R
+    100068: mainTentacle07.R_end
+    100070: mainTentacleBase.L
+    100072: mainTentacleBase.R
+    100074: Root
+    100076: tentacle1-01.L
+    100078: tentacle1-01.R
+    100080: tentacle1-02.L
+    100082: tentacle1-02.R
+    100084: tentacle1-03.L
+    100086: tentacle1-03.R
+    100088: tentacle1-04.L
+    100090: tentacle1-04.R
+    100092: tentacle1-05.L
+    100094: tentacle1-05.L_end
+    100096: tentacle1-05.R
+    100098: tentacle1-05.R_end
+    100100: tentacle1Base.L
+    100102: tentacle1Base.R
+    100104: tentacle2-01.L
+    100106: tentacle2-01.R
+    100108: tentacle2-02.L
+    100110: tentacle2-02.R
+    100112: tentacle2-03.L
+    100114: tentacle2-03.R
+    100116: tentacle2-04.L
+    100118: tentacle2-04.R
+    100120: tentacle2-05.L
+    100122: tentacle2-05.L_end
+    100124: tentacle2-05.R
+    100126: tentacle2-05.R_end
+    100128: tentacle2Base.L
+    100130: tentacle2Base.R
+    100132: tentacle3-01.L
+    100134: tentacle3-01.R
+    100136: tentacle3-02.L
+    100138: tentacle3-02.R
+    100140: tentacle3-03.L
+    100142: tentacle3-03.R
+    100144: tentacle3-04.L
+    100146: tentacle3-04.R
+    100148: tentacle3-05.L
+    100150: tentacle3-05.L_end
+    100152: tentacle3-05.R
+    100154: tentacle3-05.R_end
+    100156: tentacle3Base.L
+    100158: tentacle3Base.R
+    100160: upperHead
+    100162: upperHead_end
+    100164: armorJuvenile
+    400000: Armature krakenJuvenile
+    400002: Bork
+    400004: feedingTentacle01.L
+    400006: feedingTentacle01.R
+    400008: feedingTentacle02.L
+    400010: feedingTentacle02.L_end
+    400012: feedingTentacle02.R
+    400014: feedingTentacle02.R_end
+    400016: fin.L
+    400018: fin.L.001
+    400020: fin.L.001_end
+    400022: fin.L_end
+    400024: fin.R
+    400026: fin.R.001
+    400028: fin.R.001_end
+    400030: fin.R_end
+    400032: krakenJuvenile
+    400034: //RootNode
+    400036: lowerHead
+    400038: mainTentacle01.L
+    400040: mainTentacle01.R
+    400042: mainTentacle02.L
+    400044: mainTentacle02.R
+    400046: mainTentacle03.L
+    400048: mainTentacle03.R
+    400050: mainTentacle04.L
+    400052: mainTentacle04.R
+    400054: mainTentacle05.L
+    400056: mainTentacle05.R
+    400058: mainTentacle06.L
+    400060: mainTentacle06.R
+    400062: mainTentacle07.L
+    400064: mainTentacle07.L_end
+    400066: mainTentacle07.R
+    400068: mainTentacle07.R_end
+    400070: mainTentacleBase.L
+    400072: mainTentacleBase.R
+    400074: Root
+    400076: tentacle1-01.L
+    400078: tentacle1-01.R
+    400080: tentacle1-02.L
+    400082: tentacle1-02.R
+    400084: tentacle1-03.L
+    400086: tentacle1-03.R
+    400088: tentacle1-04.L
+    400090: tentacle1-04.R
+    400092: tentacle1-05.L
+    400094: tentacle1-05.L_end
+    400096: tentacle1-05.R
+    400098: tentacle1-05.R_end
+    400100: tentacle1Base.L
+    400102: tentacle1Base.R
+    400104: tentacle2-01.L
+    400106: tentacle2-01.R
+    400108: tentacle2-02.L
+    400110: tentacle2-02.R
+    400112: tentacle2-03.L
+    400114: tentacle2-03.R
+    400116: tentacle2-04.L
+    400118: tentacle2-04.R
+    400120: tentacle2-05.L
+    400122: tentacle2-05.L_end
+    400124: tentacle2-05.R
+    400126: tentacle2-05.R_end
+    400128: tentacle2Base.L
+    400130: tentacle2Base.R
+    400132: tentacle3-01.L
+    400134: tentacle3-01.R
+    400136: tentacle3-02.L
+    400138: tentacle3-02.R
+    400140: tentacle3-03.L
+    400142: tentacle3-03.R
+    400144: tentacle3-04.L
+    400146: tentacle3-04.R
+    400148: tentacle3-05.L
+    400150: tentacle3-05.L_end
+    400152: tentacle3-05.R
+    400154: tentacle3-05.R_end
+    400156: tentacle3Base.L
+    400158: tentacle3Base.R
+    400160: upperHead
+    400162: upperHead_end
+    400164: armorJuvenile
+    2300000: Bork
+    2300002: armorJuvenile
+    3300000: Bork
+    3300002: armorJuvenile
+    4300000: Bork
+    4300002: krakenJuvenile
+    4300004: armorJuvenile
+    7400000: wave
+    7400002: armorJuvenile|armorJuvenileAction
+    7400004: grab
+    7400006: swim
+    7400008: idle
+    7400010: death
+    9500000: //RootNode
+    13700000: krakenJuvenile
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: wave
+      takeName: Armature krakenJuvenile|Armature babySquid Action.001
+      firstFrame: 0
+      lastFrame: 57
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: armorJuvenile|armorJuvenileAction
+      takeName: armorJuvenile|armorJuvenileAction
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: grab
+      takeName: Armature krakenJuvenile|Armature babySquid Action.001
+      firstFrame: 58
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: swim
+      takeName: Armature krakenJuvenile|Armature babySquid Action.001
+      firstFrame: 78
+      lastFrame: 426
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle
+      takeName: Armature krakenJuvenile|Armature babySquid Action.001
+      firstFrame: 427
+      lastFrame: 898
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: death
+      takeName: Armature krakenJuvenile|Armature babySquid Action.001
+      firstFrame: 899
+      lastFrame: 1053
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature krakenJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.L.001/fin.L.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/fin.R.001/fin.R.001_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/armorJuvenile
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/Bork
+        weight: 1
+      - path: Armature krakenJuvenile/Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-05.L/tentacle1-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-05.R/tentacle1-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.L/tentacle2-01.L/tentacle2-02.L/tentacle2-03.L/tentacle2-04.L/tentacle2-05.L/tentacle2-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle2Base.R/tentacle2-01.R/tentacle2-02.R/tentacle2-03.R/tentacle2-04.R/tentacle2-05.R/tentacle2-05.R_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.L/tentacle3-01.L/tentacle3-02.L/tentacle3-03.L/tentacle3-04.L/tentacle3-05.L/tentacle3-05.L_end
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R
+        weight: 1
+      - path: Armature krakenJuvenile/Root/tentacle3Base.R/tentacle3-01.R/tentacle3-02.R/tentacle3-03.R/tentacle3-04.R/tentacle3-05.R/tentacle3-05.R_end
+        weight: 1
+      - path: krakenJuvenile
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
