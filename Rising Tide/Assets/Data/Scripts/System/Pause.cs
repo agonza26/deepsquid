@@ -6,21 +6,34 @@ public class Pause : MonoBehaviour {
 	
 	
 	private bool isPause;
-	public GameObject pausedInd;
-	public GameObject deathInd;
-	public GameObject ResumeGameBut;
-	public GameObject RestartBut;
-	public GameObject QuitGameBut;
-	public GameObject MenuBezzle;
-	public GameObject player;
-	public GameObject MouseSlideText;
+	private GameObject pausedInd;
+	private GameObject deathInd;
+	private GameObject ResumeGameBut;
+	private GameObject RestartBut;
+	private GameObject QuitGameBut;
+	//private GameObject MenuBezzle;
+	private GameObject player;
+	private GameObject MouseSlideText;
 	public string sliderName = "Slider"; 
 	private GameObject Slider;
 
 	void Start  (){
 		if(!Slider)
 			Slider = GameObject.Find (sliderName);
-			GameObject.Find ("Player").GetComponent<improved_movement> ().rotationSpeedMax = Slider.GetComponent<Slider> ().value;
+		GameObject.Find ("Player").GetComponent<improved_movement> ().rotationSpeedMax = Slider.GetComponent<Slider> ().value;
+
+		pausedInd = GameObject.Find ("PausedInd");
+		deathInd = GameObject.Find("playerded");
+		ResumeGameBut = GameObject.Find ("ResumeButton");
+		RestartBut = GameObject.Find ("DeadRestartBut");
+		QuitGameBut = GameObject.Find ("QuitButton");
+		//MenuBezzle = GameObject.Find ("MenuBezzle");
+		player = GameObject.Find ("Player");
+		MouseSlideText = GameObject.Find ("MouseSliderText");
+
+
+
+
 		deathInd.GetComponent<Image> ().CrossFadeAlpha (0, 0.1f, true);
 		deathInd.SetActive (false);
 
@@ -38,7 +51,7 @@ public class Pause : MonoBehaviour {
 			RestartBut.SetActive (true);
 			QuitGameBut.SetActive(true);
 			pausedInd.SetActive(true);
-			MenuBezzle.SetActive(true);
+			//MenuBezzle.SetActive(true);
 			MouseSlideText.SetActive (true);
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
@@ -51,7 +64,7 @@ public class Pause : MonoBehaviour {
 			RestartBut.SetActive (false);
 			QuitGameBut.SetActive(false);
 			pausedInd.SetActive(false);
-			MenuBezzle.SetActive(false);
+			//MenuBezzle.SetActive(false);
 			if (!player.GetComponent<Player_stats> ().isDead) 
 			{
 				Cursor.lockState = CursorLockMode.Locked;	
@@ -68,7 +81,7 @@ public class Pause : MonoBehaviour {
 			RestartBut.SetActive (true);
 			QuitGameBut.SetActive(true);
 			pausedInd.SetActive(false);
-			MenuBezzle.SetActive(true);
+			//MenuBezzle.SetActive(true);
 			Time.timeScale = 0.25f;
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
