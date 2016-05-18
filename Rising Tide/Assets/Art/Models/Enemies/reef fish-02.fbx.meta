@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: e99c5014fbcca4e4480a737fa014b160
+timeCreated: 1463529950
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ArmatureReefFish
+    100002: bodyFront
+    100004: bodyFront_end
+    100006: bodyRear
+    100008: fin.L
+    100010: fin.L_end
+    100012: fin.R
+    100014: fin.R_end
+    100016: fish
+    100018: //RootNode
+    100020: root
+    100022: root_end
+    100024: tail
+    100026: tail_end
+    400000: ArmatureReefFish
+    400002: bodyFront
+    400004: bodyFront_end
+    400006: bodyRear
+    400008: fin.L
+    400010: fin.L_end
+    400012: fin.R
+    400014: fin.R_end
+    400016: fish
+    400018: //RootNode
+    400020: root
+    400022: root_end
+    400024: tail
+    400026: tail_end
+    4300000: fish
+    7400000: idle
+    9500000: //RootNode
+    13700000: fish
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: ArmatureReefFish|ArmatureAction
+      firstFrame: 0
+      lastFrame: 135
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmatureReefFish
+        weight: 1
+      - path: ArmatureReefFish/bodyFront
+        weight: 1
+      - path: ArmatureReefFish/bodyFront/bodyFront_end
+        weight: 1
+      - path: ArmatureReefFish/bodyRear
+        weight: 1
+      - path: ArmatureReefFish/bodyRear/tail
+        weight: 1
+      - path: ArmatureReefFish/bodyRear/tail/tail_end
+        weight: 1
+      - path: ArmatureReefFish/fin.L
+        weight: 1
+      - path: ArmatureReefFish/fin.L/fin.L_end
+        weight: 1
+      - path: ArmatureReefFish/fin.R
+        weight: 1
+      - path: ArmatureReefFish/fin.R/fin.R_end
+        weight: 1
+      - path: ArmatureReefFish/root
+        weight: 1
+      - path: ArmatureReefFish/root/root_end
+        weight: 1
+      - path: fish
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
