@@ -23,8 +23,6 @@ public class Abilities : MonoBehaviour {
 	public float stamRegenVal = 0.65f;
 	public Image staminaBar;
 	public bool pauseStam = false;
-	public float EMPcost = 35f;
-	public float currAbilCost = 25f;
 	public float depStamAmt = 4f;
 	//0 = speed
 	//1 = ink
@@ -43,6 +41,13 @@ public class Abilities : MonoBehaviour {
 	public Image empIcon;
 
 
+
+	public float speedStaminaCost = 3f;
+	public float inkStaminaCost = 6f;
+	public float waveStaminaCost = 50f;
+	public float empStaminaCost = 175f;
+
+
 	private empGrower EMPc;
 
 	// Use this for initialization
@@ -56,6 +61,11 @@ public class Abilities : MonoBehaviour {
 		EMPc= GameObject.FindGameObjectWithTag ("EMP").GetComponent<empGrower> ();
 
 	}
+
+
+
+
+
 
 	// Update is called once per frame
 	void Update () {
@@ -83,10 +93,10 @@ public class Abilities : MonoBehaviour {
 			if (abilities [1] == true && !GetComponent<PickupObject>().carrying) {
 			
 				inkIcon.enabled = true;
-				if (Input.GetKey ("space") && currStamina >= 5 && activeAbils [1] == true) {
+				if (Input.GetKey ("space") && currStamina >= inkStaminaCost && activeAbils [1] == true) {
 					firstTimeInking = true;
 					pauseStam = true;
-					StartCoroutine (depleteStam (5f));
+					StartCoroutine (depleteStam (inkStaminaCost));
 					newInk ();
 				} else {
 					pauseStam = false;
@@ -99,11 +109,11 @@ public class Abilities : MonoBehaviour {
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
-				if (Input.GetKey ("space") && currStamina >= 25 && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
+				if (Input.GetKey ("space") && currStamina >= speedStaminaCost && activeAbils [0] == true && !GetComponent<PickupObject>().carrying) {
 					firstTimeSpeeding = true;
 					pauseStam = true;
 					abilitySpeedVal = 3f;
-					StartCoroutine (depleteStam (3f));
+					StartCoroutine (depleteStam (speedStaminaCost));
 					if (Input.GetKeyDown ("space")) 
 					{
 						bubblesBoost();	
@@ -120,11 +130,11 @@ public class Abilities : MonoBehaviour {
 			if(abilities[3] == true)
 			{
 				empIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3] && EMPc.coroutineDone)
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= empStaminaCost && activeAbils[3] && EMPc.coroutineDone)
 				{
 					firstTimeEmp = true;
 					//pauseStam = true;
-					stamDmg(EMPcost);
+					stamDmg(empStaminaCost);
 					EMPps.Emit(1);
 					EMPc.startGrowing ();
 				} else if (Input.GetKeyUp("space"))
@@ -137,10 +147,10 @@ public class Abilities : MonoBehaviour {
 			if(abilities[2] == true)
 			{
 				currentIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 20f && activeAbils[2])
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= waveStaminaCost && activeAbils[2])
 				{
 					firstTimeSanic = true;
-					stamDmg(currAbilCost);
+					stamDmg(waveStaminaCost);
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
 			}

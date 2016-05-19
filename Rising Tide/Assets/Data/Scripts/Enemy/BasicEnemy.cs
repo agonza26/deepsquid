@@ -18,7 +18,7 @@ public class BasicEnemy : MonoBehaviour {
 	public bool debug = true;
 	public string ecosystem = "Eco-Test-1";
 
-	public float empTimeLimit = 5f;
+	public float empTimeLimit = 3f;
 	public float steeringMax = 1f; //maximum steering magnitude
 	public float velocityMax = 9f; //maximum velocity magnitude
 
@@ -85,6 +85,11 @@ public class BasicEnemy : MonoBehaviour {
 	private Vector3 steering = Vector3.zero;
 	private int ecoID = -1;
 
+
+	public float empDazeTimer = 5f;
+	private float empTimer = 0f;
+	public float empDamage = 200f;
+
 	//private bool leftEco = false;
 	//private float empTimer = 0;
 	//private float straightRangeMin = 0f;
@@ -92,7 +97,6 @@ public class BasicEnemy : MonoBehaviour {
 	//private string lastState = "idle";
 
 	void Start () {
-		print ("i are starting");
 		eco = GameObject.Find (ecosystem);
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 		//look towards target on start
@@ -116,8 +120,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.tag == "EMP") {
-			print ("here");
-			//do empshit
+			effects.Add ("emp");
 
 		}
 
@@ -143,7 +146,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
-		print (other.name);
 		if( !effects.Contains(other.name)){
 			if (other.name == "ink" || other.name == "Ink") {
 				effects.Add("ink");
@@ -191,11 +193,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	void idle(){
 		if (effects.Contains ("emp")) {
-			//lastState = state;
-			state = "empDaze";
-			effects.Remove ("emp");
-			empDaze ();
-			switchedStates = true;
+			empPrep ();
 		}
 
 
@@ -267,13 +265,8 @@ public class BasicEnemy : MonoBehaviour {
 
 		
 	private void follow(){
-
-
 		if (effects.Contains ("emp")) {
-			state = "empDaze";
-			effects.Remove ("emp");
-			empDaze ();
-			switchedStates = true;
+			empPrep ();
 
 		}else if (!effects.Contains ("ink")) {
 			
@@ -343,16 +336,22 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	private void empPrep(){
+		GetComponent<EnemyHealth> ().enemyTakeDmg (empDamage);
+		prevState = state;
+		state = "empDaze";
+		effects.Remove ("emp");
 
+		empDaze ();
+		switchedStates = true;
+
+	}
 
 
 	//actual flee state
 	private void runAway(){
 		if (effects.Contains ("emp")) {
-			state = "empDaze";
-			effects.Remove ("emp");
-			empDaze ();
-			switchedStates = true;
+			empPrep ();
 		}
 
 
@@ -458,8 +457,11 @@ public class BasicEnemy : MonoBehaviour {
 
 	//state for when we have been shocked
 	private void empDaze(){
-		print ("dazed n confused");
-		rigBod.velocity += transform.right;
+		empTimer += Time.deltaTime;
+		if (empTimer >= empDazeTimer) {
+			state = prevState;
+			prevState = "idle";
+		}
 	}
 
 
