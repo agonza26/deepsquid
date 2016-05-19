@@ -56,6 +56,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	private string state = "idle";
+	private string prevState = "idle"; //used for emp;
 	private bool inkDaze = false;
 	private bool released = false;
 	private bool fleeingAway = false;
@@ -319,9 +320,15 @@ public class BasicEnemy : MonoBehaviour {
 			effects.Remove ("ink");
 		}
 
+		switchedStates = false;
+
 	}
 
 
+
+
+
+	//method to be called not a state
 	public void flee(){
 		fleeingAway = true;
 		state = "runAway";
@@ -339,7 +346,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	//actual flee state
 	private void runAway(){
 		if (effects.Contains ("emp")) {
 			state = "empDaze";
@@ -451,7 +458,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	//state for when we have been shocked
 	private void empDaze(){
-
+		print ("dazed n confused");
 		rigBod.velocity += transform.right;
 	}
 
@@ -462,7 +469,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	//not in place
 
 	//do the wiggle dance
 	public void wiggle(){

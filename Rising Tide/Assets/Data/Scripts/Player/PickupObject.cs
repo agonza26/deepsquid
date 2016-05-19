@@ -13,8 +13,15 @@ attach PickupObject script to player
 put the player model object on layer "Ignore Raycast" or it will get in the way
 */
 
+
+
+
 public class PickupObject : MonoBehaviour {
- 
+	private string[] fishNames = new string[]{ "dankFish", "baracuda","snapper", "angler","dolphin","flounder" ,"manta", "tuna", "swordfish","sting ray", "manta ray", "whale"};
+
+
+	private string targetFish = "none";
+	private int targetCounter = 0;
 	public float healthGain = 20f;
     public float objectSize;
     public bool parented = false;
@@ -41,7 +48,21 @@ public class PickupObject : MonoBehaviour {
 		bork = GameObject.FindGameObjectWithTag ("borkVisualCollider");
 	}
 
+	public void targetUpdate (string key){
+		targetFish = key;
+		targetCounter = 0;
+	}
 
+	public void targetReset(){
+		targetFish = "none";
+		targetCounter = 0;
+	}
+
+
+	public int getTargetProgress(){
+		return targetCounter;
+	}
+		
     void Update(){
 		//if we aren't dead or in the egg
 		isEgg = bork.GetComponent<TutorialObject> ().isEgg;
@@ -74,17 +95,28 @@ public class PickupObject : MonoBehaviour {
 
 			if (carrying){
 				carry(carriedObject);
+
+
 				if(carriedObject.tag == "Enemy")
 				{
+					
 					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
 					//GetComponent<Abilities>().depleteStam(10f);
+
+
 					if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
 					{
+						if (targetFish == carriedObject.GetComponent<BasicEnemy> ().fishType) {
+							targetCounter++;
+						}
+
 						GetComponent<Player_stats> ().playerRestoreHealth(carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue); 
 						Abilities a = GetComponent<Abilities> ();
 						a.currStamina += carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue*15f;
 						if (a.currStamina > a.maxStamina)
 							a.currStamina = a.maxStamina;
+
+
 						carrying = false;
 						blood.transform.position = player.transform.position;
 						blood.transform.forward = player.transform.forward;
@@ -95,6 +127,9 @@ public class PickupObject : MonoBehaviour {
 						dropObject();
 					}
 				}
+
+
+
 			}
 		}
     }
