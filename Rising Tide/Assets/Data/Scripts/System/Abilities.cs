@@ -42,6 +42,9 @@ public class Abilities : MonoBehaviour {
 	public Image currentIcon;
 	public Image empIcon;
 
+
+	private empGrower EMPc;
+
 	// Use this for initialization
 	void Start () {
 		speedIcon.enabled = false;
@@ -50,6 +53,7 @@ public class Abilities : MonoBehaviour {
 		inkIcon.enabled = false;
 		activeIcon.enabled = false;
 //		StartCoroutine(replenishStam());
+		EMPc= GameObject.FindGameObjectWithTag ("EMP").GetComponent<empGrower> ();
 
 	}
 
@@ -68,6 +72,9 @@ public class Abilities : MonoBehaviour {
 				StartCoroutine(depleteStam(depStamAmt));
 			}
 		}
+
+
+
 		if (!GetComponent<improved_movement> ().isDead) {
 
 			staminaBar.fillAmount = currStamina / maxStamina;
@@ -85,8 +92,10 @@ public class Abilities : MonoBehaviour {
 					pauseStam = false;
 					Ink.Stop ();
 				}
-			} else {
 			}
+
+
+
 			//Controls controlling the speed ability, this is meant to be a default ability on shift
 			if (abilities [0] == true) {
 				speedIcon.enabled = true;
@@ -111,16 +120,17 @@ public class Abilities : MonoBehaviour {
 			if(abilities[3] == true)
 			{
 				empIcon.enabled = true;
-				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3])
+				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= 35 && activeAbils[3] && EMPc.coroutineDone)
 				{
 					firstTimeEmp = true;
-					pauseStam = true;
+					//pauseStam = true;
 					stamDmg(EMPcost);
 					EMPps.Emit(1);
+					EMPc.startGrowing ();
 				} else if (Input.GetKeyUp("space"))
 				{
-					EMPps.Stop();
-					pauseStam = false;
+					//EMPps.Stop();
+					//pauseStam = false;
 				}
 			}
 			

@@ -3,22 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BasicEnemy : MonoBehaviour {
+	public string fishType = "dankFish";
+	public float damage = 1f;
+	public bool timedFollow = false;
+	public float followTimer = 10f;
+	public float evadeTimer = 5f;
+	public float returnTimer = 5f;
+
 	public float steerMult = 1f;
 	public float followStraight = 5f;
+
 	public float chaseSteer = 2f;
-	public float	chaseStraight = 10f;
+	public float chaseStraight = 10f;
 	public bool debug = true;
 	public string ecosystem = "Eco-Test-1";
-	public float damage = 3f;
-	public float empLimit = 5f;
+
+	public float empTimeLimit = 5f;
 	public float steeringMax = 1f; //maximum steering magnitude
 	public float velocityMax = 9f; //maximum velocity magnitude
-	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
-									// might modify to a list
 
+
+
+
+
+
+
+
+
+
+
+
+	//not something you should change in the instector
+	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
 	public GameObject thing; //eventually make it a child of an object
 	public bool waveAcc = true; //to know when we have accelerated from aen outside wave, controlled only with waves
 	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	private string state = "idle";
@@ -45,7 +79,9 @@ public class BasicEnemy : MonoBehaviour {
 
 	private List<string> effects = new List<string>();
 	private List<string> statesList = new List<string> ();
-
+	private Vector3 toTarget = Vector3.zero;
+	private Vector3 desired_velocity = Vector3.zero;
+	private Vector3 steering = Vector3.zero;
 	private int ecoID = -1;
 
 	//private bool leftEco = false;
@@ -61,8 +97,7 @@ public class BasicEnemy : MonoBehaviour {
 		//look towards target on start
 		//transform.LookAt(currentTarget);//start off looking at the first point
 		rigBod = GetComponent<Rigidbody>();//init rigitbody
-		ecoID = eco.GetComponent<EcoPoints>().addEnem(gameObject);
-
+		eco.GetComponent<EcoPoints>().Add(gameObject);
 	}
 
 
@@ -78,7 +113,14 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+	void OnTriggerEnter(Collider c){
+		if (c.gameObject.tag == "EMP") {
+			print ("here");
+			//do empshit
 
+		}
+
+	}
 
 
 
@@ -89,10 +131,8 @@ public class BasicEnemy : MonoBehaviour {
 		if (other.tag == "Player") {
 			Player_stats p = other.GetComponent<Player_stats> ();
 			if (state == "follow") {
-
-				p.playerDamage (1f);
+				p.playerDamage (damage);
 				flee ();
-				print ("attacking");
 				//be.stunMult = 1f;
 
 			}
@@ -102,14 +142,16 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void OnParticleCollision(GameObject other){
+		print (other.name);
 		if( !effects.Contains(other.name)){
 			if (other.name == "ink" || other.name == "Ink") {
 				effects.Add("ink");
-			} else if (other.name == "emp" || other.name == "EMP") {
+			} else if (other.name == "emp" || other.name == "EMPps") {
 				effects.Add("emp");
 			}
 		}
 	}
+
 
 
 
@@ -145,7 +187,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	//idle doessn't handle emp yet
+
 	void idle(){
 		if (effects.Contains ("emp")) {
 			//lastState = state;
@@ -172,18 +214,25 @@ public class BasicEnemy : MonoBehaviour {
 			}
 		}
 			
+
+
 		if (!switchedStates) {
+			//if you get hit by ink
 			if (effects.Contains ("ink")) {
-				effects.Remove ("ink");
-				inkDaze = true;
+				effects.Remove ("ink"); //remove it from effects
+				inkDaze = true; //show that you've been hit by ink
 			} else {
-				if (inkDaze) {
-					inkDaze = false;
-				}
+				//no longer being effected and should turn off
+				inkDaze = false;
+
 			}
+
+
 			//assume haven't seen player
-			if (!inkDaze) {
-				if (Random.value < 0.9f) {
+
+			if (Random.value < 0.9f) {
+
+				if (!inkDaze) {
 					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
 						//if i left the area start turning around
 						currentTarget = eco.transform;
@@ -193,23 +242,179 @@ public class BasicEnemy : MonoBehaviour {
 							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
 						}
 					}
-					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
-					Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-					Vector3 desired_velocity = toTarget * velocityMax;
-					Vector3 steering = desired_velocity - rigBod.velocity;
+					toTarget = Vector3.Normalize (currentTarget.position - transform.position);
+					desired_velocity = toTarget * velocityMax;
+					steering = desired_velocity - rigBod.velocity;
 
-					steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
+					steering = Vector3.ClampMagnitude (steering, steeringMax * steerMult);
 					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
 				}
 				thing.transform.position = transform.position + rigBod.velocity;
 				transform.LookAt (thing.transform);
+
 			}
 		} else {
 			switchedStates = false;
 		}
 	}
+
+
+
+
+	//tune ink ability a bit
+
+		
+	private void follow(){
+
+
+		if (effects.Contains ("emp")) {
+			state = "empDaze";
+			effects.Remove ("emp");
+			empDaze ();
+			switchedStates = true;
+
+		}else if (!effects.Contains ("ink")) {
+			
+			if (fleeingAway) {
+				state = "runAway";
+				currentTarget = lPC.positionTransform;
+				runAway ();
+				switchedStates = true;
+				fleeingAway = false;
+
+
+			} else {
+				switch (message) {
+					case "lostPlayer":
+						state = "idle";
+						message = "none";
+						follow ();
+						switchedStates = true;
+						break;
+				}
+				if (!switchedStates) {
+
+
+					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
+
+
+					toTarget = Vector3.Normalize (currentTarget.position - transform.position);
+					desired_velocity = toTarget * velocityMax * 5f;
+					steering = desired_velocity - rigBod.velocity;
+					steering = Vector3.ClampMagnitude (steering, steeringMax * steerMult);
+
+					float distVar = Vector3.Distance (currentTarget.position, transform.position);
+					//5,20
+					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, chaseSteer)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight);
+
+					thing.transform.position = transform.position + rigBod.velocity;
+					transform.LookAt (thing.transform);
+				}
+			}
+
+
+		} else {
+			effects.Remove ("ink");
+		}
+
+	}
+
+
+	public void flee(){
+		fleeingAway = true;
+		state = "runAway";
+
+		lPC.positionTransform = GameObject.FindGameObjectWithTag ("Player").transform;
+		lPC.position = GameObject.FindGameObjectWithTag ("Player").transform.position;
+		currentTarget = lPC.positionTransform;
+		fleeLifeTime = 0f;
+		doubleBackTime = 0f;
+		runAway ();
+	}
+
+
+
+
+
+
+
+	private void runAway(){
+		if (effects.Contains ("emp")) {
+			state = "empDaze";
+			effects.Remove ("emp");
+			empDaze ();
+			switchedStates = true;
+		}
+
+
+		if (!switchedStates) {
+		
+			if (!effects.Contains ("ink")) {
+				fleeLifeTime += Time.deltaTime;
+				float counter = 1f;
+				if (fleeLifeTime > evadeTimer) {
+
+					counter = -1f;
+					doubleBackTime += Time.deltaTime;
+
+				}
+
+
+				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer") {
+					if (message == "foundPlayer") {
+						message = "none";
+						state = "follow";
+						follow ();
+
+					} else {
+
+						state = "idle";
+						idle ();
+					}
+					fleeLifeTime = 0f;
+					doubleBackTime = 0f;
+
+				}
+
+
+
+
+				velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+				steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
+
+
+				toTarget = Vector3.Normalize (currentTarget.position+(new Vector3(1,1,1)) - transform.position);
+				desired_velocity = toTarget * velocityMax * 5f;
+				steering = desired_velocity - rigBod.velocity;
+				steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
+
+
+				float distVar = Vector3.Distance (currentTarget.position+(new Vector3(1,1,1)), transform.position);
+
+			
+				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, chaseSteer*2)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight*2);
+
+
+
+				thing.transform.position = transform.position + rigBod.velocity;
+				transform.LookAt (thing.transform);
+
+			} else {
+				effects.Remove ("ink");
+			}
+
+		} else {
+
+			switchedStates = false;
+		}
+
+
+	}
+
+
+
 
 
 
@@ -237,8 +442,6 @@ public class BasicEnemy : MonoBehaviour {
 	//state for when we are grabbed
 	private void grabbed(){
 		if (released) {
-			lPC.positionTransform = GameObject.FindGameObjectWithTag ("Player").transform;
-			lPC.position = GameObject.FindGameObjectWithTag ("Player").transform.position;
 			released = false;
 			flee ();
 		}
@@ -248,63 +451,8 @@ public class BasicEnemy : MonoBehaviour {
 
 	//state for when we have been shocked
 	private void empDaze(){
-		
 
-	}
-
-
-	//tune ink ability a bit
-
-		
-	private void follow(){
-
-
-		if (effects.Contains ("emp")) {
-			state = "empDaze";
-			effects.Remove ("emp");
-			empDaze ();
-			switchedStates = true;
-		}
-
-		if (!effects.Contains ("ink")) {
-			if (fleeingAway) {
-				state = "runAway";
-				currentTarget = lPC.positionTransform;
-				fleeLifeTime = 0f;
-				doubleBackTime = 0f;
-				runAway ();
-				fleeingAway = false;
-			}
-				
-			velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-			steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
-
-
-			Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-			Vector3 desired_velocity = toTarget * velocityMax * 5f;
-			Vector3 steering = desired_velocity - rigBod.velocity;
-			steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
-
-			float distVar = Vector3.Distance (currentTarget.position, transform.position);
-			//5,20
-			rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax * Mathf.Min (distVar / 5 + 1, chaseSteer)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight);
-
-			thing.transform.position = transform.position + rigBod.velocity;
-			transform.LookAt (thing.transform);
-		} else {
-			effects.Remove ("ink");
-		}
-
-	}
-
-
-	public void flee(){
-		fleeingAway = true;
-		state = "runAway";
-		currentTarget = lPC.positionTransform;
-		fleeLifeTime = 0f;
-		doubleBackTime = 0f;
-		runAway ();
+		rigBod.velocity += transform.right;
 	}
 
 
@@ -312,79 +460,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
-	private void runAway(){
-		if (effects.Contains ("emp")) {
-			state = "empDaze";
-			effects.Remove ("emp");
-			empDaze ();
-			switchedStates = true;
-		}
-
-
-		if (!switchedStates) {
-		
-			if (!effects.Contains ("ink")) {
-				fleeLifeTime += Time.deltaTime;
-				float counter = 1f;
-				if (fleeLifeTime > 5) {
-
-					counter = -1f;
-					doubleBackTime += Time.deltaTime;
-
-				}
-
-
-				if (doubleBackTime > 10 || message == "foundPlayer") {
-					if (message == "foundPlayer") {
-						message = "none";
-						state = "follow";
-						follow ();
-
-					} else {
-
-						state = "idle";
-						idle ();
-					}
-					fleeLifeTime = 0f;
-					doubleBackTime = 0f;
-
-				}
-
-
-
-
-				velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
-				steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
-
-
-				Vector3 toTarget = Vector3.Normalize (currentTarget.position - transform.position);
-				Vector3 desired_velocity = toTarget * velocityMax * 5f;
-				Vector3 steering = desired_velocity - rigBod.velocity;
-				steering = Vector3.ClampMagnitude (steering, steeringMax*steerMult);
-
-
-				float distVar = Vector3.Distance (currentTarget.position, transform.position);
-
-			
-				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, chaseSteer*2)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight*2);
-
-
-
-				thing.transform.position = transform.position + rigBod.velocity;
-				transform.LookAt (thing.transform);
-
-			} else {
-				effects.Remove ("ink");
-			}
-
-		} else {
-
-			switchedStates = false;
-		}
-
-
-	}
 
 
 
@@ -412,50 +487,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-	/*
-			if(carriedObject.tag == "Enemy"){
-				carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
-				
-				if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
-				{
-					GetComponent<Player_stats> ().playerDamage (-healthGain); //negative to counteract dammage
-					Abilities a = GetComponent<Abilities> ();
-					a.currStamina += 30;
-					if (a.currStamina > a.maxStamina)
-						a.currStamina = a.maxStamina;
-					carrying = false;
-					blood.transform.position = player.transform.position;
-					blood.transform.forward = player.transform.forward;
-					blood.Emit(20);
-					dropObject();
-				}
-			}
-	*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	Vector3 minVectorMag(Vector3 item, float mag){
 		if (item.magnitude < mag) {
 			return item.normalized * mag;
@@ -473,6 +504,21 @@ public class BasicEnemy : MonoBehaviour {
 	float calcEuler(float x,float mu, float sigma){
 		return Mathf.Exp(-   Mathf.Pow((x-mu), 2f)/(2f*Mathf.Pow(sigma,2f)))/Mathf.Sqrt(2f*Mathf.PI*   Mathf.Pow(sigma,2f));
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
