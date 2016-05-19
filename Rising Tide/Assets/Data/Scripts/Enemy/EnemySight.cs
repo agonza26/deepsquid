@@ -99,7 +99,7 @@
 								lastPlayerSighting.positionTransform = player.transform;
 							} else {
 								BasicEnemy brain = GetComponent<BasicEnemy> ();
-								brain.message = "cantSeePlayer";
+							brain.message = "lostPlayer";
 							}
 						}
 					}

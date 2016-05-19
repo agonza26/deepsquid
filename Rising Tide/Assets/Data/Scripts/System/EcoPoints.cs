@@ -21,18 +21,19 @@ public class EcoPoints : MonoBehaviour {
 	public GameObject barracudaPrefab;
 
 
-	public Dictionary<int, GameObject> EnemContainer = new Dictionary<int, GameObject>();
-
+	public List<GameObject> EnemContainerS = new List<GameObject>();
+	public List<GameObject> EnemContainerD = new List<GameObject>();
+	public List<GameObject> DeadEnemContainer = new List<GameObject>();
 
 
 
 	public Dictionary<string,GameObject> Ecopoints = new Dictionary<string,GameObject>();
 	public Dictionary<string,GameObject> Enemies = new Dictionary<string,GameObject>();
 	public Dictionary<string,GameObject> Dump = new Dictionary<string,GameObject>();
-	private static int fishCount = -1;
-	private string name = "none";
+	//private static int fishCount = -1;
+	//private string name = "none";
 
-
+	private bool gone = false;
 
 
 
@@ -41,7 +42,6 @@ public class EcoPoints : MonoBehaviour {
 	void Start () {
 		name = gameObject.name;
 		for (int i = 0; /*i < yellowSnappers*/ false; ++i) {
-
 			float x = transform.position.x;
 			float y = transform.position.x;
 			float z = transform.position.x;
@@ -59,8 +59,7 @@ public class EcoPoints : MonoBehaviour {
 
 
 			} while(!Physics.CheckCapsule (position - (itRot * Vector3.forward) * (capN.height / 2 - capN.radius), position + (itRot * Vector3.forward) * (capN.height / 2 - capN.radius), capN.radius));
-
-
+				
 
 			GameObject it = (GameObject)Instantiate(snapperPrefab, position, itRot);
 			it.GetComponent<BasicEnemy>().ecosystem = name;
@@ -71,41 +70,41 @@ public class EcoPoints : MonoBehaviour {
 
 
 
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void Update(){
+		if(gone && EnemContainerS.Count > 0){
+			foreach (GameObject value in EnemContainerS){
+				EnemContainerD.Add (value);
+				value.SetActive (false);
+			}
+			EnemContainerS.Clear();
+		}
+
+
+		if(!gone && EnemContainerD.Count > 0){
+			foreach (GameObject value in EnemContainerD){
+				EnemContainerS.Add (value);
+				value.SetActive (true);
+			}
+			EnemContainerD.Clear();
+		}
+
+
 	}
 
-
-
-
-
-
-	public int addEnem(GameObject idiotFish){
-		EnemContainer.Add (++fishCount, gameObject);
-		return fishCount;
-
-
+	public void Add(GameObject it){
+		EnemContainerS.Add (it);
 	}
-
-
-
-
 
 
 	public void despawn(){
-		foreach (KeyValuePair<int, GameObject> pair in EnemContainer) {
-			pair.Value.SetActive (false);
-		}
+		gone = true;
 	}
 
 
 
 	public void respawn(){
-		foreach (KeyValuePair<int, GameObject> pair in EnemContainer) {
-			pair.Value.SetActive (true);
-		}
+		gone = false;
 	}
 
 
