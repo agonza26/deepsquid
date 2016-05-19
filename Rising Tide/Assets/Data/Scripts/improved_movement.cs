@@ -36,6 +36,7 @@ public class improved_movement : MonoBehaviour {
 	private Vector3 vel;
 	private Vector3 direction;
 	private Vector3 movement;
+	public float sideMovementMod = 1.5f;
 
 	private bool isEgg;
 	private GameObject helperObject;
@@ -74,7 +75,7 @@ public class improved_movement : MonoBehaviour {
 		if (!isEgg) {
 
 			//target rotations
-			print("rotation speed" + rotationSpeedMax);
+			//print("rotation speed" + rotationSpeedMax);
 
 			x += Input.GetAxis ("Mouse X") * 4000f; //left and right
 			y = Mathf.Clamp ( y-Input.GetAxis ("Mouse Y") * rotationSpeedMax, -85.5f, 85.5f); //up and down
@@ -162,17 +163,17 @@ public class improved_movement : MonoBehaviour {
 			Vector3 elevation = Vector3.zero;
 			//Control moving up an down
 			if (Input.GetKey ("r") && ! Input.GetKey ("f")) {
-				elevation += transform.up * 0.3f;
+				elevation += transform.up * sideMovementMod;
 			} else if (Input.GetKey ("f") && ! Input.GetKey ("r")) { 
-				elevation += transform.up * -0.3f;
+				elevation += transform.up * -sideMovementMod;
 			}
 			Vector3 horzPos = Vector3.zero;
 			//Control moving left and right
 			if (Input.GetKey ("a") && !Input.GetKey ("d")) {
-				horzPos += transform.right * 0.3f;
+				horzPos += transform.right * sideMovementMod;
 			}
 			else if (Input.GetKey ("d") && ! Input.GetKey ("a")) { 
-				horzPos += transform.right * -0.3f;
+				horzPos += transform.right * -sideMovementMod;
 			}
 
 
