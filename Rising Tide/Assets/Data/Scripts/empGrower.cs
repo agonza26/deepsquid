@@ -15,18 +15,14 @@ public class empGrower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		transform.localScale = new Vector3 (startSize, startSize, startSize);
+		GetComponent<SphereCollider>().enabled = false;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (debugFeatures && false) {
-			r += Time.deltaTime;
-			if (switchBool && r > 3f) {
-				startGrowing ();
-				switchBool = false;
-			}
-		}
-	}
+
+
+
+
+
 
 	public void startGrowing(){
 		coroutineDone = false;
@@ -43,6 +39,7 @@ public class empGrower : MonoBehaviour {
 
 
 	public IEnumerator a(){
+		GetComponent<SphereCollider>().enabled = true;
 		
 		if(debugFeatures)
 			Debug.Log ("a() started");
@@ -64,7 +61,7 @@ public class empGrower : MonoBehaviour {
 			print (Time.time - startTime);
 		}
 		coroutineDone = true;
-
+		GetComponent<SphereCollider>().enabled = false;
 	}
 
 
@@ -72,41 +69,6 @@ public class empGrower : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public IEnumerator b(){
-		if(debugFeatures)
-			Debug.Log ("b() started");
-
-
-
-		while (transform.localScale.x < sizeLimit) {
-			transform.localScale += new Vector3 (growScale, growScale,growScale);
-			yield return new WaitForSeconds(waitTime);
-		}
-		if(debugFeatures)
-			Debug.Log ("b() ended");
-		//yield return null;
-
-	}
 
 
 
