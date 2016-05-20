@@ -33,10 +33,33 @@ public class EcoPoints : MonoBehaviour {
 	//private static int fishCount = -1;
 	//private string name = "none";
 
+
+
+
 	private bool gone = false;
 
 
+	public void Die(GameObject it){
+		it.SetActive (false);
+		EnemContainerD.Remove (it);
+		DeadEnemContainer.Add (it);
 
+	}
+
+
+	public void Resurrect(GameObject it){
+		it.SetActive (true);
+		EnemContainerS.Add (it);
+		DeadEnemContainer.Remove (it);
+
+		//Reset everything 
+
+		it.GetComponent<BasicEnemy> ().Reset ();
+		it.GetComponent<EnemyHealth> ().Reset ();
+		it.GetComponent<EnemySight> ().Reset ();
+
+
+	}
 
 	// Use this for initialization
 	void Start () {

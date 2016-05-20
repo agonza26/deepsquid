@@ -6,20 +6,28 @@ public class EnemyHealth : MonoBehaviour {
 	public float enemyHealthMax;
 	public float enemyHealthCurr;
 	public float PlayerHealthRestoreValue;
+	private string ecosystem;
+
+
+	private float eHM;
+	private float eHC;
+	private float PHR;
+
+
+
 
 	// Use this for initialization
 	void Start () {
+		ecosystem = GetComponent<BasicEnemy> ().ecosystem;
 		enemyHealthCurr = enemyHealthMax;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	//Debug.Log(enemyHealthCurr);
+	//Debug.Log(enemyHealthCurr);s
 		if(enemyHealthCurr <= 0)
 		{
-			
-			gameObject.SetActive(false);
-			//Destroy(this);
+			GameObject.Find (ecosystem).GetComponent<EcoPoints> ().Die (gameObject);
 		}
 	}
 	
@@ -29,4 +37,13 @@ public class EnemyHealth : MonoBehaviour {
 
 		return enemyHealthCurr <= 0;
 	}
+
+	public void Reset(){
+		enemyHealthMax = eHM;
+		enemyHealthCurr = eHC;
+		PlayerHealthRestoreValue = PHR;
+	}
+
+
+
 }
