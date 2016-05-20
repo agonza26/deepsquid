@@ -103,6 +103,11 @@ public class BasicEnemy : MonoBehaviour {
 		//transform.LookAt(currentTarget);//start off looking at the first point
 		rigBod = GetComponent<Rigidbody>();//init rigitbody
 		eco.GetComponent<EcoPoints>().Add(gameObject);
+		if (debug) {
+			state = "debug";
+
+
+		}
 	}
 
 
@@ -176,7 +181,9 @@ public class BasicEnemy : MonoBehaviour {
 			case "runAway":
 				runAway ();
 				break;
-
+			case "debug":
+				debugState ();
+				break;
 			case "idle": //default idle/patrolling phase
 			default:
 				idle ();
@@ -188,7 +195,12 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	void debugState(){
+		//does nothing, strickly for debugging, can modify for printing later or something
 
+
+
+	}
 
 
 	void idle(){

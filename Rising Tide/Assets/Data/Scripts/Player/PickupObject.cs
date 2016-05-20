@@ -17,7 +17,7 @@ put the player model object on layer "Ignore Raycast" or it will get in the way
 
 
 public class PickupObject : MonoBehaviour {
-	private string[] fishNames = new string[]{ "dankFish", "baracuda","snapper", "angler","dolphin","flounder" ,"manta", "tuna", "swordfish","sting ray", "manta ray", "whale"};
+	private string[] fishNames = new string[]{ "dankFish", "barracuda","snapper", "angler","dolphin","flounder" ,"manta", "tuna", "swordfish","sting ray", "manta ray", "whale"};
 
 
 	private string targetFish = "none";
