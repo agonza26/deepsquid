@@ -5,7 +5,7 @@ using System.Collections;
 
 
 public class TutorialObject : MonoBehaviour {
-
+	private string[] fishNames = new string[]{ "dankFish", "barracuda","snapper", "angler","dolphin","flounder" ,"manta", "tuna", "swordfish","sting ray", "manta ray", "whale"};
 	public bool debugStatements = true;
 	public GameObject tutorialText;
 	private Text tutText;
@@ -120,11 +120,14 @@ public class TutorialObject : MonoBehaviour {
 	private bool d;
 	private bool r;
 	private bool f;
+	private bool barracudaKilled;
 
 	private bool turtleTalk = false;
 	private bool sealTalk = false;
-
+	private PickupObject fishStats;
 	void Start(){
+		fishStats = GameObject.Find ("Player").GetComponent<PickupObject> ();
+
 		fillNarrativeString ();
 		tutText = tutorialText.GetComponent<Text> ();
 		uiQuestZero = GameObject.Find ("QuestZero");
@@ -209,12 +212,23 @@ public class TutorialObject : MonoBehaviour {
 			speakWithSeal ();
 		}
 		if (!inRangeToSeeChad && inRangeToHearChad) {
-			Debug.Log ("inrangetoseechad");
 			inRangeToSeeChad = true;
 		} 
 		if (!inRangeToSeeSeal && inRangeToHearSeal) {
 			inRangeToSeeSeal = true;
-		} 
+		}
+		if (fishStats.getTargetProgress () == 1 && !questSixteenComplete) {
+			uiQuestSixteen.SetActive (false);
+			uiQuestSixteenOne.SetActive (true);
+		} else if (fishStats.getTargetProgress () == 2 && !questSixteenComplete) {
+			uiQuestSixteenOne.SetActive (false);
+			uiQuestSixteenTwo.SetActive (true);
+		}
+		else if (fishStats.getTargetProgress () == 3 && !questSixteenComplete) {
+			uiQuestSixteenTwo.SetActive (false);
+			barracudaKilled = true;
+		}
+
 
 		//Debug.Log (posInDialogue);
 		inCavern = GameObject.Find("Cavern").GetComponent<LocationTracking>().here;
@@ -382,6 +396,17 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestFifteen.SetActive (false);
 			narrTextTrigger [posInDialogue] = true;
 		}
+		if (barracudaKilled && acceptQuest && !questSixteenComplete && questFifteenComplete) {
+			acceptQuest = false;
+			questSixteenComplete = true;
+			completeMissionText.SetActive (true);
+			uiQuestSixteenComp.SetActive (true);
+			//returnToBorkText.SetActive (true);
+			incompleteMissionText.SetActive (false);
+			uiQuestSixteenComp.SetActive (false);
+			narrTextTrigger [posInDialogue] = true;
+		}
+
 
 
 
@@ -874,6 +899,7 @@ public class TutorialObject : MonoBehaviour {
 		}
 		//Quest Fifteen
 		if (posInDialogue == 37 && !acceptQuest && !questSixteenComplete) {
+			fishStats.targetUpdate ("barracuda");
 			acceptQuest = true;
 			uiMissionBox.SetActive (true);
 			uiMissionText.SetActive (true);
@@ -887,6 +913,26 @@ public class TutorialObject : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 37 && !acceptQuest && questSixteenComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+		//Quest Sixteen
+		if (posInDialogue == 38 && !acceptQuest && !questSeventeenComplete) {
+			fishStats.targetReset();
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestSeventeen.SetActive (true);
+			completeMissionText.SetActive (false);
+			uiQuestOutline.SetActive (true);
+			incompleteMissionText.SetActive (true);
+			uiQuestSixteenComp.SetActive (false);
+			//returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+		} else if (posInDialogue == 38 && acceptQuest && !questSeventeenComplete) {
+			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		} else if (posInDialogue == 38 && !acceptQuest && questSeventeenComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
@@ -976,9 +1022,7 @@ public class TutorialObject : MonoBehaviour {
 				else if (posInDialogue == 32 && acceptQuest && !questFourteenComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				}
-				else if (posInDialogue == 37 && acceptQuest && !questSixteenComplete) {
-					narrTextTrigger [posInDialogue] = false;
-				}
+
 				else {
 					tutText.text = "";
 					narrTextTrigger [posInDialogue] = false;
@@ -1001,6 +1045,11 @@ public class TutorialObject : MonoBehaviour {
 			if (narrTextTrigger [posInDialogue]) {
 				if (posInDialogue == 33 && acceptQuest && !questFifteenComplete) {
 
+					narrTextTrigger [posInDialogue] = false;
+				}else if (posInDialogue == 37 && acceptQuest && !questSixteenComplete) {
+					narrTextTrigger [posInDialogue] = false;
+				}
+				else if (posInDialogue == 38 && acceptQuest && !questSeventeenComplete) {
 					narrTextTrigger [posInDialogue] = false;
 				}
 				else {
@@ -1256,6 +1305,7 @@ public class TutorialObject : MonoBehaviour {
 		narrText [34] = "Bork: I'm not honestly not sure what he is called but he has very weak arms, and Chad is being an abomination at the moment. [E]";
 		narrText [35] = "Seal Dad: Even in my age I can see from here that he is no definition in his tentacles, and yes I could hear Chad from here... gosh darn turtle ruining my afternoon. [E]";
 		narrText [36] = "Seal Dad: I got the medicine for this, you gotta get Chad out of that, and I need dinner. Kill 3 Barracudas and come back to me, after that we will talk more about bulking you up. [E]";
+		narrText [37] = "Bork: That was actually nasty... but good job, you've proved you are not incompetent, let's head back to Seal Dad. [E]";
 	}
 
 

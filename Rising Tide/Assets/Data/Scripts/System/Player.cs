@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	
 	public GameObject player;
 
-	public Slider healthBar;
+
 	public Color flashColor = new Color (1f,0f,0f,0.1f);
 	public Image DamageIndicator;
 	public float flashSpeed = 5f;
