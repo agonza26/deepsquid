@@ -17,14 +17,16 @@ public class EnemyHealth : MonoBehaviour {
 	//Debug.Log(enemyHealthCurr);
 		if(enemyHealthCurr <= 0)
 		{
-			Debug.Log(this + " has been defeated");
+			
 			gameObject.SetActive(false);
 			//Destroy(this);
 		}
 	}
 	
-	public void enemyTakeDmg(float dmgReceivedVal)
+	public bool enemyTakeDmg(float dmgReceivedVal)
 	{
 		enemyHealthCurr -= dmgReceivedVal;
+
+		return enemyHealthCurr <= 0;
 	}
 }
