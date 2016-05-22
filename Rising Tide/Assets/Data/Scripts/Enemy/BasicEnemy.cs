@@ -154,7 +154,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void Update () {
-		
+		print(gameObject.name + " running");
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
 		case "follow": //sees player, currently following
