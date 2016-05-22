@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour {
 	private float PHR;
 
 
-
+	public AudioSource t;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour {
 	//Debug.Log(enemyHealthCurr);s
 		if(enemyHealthCurr <= 0)
 		{
+			//t.Play ();
 			GameObject.Find (ecosystem).GetComponent<EcoPoints> ().Die (gameObject);
 		}
 	}
