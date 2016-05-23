@@ -21099,7 +21099,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128190, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 172220, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
@@ -21347,18 +21347,34 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 119236, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 187460, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 195428, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 194736, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437718, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429466, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464582, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478960, guid: 2a7fb2110a58142ce9eb86c877557a21, type: 2}
+      propertyPath: debug
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
