@@ -14,10 +14,10 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.09019608, g: 0.34901962, b: 0.49019608, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.005
+  m_FogDensity: 0.007
   m_LinearFogStart: 40
   m_LinearFogEnd: 280
   m_AmbientSkyColor: {r: 0.5401168, g: 0.8241186, b: 0.99264705, a: 1}
@@ -2110,7 +2110,7 @@ Transform:
   m_Children:
   - {fileID: 699016511}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 17
 --- !u!54 &79045173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44350,27 +44350,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: sunColor.r
-      value: 0.97545636
+      value: 0.09128324
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: sunColor.g
-      value: 1
+      value: 0.35098928
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: sunColor.b
-      value: 0.5827586
+      value: 0.49264705
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: maxRadius
-      value: 0.9
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: sunShaftBlurRadius
-      value: 1
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 11468596, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
       propertyPath: sunShaftIntensity
-      value: 3.5
+      value: 4.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006840, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
+      propertyPath: far clip plane
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28eb3dfe8a304084f9cacd9c1b9d04e6, type: 2}
@@ -45000,7 +45004,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 155800, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 127764, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
       propertyPath: m_IsActive
@@ -56426,23 +56430,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22439832, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.4874372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22439832, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.4874372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.4874372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11499634, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -73680,7 +73684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2081946699
 Transform:
   m_ObjectHideFlags: 0

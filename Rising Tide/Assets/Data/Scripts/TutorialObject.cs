@@ -1703,7 +1703,7 @@ public class TutorialObject : MonoBehaviour {
 		if (dist <= 200) {
 			//Debug.Log ("in range to hear Chad <= 200");
 			inRangeToHearChad = true;
-			if (dist <= 150) {
+			if (dist <= 200) {
 				inRangeToIntChad = true;
 				chadLocOrigin.GetComponent<NPCHighlighting>().changeMatToHL ();
 				if (!acceptQuest)
@@ -2001,6 +2001,7 @@ public class TutorialObject : MonoBehaviour {
 		narrText [53] = "Bork: Eel Chan, we have your beauty kit, will you help us now? [E]";
 		narrText [54] = "Eel Chan: Oh I suppose, here. A dab there a smudge there and bam youre not terrible looking! [E]";
 		narrText [55] = "Bork: Good lord, you look actually spooky, I am sure this will be more than enough to scare Chad out of hiding, and if not then just give him a good toss! [E]";
+		narrText [56] = "Bork: Chad, we are gonna give you one last chance! [E]";
 	}
 
 
