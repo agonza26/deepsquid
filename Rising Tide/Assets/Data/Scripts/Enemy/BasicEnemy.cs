@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class BasicEnemy : MonoBehaviour {
+	public bool timeToUpdate = false;
+	public bool updated = false;
 	public string fishType = "dankFish";
 	public float damage = 1f;
 	public bool timedFollow = false;
@@ -154,7 +156,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void Update () {
-		print(gameObject.name + " running");
+		
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
 		case "follow": //sees player, currently following
@@ -251,7 +253,12 @@ public class BasicEnemy : MonoBehaviour {
 					steering = desired_velocity - rigBod.velocity;
 
 					steering = Vector3.ClampMagnitude (steering, steeringMax * steerMult);
-					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
+					if (true) {
+						
+						GetComponent<Rigidbody>().velocity = (Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight);
+						updated = true;
+						timeToUpdate = false;
+					}
 
 				}
 				thing.transform.position = transform.position + rigBod.velocity;

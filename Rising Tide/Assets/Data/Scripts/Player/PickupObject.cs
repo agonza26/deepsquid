@@ -42,6 +42,10 @@ public class PickupObject : MonoBehaviour {
 	private GameObject player;
 	private GameObject bork;
 
+	private float enemyHitSoundTimer = 0f;
+	public float enemyHitSoundTimeLimit = 0.05f;
+	public AudioSource enemyHitSound;
+	public bool firstDamage = true;
    
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -99,7 +103,17 @@ public class PickupObject : MonoBehaviour {
 
 				if(carriedObject.tag == "Enemy")
 				{
-					
+					enemyHitSound = carriedObject.transform.Find ("HitSound").gameObject.GetComponent<AudioSource>();
+					if (firstDamage) {
+						enemyHitSound.Play ();
+						firstDamage = false;
+					} else {
+						enemyHitSoundTimer += Time.deltaTime;
+					}
+					if (enemyHitSoundTimer >= enemyHitSoundTimeLimit){
+						enemyHitSound.Play();
+						enemyHitSoundTimer = 0;
+					}
 					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
 					//GetComponent<Abilities>().depleteStam(10f);
 
