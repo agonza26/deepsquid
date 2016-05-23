@@ -35,38 +35,36 @@ public class EcoPoints : MonoBehaviour {
 
 
 
-	public bool debug = true;
+
 	private bool gone = false;
-	private float recycleTimer = 0;
-	public float recycleTimeLimit = 5;
+
 
 	public void Die(GameObject it){
-		
+		it.SetActive (false);
 		EnemContainerD.Remove (it);
 		DeadEnemContainer.Add (it);
-		it.SetActive (false);
+
 	}
 
 
 	public void Resurrect(GameObject it){
-		print ("giving life");
 		it.SetActive (true);
 		EnemContainerS.Add (it);
 		DeadEnemContainer.Remove (it);
 
 		//Reset everything 
 
-	//	it.GetComponent<BasicEnemy> ().Reset ();
-	//	it.GetComponent<EnemyHealth> ().Reset ();
-	//	it.GetComponent<EnemySight> ().Reset ();
+		it.GetComponent<BasicEnemy> ().Reset ();
+		it.GetComponent<EnemyHealth> ().Reset ();
+		it.GetComponent<EnemySight> ().Reset ();
+
+
 	}
 
 	// Use this for initialization
 	void Start () {
 		name = gameObject.name;
-
-		/*
-		for (int i = 0; i < yellowSnappers; ++i) {
+		for (int i = 0; /*i < yellowSnappers*/ false; ++i) {
 			float x = transform.position.x;
 			float y = transform.position.x;
 			float z = transform.position.x;
@@ -91,8 +89,6 @@ public class EcoPoints : MonoBehaviour {
 
 			//setup the component scripts
 		}
-
-		*/
 	}
 
 
@@ -115,24 +111,6 @@ public class EcoPoints : MonoBehaviour {
 			}
 			EnemContainerD.Clear();
 		}
-
-
-
-		if (DeadEnemContainer.Count > 0) {
-			recycleTimer += Time.deltaTime;
-			if(recycleTimer >= recycleTimeLimit){
-				Resurrect (DeadEnemContainer [0]);
-				recycleTimer = 0;
-			}
-		}
-
-
-		if (Input.GetKeyDown ("k") && !gone && debug &&EnemContainerS.Count>0) {
-			Die(EnemContainerS[0]);
-
-
-		}
-
 
 
 	}

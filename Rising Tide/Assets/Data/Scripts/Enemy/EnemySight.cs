@@ -22,18 +22,6 @@
 		public float timerLimit = 5f;
 
 
-
-		void OnEnable(){
-
-			//col = GetComponent<SphereCollider>();
-			lastPlayerSighting = GameObject.FindGameObjectWithTag("gameController").GetComponent<LastPlayerSighting>();
-			player = GameObject.FindGameObjectWithTag("Player");
-
-			personalLastSighting = lastPlayerSighting.resetPosition;
-			previousSighting = lastPlayerSighting.resetPosition;
-
-		}
-
 		void Awake ()
 		{
 			

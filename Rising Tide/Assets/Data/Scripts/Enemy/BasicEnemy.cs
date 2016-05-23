@@ -25,11 +25,31 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+
+
+
+
+
+
+
+
 	//not something you should change in the instector
 	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
 	public GameObject thing; //eventually make it a child of an object
 	public bool waveAcc = true; //to know when we have accelerated from aen outside wave, controlled only with waves
 	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -79,6 +99,32 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	private Transform currentTarget = null; /
+
+	private List<string> effects = new List<string>();
+	private List<string> statesList = new List<string> ();
+	private Vector3 toTarget = Vector3.zero;
+	private Vector3 desired_velocity = Vector3.zero;
+	private Vector3 steering = Vector3.zero;
+
+
+	public float empDazeTimer = 5f;
+	private float empTimer = 0f;
+	public float empDamage = 200f;
+	private string state = "idle";
+	private string prevState = "idle"; //used for emp;
+
+
+	private float 
+
+
+
+	public void Reset(){
+
+
+
+	}
+
 
 	void Start () {
 		eco = GameObject.Find (ecosystem);
@@ -87,21 +133,26 @@ public class BasicEnemy : MonoBehaviour {
 		//transform.LookAt(currentTarget);//start off looking at the first point
 		rigBod = GetComponent<Rigidbody>();//init rigitbody
 		eco.GetComponent<EcoPoints>().Add(gameObject);
-
-
 		if (debug) {
 			state = "debug";
 
-
-		} else {
-
-			state = "idle";
 
 		}
 	}
 
 
-	/*
+	public bool modifyState(string s){
+		if (statesList.Contains(s)) {
+			state = s;
+			return true;
+		} else {
+
+			return false;
+		}
+
+	}
+
+
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.tag == "EMP") {
 			effects.Add ("emp");
@@ -139,48 +190,36 @@ public class BasicEnemy : MonoBehaviour {
 		}
 	}
 
-*/
 
-	public bool modifyState(string s){
-		if (statesList.Contains(s)) {
-			state = s;
-			return true;
-		} else {
-
-			return false;
-		}
-
-	}
 
 
 	void Update () {
-		
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
-		case "follow": //sees player, currently following
-			follow ();
-			break;
+			case "follow": //sees player, currently following
+				follow ();
+				break;
 
-		case "empDaze":
-			empDaze ();
-			break;
+			case "empDaze":
+				empDaze ();
+				break;
 
 
-		case "grabbed": //being grabbed by the player
-			grabbed ();
-			break;
-		case "runAway":
-			runAway ();
-			break;
-		case "debug":
-			debugState ();
-			break;
-		case "idle": //default idle/patrolling phase
-		default:
-			idle ();
-			break;
+			case "grabbed": //being grabbed by the player
+				grabbed ();
+				break;
+			case "runAway":
+				runAway ();
+				break;
+			case "debug":
+				debugState ();
+				break;
+			case "idle": //default idle/patrolling phase
+			default:
+				idle ();
+				break;
 		}
-		//waveHandler (); //always move with the wave independant of the stat
+		waveHandler (); //always move with the wave independant of the state
 	}
 
 
@@ -195,7 +234,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void idle(){
-		
 		if (effects.Contains ("emp")) {
 			empPrep ();
 		}
@@ -205,7 +243,7 @@ public class BasicEnemy : MonoBehaviour {
 		if (message != "none" && !switchedStates) {
 			if(!effects.Contains("ink")){
 				switch (message) {
-
+				
 				case "foundPlayer":
 					currentTarget = lPC.positionTransform;
 					state = "follow";
@@ -216,8 +254,8 @@ public class BasicEnemy : MonoBehaviour {
 				}
 			}
 		}
+			
 
-		
 
 		if (!switchedStates) {
 			//if you get hit by ink
@@ -234,7 +272,7 @@ public class BasicEnemy : MonoBehaviour {
 			//assume haven't seen player
 
 			if (Random.value < 0.9f) {
-				
+
 				if (!inkDaze) {
 					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
 						//if i left the area start turning around
@@ -252,19 +290,14 @@ public class BasicEnemy : MonoBehaviour {
 
 					steering = Vector3.ClampMagnitude (steering, steeringMax * steerMult);
 					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
-
 				}
 				thing.transform.position = transform.position + rigBod.velocity;
 				transform.LookAt (thing.transform);
-
-
 
 			}
 		} else {
 			switchedStates = false;
 		}
-
-
 	}
 
 
@@ -272,13 +305,13 @@ public class BasicEnemy : MonoBehaviour {
 
 	//tune ink ability a bit
 
-
+		
 	private void follow(){
 		if (effects.Contains ("emp")) {
 			empPrep ();
 
 		}else if (!effects.Contains ("ink")) {
-
+			
 			if (fleeingAway) {
 				state = "runAway";
 				currentTarget = lPC.positionTransform;
@@ -289,12 +322,12 @@ public class BasicEnemy : MonoBehaviour {
 
 			} else {
 				switch (message) {
-				case "lostPlayer":
-					state = "idle";
-					message = "none";
-					follow ();
-					switchedStates = true;
-					break;
+					case "lostPlayer":
+						state = "idle";
+						message = "none";
+						follow ();
+						switchedStates = true;
+						break;
 				}
 				if (!switchedStates) {
 
@@ -365,7 +398,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		if (!switchedStates) {
-
+		
 			if (!effects.Contains ("ink")) {
 				fleeLifeTime += Time.deltaTime;
 				float counter = 1f;
@@ -408,7 +441,7 @@ public class BasicEnemy : MonoBehaviour {
 
 				float distVar = Vector3.Distance (currentTarget.position+(new Vector3(1,1,1)), transform.position);
 
-
+			
 				rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering * (-1 * counter), velocityMax * Mathf.Min (distVar / 5 + 5, chaseSteer*2)) + transform.forward * Mathf.Min (8 * 32 / (distVar), chaseStraight*2);
 
 
@@ -581,7 +614,7 @@ public class BasicEnemy : MonoBehaviour {
 			}
 		}
 	}
-
+		
 
 
 
