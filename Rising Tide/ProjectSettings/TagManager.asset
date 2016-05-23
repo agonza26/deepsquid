@@ -31,6 +31,10 @@ TagManager:
   - borkunattached
   - uiQuestTwo
   - uiQuestThree
+  - EMP
+  - milkBox
+  - pillowBox
+  - beautyKit
   layers:
   - Default
   - TransparentFX

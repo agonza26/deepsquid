@@ -10,7 +10,6 @@ public class Pickupable : MonoBehaviour {
 
 
 
-
 	private string myTag = "none";
 	private bool thrown = false; 
 
@@ -57,11 +56,17 @@ public class Pickupable : MonoBehaviour {
 		switch (myTag) {
 
 			
-			case "AbilityEMP":
-			case "AbilitySpeed":
-			case "AbilityInk":
-				GameObject.FindWithTag("Player").GetComponent<Abilities> ().abilities [abilityIndex] = true;
-				Destroy (gameObject);
+		case "AbilityEMP":
+		case "beautyKit":
+			GameObject.FindWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().beautyKitFound = true;
+			Destroy (gameObject);
+			held = false;
+			break;
+		case "AbilitySpeed":
+		case "AbilityInk":
+			GameObject.FindWithTag ("Player").GetComponent<Abilities> ().abilities [abilityIndex] = true;
+			Destroy (gameObject);
+
 				held = false;
 				break;
 
