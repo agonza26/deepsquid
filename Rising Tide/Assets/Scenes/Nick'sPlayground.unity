@@ -24279,8 +24279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find Eel Chan, she will most likely be hiding, but last I knew she liked
-    those purple crystals.
+  m_Text: Yank Chad out of his comfort, toss him aside then
 --- !u!222 &784284035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45058,7 +45057,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 16.74
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 15493840, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
+      propertyPath: m_EnableTreeColliders
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21845688, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
+      propertyPath: m_HeightmapPixelError
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5456588, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d527becb50f0b984daf4f2d90349805a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1314149131
@@ -56130,7 +56138,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!23 &1598278096
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56430,23 +56438,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22439832, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4874372
       objectReference: {fileID: 0}
     - target: {fileID: 22439832, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.4874372
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4874372
       objectReference: {fileID: 0}
     - target: {fileID: 22478944, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11499634, guid: ad139ceb6ed9c2540a7eb976dff4f29e, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -58388,11 +58396,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11461572, guid: b64c1863964dc1642bcd79bb8f6c19b6, type: 2}
       propertyPath: narrText.Array.size
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 11461572, guid: b64c1863964dc1642bcd79bb8f6c19b6, type: 2}
       propertyPath: narrTextTrigger.Array.size
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 420416, guid: b64c1863964dc1642bcd79bb8f6c19b6, type: 2}
       propertyPath: m_LocalPosition.x
@@ -58458,7 +58466,8 @@ Prefab:
       propertyPath: skipQuests
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5429346, guid: b64c1863964dc1642bcd79bb8f6c19b6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b64c1863964dc1642bcd79bb8f6c19b6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1650065524

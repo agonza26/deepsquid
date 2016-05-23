@@ -1422,6 +1422,42 @@ public class TutorialObject : MonoBehaviour {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
+		if (posInDialogue == 57) {
+			uiMissionBox.SetActive (false);
+			uiMissionText.SetActive (false);
+			uiQuestTwentyFive.SetActive (false);
+			uiQuestOutline.SetActive (false);
+			completeMissionText.SetActive (false);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+		}
+		//Dialogue
+		if (posInDialogue == 58) {
+			uiQuestOutline.SetActive (false);
+
+			pressEText.SetActive (true);
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+		}
+		if (posInDialogue == 59 && !acceptQuest && !questTwentySixComplete) {
+			acceptQuest = true;
+			uiMissionBox.SetActive (true);
+			uiMissionText.SetActive (true);
+			uiQuestTwentySix.SetActive (true);
+			completeMissionText.SetActive (false);
+			uiQuestOutline.SetActive (true);
+			incompleteMissionText.SetActive (true);
+			returnToBorkText.SetActive (false);
+			pressEText.SetActive (false);
+			eelTalk = false;
+		} else if (posInDialogue == 59 && acceptQuest && !questTwentySixComplete) {
+			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			pressEText.SetActive (false);
+		} else if (posInDialogue == 59 && !acceptQuest && questTwentySixComplete) {
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
+			pressEText.SetActive (true);
+		}
+
 
 
 
@@ -1618,6 +1654,10 @@ public class TutorialObject : MonoBehaviour {
 					uiBoxOutline.SetActive (false);
 					narrTextTrigger [posInDialogue] = false;
 				}else if (posInDialogue == 56 && acceptQuest && !questTwentyFiveComplete) {
+					narrTextTrigger [posInDialogue] = false;
+					uiBoxOutline.SetActive (false);
+				}
+				else if (posInDialogue == 59 && acceptQuest && !questTwentySixComplete) {
 					narrTextTrigger [posInDialogue] = false;
 					uiBoxOutline.SetActive (false);
 				}
@@ -2001,7 +2041,9 @@ public class TutorialObject : MonoBehaviour {
 		narrText [53] = "Bork: Eel Chan, we have your beauty kit, will you help us now? [E]";
 		narrText [54] = "Eel Chan: Oh I suppose, here. A dab there a smudge there and bam youre not terrible looking! [E]";
 		narrText [55] = "Bork: Good lord, you look actually spooky, I am sure this will be more than enough to scare Chad out of hiding, and if not then just give him a good toss! [E]";
-		narrText [56] = "Bork: Chad, we are gonna give you one last chance! [E]";
+		narrText [56] = "Bork: Chad, we are gonna give you one last chance! Vacate that hole or we will vacate you ourselves. [E]";
+		narrText [57] = "Chad: You wouldn't dare! No one would dare disturb such a kindly turtle on a day like this! [E]";
+		narrText [58] = "Bork: Have you met you? You know what we are done, squidlad, take care of this chump, and let's turn off that damn button. [E]";
 	}
 
 
