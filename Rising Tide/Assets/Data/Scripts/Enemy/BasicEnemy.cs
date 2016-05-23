@@ -99,23 +99,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-	private Transform currentTarget = null; /
-
-	private List<string> effects = new List<string>();
-	private List<string> statesList = new List<string> ();
-	private Vector3 toTarget = Vector3.zero;
-	private Vector3 desired_velocity = Vector3.zero;
-	private Vector3 steering = Vector3.zero;
-
-
-	public float empDazeTimer = 5f;
-	private float empTimer = 0f;
-	public float empDamage = 200f;
-	private string state = "idle";
-	private string prevState = "idle"; //used for emp;
-
-
-	private float 
 
 
 
