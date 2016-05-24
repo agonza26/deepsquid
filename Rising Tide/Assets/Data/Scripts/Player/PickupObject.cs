@@ -26,14 +26,13 @@ public class PickupObject : MonoBehaviour {
     public float objectSize;
     public bool parented = false;
     public bool canThrow;
-	public ParticleSystem blood;
     public float playerSize = 2.0f;
 	public float distance = 1.5f; //offset between carried object and player
 	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
 	public AudioSource grabSound;
-
+	public float holdDamage = 1f;
 
 	private bool isEgg;
 	private bool grabbableInRange = false;
@@ -41,16 +40,174 @@ public class PickupObject : MonoBehaviour {
 	public GameObject carriedObject;
 	private GameObject player;
 	private GameObject bork;
+	private bool doingDamageBool = false;
+	public float waitTime = 0.5f;
 
-	private float enemyHitSoundTimer = 0f;
-	public float enemyHitSoundTimeLimit = 0.05f;
-	public AudioSource enemyHitSound;
-	public bool firstDamage = true;
-   
+
+
+
+
+
+
+
+
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
 		bork = GameObject.FindGameObjectWithTag ("borkVisualCollider");
 	}
+
+
+
+    void Update(){
+		//if we aren't dead or in the egg
+		isEgg = bork.GetComponent<TutorialObject> ().isEgg;
+		if(!GetComponent<Player_stats>().isDead && !isEgg){
+			
+
+
+			//if we arent carrying anything
+			if (!carrying){
+				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 35) {
+					pickup ();
+				} 
+			} else {
+				if ((GetComponent<Abilities> ().currStamina <= 0f) || Input.GetKeyUp(KeyCode.Mouse0)) {
+					dropObject ();
+				} else if (Input.GetKeyDown(KeyCode.Mouse1)){ 
+					throwObject ();
+					
+				}
+			}
+				
+			//carrying could change from pickup, drop, or throw object
+			if (carrying){
+				carry(carriedObject);
+			}
+		}
+    }
+
+
+
+
+
+
+
+
+	//done changing
+	private void pickup(){
+		if (grabbableInRange && !isEgg){
+			Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
+			if (p != null){
+				GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
+				grabSound.Play();
+				carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
+				carriedObject = p.gameObject; //set our carried object to
+				objectSize = p.size;
+				grabbableInRange = false;
+				parented = (playerSize < objectSize) && carrying;
+			}
+		}
+	}
+		
+
+
+
+
+   private void carry(GameObject o){
+        canThrow = true;
+		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-3.5f;
+		carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
+
+
+		if(carriedObject.tag == "Enemy"){
+			if( !doingDamageBool )
+				StartCoroutine (doingDamage());
+			if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0){
+				restoreStats ();
+				clearHolding ();
+			}
+		}
+    }
+
+
+
+
+    void dropObject(){
+		clearHolding ();
+
+
+    }
+
+
+
+
+	private void clearHolding(){
+		carriedObject.layer = 0; //return carried object to default layer
+		carrying = false;
+		carriedObject = null;
+	}
+
+	private void restoreStats(){
+		GetComponent<Player_stats> ().playerRestoreHealth(carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue); 
+		Abilities a = GetComponent<Abilities> ();
+		a.currStamina = Mathf.Min(a.maxStamina,a.currStamina + carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue*15f);
+	}
+
+
+
+
+
+
+    void throwObject() {
+
+		if (canThrow) {
+			//carrying = false;
+			clearHolding();
+			carriedObject.GetComponent<Pickupable> ().letGo (true);
+		} else {
+			dropObject ();
+		}
+    }
+
+
+
+
+
+
+
+
+
+
+
+	void OnTriggerStay(Collider c){
+		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera"){
+			InRangeItemSaver = c;
+			grabbableInRange = true;
+			if(!carrying){
+				if (c.GetComponent<NPCHighlighting> () != null) {
+					c.GetComponent<NPCHighlighting> ().changeMatToHL ();
+				}
+			} else{
+				if (c.GetComponent<NPCHighlighting> () != null) {
+					c.GetComponent<NPCHighlighting> ().changeMatToNml ();
+				}
+			}
+		}
+	}
+
+
+	void OnTriggerExit(Collider c){
+		grabbableInRange = false;
+		if (c.GetComponent<NPCHighlighting> () != null) {
+			c.GetComponent<NPCHighlighting> ().changeMatToNml ();
+		}
+
+	}
+
+
+
+
+
 
 	public void targetUpdate (string key){
 		targetFish = key;
@@ -66,116 +223,26 @@ public class PickupObject : MonoBehaviour {
 	public int getTargetProgress(){
 		return targetCounter;
 	}
-		
-    void Update(){
-		//if we aren't dead or in the egg
-		isEgg = bork.GetComponent<TutorialObject> ().isEgg;
-		if(!GetComponent<Player_stats>().isDead && !isEgg){
-			
-			if((GetComponent<Abilities>().currStamina <= 0f)&&(carrying)){
-				dropObject();
-			}
-
-			//if we arent carrying anything
-			if (!carrying){
-				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 35) {
-					print ("we picked up");
-					pickup ();
-				} 
-			} else {
-				if(Input.GetKeyUp(KeyCode.Mouse0))
-				{
-					dropObject();
-				}
-				
-				if (Input.GetKeyDown(KeyCode.Mouse1)){
-					if (canThrow) {
-						throwObject ();
-					} else {
-						dropObject ();
-					}
-				}
-			}
-
-			if (carrying){
-				carry(carriedObject);
 
 
-				if(carriedObject.tag == "Enemy")
-				{
-					enemyHitSound = carriedObject.transform.Find ("HitSound").gameObject.GetComponent<AudioSource>();
-					if (firstDamage) {
-						enemyHitSound.Play ();
-						firstDamage = false;
-					} else {
-						enemyHitSoundTimer += Time.deltaTime;
-					}
-					if (enemyHitSoundTimer >= enemyHitSoundTimeLimit){
-						enemyHitSound.Play();
-						enemyHitSoundTimer = 0;
-					}
-					carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(GetComponent<Player_stats>().giveDmg() * 8f * Time.deltaTime);
-					//GetComponent<Abilities>().depleteStam(10f);
+	public string getTarget(){
+		return targetFish;
+	}
 
 
-					if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0)
-					{
-						if (targetFish == carriedObject.GetComponent<BasicEnemy> ().fishType) {
-							targetCounter++;
-						}
+	public void incrementTarget(){
+		targetCounter++;
 
-						GetComponent<Player_stats> ().playerRestoreHealth(carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue); 
-						Abilities a = GetComponent<Abilities> ();
-						a.currStamina += carriedObject.GetComponent<EnemyHealth>().PlayerHealthRestoreValue*15f;
-						if (a.currStamina > a.maxStamina)
-							a.currStamina = a.maxStamina;
-
-
-						carrying = false;
-						blood.transform.position = player.transform.position;
-						blood.transform.forward = player.transform.forward;
-						Vector3 littlebitforward = blood.transform.position;
-						littlebitforward.z += 2f;
-						blood.transform.position = littlebitforward;
-						blood.Emit(25);
-						dropObject();
-					}
-				}
-
-
-
-			}
-		}
-    }
+	}
 
 
 
 
-
-
-
-
-	//done changing
-	void pickup()
-	{
-
-			if (grabbableInRange && !isEgg)
-			{
-				Pickupable p = InRangeItemSaver.GetComponent<Pickupable>(); 
-				
-				if (p != null)
-				{
-					GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
-					grabSound.Play();
-					carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
-					carriedObject = p.gameObject; //set our carried object to
-					objectSize = p.size;
-					grabbableInRange = false;
-					parented = (playerSize < objectSize) && carrying;
-
-				}
-			}
-
+	IEnumerator doingDamage(){
+		doingDamageBool = true;
+		carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(holdDamage);
+		yield return new WaitForSeconds(waitTime);
+		doingDamageBool = false;
 	}
 
 
@@ -197,130 +264,6 @@ public class PickupObject : MonoBehaviour {
 
 
 
-
-    void carry(GameObject o)
-    {
-
-
-        
-	
-		if (!parented) //object is smaller than player
-        {
-            canThrow = true;
-			Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-3.5f;
-			carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
-        }
-        else //object is larger than player
-        {
-
-
-
-            canThrow = false; // get rid of this for super squid strength
-			Vector3 objSize = (o.GetComponent<Collider>().bounds.size)/ 2f;
-			player.GetComponent<Rigidbody>().isKinematic = true; //without this it won't move with the parent
-			parented = true;
-			player.transform.position = Vector3.Lerp(player.transform.position, o.transform.position - objSize , Time.deltaTime );
-
-
-        }
-    }
-
-
-
-
-    void dropObject()
-    {
-
-
-        carrying = false;
-        carriedObject.layer = 0; //return carried object to default layer
-        if (parented){
-            player.transform.parent = null;
-            parented = false;
-            player.GetComponent<Rigidbody>().isKinematic = false;            
-            Debug.Log("releasing big object");
-        }
-        carriedObject.GetComponent<Rigidbody>().useGravity = true; //disabling for now
-		//carriedObject.GetComponent<Rigidbody>().AddForce(GetComponent<improved_movement>().getMovement());
-		carriedObject.GetComponent<Rigidbody> ().drag = 1f;
-        carriedObject = null;
-    }
-
-
-
-
-
-
-    void throwObject()
-    {
-
-		if (canThrow) {
-			//carrying = false;
-			carrying = false;
-			carriedObject.GetComponent<Rigidbody> ().AddForce (transform.forward * -throwForce);
-			carriedObject.GetComponent<Rigidbody> ().useGravity = true;
-			carriedObject.GetComponent<Pickupable> ().changeThrown ();
-			carriedObject.layer = 0; //return carried object to default layer
-			carriedObject = null;
-
-
-		} else {
-			dropObject ();
-		}
-    }
-
-
-
-
-
-
-
-
-	//leave alone, is working
-	void OnTriggerEnter(Collider c)
-	{
-		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
-		{
-			InRangeItemSaver = c;
-			grabbableInRange = true;
-			if(c.GetComponent<NPCHighlighting> () != null){
-				c.GetComponent<NPCHighlighting> ().changeMatToHL (); //getting null
-			}
-		}
-	}
-
-	void OnTriggerStay(Collider c)
-	{
-		if(c.GetComponent<Pickupable>() != null && c.tag != "MainCamera")
-		{
-		InRangeItemSaver = c;
-		grabbableInRange = true;
-		if(!carrying)
-		{
-				if (c.GetComponent<NPCHighlighting> () != null) {
-					c.GetComponent<NPCHighlighting> ().changeMatToHL ();
-				}
-		} 
-		else
-		{
-				if (c.GetComponent<NPCHighlighting> () != null) {
-					c.GetComponent<NPCHighlighting> ().changeMatToNml ();
-				}
-		}
-		
-		}
-	}
-	
-	void OnTriggerExit(Collider c)
-	{
-		grabbableInRange = false;
-		if(c)
-		{
-			if (c.GetComponent<NPCHighlighting> () != null) {
-				c.GetComponent<NPCHighlighting> ().changeMatToNml ();
-			}
-		}
-	}
 
 	
 }

@@ -7,14 +7,10 @@ public class EnemyHealth : MonoBehaviour {
 	public float enemyHealthCurr;
 	public float PlayerHealthRestoreValue;
 	private string ecosystem;
-
-
-	private float eHM;
-	private float eHC;
-	private float PHR;
-
-
-
+	public int prevMod = 0;
+	[Range(1, 500)]
+	public int hitSoundCounter = 1;
+	public AudioSource hitSound;
 
 	// Use this for initialization
 	void Start () {
@@ -24,26 +20,18 @@ public class EnemyHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	//Debug.Log(enemyHealthCurr);s
-		if(enemyHealthCurr <= 0)
-		{
+		if (enemyHealthCurr <= 0) {
 			GameObject.Find (ecosystem).GetComponent<EcoPoints> ().Die (gameObject);
+		} else if (  (  ( (enemyHealthMax - enemyHealthCurr) %  (hitSoundCounter)) == 0) &&   ( (enemyHealthMax - enemyHealthCurr) /  (hitSoundCounter))  > prevMod )  {
+			prevMod =  (int)( (enemyHealthMax - enemyHealthCurr) /  (hitSoundCounter));
+			if (hitSound)
+				hitSound.Play ();
 		}
 	}
-	
-	public bool enemyTakeDmg(float dmgReceivedVal)
-	{
-		enemyHealthCurr -= dmgReceivedVal;
 
+
+	public bool enemyTakeDmg(float dmgReceivedVal){
+		enemyHealthCurr -= dmgReceivedVal;
 		return enemyHealthCurr <= 0;
 	}
-
-	public void Reset(){
-		enemyHealthMax = eHM;
-		enemyHealthCurr = eHC;
-		PlayerHealthRestoreValue = PHR;
-	}
-
-
-
 }
