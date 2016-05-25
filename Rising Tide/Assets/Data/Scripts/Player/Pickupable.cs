@@ -149,7 +149,7 @@ public class Pickupable : MonoBehaviour {
 
 
 
-	private void letGo(){
+	public void letGo(bool test, Vector3 test2){
 
 		switch (myTag) {
 		case "Enemy":
@@ -161,6 +161,9 @@ public class Pickupable : MonoBehaviour {
 
 		case "box":
 		default:
+			GetComponent<Rigidbody> ().useGravity = true;
+			if (test)
+				GetComponent<Rigidbody> ().AddForce (test2*-8f);
 			//i//f(GetComponent<Rigidbody
 			thrown = true;
 			break;

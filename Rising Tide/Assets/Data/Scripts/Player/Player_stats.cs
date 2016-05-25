@@ -21,6 +21,7 @@ public class Player_stats : MonoBehaviour {
 	private Color normalAlph;
 	public bool isDead;
 	public float stamDmgModifier;
+	public AudioSource hurtSound;
 
 	// Use this for initialization
 	void Start () {
@@ -64,6 +65,9 @@ public class Player_stats : MonoBehaviour {
 
 	public void playerDamage(float val)
 	{
+		if (hurtSound) {
+			hurtSound.Play ();
+		}
 		PlayerDmged = true;
 		PlayerCurrHealth -= val;
 		if(GetComponent<PickupObject>().carrying)
