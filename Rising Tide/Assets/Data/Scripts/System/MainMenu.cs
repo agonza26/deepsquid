@@ -4,17 +4,13 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour 
 {
-	public void LoadNewGame()
+	public void StartGame()
 	{
-		Debug.Log("LoadNewGame() function running...");
-		print ("we are here");
-		SceneManager.LoadScene ("Scene 1");
-		//way to reload scene SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Application.LoadLevel("Scene 1");
 	}
 	
 	public void QuitGame()
 	{
-		Debug.Log("QuitGame function running...");
 		Application.Quit();
 	}
 }
