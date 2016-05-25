@@ -62,6 +62,9 @@
      <Compile Include="Assets\Data\Scripts\LocationTracking.cs" />
      <Compile Include="Assets\Data\Scripts\NPCHighlighting.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\LabSwitch.cs" />
+     <Compile Include="Assets\Data\Scripts\Other-IDK\SealSwitch.cs" />
+     <Compile Include="Assets\Data\Scripts\Other-IDK\TurtleSwitch.cs" />
+     <Compile Include="Assets\Data\Scripts\Other-IDK\endGameSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\test.cs" />
      <Compile Include="Assets\Data\Scripts\Player\PickupObject.cs" />
      <Compile Include="Assets\Data\Scripts\Player\Pickupable.cs" />
@@ -95,9 +98,11 @@
      <Compile Include="Assets\Data\Scripts\System\inkObjectPuzzle.cs" />
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
+     <Compile Include="Assets\Data\Scripts\dialogueLerp.cs" />
      <Compile Include="Assets\Data\Scripts\empGrower.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
      <Compile Include="Assets\Data\Scripts\modelSwitch.cs" />
+     <Compile Include="Assets\Data\Scripts\outlineLerp.cs" />
      <Compile Include="Assets\Data\Scripts\spellItOut.cs" />
      <Compile Include="Assets\dLoader.cs" />
      <Compile Include="Assets\testscript.cs" />

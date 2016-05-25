@@ -10,7 +10,6 @@ public class Pickupable : MonoBehaviour {
 
 
 
-
 	private string myTag = "none";
 	private bool thrown = false; 
 
@@ -56,37 +55,43 @@ public class Pickupable : MonoBehaviour {
 
 		switch (myTag) {
 
-			
-			case "AbilityEMP":
-			case "AbilitySpeed":
-			case "AbilityInk":
-				GameObject.FindWithTag("Player").GetComponent<Abilities> ().abilities [abilityIndex] = true;
-				Destroy (gameObject);
-				held = false;
-				break;
 
-				
+		case "AbilityEMP":
+		case "beautyKit":
+			GameObject.FindWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().beautyKitFound = true;
+			Destroy (gameObject);
+			held = false;
+			break;
+		case "AbilitySpeed":
+		case "AbilityInk":
+			GameObject.FindWithTag ("Player").GetComponent<Abilities> ().abilities [abilityIndex] = true;
+			Destroy (gameObject);
 
-			case "Enemy":
-				if (GetComponent<BasicEnemy> () != null) {
-					BasicEnemy b = GetComponent<BasicEnemy> ();
-					b.modifyState("grabbed");
-						//held = false;
-
-				}
-				//set state to grabbed
-				//pass in size
-				break;
-			case "Boids":
-				break;
+			held = false;
+			break;
 
 
-			case "box":
-			default:
-				GetComponent<Rigidbody> ().useGravity = false;
-                thrown = false;
-				//i//f(GetComponent<Rigidbody
-				break;
+
+		case "Enemy":
+			if (GetComponent<BasicEnemy> () != null) {
+				BasicEnemy b = GetComponent<BasicEnemy> ();
+				b.modifyState("grabbed");
+				//held = false;
+
+			}
+			//set state to grabbed
+			//pass in size
+			break;
+		case "Boids":
+			break;
+
+
+		case "box":
+		default:
+			GetComponent<Rigidbody> ().useGravity = false;
+			thrown = false;
+			//i//f(GetComponent<Rigidbody
+			break;
 
 
 
@@ -111,30 +116,30 @@ public class Pickupable : MonoBehaviour {
 
 	//will return the object back to its "normal" state
 	public bool holding(Vector3 position, Quaternion rotation){
-		
+
 		bool holdin = true;
 		switch (myTag) {
-			case "Enemy":
-				if (GetComponent<BasicEnemy> () != null) {
-					GetComponent<BasicEnemy> ().struggle (); //returns if escaped
-				}
-				//isPickedUp = true;
-				transform.position = position;
-				transform.rotation = rotation * Quaternion.Euler(0, 90f, 0);// euler to rotate on its side like we're eating it
-				
-				//get if it escaped or not
-				
-				break;
-			case "Boids":
+		case "Enemy":
+			if (GetComponent<BasicEnemy> () != null) {
+				GetComponent<BasicEnemy> ().struggle (); //returns if escaped
+			}
+			//isPickedUp = true;
+			transform.position = position;
+			transform.rotation = rotation * Quaternion.Euler(0, 90f, 0);// euler to rotate on its side like we're eating it
+
+			//get if it escaped or not
+
+			break;
+		case "Boids":
 
 
-			case "box":
-			default:
-				transform.position = position;
-				transform.rotation = rotation;
-                thrown = false;
-					//i//f(GetComponent<Rigidbody
-					break;
+		case "box":
+		default:
+			transform.position = position;
+			transform.rotation = rotation;
+			thrown = false;
+			//i//f(GetComponent<Rigidbody
+			break;
 
 
 
@@ -157,8 +162,8 @@ public class Pickupable : MonoBehaviour {
 
 		case "box":
 		default:
-                //i//f(GetComponent<Rigidbody
-                thrown = true;
+			//i//f(GetComponent<Rigidbody
+			thrown = true;
 			break;
 
 

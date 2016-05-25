@@ -16,6 +16,7 @@ public class NPCHighlighting : MonoBehaviour {
 	public void changeMatToNml()
 	{
 		if (mats [0]) {
+			//Debug.Log ("called normalcy" + gameObject.name);
 			if (transform.childCount > 0) {
 				GetComponentInChildren<Renderer> ().material = mats [0];
 			} else {
@@ -26,6 +27,7 @@ public class NPCHighlighting : MonoBehaviour {
 
 	public void changeMatToHL()
 	{
+		//Debug.Log ("called highlight" + gameObject.name);
 		if (mats [1]) {
 			if (transform.childCount > 0) {
 				GetComponentInChildren<Renderer> ().material = mats [1];
