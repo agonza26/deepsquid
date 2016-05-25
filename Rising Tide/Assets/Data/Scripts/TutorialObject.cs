@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -14,7 +15,7 @@ public class TutorialObject : MonoBehaviour {
 	private GameObject playerBabyModel;
 	private GameObject playerJuveModel;
 	private GameObject playerAdultModel;
-
+	private Scene sceneTemp;
 	public GameObject player;
 	private GameObject egg;
 	public GameObject tutorialBox;
@@ -59,6 +60,10 @@ public class TutorialObject : MonoBehaviour {
 	private AudioSource questCompleteSound;
 	private AudioSource tubeBreakSound;
 	private AudioSource borkDialogueSound;
+	private AudioSource chadDialogueSound;
+	private AudioSource dadDialogueSound;
+	private AudioSource eelDialogueSound;
+
 	private GameObject uiMissionText;
 	private GameObject uiQuestOutline;
 	private GameObject uiBoxOutline;
@@ -188,6 +193,9 @@ public class TutorialObject : MonoBehaviour {
 		questCompleteSound = GameObject.Find("Player").transform.Find ("questCompleteSound").GetComponent<AudioSource> ();
 		tubeBreakSound = GameObject.Find("Player").transform.Find ("tubeBreak").GetComponent<AudioSource> ();
 		borkDialogueSound = GameObject.Find("Player").transform.Find ("borkSound").GetComponent<AudioSource> ();
+		eelDialogueSound = GameObject.Find("Player").transform.Find ("eelSound").GetComponent<AudioSource> ();
+		dadDialogueSound = GameObject.Find("Player").transform.Find ("dadSound").GetComponent<AudioSource> ();
+		chadDialogueSound = GameObject.Find("Player").transform.Find ("chadSound").GetComponent<AudioSource> ();
 
 		playerBabyModel = GameObject.Find("chibiSquid");
 		playerJuveModel = GameObject.FindGameObjectWithTag ("krakenJuvenile");
@@ -195,6 +203,7 @@ public class TutorialObject : MonoBehaviour {
 		playerAdultModel = GameObject.FindGameObjectWithTag ("krakenAdult");
 		playerAdultModel.SetActive (false);
 
+		sceneTemp = SceneManager.GetActiveScene ();
 		uiQuestZero = GameObject.Find ("QuestZero");
 		uiQuestZero.SetActive (false);
 		uiQuestOne = GameObject.FindGameObjectWithTag ("uiQuestOne");
@@ -649,9 +658,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (false);
 			uiQuestEighteen.SetActive (false);
 			pressEText.SetActive (true);
-			playerBabyModel.SetActive (false);
-			playerJuveModel.SetActive (true);
-			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
+
 			narrTextTrigger [posInDialogue] = true;
 			colorControl.endColor = Color.green;
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -735,9 +742,7 @@ public class TutorialObject : MonoBehaviour {
 			narrTextTrigger [posInDialogue] = true;
 			playerJuveModel.SetActive (false);
 			playerAdultModel.SetActive (true);
-			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
-			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedAdult");
-			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
+
 			colorControl.endColor = Color.green;
 		}
 		if (visitLastTime && acceptQuest && !questTwentyFiveComplete && questTwentyFourComplete) {
@@ -760,7 +765,7 @@ public class TutorialObject : MonoBehaviour {
 			questCompleteSound.Play ();
 			returnToBorkText.SetActive (true);
 			incompleteMissionText.SetActive (false);
-			uiQuestTwentyFive.SetActive (false);
+			uiQuestTwentySix.SetActive (false);
 			pressEText.SetActive (true);
 			narrTextTrigger [posInDialogue] = true;
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -1078,10 +1083,10 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Dialogue
-		if (posInDialogue == 19) {
+		if (posInDialogue == 19 && dialogueSoundPlay) {
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
+				//dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
@@ -1107,7 +1112,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest Nine
-		if (posInDialogue == 21) {
+		if (posInDialogue == 21 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestNine.SetActive (false);
@@ -1193,10 +1198,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 			turtleTalk = true;
 			dialogueSoundPlay = false;
-			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
-				borkDialogueSound.Play ();
-			}
+
 		}else if (posInDialogue == 25 && acceptQuest && !questTwelveComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1205,7 +1207,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest twelve
-		if (posInDialogue == 26) {
+		if (posInDialogue == 26 && !dialogueSoundPlay) {
 			dialogueSoundPlay = false;
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
@@ -1215,44 +1217,55 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			dialogueSoundPlay = false;
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			//dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
-				//Play chad sound
-				//borkDialogueSound.Play ();
-			}
+				chadDialogueSound.Play ();
+			} 
 		}
 		//Dialogue
-		if (posInDialogue == 27) {
+		if (posInDialogue == 27  && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
+				//dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 28) {
+		if (posInDialogue == 28 && !dialogueSoundPlay) {
 			pressEText.SetActive (true);
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
 				//Play chad sound
-				//borkDialogueSound.Play ();
+				chadDialogueSound.Play ();
 			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 29) {
+		if (posInDialogue == 29 && dialogueSoundPlay) {
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 
 		}
 		//Dialogue
-		if (posInDialogue == 30) {
+		if (posInDialogue == 30 && !dialogueSoundPlay) {
 			pressEText.SetActive (true);
 			turtleTalk = false;
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				//Play chad sound
+				borkDialogueSound.Play ();
+			}
 
 
 		}
@@ -1316,7 +1329,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest fifteen
-		if (posInDialogue == 34) {
+		if (posInDialogue == 34 && dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestFifteen.SetActive (false);
@@ -1324,19 +1337,32 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 35) {
+		if (posInDialogue == 35 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			//dialogueSoundPlay = ;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 36) {
+		if (posInDialogue == 36 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-			//uiQuestSixteenComp.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			sealTalk = false;
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -1377,6 +1403,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			uiQuestSeventeen.SetActive (true);
 			pressEText.SetActive (false);
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 38 && acceptQuest && !questSeventeenComplete) {
 			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1385,13 +1412,18 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest seventen
-		if (posInDialogue == 39) {
+		if (posInDialogue == 39 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestSeventeen.SetActive (false);
 			uiQuestOutline.SetActive (false);
 			completeMissionText.SetActive (false);
 			//returnToDadText.SetActive (false);
+
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
@@ -1407,6 +1439,7 @@ public class TutorialObject : MonoBehaviour {
 			colorControl.endColor = Color.red;
 			incompleteMissionText.SetActive (true);
 			//returnToDadText.SetActive (false);
+			dialogueSoundPlay = false;
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 40 && acceptQuest && !questEighteenComplete) {
 			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -1416,9 +1449,11 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 41) {
+		if (posInDialogue == 41 && !dialogueSoundPlay) {
 			sealTalk = false;
-
+			playerBabyModel.SetActive (false);
+			playerJuveModel.SetActive (true);
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestEighteen.SetActive (false);
@@ -1426,6 +1461,10 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Sixteen
@@ -1450,7 +1489,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 43) {
+		if (posInDialogue == 43 && dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestNineteen.SetActive (false);
@@ -1458,12 +1497,21 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 44) {
+		if (posInDialogue == 44 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				chadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
@@ -1487,9 +1535,13 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 46) {
+		if (posInDialogue == 46 && dialogueSoundPlay) {
 			sealTalk = false;
-	
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwenty.SetActive (false);
@@ -1530,6 +1582,7 @@ public class TutorialObject : MonoBehaviour {
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
 			colorControl.endColor = Color.red;
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 48 && acceptQuest && !questTwentyTwoComplete) {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1537,7 +1590,12 @@ public class TutorialObject : MonoBehaviour {
 			//ameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 49) {
+		if (posInDialogue == 49 && !dialogueSoundPlay) {
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyTwo.SetActive (false);
@@ -1548,16 +1606,24 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 50) {
+		if (posInDialogue == 50 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 51) {
+		if (posInDialogue == 51 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
@@ -1598,6 +1664,7 @@ public class TutorialObject : MonoBehaviour {
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
 			colorControl.endColor = Color.red;
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 53 && acceptQuest && !questTwentyFourComplete) {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1605,7 +1672,15 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 54) {
+		if (posInDialogue == 54 && !dialogueSoundPlay) {
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedAdult");
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyFour.SetActive (false);
@@ -1616,9 +1691,13 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 55) {
+		if (posInDialogue == 55 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
@@ -1636,6 +1715,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
+			dialogueSoundPlay = false;
 			eelTalk = false;
 		} else if (posInDialogue == 56 && acceptQuest && !questTwentyFiveComplete) {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -1644,10 +1724,15 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 57) {
+		if (posInDialogue == 57 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyFive.SetActive (false);
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				chadDialogueSound.Play ();
+			}
 			uiQuestOutline.SetActive (false);
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
@@ -1655,9 +1740,13 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 58) {
+		if (posInDialogue == 58 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
@@ -1673,7 +1762,6 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-
 			chadLocOriginWithRigid.SetActive(true);
 			chadLocOriginWithRigid.GetComponent<Rigidbody> ().isKinematic = true;
 			chadLocOriginWithNo.SetActive (false);
@@ -1684,6 +1772,9 @@ public class TutorialObject : MonoBehaviour {
 		} else if (posInDialogue == 59 && !acceptQuest && questTwentySixComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
+			if (Input.GetKeyDown ("e")) {
+				SceneManager.LoadScene (sceneTemp.name);
+			}
 		}
 
 
