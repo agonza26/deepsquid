@@ -47,11 +47,11 @@ Material:
       data:
         first:
           name: _Emission
-        second: 0.284
+        second: 0.96
       data:
         first:
           name: _ReflectionStrength
-        second: 0.117
+        second: 2
       data:
         first:
           name: _EnvironmentLight
