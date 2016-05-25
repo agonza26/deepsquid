@@ -133,7 +133,7 @@ public class PickupObject : MonoBehaviour {
 
 
     void dropObject(){
-		carriedObject.GetComponent<Pickupable>().letGo (false, Vector3.zero);
+		carriedObject.GetComponent<Pickupable>().letGo (false, Vector3.zero, throwForce);
 		clearHolding ();
 
 
@@ -165,7 +165,7 @@ public class PickupObject : MonoBehaviour {
 		if (canThrow) {
 			//carrying = false;
 
-			carriedObject.GetComponent<Pickupable> ().letGo (true, transform.forward);
+			carriedObject.GetComponent<Pickupable> ().letGo (true, transform.forward ,throwForce);
 			clearHolding();
 		} else {
 			dropObject ();
