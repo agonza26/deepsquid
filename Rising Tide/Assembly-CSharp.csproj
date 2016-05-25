@@ -98,9 +98,11 @@
      <Compile Include="Assets\Data\Scripts\System\inkObjectPuzzle.cs" />
      <Compile Include="Assets\Data\Scripts\System\tentacleAnimator.cs" />
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
+     <Compile Include="Assets\Data\Scripts\dialogueLerp.cs" />
      <Compile Include="Assets\Data\Scripts\empGrower.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
      <Compile Include="Assets\Data\Scripts\modelSwitch.cs" />
+     <Compile Include="Assets\Data\Scripts\outlineLerp.cs" />
      <Compile Include="Assets\Data\Scripts\spellItOut.cs" />
      <Compile Include="Assets\dLoader.cs" />
      <Compile Include="Assets\testscript.cs" />
