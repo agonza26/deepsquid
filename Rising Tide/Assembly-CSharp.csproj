@@ -100,6 +100,7 @@
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
      <Compile Include="Assets\Data\Scripts\dialogueLerp.cs" />
      <Compile Include="Assets\Data\Scripts\empGrower.cs" />
+     <Compile Include="Assets\Data\Scripts\fadeIn.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
      <Compile Include="Assets\Data\Scripts\modelSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\outlineLerp.cs" />
