@@ -43,7 +43,7 @@ public class Pause : MonoBehaviour {
 	void Update () {
 		if(Application.loadedLevelName != "MainMenuScene")
 		{
-			if(Input.GetKeyDown (KeyCode.Escape) && !player.GetComponent<Player_stats>().isDead)
+			if(Input.GetKeyDown (KeyCode.Escape) && !player.GetComponent<Player_stats>().isDead && !transform.GetComponent<QuitGame>().AYSactive)
 			{
 				PUPgame();	
 			}
