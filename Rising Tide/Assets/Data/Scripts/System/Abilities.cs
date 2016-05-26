@@ -7,8 +7,10 @@ public class Abilities : MonoBehaviour {
 	public ParticleSystem Ink;
 	public ParticleSystem EMPps;
 	public Transform playerPos;
-	public AudioSource ad;
+	public AudioSource BoostSound;
 	public AudioSource EMPsound;
+	public AudioSource InkSound;
+	public AudioSource CurrentAbilSound;
 	public ParticleSystem boostPS;
 	public int boostParticles = 35;
 	public GameObject waveBullet;
@@ -95,6 +97,7 @@ public class Abilities : MonoBehaviour {
 					pauseStam = true;
 					StartCoroutine (depleteStam (inkStaminaCost));
 					newInk ();
+					InkSound.Play();
 				} else {
 					pauseStam = false;
 					Ink.Stop ();
@@ -114,6 +117,7 @@ public class Abilities : MonoBehaviour {
 					if (Input.GetKeyDown ("space")) 
 					{
 						bubblesBoost();	
+						BoostSound.Play();
 					}
 				} else {
 					abilitySpeedVal = 1f;
@@ -149,6 +153,7 @@ public class Abilities : MonoBehaviour {
 				{
 					firstTimeSanic = true;
 					stamDmg(waveStaminaCost);
+					CurrentAbilSound.Play();
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
 			}
