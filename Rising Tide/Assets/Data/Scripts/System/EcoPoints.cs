@@ -7,15 +7,10 @@ public class EcoPoints : MonoBehaviour {
 
 	public int yellowSnappers = 0;
 	public int barracuda = 0;
-	public bool autoSpawn = false;
- 
 
 
 	public BoxCollider spawnBoxCage;
 	public SphereCollider spawnSphereTrigger;
-
-
-
 
 	public GameObject snapperPrefab;
 	public GameObject barracudaPrefab;
@@ -33,15 +28,21 @@ public class EcoPoints : MonoBehaviour {
 	//private static int fishCount = -1;
 	//private string name = "none";
 
-	private bool gone = false;
 
+
+	public bool debug = true;
+	private bool gone = false;
+	private float recycleTimer = 0;
+	public float recycleTimeLimit = 5;
 
 
 
 	// Use this for initialization
 	void Start () {
 		name = gameObject.name;
-		for (int i = 0; /*i < yellowSnappers*/ false; ++i) {
+
+		/*
+		for (int i = 0; i < yellowSnappers; ++i) {
 			float x = transform.position.x;
 			float y = transform.position.x;
 			float z = transform.position.x;
@@ -66,13 +67,14 @@ public class EcoPoints : MonoBehaviour {
 
 			//setup the component scripts
 		}
+
+		*/
 	}
-
-
-
+		
 
 	void Update(){
 		if(gone && EnemContainerS.Count > 0){
+			print ("here");
 			foreach (GameObject value in EnemContainerS){
 				EnemContainerD.Add (value);
 				value.SetActive (false);
@@ -89,32 +91,72 @@ public class EcoPoints : MonoBehaviour {
 			EnemContainerD.Clear();
 		}
 
+		if (DeadEnemContainer.Count > 0) {
+			recycleTimer += Time.deltaTime;
+			if(recycleTimer >= recycleTimeLimit){
+				Resurrect (DeadEnemContainer [0]);
+				recycleTimer = 0;
+			}
+		}
+
+
+		if (Input.GetKeyUp ("k") && !gone && debug && EnemContainerS.Count > 0) {
+			Die (EnemContainerS [0]);
+		} else if (Input.GetKeyUp ("i") && !gone && debug && EnemContainerS.Count > 0) {
+			Damage (EnemContainerS [0]);
+		} else if (Input.GetKeyUp ("m") && !gone && debug && DeadEnemContainer.Count > 0) {
+			Resurrect (DeadEnemContainer [0]);
+		}
+
+
 
 	}
 
+
+
+
+
+
+
+	public void Damage(GameObject it){
+		it.GetComponent<EnemyHealth> ().enemyTakeDmg (1);
+	}
+
+
+	public void Die(GameObject it){
+		EnemContainerS.Remove (it);
+		DeadEnemContainer.Add (it);
+		it.GetComponent<BasicEnemy>().kiil();
+		it.SetActive (false);
+	}
+		
+
+	//bring a fish back to life
+	public void Resurrect(GameObject it){
+		it.SetActive (true);
+		EnemContainerS.Add (it);
+		DeadEnemContainer.Remove (it);
+		it.GetComponent<BasicEnemy>().biith();
+	}
+		
+
+	//a new fish has been created
 	public void Add(GameObject it){
 		EnemContainerS.Add (it);
 	}
 
 
+
+	//if the player left
 	public void despawn(){
 		gone = true;
 	}
 
 
-
+	//if the player is back
 	public void respawn(){
 		gone = false;
 	}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -138,7 +180,7 @@ public class EcoPoints : MonoBehaviour {
 
 	void OnTriggerExit(Collider enter){
 
-
+		//removes them from a category
 		if (Ecopoints.ContainsKey (enter.gameObject.name) && enter.gameObject.tag == "EcoPoint") {
 			Ecopoints.Remove (enter.gameObject.name);
 
@@ -149,4 +191,6 @@ public class EcoPoints : MonoBehaviour {
 			Dump.Remove (enter.gameObject.name);
 		}
 	}
+
+
 }

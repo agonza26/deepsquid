@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 
 public class Pause : MonoBehaviour {
-	
-	
+
+
 	private bool isPause;
 	private GameObject pausedInd;
 	private GameObject deathInd;
@@ -43,7 +43,7 @@ public class Pause : MonoBehaviour {
 	void Update () {
 		if(Application.loadedLevelName != "MainMenuScene")
 		{
-			if(Input.GetKeyDown (KeyCode.Escape) && !player.GetComponent<Player_stats>().isDead)
+			if(Input.GetKeyDown (KeyCode.Escape) && !player.GetComponent<Player_stats>().isDead && !transform.GetComponent<QuitGame>().AYSactive)
 			{
 				PUPgame();	
 			}
@@ -99,19 +99,19 @@ public class Pause : MonoBehaviour {
 	}
 
 
-	
+
 	public void PUPgame()
 	{
 		isPause = !isPause;
-			
-			if(isPause){
-				Time.timeScale = 0;
-			}
-			else{
-				Time.timeScale = 1;
+
+		if(isPause){
+			Time.timeScale = 0;
+		}
+		else{
+			Time.timeScale = 1;
 		}
 	}
-	
+
 	public void restartGame()
 	{
 		if(!player.GetComponent<Player_stats>().isDead)
@@ -119,5 +119,5 @@ public class Pause : MonoBehaviour {
 			//load the scene again here
 		}
 	}
-	
+
 }

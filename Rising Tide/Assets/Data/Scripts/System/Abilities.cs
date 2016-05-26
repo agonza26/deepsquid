@@ -69,16 +69,12 @@ public class Abilities : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!GetComponent<PickupObject>().carrying)
-		{
-			if(pauseStam == false)
-			{
+		if(!GetComponent<PickupObject>().carrying){
+			if(pauseStam == false){
 				StartCoroutine(replenishStam());
 			}
-		} else 
-		{
-			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") 
-			{
+		} else {
+			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
 				StartCoroutine(depleteStam(depStamAmt));
 			}
 		}
@@ -158,6 +154,13 @@ public class Abilities : MonoBehaviour {
 		}
 	}
 
+
+
+
+
+
+
+
 	void setActiveAbility(){
 		//speed
 		if (Input.GetKeyDown ("2")) {
@@ -232,6 +235,8 @@ public class Abilities : MonoBehaviour {
 
 	//Coroutine to wait x amount of time
 	IEnumerator replenishStam(){
+
+		if(Time.timeScale != 0){
 			//while (!GetComponent<PickupObject>().carrying) {
 				if (currStamina < maxStamina) {
 					currStamina = currStamina + stamRegenVal;
@@ -240,15 +245,29 @@ public class Abilities : MonoBehaviour {
 					yield return null;
 				}
 			//}
-
+		}
 	}
-	
+
+
+
+
+
+
+
+
+
+
+
+
 	public IEnumerator depleteStam(float cost){
-		
-		yield return new WaitForSeconds(0.1f);
-		if (currStamina < 0) {
-		} else {
-			currStamina = currStamina - cost;
+		if (Time.timeScale != 0) {
+			yield return new WaitForSeconds (0.1f);
+			if (Time.timeScale != 0) {
+				if (currStamina < 0) {
+				} else {
+					currStamina = currStamina - cost;
+				}
+			}
 		}
 	}
 	

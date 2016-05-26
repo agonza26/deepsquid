@@ -10,8 +10,6 @@ public class empGrower : MonoBehaviour {
 	public float waitTime = 0.001f;
 	public bool coroutineDone = true;
 
-	private bool switchBool = true;
-	private float r = 0f;
 	// Use this for initialization
 	void Start () {
 		transform.localScale = new Vector3 (startSize, startSize, startSize);

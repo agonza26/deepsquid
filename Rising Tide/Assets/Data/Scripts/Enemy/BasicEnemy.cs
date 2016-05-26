@@ -26,31 +26,11 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
 	//not something you should change in the instector
 	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
 	public GameObject thing; //eventually make it a child of an object
 	public bool waveAcc = true; //to know when we have accelerated from aen outside wave, controlled only with waves
 	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,7 +65,9 @@ public class BasicEnemy : MonoBehaviour {
 	private Vector3 steering = Vector3.zero;
 	private int ecoID = -1;
 
-
+	public ParticleSystem blood;
+	public AudioSource death;
+	public AudioSource foundPlayerSound;
 	public float empDazeTimer = 5f;
 	private float empTimer = 0f;
 	public float empDamage = 200f;
@@ -95,6 +77,14 @@ public class BasicEnemy : MonoBehaviour {
 	//private float straightRangeMin = 0f;
 	//private float straightRangeMax = 0f;
 	//private string lastState = "idle";
+
+
+
+
+
+
+
+
 
 	void Start () {
 		eco = GameObject.Find (ecosystem);
@@ -108,6 +98,10 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		}
+		blood.Emit(25);
+
+
+
 	}
 
 
@@ -164,6 +158,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void Update () {
+		blood.transform.position = transform.position;
 		//used to call commands, does not control switching from a state to another
 		switch (state) { //acts depending on state
 			case "follow": //sees player, currently following
@@ -197,9 +192,6 @@ public class BasicEnemy : MonoBehaviour {
 
 	void debugState(){
 		//does nothing, strickly for debugging, can modify for printing later or something
-
-
-
 	}
 
 
@@ -207,8 +199,6 @@ public class BasicEnemy : MonoBehaviour {
 		if (effects.Contains ("emp")) {
 			empPrep ();
 		}
-
-
 
 		if (message != "none" && !switchedStates) {
 			if(!effects.Contains("ink")){
@@ -218,6 +208,9 @@ public class BasicEnemy : MonoBehaviour {
 					currentTarget = lPC.positionTransform;
 					state = "follow";
 					message = "none";
+					if (foundPlayerSound)
+						foundPlayerSound.Play ();
+
 					follow ();
 					switchedStates = true;
 					break;
@@ -225,8 +218,6 @@ public class BasicEnemy : MonoBehaviour {
 			}
 		}
 			
-
-
 		if (!switchedStates) {
 			//if you get hit by ink
 			if (effects.Contains ("ink")) {
@@ -235,14 +226,12 @@ public class BasicEnemy : MonoBehaviour {
 			} else {
 				//no longer being effected and should turn off
 				inkDaze = false;
-
 			}
 
 
 			//assume haven't seen player
 
 			if (Random.value < 0.9f) {
-
 				if (!inkDaze) {
 					if (!eco.GetComponent<EcoPoints> ().Enemies.ContainsKey (name)) {
 						//if i left the area start turning around
@@ -253,17 +242,14 @@ public class BasicEnemy : MonoBehaviour {
 							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
 						}
 					}
-
 					toTarget = Vector3.Normalize (currentTarget.position - transform.position);
 					desired_velocity = toTarget * velocityMax;
 					steering = desired_velocity - rigBod.velocity;
-
 					steering = Vector3.ClampMagnitude (steering, steeringMax * steerMult);
 					rigBod.velocity = Vector3.ClampMagnitude (rigBod.velocity + steering, velocityMax) + transform.forward * followStraight;
 				}
 				thing.transform.position = transform.position + rigBod.velocity;
 				transform.LookAt (thing.transform);
-
 			}
 		} else {
 			switchedStates = false;
@@ -274,8 +260,6 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	//tune ink ability a bit
-
-		
 	private void follow(){
 		if (effects.Contains ("emp")) {
 			empPrep ();
@@ -348,12 +332,12 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+
 	private void empPrep(){
 		GetComponent<EnemyHealth> ().enemyTakeDmg (empDamage);
 		prevState = state;
 		state = "empDaze";
 		effects.Remove ("emp");
-
 		empDaze ();
 		switchedStates = true;
 
@@ -504,6 +488,49 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	public string getState(){
+
+		return state;
+	}
+
+
+
+
+
+	public void kiil(){
+		if( GameObject.Find("Player").GetComponent<PickupObject>().getTarget() == fishType) {
+			GameObject.Find("Player").GetComponent<PickupObject> ().incrementTarget ();
+		}
+		if (death) {
+			death.Play ();
+		}
+		if (blood) {
+			blood.transform.position = transform.position;
+			blood.Emit (25);
+		}
+	}
+
+
+
+
+	public void biith(){
+		GetComponent<EnemyHealth>().enemyHealthCurr = GetComponent<EnemyHealth>().enemyHealthMax;
+		GetComponent<EnemyHealth>().prevMod = 0;
+		effects.Clear ();
+		if (debug) {
+			state = "debug";
+		} else {
+			state = "idle";
+		}
+	}
+
+
+
+
+
+
+
+
 
 
 
@@ -525,27 +552,6 @@ public class BasicEnemy : MonoBehaviour {
 	float calcEuler(float x,float mu, float sigma){
 		return Mathf.Exp(-   Mathf.Pow((x-mu), 2f)/(2f*Mathf.Pow(sigma,2f)))/Mathf.Sqrt(2f*Mathf.PI*   Mathf.Pow(sigma,2f));
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

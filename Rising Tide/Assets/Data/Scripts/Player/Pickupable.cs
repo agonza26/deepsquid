@@ -103,7 +103,6 @@ public class Pickupable : MonoBehaviour {
 	/*
 	if (p.gameObject.tag == "AbilitySpeed") {
 		Destroy(p.gameObject);
-
 		abilities [0] = true;
 		carrying = false;
 	}
@@ -150,7 +149,7 @@ public class Pickupable : MonoBehaviour {
 
 
 
-	private void letGo(){
+	public void letGo(bool test, Vector3 test2, float force){
 
 		switch (myTag) {
 		case "Enemy":
@@ -162,6 +161,8 @@ public class Pickupable : MonoBehaviour {
 
 		case "box":
 		default:
+			GetComponent<Rigidbody> ().useGravity = true;
+			GetComponent<Rigidbody> ().AddForce (test2*-force);
 			//i//f(GetComponent<Rigidbody
 			thrown = true;
 			break;
@@ -193,7 +194,6 @@ public class Pickupable : MonoBehaviour {
 		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-4;
 		transform.position = Vector3.Lerp(o.transform.position, UnderPlayerPosition, Time.deltaTime * smooth);
 		transform.rotation = playerZRot; //stop picked up object from rotating independently
-
 		*/
 	}
 	/*
@@ -208,7 +208,6 @@ public class Pickupable : MonoBehaviour {
 			}
 		}
 	}
-
 	public void changeMatToHL()
 	{
 		if (mats [1]) 

@@ -26,6 +26,8 @@
 		{
 			
 			//col = GetComponent<SphereCollider>();
+			if(!col)
+				col = gameObject.transform.Find("eyesight collider").gameObject.GetComponent<SphereCollider>();
 			lastPlayerSighting = GameObject.FindGameObjectWithTag("gameController").GetComponent<LastPlayerSighting>();
 			player = GameObject.FindGameObjectWithTag("Player");
 
@@ -99,15 +101,19 @@
 								lastPlayerSighting.positionTransform = player.transform;
 							} else {
 								BasicEnemy brain = GetComponent<BasicEnemy> ();
-							brain.message = "lostPlayer";
+								brain.message = "lostPlayer";
 							}
+						} else {
+
+
+							playerInSight = false;
+							BasicEnemy brain = GetComponent<BasicEnemy> ();
+							brain.message = "lostPlayer";
 						}
 					}
 
 				}	
 			}
-
-
 		}
 
 
@@ -118,14 +124,10 @@
 		{
 			// If the player leaves the trigger zone...
 			if (other.gameObject == player) {
-				
-				
 				playerInSight = false;
 				BasicEnemy brain = GetComponent<BasicEnemy>();
 				brain.message = "lostPlayer";
 				
 			}
 		}
-
-
 	}
