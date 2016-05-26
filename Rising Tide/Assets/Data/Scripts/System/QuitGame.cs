@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuitGame : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class QuitGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(Application.loadedLevelName != "MainMenuScene")
+		if(SceneManager.GetActiveScene().name != "MainMenuScene")
 		{
 			ExitBut = GameObject.Find("QuitButton").GetComponent<Button>();
 			RestartBut = GameObject.Find("DeadRestartBut").GetComponent<Button>();
@@ -81,6 +82,7 @@ public class QuitGame : MonoBehaviour {
 	// Function call reloads the scene, essentially restarting the game.
 	public void restartGame()
 	{
-		Application.LoadLevel("Scene 1");
+		SceneManager.UnloadScene ("Scene 1");
+		SceneManager.LoadScene ("Scene 1");
 	}
 }

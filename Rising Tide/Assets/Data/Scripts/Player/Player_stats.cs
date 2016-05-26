@@ -6,13 +6,9 @@ using UnityEngine.UI;
 
 public class Player_stats : MonoBehaviour {
 
-	public float PlayerHealthMax = 10f;
-	public float PlayerOverhealthMax;
-	private bool isTextActive = true;
-	public float PlayerCurrHealth;
-	public float restartDelay = 5f;
-	public bool PlayerDmged;
-	public float PlayerDmgOutput = 30f;
+	public float PlayerHealthMax = 100f;
+	private float currHealth;
+	public bool PlayerDmged = false;
 	public Image healthBar;
 	public GameObject healthTooltipText;
 	public GameObject tutorialBox;
@@ -23,20 +19,27 @@ public class Player_stats : MonoBehaviour {
 	public float stamDmgModifier;
 	public AudioSource hurtSound;
 
+	public float PlayerCurrHealth(){
+		return currHealth;
+	}
+
 	// Use this for initialization
 	void Start () {
 		tutorialBox.SetActive (false);
-		PlayerCurrHealth = PlayerHealthMax;
+		currHealth = PlayerHealthMax;
 		normalAlph = GetComponent<Renderer>().material.color;
 		lowAlph = GetComponent<Renderer>().material.color;
 		lowAlph.a = 0.3f;
 		isDead = false;
 	}
 
+
+
+
 	// Update is called once per frame
 	void Update () {
-		healthBar.fillAmount = PlayerCurrHealth / PlayerHealthMax;
-		if (PlayerCurrHealth <= 0) {
+		healthBar.fillAmount = currHealth / PlayerHealthMax;
+		if (currHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
 			isDead = true;
 		} else {
@@ -44,44 +47,45 @@ public class Player_stats : MonoBehaviour {
 			{
 				playerDamage(1f);
 			}
-		}if (PlayerCurrHealth < PlayerHealthMax) {
-			if (isTextActive == true) {
-				//ding.Play ();
-				//StartCoroutine (waitToTurnOff (5f));
-			}
 		}
 
-
-
-
-
 	}
 
 
-	void OnCollisionEnter(Collision other) {
-		
-
-	}
 
 	public void playerDamage(float val)
 	{
 		if (hurtSound) {
-			hurtSound.Play ();
+			if(!hurtSound.isPlaying)
+				hurtSound.Play ();
 		}
 		PlayerDmged = true;
-		PlayerCurrHealth -= val;
+		currHealth -= val;
 		if(GetComponent<PickupObject>().carrying)
 		{
 			GetComponent<Abilities>().stamDmg(val*stamDmgModifier);
 		}
-		if (PlayerCurrHealth > PlayerHealthMax)
-			PlayerCurrHealth = PlayerHealthMax;
+		if (currHealth > PlayerHealthMax)
+			currHealth = PlayerHealthMax;
 	}
+
+
+
+
+
+
+
 
 	public void playerRestoreHealth(float val)
 	{
-		PlayerCurrHealth += val;
+		currHealth += val;
 	}
+
+
+
+
+
+
 
 
 	public void changePlayerAlphaDown()
@@ -98,19 +102,5 @@ public class Player_stats : MonoBehaviour {
 		GetComponent<Renderer>().material.color = Color.Lerp(GetComponent<Renderer>().material.color, normalAlph, 5f * Time.deltaTime); 
 	}
 
-	public float giveDmg()
-	{
-		return PlayerDmgOutput;
-	}
 
-	
-	IEnumerator waitToTurnOff(float x){
-		healthTooltipText.SetActive (true);
-		tutorialBox.SetActive (true);
-		yield return new WaitForSeconds(x);
-		isTextActive = false;
-		tutorialBox.SetActive (false);
-		healthTooltipText.SetActive (false);
-		ding.Stop ();
-	}
 }
