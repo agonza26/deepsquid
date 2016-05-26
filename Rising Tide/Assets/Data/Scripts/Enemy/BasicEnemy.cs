@@ -120,6 +120,7 @@ public class BasicEnemy : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if (c.gameObject.tag == "EMP") {
 			effects.Add ("emp");
+			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("emp");
 
 		}
 
@@ -148,6 +149,7 @@ public class BasicEnemy : MonoBehaviour {
 		if( !effects.Contains(other.name)){
 			if (other.name == "ink" || other.name == "Ink") {
 				effects.Add("ink");
+				GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("ink");
 			} else if (other.name == "emp" || other.name == "EMPps") {
 				effects.Add("emp");
 			}
@@ -569,7 +571,7 @@ public class BasicEnemy : MonoBehaviour {
 	public void changeDec(){
 		lastFactor = outsideFactor;
 		outsideDec = outsideFactor.magnitude / 20;
-
+		GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("current");
 	}
 
 
