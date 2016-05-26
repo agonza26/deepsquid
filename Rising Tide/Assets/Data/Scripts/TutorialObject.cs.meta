@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 90a3ec16cd2bda14d8107c66c060e9bf
-timeCreated: 1463349363
+timeCreated: 1464297203
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tutorialText: {instanceID: 0}
+  - player: {instanceID: 0}
+  - tutorialBox: {instanceID: 0}
+  - tutOrigin: {instanceID: 0}
+  - pressEText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
