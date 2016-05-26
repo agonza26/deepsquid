@@ -8,6 +8,7 @@ public class Abilities : MonoBehaviour {
 	public ParticleSystem EMPps;
 	public Transform playerPos;
 	public AudioSource ad;
+	public AudioSource EMPsound;
 	public ParticleSystem boostPS;
 	public int boostParticles = 35;
 	public GameObject waveBullet;
@@ -133,6 +134,7 @@ public class Abilities : MonoBehaviour {
 					stamDmg(empStaminaCost);
 					EMPps.Emit(1);
 					EMPc.startGrowing ();
+					EMPsound.Play();
 				} else if (Input.GetKeyUp("space"))
 				{
 					//EMPps.Stop();
