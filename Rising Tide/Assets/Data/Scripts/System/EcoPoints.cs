@@ -126,6 +126,7 @@ public class EcoPoints : MonoBehaviour {
 	public void Die(GameObject it){
 		EnemContainerS.Remove (it);
 		DeadEnemContainer.Add (it);
+		GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("kill");
 		it.GetComponent<BasicEnemy>().kiil();
 		it.SetActive (false);
 	}

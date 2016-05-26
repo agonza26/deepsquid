@@ -99,6 +99,14 @@ public class TutorialObject : MonoBehaviour {
 	private bool inRangeToIntSeal = false;
 	private bool inRangeToIntEel = false;
 
+	//0 = ink
+	//1 = current
+	//2 = emp
+	//3 = death
+	private bool[] fishQuestCheck = new bool[4];
+
+	private bool speakWithBorkOne;
+	private bool speakWithBorkTwo;
 	public float letterPause;
 	public string[] narrText = new string[200];
 	public bool[] narrTextTrigger = new bool[200];
@@ -185,6 +193,8 @@ public class TutorialObject : MonoBehaviour {
 	private bool jumpedAhead = false;
 	private bool visitLastTime;
 	private bool dialogueSoundPlay = false;
+
+
 	void Start(){
 		fishStats = GameObject.Find ("Player").GetComponent<PickupObject> ();
 		colorControl = GameObject.Find ("Outline").GetComponent<outlineLerp> ();
@@ -345,6 +355,9 @@ public class TutorialObject : MonoBehaviour {
 			distanceNotifyEel ();
 			speakWithEel ();
 		}
+		if (posInDialogue == 1) {
+			speakWithBork ();
+		}
 		if (!inRangeToSeeChad && inRangeToHearChad) {
 			inRangeToSeeChad = true;
 		} 
@@ -370,7 +383,7 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestTwentyThreeInc4.SetActive (true);
 
 		}
-		else if (fishStats.getTargetProgress () == 5 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 5 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
 			uiQuestTwentyThreeInc4.SetActive (false);
 			uiQuestTwentyThreeInc5.SetActive (true);
 			anglersKilled = true;
@@ -383,7 +396,7 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestSixteenOne.SetActive (false);
 			uiQuestSixteenTwo.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () == 3 && !questSixteenComplete) {
+		else if (fishStats.getTargetProgress () >= 3 && !questSixteenComplete) {
 			uiQuestSixteenTwo.SetActive (false);
 			barracudaKilled = true;
 		}
@@ -406,11 +419,11 @@ public class TutorialObject : MonoBehaviour {
 			
 
 		}
-		if (!borkAttached && !questZeroComplete && !isGlassBroken) {
+		if (!borkAttached) {
 			distanceNotify ();
 		}
 
-		if (hasPressedEveryKey && inRangeToInt && acceptQuest && !questZeroComplete) {
+		if (speakWithBorkOne && inRangeToInt && acceptQuest && !questZeroComplete && posInDialogue == 1) {
 			acceptQuest = false;
 			questCompleteSound.Play ();
 			questZeroComplete = true;
@@ -422,7 +435,6 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
 		}
-
 		if (isGlassBroken && acceptQuest && !questOneComplete) {
 			acceptQuest = false;
 			questOneComplete = true;
@@ -437,7 +449,7 @@ public class TutorialObject : MonoBehaviour {
 			plateWithScript.SetActive (true);
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
-			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
+			//borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 
 		}
 		if (gateIsOpen && acceptQuest && !questTwoComplete && questOneComplete) {
@@ -453,7 +465,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (inCavern && acceptQuest && !questThreeComplete && questTwoComplete) {
+		if (fishQuestCheck[3] && acceptQuest && !questThreeComplete && questTwoComplete) {
 			acceptQuest = false;
 			questThreeComplete = true;
 			questCompleteSound.Play ();
@@ -466,7 +478,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
 		}
-		if (hasInked && acceptQuest && !questFourComplete && questThreeComplete) {
+		if (fishQuestCheck[0] && acceptQuest && !questFourComplete && questThreeComplete) {
 			acceptQuest = false;
 			questFourComplete = true;
 			questCompleteSound.Play ();
@@ -492,7 +504,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (hasSanic && acceptQuest && !questSixComplete && questFiveComplete) {
+		if (fishQuestCheck[1] && acceptQuest && !questSixComplete && questFiveComplete) {
 			acceptQuest = false;
 			questSixComplete = true;
 			questCompleteSound.Play ();
@@ -505,7 +517,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (hasEmp && acceptQuest && !questSevenComplete && questSixComplete) {
+		if (fishQuestCheck[2] && acceptQuest && !questSevenComplete && questSixComplete) {
 			acceptQuest = false;
 			questSevenComplete = true;
 			questCompleteSound.Play ();
@@ -797,14 +809,13 @@ public class TutorialObject : MonoBehaviour {
 			uiMissionBox.SetActive (true);
 			uiMissionText.SetActive (true);
 			uiQuestZero.SetActive (true);
-			pressEText.SetActive (true);
+			//pressEText.SetActive (true);
 			uiQuestOutline.SetActive (true);
 			incompleteMissionText.SetActive (true);
 
 		}
 		//complete quest zero
 		if (posInDialogue == 2) {
-			Debug.Log ("calling");
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
@@ -1244,7 +1255,6 @@ public class TutorialObject : MonoBehaviour {
 				//Play chad sound
 				chadDialogueSound.Play ();
 			}
-			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
 		if (posInDialogue == 29 && dialogueSoundPlay) {
@@ -1783,7 +1793,7 @@ public class TutorialObject : MonoBehaviour {
 
 
 		//Before bork is attached
-		if (inRangeToHear && firstDialogueTrigger && !borkAttached) {
+		if (firstDialogueTrigger && !borkAttached) {
 			if (!acceptQuest) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -1815,13 +1825,20 @@ public class TutorialObject : MonoBehaviour {
 			}
 			if (isEgg) {
 				eggECaller ();
-			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete) {
+			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue != 1) {
 				posInDialogue++;
-			} else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
-				//Debug.Log ("calling this one now");
+				Debug.Log ("one");
+			} 
+			else if (Input.GetKeyDown ("e") && inRangeToInt && speakWithBorkTwo && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue == 1) {
+				posInDialogue++;
+				Debug.Log ("one");
+			} 
+			else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
+				Debug.Log ("two");
 				posInDialogue++;
 			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
 				posInDialogue++;
+				Debug.Log ("three");
 			}
 			//Once Bork is attached use this
 		} else if (borkAttached && !turtleTalk && !sealTalk && !eelTalk) {
@@ -2038,7 +2055,7 @@ public class TutorialObject : MonoBehaviour {
 
 	void distanceNotify(){
 		dist = (int)Vector3.Distance (player.transform.position, tutOrigin.transform.position);
-		if (dist <= 100) {
+		if (dist <= 20) {
 			inRangeToHear = true;
 			if (dist <= 20) {
 				inRangeToInt = true;
@@ -2171,6 +2188,7 @@ public class TutorialObject : MonoBehaviour {
 		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg) {
 			posInDialogue++;
 			isEgg = false;
+			pressEText.SetActive (false);
 			egg.SetActive (false);
 		}
 	}
@@ -2231,6 +2249,14 @@ public class TutorialObject : MonoBehaviour {
 		else if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyFourComplete){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithEelTwo = true;
+		}
+	}
+	void speakWithBork(){
+		if(inRangeToInt && Input.GetKeyDown("e") && acceptQuest && !questZeroComplete){
+			speakWithBorkOne = true;
+		}
+		else if(inRangeToInt && Input.GetKeyDown("e") && !acceptQuest && questZeroComplete){
+			speakWithBorkTwo = true;
 		}
 	}
 	void jumpAhead(){
@@ -2324,16 +2350,33 @@ public class TutorialObject : MonoBehaviour {
 		narrTextTrigger [posInDialogue + 1] = true;
 	}
 
+	public void abilityUsageCheck (string boobies){
+		switch (boobies) {
+		case "ink":
+			fishQuestCheck [0] = true;
+			break;
+		case "current":
+			fishQuestCheck [1] = true;
+			break;
+		case "emp":
+			fishQuestCheck [2] = true;
+			break;
+		case "kill":
+			fishQuestCheck [3] = true;
+			break;
+
+		}
+	}
 
 
 	void fillNarrativeString(){
 		narrTextTrigger [0] = true;
 		narrText [0] = "Bork: Someone please help! Something has turned the fish in this ocean hostile!. [E]";
-		narrText [1] = "Bork: Squidling! Release me from this prison, and we can work together to cleanse the evil from the fish. [E]";
-		narrText [2] = "Bork: Look for a box or book, pick it up [Hold LMB], and toss it at the glass to free me [While holding LMB, press RMB]. [E]";
+		narrText [1] = "Bork: Ah a Squidling! Release me from this prison, and we can work together to get out of here. [E]";
+		narrText [2] = "Bork: Look for an object to throw, perhaps a box or book and toss it at the glass to free me. [E]";
 		narrText [3] = "Bork: Great work, now I am just going to have a seat on your head and we can be off. [E]";
 		narrText [4] = "Bork: Now, last I knew the gate to this strange place closed behind me, we need a way to open it to get out of here. [E]";
-		narrText [5] = "Bork: Fantastic, I have a feeling I know what's wrong here but I need to confirm it to be true. [E]";
+		narrText [5] = "Bork: Fantastic, now I can imagine you are quite hungry, so in order to eat, you will probably have to do so in the same manner that you grabbed something. [E]";
 		narrText [6] = "Bork: Let's move into the cavern, you seem rather young so I am sure you are still getting used to your form. [E]";
 		narrText [7] = "Bork: Ah yes, the cavern seems rather hostile today, be wary of those fish up there, I am not sure they will treat you nicely.  [E]";
 		narrText [8] = "Bork: If I remember correctly, your kind have certain potentials. Try activating your Inking ability [1] and using it [Space]. [E]";
