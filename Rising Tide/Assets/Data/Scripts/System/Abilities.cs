@@ -117,7 +117,6 @@ public class Abilities : MonoBehaviour {
 					if (Input.GetKeyDown ("space")) 
 					{
 						bubblesBoost();	
-						BoostSound.Play();
 					}
 				} else {
 					abilitySpeedVal = 1f;
@@ -236,7 +235,7 @@ public class Abilities : MonoBehaviour {
 		boostPS.transform.rotation = playerPos.transform.rotation;
 		//boostPS.transform.forward *= -1f;
 		//Quaternion inkRotation = Ink.transform.rotation;
-		ad.Play();
+		BoostSound.Play();
 		boostPS.Emit(boostParticles);
 	}
 
