@@ -63,7 +63,7 @@ public class Player_stats : MonoBehaviour {
 		currHealth -= val;
 		if(GetComponent<PickupObject>().carrying)
 		{
-			GetComponent<Abilities>().stamDmg(val*stamDmgModifier);
+			//GetComponent<Abilities>().stamDmg(stamDmgModifier);
 		}
 		if (currHealth > PlayerHealthMax)
 			currHealth = PlayerHealthMax;

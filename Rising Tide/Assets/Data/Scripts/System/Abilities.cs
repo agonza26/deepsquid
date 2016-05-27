@@ -20,13 +20,22 @@ public class Abilities : MonoBehaviour {
 	public bool firstTimeSpeeding = false;
 	public bool firstTimeSanic = false;
 	public bool firstTimeEmp = false;
+
+
+
+
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
-	public float stamRegenVal = 0.65f;
+	public float stamRegenVal = 1f;
 	public Image staminaBar;
 	public bool pauseStam = false;
 	public float depStamAmt = 4f;
+
+
+
+
+
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -55,6 +64,7 @@ public class Abilities : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		currStamina = maxStamina;
 		speedIcon.enabled = false;
 		currentIcon.enabled = false;
 		empIcon.enabled = false;
@@ -72,22 +82,28 @@ public class Abilities : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!GetComponent<PickupObject>().carrying){
-			if(pauseStam == false){
-				StartCoroutine(replenishStam());
-			}
-		} else {
-			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
-				StartCoroutine(depleteStam(depStamAmt));
-			}
-		}
+		
+
+
 
 
 
 		if (!GetComponent<improved_movement> ().isDead) {
+			if(!GetComponent<PickupObject>().carrying){
+				if(pauseStam == false ){
+					StartCoroutine(replenishStam());
+				}
+			} else {
+				if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
+					StartCoroutine(depleteStam(depStamAmt));
+				}
+			}
 
-			staminaBar.fillAmount = currStamina / maxStamina;
+
+
+
 			setActiveAbility ();
+
 	
 			if (abilities [1] == true && !GetComponent<PickupObject>().carrying) {
 			
@@ -158,6 +174,8 @@ public class Abilities : MonoBehaviour {
 			}
 
 		}
+
+		staminaBar.fillAmount = currStamina / maxStamina;
 	}
 
 
@@ -245,7 +263,7 @@ public class Abilities : MonoBehaviour {
 		if(Time.timeScale != 0){
 			//while (!GetComponent<PickupObject>().carrying) {
 				if (currStamina < maxStamina) {
-					currStamina = currStamina + stamRegenVal;
+					currStamina += Mathf.Min(stamRegenVal, maxStamina - currStamina) ;
 					yield return new WaitForSeconds (0.2f);
 				} else {
 					yield return null;
@@ -267,13 +285,15 @@ public class Abilities : MonoBehaviour {
 
 	public IEnumerator depleteStam(float cost){
 		if (Time.timeScale != 0) {
-			yield return new WaitForSeconds (0.1f);
-			if (Time.timeScale != 0) {
-				if (currStamina < 0) {
-				} else {
-					currStamina = currStamina - cost;
-				}
+			
+			if (currStamina-cost > 0) {
+				currStamina -= cost;
+			} else {
+				currStamina = 0;
 			}
+
+			yield return new WaitForSeconds (0.1f);
+
 		}
 	}
 	

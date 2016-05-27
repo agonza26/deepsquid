@@ -22,7 +22,6 @@ public class PickupObject : MonoBehaviour {
 
 	private string targetFish = "none";
 	private int targetCounter = 0;
-	public float healthGain = 20f;
     public float objectSize;
     public bool parented = false;
     public bool canThrow;
@@ -122,7 +121,7 @@ public class PickupObject : MonoBehaviour {
 		if(carriedObject.tag == "Enemy"){
 			if( !doingDamageBool )
 				StartCoroutine (doingDamage());
-			if(carriedObject.GetComponent<EnemyHealth>().enemyHealthCurr <= 0){
+			if(carriedObject.GetComponent<EnemyHealth>().getHealthCurr() <= 0){
 				restoreStats ();
 				clearHolding ();
 			}

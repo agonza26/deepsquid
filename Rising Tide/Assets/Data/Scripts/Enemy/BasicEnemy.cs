@@ -241,7 +241,7 @@ public class BasicEnemy : MonoBehaviour {
 					} else {
 						if (currentTarget == null || Random.value < 0.01f) {
 							GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
-							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
+							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length-1)].transform;
 						}
 					}
 					toTarget = Vector3.Normalize (currentTarget.position - transform.position);
@@ -516,7 +516,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	public void biith(){
-		GetComponent<EnemyHealth>().enemyHealthCurr = GetComponent<EnemyHealth>().enemyHealthMax;
+		GetComponent<EnemyHealth> ().resetHealth ();
 		GetComponent<EnemyHealth>().prevMod = 0;
 		effects.Clear ();
 		if (debug) {
