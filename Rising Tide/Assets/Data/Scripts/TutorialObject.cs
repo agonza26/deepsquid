@@ -403,8 +403,12 @@ public class TutorialObject : MonoBehaviour {
 
 		//Debug.Log (posInDialogue);
 		inCavern = GameObject.Find("Cavern").GetComponent<LocationTracking>().here;
-		hasEnteredTemple = GameObject.Find("TempleLoc").GetComponent<LocationTracking>().here;
-		hasEnteredReef = GameObject.Find("ReefLoc").GetComponent<LocationTracking>().here;
+		if (posInDialogue == 17) {
+			hasEnteredTemple = GameObject.Find ("TempleLoc").GetComponent<LocationTracking> ().here;
+		}
+		if (posInDialogue == 20) {
+			hasEnteredReef = GameObject.Find ("ReefLoc").GetComponent<LocationTracking> ().here;
+		}
 		hasEnteredVolcVicinity = GameObject.Find("VolcLoc").GetComponent<LocationTracking>().here;
 		hasEnteredKelpForest = GameObject.Find("KelpLoc").GetComponent<LocationTracking>().here;
 		hasEnteredKGY = GameObject.Find("KrakenGYLoc").GetComponent<LocationTracking>().here;
@@ -2371,28 +2375,28 @@ public class TutorialObject : MonoBehaviour {
 
 	void fillNarrativeString(){
 		narrTextTrigger [0] = true;
-		narrText [0] = "Bork: Someone please help! Something has turned the fish in this ocean hostile!. [E]";
+		narrText [0] = "Bork: Someone please help! Something has trapped me in this heinous prison and I have no way to escape! [E]";
 		narrText [1] = "Bork: Ah a Squidling! Release me from this prison, and we can work together to get out of here. [E]";
 		narrText [2] = "Bork: Look for an object to throw, perhaps a box or book and toss it at the glass to free me. [E]";
 		narrText [3] = "Bork: Great work, now I am just going to have a seat on your head and we can be off. [E]";
 		narrText [4] = "Bork: Now, last I knew the gate to this strange place closed behind me, we need a way to open it to get out of here. [E]";
-		narrText [5] = "Bork: Fantastic, now I can imagine you are quite hungry, so in order to eat, you will probably have to do so in the same manner that you grabbed something. [E]";
-		narrText [6] = "Bork: Let's move into the cavern, you seem rather young so I am sure you are still getting used to your form. [E]";
-		narrText [7] = "Bork: Ah yes, the cavern seems rather hostile today, be wary of those fish up there, I am not sure they will treat you nicely.  [E]";
-		narrText [8] = "Bork: If I remember correctly, your kind have certain potentials. Try activating your Inking ability [1] and using it [Space]. [E]";
-		narrText [9] = "Bork: Very good, you can use Ink to stop pursuing fish in their tracks. [E]";
-		narrText [10] = "Bork: Your kind are also very quick on their tentacles, try activating your movement ability [2]  and while moving and use it [Space]. [E]";
-		narrText [11] = "Bork: How wonderful, you are exceptionally quick. That can be very useful to make a quick getaway from hostiles. [E]";
-		narrText [12] = "Bork: Squids are also rather adept at sonic waves, this ability [3] will confuse fish and compel them to swim away from you. Try it out now [Space]. [E]";
+		narrText [5] = "Bork: Fantastic, now I can imagine you are quite hungry, so let's head out of here into the cavern so we can get you something to eat. [E]";
+		narrText [6] = "Bork: Oh, looks like breakfast has come to us, I sense there is a fish at the entrance to the cavern, let's eat! [E]";
+		narrText [7] = "Bork: Delicious, though that was rather odd the way he was behaving... I am weary that there is something wrong here. But now that you have eaten, let's learn some things.  [E]";
+		narrText [8] = "Bork: If I remember correctly, your kind have certain potentials. Try activating your Inking ability [1] and using it on a fish [Space]. [E]";
+		narrText [9] = "Bork: Very good, you can use this Ink to stop fish in their tracks. [E]";
+		narrText [10] = "Bork: Your kind are also very quick on their tentacles, try activating your movement ability [2] and while moving and use it [Space]. [E]";
+		narrText [11] = "Bork: Wow! You are exceptionally quick. That can be very useful to make a quick getaway from hostiles. [E]";
+		narrText [12] = "Bork: Squids are also rather adept at sonic waves, this ability [3] will confuse fish and compel them to swim away from you. Try it out on a fish now [Space]. [E]";
 		narrText [13] = "Bork: Wow, that is actually very impressive to see in person. [E]";
-		narrText [14] = "Bork: Your final ability is also the most powerful, it is an Electro Magnetic Pule, activate it [4] and use it [Space]. [E]";
+		narrText [14] = "Bork: Your final ability is also the most powerful, it is an Electro Magnetic Pulse, activate it [4] and use it on some fish [Space]. [E]";
 		narrText [15] = "Bork: The EMP ability is useful when it comes to stopping enemies in their tracks and dealing a massive amount of damage. [E]";
-		narrText [16] = "Bork: Each of your abilities will drain your stamina, and will take time to recharge for further use. Now that you have some footing be wary, the fish are not themselves. [E]";
+		narrText [16] = "Bork: Each of your abilities will drain your stamina, and will take time to recharge for further use. Now that you have some footing I fear that something is sincerely wrong, the fish are not normally this hostile. [E]";
 		narrText [17] = "Bork: This temple must be ages old... there must be a way out of here. [E]";
 		narrText [18] = "Bork: Ah, look up! There is a hole in the ceiling. [E]";
 		narrText [19] = "Bork: Please take care out in the world, we are attached now and I would like to see my bed at the end of the day. [E]";
 		narrText [20] = "Bork: Ah, yes things are worse than I feared, hopefully my friends are okay. It looks like most of the fish have turned hostile";
-		narrText [21] = "Bork: Let's move through this reef towards the volcano in the far distance and see if my suspicion are correct. [E]";
+		narrText [21] = "Bork: Let's move through this reef towards the volcano in the far distance and see if my suspicion are correct, red crystals will guide your way there. [E]";
 		narrText [22] = "Bork: Normally things are rather dull, but considering how every fish seems to see us as en enemy I feel that it must be the volcano causing this, but no one would turn that volcano on.... [E]";
 		narrText [23] = "Bork: Ah... I see yes it looks like I was unfortunately correct... let's go turn it off so we can go about our daily lives without fear of being mugged. [E]";
 		narrText [24] = "Bork: Ugh, it's Chad... who else would have done this. This should be an interesting encounter. [E]";
