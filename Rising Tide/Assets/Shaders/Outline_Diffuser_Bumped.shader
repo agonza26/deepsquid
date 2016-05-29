@@ -91,7 +91,7 @@ ENDCG
 			Tags { "LightMode" = "Always" }
 			Cull Front
 			ZWrite Off
-			ZTest Always
+			//ZTest Always
 			Offset 15,15
  
 			// you can choose what kind of blending mode you want for the outline

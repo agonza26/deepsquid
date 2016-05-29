@@ -410,7 +410,9 @@ public class TutorialObject : MonoBehaviour {
 			hasEnteredReef = GameObject.Find ("ReefLoc").GetComponent<LocationTracking> ().here;
 		}
 		hasEnteredVolcVicinity = GameObject.Find("VolcLoc").GetComponent<LocationTracking>().here;
-		hasEnteredKelpForest = GameObject.Find("KelpLoc").GetComponent<LocationTracking>().here;
+		if (posInDialogue == 31) {
+			hasEnteredKelpForest = GameObject.Find ("KelpLoc").GetComponent<LocationTracking> ().here;
+		}
 		hasEnteredKGY = GameObject.Find("KrakenGYLoc").GetComponent<LocationTracking>().here;
 		hasInked = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeInking;
 		hasSped = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeSpeeding;
@@ -644,6 +646,7 @@ public class TutorialObject : MonoBehaviour {
 			questCompleteSound.Play ();
 			completeMissionText.SetActive (true);
 			uiQuestSixteenComp.SetActive (true);
+			uiQuestSixteen.SetActive (false);
 			//returnToBorkText.SetActive (true);
 			incompleteMissionText.SetActive (false);
 			pressEText.SetActive (true);
@@ -1385,7 +1388,7 @@ public class TutorialObject : MonoBehaviour {
 				dadDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
-			sealTalk = false;
+			//sealTalk = false;
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Quest Sixteen
@@ -1471,7 +1474,7 @@ public class TutorialObject : MonoBehaviour {
 		}
 		//Complete Quest sixteen
 		if (posInDialogue == 41 && !dialogueSoundPlay) {
-			sealTalk = false;
+			
 			playerBabyModel.SetActive (false);
 			playerJuveModel.SetActive (true);
 			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
@@ -1500,6 +1503,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
+			sealTalk = false;
 			turtleTalk = true;
 		} else if (posInDialogue == 42 && acceptQuest && !questNineteenComplete) {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -2271,7 +2275,7 @@ public class TutorialObject : MonoBehaviour {
 		}
 	}
 	void jumpAhead(){
-		player.transform.localPosition = new Vector3 (-230.0f, 451.3f, 673.9f);
+		player.transform.localPosition = new Vector3 (-219.0f, 450.3f, 690.9f);
 		narrTextTrigger [0] = false;
 		narrTextTrigger [1] = false;
 		posInDialogue = 20;
