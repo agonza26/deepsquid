@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 	
 	public float enemyHealthMax;
-	public float enemyHealthCurr;
+	private float enemyHealthCurr;
 	public float PlayerHealthRestoreValue;
 	private string ecosystem;
 	public int prevMod = 0;
@@ -21,15 +21,21 @@ public class EnemyHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (enemyHealthCurr <= 0) {
-			print ("die");
 			GameObject.Find (ecosystem).GetComponent<EcoPoints> ().Die (gameObject);
 		} else if (  (  ( (enemyHealthMax - enemyHealthCurr) %  (hitSoundCounter)) == 0) &&   ( (enemyHealthMax - enemyHealthCurr) /  (hitSoundCounter))  > prevMod )  {
 			prevMod =  (int)( (enemyHealthMax - enemyHealthCurr) /  (hitSoundCounter));
-			if (hitSound)
+			if (hitSound && !hitSound.isPlaying)
 				hitSound.Play ();
 		}
 	}
 
+	public float getHealthCurr(){
+		return enemyHealthCurr;
+	}
+	public void resetHealth(){
+		enemyHealthCurr = enemyHealthMax;
+
+	}
 
 	public bool enemyTakeDmg(float dmgReceivedVal){
 		enemyHealthCurr -= dmgReceivedVal;

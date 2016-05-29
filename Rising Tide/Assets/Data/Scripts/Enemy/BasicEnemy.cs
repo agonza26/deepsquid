@@ -56,7 +56,7 @@ public class BasicEnemy : MonoBehaviour {
 	private Rigidbody rigBod; //reference to the rigid body
 	private Transform currentTarget = null; //where the enemy is currently trying to go towards
 	private LastPlayerSighting lPC; //used to get last player's sighting and reset valuable
-
+	public float randomPathFloat = 0.01f;
 
 	private List<string> effects = new List<string>();
 	private List<string> statesList = new List<string> ();
@@ -121,6 +121,10 @@ public class BasicEnemy : MonoBehaviour {
 		if (c.gameObject.tag == "EMP") {
 			effects.Add ("emp");
 			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("emp");
+
+		} else if (c.gameObject.tag == "EcoPoint") {
+			changePlaces ();
+
 
 		}
 
@@ -197,6 +201,13 @@ public class BasicEnemy : MonoBehaviour {
 	}
 
 
+
+	private void changePlaces(){
+		GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
+		currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length-1)].transform;
+	}
+
+
 	void idle(){
 		if (effects.Contains ("emp")) {
 			empPrep ();
@@ -239,9 +250,16 @@ public class BasicEnemy : MonoBehaviour {
 						//if i left the area start turning around
 						currentTarget = eco.transform;
 					} else {
-						if (currentTarget == null || Random.value < 0.01f) {
-							GameObject[] keyList = new List<GameObject> (eco.GetComponent<EcoPoints> ().Ecopoints.Values).ToArray ();
-							currentTarget = keyList [(int)Random.Range (0, (float)keyList.Length)].transform;
+
+						if (currentTarget == eco.transform) {
+
+
+
+						}
+
+
+						if (currentTarget == null || Random.value < randomPathFloat) {
+							changePlaces ();
 						}
 					}
 					toTarget = Vector3.Normalize (currentTarget.position - transform.position);
@@ -336,6 +354,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	private void empPrep(){
+		
 		GetComponent<EnemyHealth> ().enemyTakeDmg (empDamage);
 		prevState = state;
 		state = "empDaze";
@@ -516,7 +535,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	public void biith(){
-		GetComponent<EnemyHealth>().enemyHealthCurr = GetComponent<EnemyHealth>().enemyHealthMax;
+		GetComponent<EnemyHealth> ().resetHealth ();
 		GetComponent<EnemyHealth>().prevMod = 0;
 		effects.Clear ();
 		if (debug) {

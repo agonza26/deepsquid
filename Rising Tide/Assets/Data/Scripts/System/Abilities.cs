@@ -14,19 +14,32 @@ public class Abilities : MonoBehaviour {
 	public ParticleSystem boostPS;
 	public int boostParticles = 35;
 	public GameObject waveBullet;
+	private int replenishStamCounter = 0;
+	public float replenishStamTimer = 0.05f;
+	private int depleteStamCounter = 0;
+	public float depleteStamTimer = 0.05f;
 
 	//public Abilities abilities;
 	public bool firstTimeInking = false;
 	public bool firstTimeSpeeding = false;
 	public bool firstTimeSanic = false;
 	public bool firstTimeEmp = false;
+
+
+
+
 	public float abilitySpeedVal = 1f;
 	public float maxStamina = 200;
 	public float currStamina = 200;
-	public float stamRegenVal = 0.65f;
+	public float stamRegenVal = 1f;
 	public Image staminaBar;
 	public bool pauseStam = false;
-	public float depStamAmt = 4f;
+	public float depStamAmt = 1f;
+
+
+
+
+
 	//0 = speed
 	//1 = ink
 	//2 = emp
@@ -55,6 +68,7 @@ public class Abilities : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		currStamina = maxStamina;
 		speedIcon.enabled = false;
 		currentIcon.enabled = false;
 		empIcon.enabled = false;
@@ -65,6 +79,14 @@ public class Abilities : MonoBehaviour {
 
 	}
 
+	private bool canReplenishStam(){
+		return (pauseStam == false && replenishStamCounter < 3 && currStamina < maxStamina);
+	}
+
+	private bool canDepleteStam(){
+		print ("can I deplete? + " + (pauseStam == false && depleteStamCounter < 2 && currStamina >0) );
+		return (pauseStam == false && depleteStamCounter < 2 && currStamina >0);
+	}
 
 
 
@@ -72,22 +94,31 @@ public class Abilities : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!GetComponent<PickupObject>().carrying){
-			if(pauseStam == false){
-				StartCoroutine(replenishStam());
-			}
-		} else {
-			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
-				StartCoroutine(depleteStam(depStamAmt));
-			}
+		
+
+		if (Input.GetKey ("h")) {
+			pauseStam = false;
+			currStamina = 0;
+
 		}
 
-
-
 		if (!GetComponent<improved_movement> ().isDead) {
+			if(!GetComponent<PickupObject>().carrying){
+				if(canReplenishStam()){
+					StartCoroutine(replenishStam());
+				}
+			} else {
+				if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
+					if(canDepleteStam())
+						StartCoroutine(depleteStam(depStamAmt));
+				}
+			}
 
-			staminaBar.fillAmount = currStamina / maxStamina;
+
+
+
 			setActiveAbility ();
+
 	
 			if (abilities [1] == true && !GetComponent<PickupObject>().carrying) {
 			
@@ -95,9 +126,10 @@ public class Abilities : MonoBehaviour {
 				if (Input.GetKey ("space") && currStamina >= inkStaminaCost && activeAbils [1] == true) {
 					firstTimeInking = true;
 					pauseStam = true;
-					StartCoroutine (depleteStam (inkStaminaCost));
+					simpleDeplete(inkStaminaCost);
 					newInk ();
-					InkSound.Play();
+					if(InkSound)
+						InkSound.Play();
 				} else {
 					pauseStam = false;
 					Ink.Stop ();
@@ -113,7 +145,7 @@ public class Abilities : MonoBehaviour {
 					firstTimeSpeeding = true;
 					pauseStam = true;
 					abilitySpeedVal = 3f;
-					StartCoroutine (depleteStam (speedStaminaCost));
+					simpleDeplete(speedStaminaCost);
 					if (Input.GetKeyDown ("space")) 
 					{
 						bubblesBoost();	
@@ -134,10 +166,11 @@ public class Abilities : MonoBehaviour {
 				{
 					firstTimeEmp = true;
 					//pauseStam = true;
-					stamDmg(empStaminaCost);
+					simpleDeplete(empStaminaCost);
 					EMPps.Emit(1);
 					EMPc.startGrowing ();
-					EMPsound.Play();
+					if(EMPsound)
+						EMPsound.Play();
 				} else if (Input.GetKeyUp("space"))
 				{
 					//EMPps.Stop();
@@ -151,13 +184,16 @@ public class Abilities : MonoBehaviour {
 				if(Input.GetKeyDown("space") && !GetComponent<PickupObject>().carrying && currStamina >= waveStaminaCost && activeAbils[2])
 				{
 					firstTimeSanic = true;
-					stamDmg(waveStaminaCost);
-					CurrentAbilSound.Play();
+					simpleDeplete(waveStaminaCost);
+					if(CurrentAbilSound)
+						CurrentAbilSound.Play();
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
 			}
 
 		}
+
+		staminaBar.fillAmount = currStamina / maxStamina;
 	}
 
 
@@ -235,29 +271,37 @@ public class Abilities : MonoBehaviour {
 		boostPS.transform.rotation = playerPos.transform.rotation;
 		//boostPS.transform.forward *= -1f;
 		//Quaternion inkRotation = Ink.transform.rotation;
-		BoostSound.Play();
+		if(BoostSound)
+			BoostSound.Play();
 		boostPS.Emit(boostParticles);
 	}
 
 	//Coroutine to wait x amount of time
 	IEnumerator replenishStam(){
+		replenishStamCounter++;
+
 
 		if(Time.timeScale != 0){
-			//while (!GetComponent<PickupObject>().carrying) {
-				if (currStamina < maxStamina) {
-					currStamina = currStamina + stamRegenVal;
-					yield return new WaitForSeconds (0.2f);
-				} else {
-					yield return null;
-				}
+				currStamina += Mathf.Min(stamRegenVal, maxStamina - currStamina) ;
+				yield return new WaitForSeconds (replenishStamTimer);
+					
 			//}
 		}
+		replenishStamCounter--;
 	}
 
 
 
 
+	private void simpleDeplete( float cost){
+		if (currStamina-cost > 0) {
+			currStamina -= cost;
+		} else {
+			currStamina = 0;
+		}
 
+
+	}
 
 
 
@@ -266,21 +310,25 @@ public class Abilities : MonoBehaviour {
 
 
 	public IEnumerator depleteStam(float cost){
+		depleteStamCounter++;
 		if (Time.timeScale != 0) {
-			yield return new WaitForSeconds (0.1f);
-			if (Time.timeScale != 0) {
-				if (currStamina < 0) {
-				} else {
-					currStamina = currStamina - cost;
-				}
+			
+			if (currStamina-cost > 0) {
+				currStamina -= cost;
+			} else {
+				currStamina = 0;
 			}
+
+			yield return new WaitForSeconds (depleteStamTimer);
+
 		}
+		depleteStamCounter--;
 	}
-	
-	public void stamDmg(float stamDmgVal)
-	{
-		currStamina = currStamina - stamDmgVal;
-	}
+
+
+
+
+
 
 
 

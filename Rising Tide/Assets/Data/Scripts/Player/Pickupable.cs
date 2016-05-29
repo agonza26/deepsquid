@@ -88,7 +88,7 @@ public class Pickupable : MonoBehaviour {
 
 		case "box":
 		default:
-			GetComponent<Rigidbody> ().useGravity = false;
+			GetComponent<Rigidbody> ().isKinematic = true;
 			thrown = false;
 			//i//f(GetComponent<Rigidbody
 			break;
@@ -149,7 +149,7 @@ public class Pickupable : MonoBehaviour {
 
 
 
-	public void letGo(bool test, Vector3 test2, float force){
+	public void letGo(bool test, Vector3 test2, float force , Vector3 v ){
 
 		switch (myTag) {
 		case "Enemy":
@@ -157,12 +157,15 @@ public class Pickupable : MonoBehaviour {
 			//isPickedUp = false;
 			break;
 		case "Boids":
-
-
 		case "box":
 		default:
+			//GetComponent<Rigidbody> ().useGravity = true;
+			GetComponent<Rigidbody> ().isKinematic = false;
 			GetComponent<Rigidbody> ().useGravity = true;
-			GetComponent<Rigidbody> ().AddForce (test2*-force);
+			//GetComponent<Rigidbody> ().velocity = v;
+			if (test) {
+				GetComponent<Rigidbody> ().AddForce (transform.InverseTransformDirection (test2) * -10000);
+			}
 			//i//f(GetComponent<Rigidbody
 			thrown = true;
 			break;
