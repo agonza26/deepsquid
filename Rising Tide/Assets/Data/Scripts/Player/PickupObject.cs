@@ -40,7 +40,7 @@ public class PickupObject : MonoBehaviour {
 	private GameObject player;
 	private GameObject bork;
 	private bool doingDamageBool = false;
-	public float waitTime = 0.5f;
+	public float waitTimeDamage= 0.5f;
 
 
 
@@ -64,19 +64,32 @@ public class PickupObject : MonoBehaviour {
 			
 
 
+
 			//if we arent carrying anything
 			if (!carrying){
-				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 35) {
+				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 20) {
 					pickup ();
+
+
+
 				} 
 			} else {
-				if ((GetComponent<Abilities> ().currStamina <= 0f) || Input.GetKeyUp(KeyCode.Mouse0)) {
-					dropObject ();
-				} else if (Input.GetKeyDown(KeyCode.Mouse1)){ 
+				 if (Input.GetKeyDown(KeyCode.Mouse1)){ 
 					throwObject ();
 					
+				} else if ((GetComponent<Abilities> ().currStamina <= 0f) || Input.GetKeyUp(KeyCode.Mouse0)) {
+					dropObject ();
 				}
 			}
+
+
+
+
+
+
+
+
+
 				
 			//carrying could change from pickup, drop, or throw object
 			if (carrying){
@@ -100,10 +113,14 @@ public class PickupObject : MonoBehaviour {
 				GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().hasGrabbed = true;
 				grabSound.Play();
 				carrying = p.grabbed(playerSize); //will do appropriate grab actions within own object, including auto drop if ability
-				carriedObject = p.gameObject; //set our carried object to
-				objectSize = p.size;
+				if (carrying) {
+					carriedObject = p.gameObject; //set our carried object to
+					objectSize = p.size;
+					parented = (playerSize < objectSize) && carrying;
+				}
+
+
 				grabbableInRange = false;
-				parented = (playerSize < objectSize) && carrying;
 			}
 		}
 	}
@@ -114,13 +131,17 @@ public class PickupObject : MonoBehaviour {
 
    private void carry(GameObject o){
         canThrow = true;
-		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-3.5f;
+		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-dymanicDist(o);
 		carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
 
 
 		if(carriedObject.tag == "Enemy"){
 			if( !doingDamageBool )
+
+
 				StartCoroutine (doingDamage());
+
+
 			if(carriedObject.GetComponent<EnemyHealth>().getHealthCurr() <= 0){
 				restoreStats ();
 				clearHolding ();
@@ -129,10 +150,35 @@ public class PickupObject : MonoBehaviour {
     }
 
 
+	private float dymanicDist(GameObject o){
+		float test = 20;
+		switch(o.tag){
+			case "Enemy":
+				test = 3.5f;
+				break;
+
+			case "Boids":
+				test = 5;
+				break;
+			case "box":
+				test = 6;
+				break;
+			case "Environment":
+			case "book":
+			default:
+				test = 3;
+				break;
+
+
+		}
+		return test;
+
+	}
+
 
 
     void dropObject(){
-		carriedObject.GetComponent<Pickupable>().letGo (false, Vector3.zero, throwForce);
+		carriedObject.GetComponent<Pickupable>().letGo (false, Vector3.zero, 0, GetComponent<Rigidbody>().velocity);
 		clearHolding ();
 
 
@@ -163,8 +209,7 @@ public class PickupObject : MonoBehaviour {
 
 		if (canThrow) {
 			//carrying = false;
-
-			carriedObject.GetComponent<Pickupable> ().letGo (true, transform.forward ,throwForce);
+			carriedObject.GetComponent<Pickupable> ().letGo (true, transform.TransformDirection(transform.forward) ,throwForce, GetComponent<Rigidbody>().velocity);
 			clearHolding();
 		} else {
 			dropObject ();
@@ -243,7 +288,7 @@ public class PickupObject : MonoBehaviour {
 	IEnumerator doingDamage(){
 		doingDamageBool = true;
 		carriedObject.GetComponent<EnemyHealth>().enemyTakeDmg(holdDamage);
-		yield return new WaitForSeconds(waitTime);
+		yield return new WaitForSeconds(waitTimeDamage);
 		doingDamageBool = false;
 	}
 
