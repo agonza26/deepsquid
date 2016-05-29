@@ -410,7 +410,9 @@ public class TutorialObject : MonoBehaviour {
 			hasEnteredReef = GameObject.Find ("ReefLoc").GetComponent<LocationTracking> ().here;
 		}
 		hasEnteredVolcVicinity = GameObject.Find("VolcLoc").GetComponent<LocationTracking>().here;
-		hasEnteredKelpForest = GameObject.Find("KelpLoc").GetComponent<LocationTracking>().here;
+		if (posInDialogue == 31) {
+			hasEnteredKelpForest = GameObject.Find ("KelpLoc").GetComponent<LocationTracking> ().here;
+		}
 		hasEnteredKGY = GameObject.Find("KrakenGYLoc").GetComponent<LocationTracking>().here;
 		hasInked = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeInking;
 		hasSped = GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().firstTimeSpeeding;
@@ -644,6 +646,7 @@ public class TutorialObject : MonoBehaviour {
 			questCompleteSound.Play ();
 			completeMissionText.SetActive (true);
 			uiQuestSixteenComp.SetActive (true);
+			uiQuestSixteen.SetActive (false);
 			//returnToBorkText.SetActive (true);
 			incompleteMissionText.SetActive (false);
 			pressEText.SetActive (true);
@@ -1139,9 +1142,16 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			//Try jumping over quest ten here
+			/*
+			posInDialogue = 24;
+			hasEnteredVolcVicinity = true;
+			acceptQuest = false;
+			*/
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Ten
+		//REmove This one
 		if (posInDialogue == 22 && !acceptQuest && !questTenComplete) {
 			acceptQuest = true;
 			uiMissionBox.SetActive (true);
@@ -1378,7 +1388,7 @@ public class TutorialObject : MonoBehaviour {
 				dadDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
-			sealTalk = false;
+			//sealTalk = false;
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Quest Sixteen
@@ -1464,7 +1474,7 @@ public class TutorialObject : MonoBehaviour {
 		}
 		//Complete Quest sixteen
 		if (posInDialogue == 41 && !dialogueSoundPlay) {
-			sealTalk = false;
+			
 			playerBabyModel.SetActive (false);
 			playerJuveModel.SetActive (true);
 			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
@@ -1493,6 +1503,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
+			sealTalk = false;
 			turtleTalk = true;
 		} else if (posInDialogue == 42 && acceptQuest && !questNineteenComplete) {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -2264,10 +2275,10 @@ public class TutorialObject : MonoBehaviour {
 		}
 	}
 	void jumpAhead(){
-		player.transform.localPosition = new Vector3 (747.0f, 562.3f, 1105.9f);
+		player.transform.localPosition = new Vector3 (-219.0f, 450.3f, 690.9f);
 		narrTextTrigger [0] = false;
 		narrTextTrigger [1] = false;
-		posInDialogue = 59;
+		posInDialogue = 20;
 		questZeroComplete = true;
 		questOneComplete = true;
 		questTwoComplete = true;
@@ -2277,7 +2288,9 @@ public class TutorialObject : MonoBehaviour {
 		questSixComplete = true;
 		questSevenComplete = true;
 		questEightComplete = true;
-		questNineComplete = true;
+		acceptQuest = false;
+		//questNineComplete = true;
+		/*
 		questTenComplete = true;
 		questElevenComplete = true;
 		questThirteenComplete = true;
@@ -2292,13 +2305,15 @@ public class TutorialObject : MonoBehaviour {
 		questTwentyTwoComplete = true;
 		questTwentyThreeComplete = true;
 		questTwentyFourComplete = true;
-		questTwentyFiveComplete = true;
-		completeMissionText.SetActive (true);
+		questTwentyFiveComplete = true;*/
+		//completeMissionText.SetActive (true);
+		/*
 		broughtDaPillow = true;
 		interactWithChadTwo = true;
 		interactWithEelOne = true;
 		interactWithEelTwo = true;
 		returnToBorkText.SetActive (false);
+		*/
 		isEgg = false;
 		borkAttached = true;
 		hasPressedEveryKey = true;
@@ -2311,6 +2326,11 @@ public class TutorialObject : MonoBehaviour {
 		hasEmp = true;
 		hasEnteredTemple = true;
 		hasEnteredReef = true;
+		fishQuestCheck [0] = true;
+		fishQuestCheck [1] = true;
+		fishQuestCheck [2] = true;
+		fishQuestCheck [3] = true;
+		/*
 		hasEnteredVolcVicinity = true;
 		inRangeToSeeChad = true;
 		inRangeToSeeEel = true;
@@ -2323,6 +2343,7 @@ public class TutorialObject : MonoBehaviour {
 		//acceptQuest = true;
 		anglersKilled = true;
 		beautyKitFound = true;
+		*/
 		GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().speedIcon.enabled = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().abilities [0] = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().inkIcon.enabled = true;
