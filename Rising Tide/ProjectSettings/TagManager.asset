@@ -35,6 +35,10 @@ TagManager:
   - milkBox
   - pillowBox
   - beautyKit
+  - borkAttachedJuvenile
+  - krakenAdult
+  - krakenJuvenile
+  - borkAttachedAdult
   layers:
   - Default
   - TransparentFX

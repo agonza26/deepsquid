@@ -1,14 +1,14 @@
-﻿<Properties StartupItem="Rising Tide.CSharp.Plugins.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\System\QuitGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\Enemy\BasicEnemy.cs">
     <Files>
-      <File FileName="Assets\Data\Scripts\NPCHighlighting.cs" Line="1" Column="1" />
-      <File FileName="Assets\Data\Scripts\improved_movement.cs" Line="26" Column="1" />
-      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="391" Column="31" />
-      <File FileName="Assets\Data\Scripts\Player\PickupObject.cs" Line="145" Column="2" />
+      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\System\Abilities.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\Player\Player_stats.cs" Line="1" Column="1" />
       <File FileName="Assets\Data\Scripts\Player\Pickupable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Data\Scripts\Other-IDK\endGameSwitch.cs" Line="1" Column="1" />
-      <File FileName="Assets\Data\Scripts\System\QuitGame.cs" Line="74" Column="1" />
+      <File FileName="Assets\Data\Scripts\Player\PickupObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\Scripts\Enemy\EnemyHealth.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

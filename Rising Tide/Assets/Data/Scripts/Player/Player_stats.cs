@@ -21,6 +21,7 @@ public class Player_stats : MonoBehaviour {
 	private Color normalAlph;
 	public bool isDead;
 	public float stamDmgModifier;
+	public AudioSource hurtSound;
 
 	// Use this for initialization
 	void Start () {
@@ -38,19 +39,6 @@ public class Player_stats : MonoBehaviour {
 		if (PlayerCurrHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
 			isDead = true;
-			/*if (gameObject.CompareTag("Player"))
-		            {
-		                Destroy(gameObject);
-		                Debug.Log("player dead");
-		                SceneManager.LoadScene("Backup");
-		            }
-		            anim.SetTrigger("GameOver");
-		            restartTimer += Time.deltaTime;
-
-		            if(restartTimer >= restartDelay)
-		            {
-		                SceneManager.LoadScene("Backup");
-		            }*/
 		} else {
 			if(Input.GetKeyUp("x"))
 			{
@@ -77,12 +65,14 @@ public class Player_stats : MonoBehaviour {
 
 	public void playerDamage(float val)
 	{
+		if (hurtSound) {
+			hurtSound.Play ();
+		}
 		PlayerDmged = true;
 		PlayerCurrHealth -= val;
 		if(GetComponent<PickupObject>().carrying)
 		{
 			GetComponent<Abilities>().stamDmg(val*stamDmgModifier);
-			Debug.Log (val * stamDmgModifier);
 		}
 		if (PlayerCurrHealth > PlayerHealthMax)
 			PlayerCurrHealth = PlayerHealthMax;

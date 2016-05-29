@@ -11,11 +11,13 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathScene.unity
   - enabled: 0
     path: Assets/Scenes/Backup.unity
-  - enabled: 0
-    path: Assets/Scenes/MainMenuScene.unity
-  - enabled: 0
-    path: Assets/Scenes/Scene 1.unity
   - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+  - enabled: 1
+    path: Assets/Scenes/Scene 1.unity
+  - enabled: 0
     path: Assets/Scenes/Nick'sPlayground.unity
   - enabled: 0
     path: Assets/Scenes/Nick's.unity
+  - enabled: 0
+    path: Assets/Scenes/Nick_524.unity

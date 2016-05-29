@@ -7,7 +7,10 @@ public class Abilities : MonoBehaviour {
 	public ParticleSystem Ink;
 	public ParticleSystem EMPps;
 	public Transform playerPos;
-	public AudioSource ad;
+	public AudioSource BoostSound;
+	public AudioSource EMPsound;
+	public AudioSource InkSound;
+	public AudioSource CurrentAbilSound;
 	public ParticleSystem boostPS;
 	public int boostParticles = 35;
 	public GameObject waveBullet;
@@ -69,16 +72,12 @@ public class Abilities : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!GetComponent<PickupObject>().carrying)
-		{
-			if(pauseStam == false)
-			{
+		if(!GetComponent<PickupObject>().carrying){
+			if(pauseStam == false){
 				StartCoroutine(replenishStam());
 			}
-		} else 
-		{
-			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") 
-			{
+		} else {
+			if (GetComponent<PickupObject> ().carriedObject.tag == "Enemy") {
 				StartCoroutine(depleteStam(depStamAmt));
 			}
 		}
@@ -98,6 +97,7 @@ public class Abilities : MonoBehaviour {
 					pauseStam = true;
 					StartCoroutine (depleteStam (inkStaminaCost));
 					newInk ();
+					InkSound.Play();
 				} else {
 					pauseStam = false;
 					Ink.Stop ();
@@ -137,6 +137,7 @@ public class Abilities : MonoBehaviour {
 					stamDmg(empStaminaCost);
 					EMPps.Emit(1);
 					EMPc.startGrowing ();
+					EMPsound.Play();
 				} else if (Input.GetKeyUp("space"))
 				{
 					//EMPps.Stop();
@@ -151,12 +152,20 @@ public class Abilities : MonoBehaviour {
 				{
 					firstTimeSanic = true;
 					stamDmg(waveStaminaCost);
+					CurrentAbilSound.Play();
 					Instantiate(waveBullet, transform.position, transform.rotation *  Quaternion.AngleAxis(180, Vector3.up));
 				}
 			}
 
 		}
 	}
+
+
+
+
+
+
+
 
 	void setActiveAbility(){
 		//speed
@@ -226,12 +235,14 @@ public class Abilities : MonoBehaviour {
 		boostPS.transform.rotation = playerPos.transform.rotation;
 		//boostPS.transform.forward *= -1f;
 		//Quaternion inkRotation = Ink.transform.rotation;
-		ad.Play();
+		BoostSound.Play();
 		boostPS.Emit(boostParticles);
 	}
 
 	//Coroutine to wait x amount of time
 	IEnumerator replenishStam(){
+
+		if(Time.timeScale != 0){
 			//while (!GetComponent<PickupObject>().carrying) {
 				if (currStamina < maxStamina) {
 					currStamina = currStamina + stamRegenVal;
@@ -240,15 +251,29 @@ public class Abilities : MonoBehaviour {
 					yield return null;
 				}
 			//}
-
+		}
 	}
-	
+
+
+
+
+
+
+
+
+
+
+
+
 	public IEnumerator depleteStam(float cost){
-		
-		yield return new WaitForSeconds(0.1f);
-		if (currStamina < 0) {
-		} else {
-			currStamina = currStamina - cost;
+		if (Time.timeScale != 0) {
+			yield return new WaitForSeconds (0.1f);
+			if (Time.timeScale != 0) {
+				if (currStamina < 0) {
+				} else {
+					currStamina = currStamina - cost;
+				}
+			}
 		}
 	}
 	

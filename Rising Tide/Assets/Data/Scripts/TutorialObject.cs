@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -11,6 +12,10 @@ public class TutorialObject : MonoBehaviour {
 	public GameObject tutorialText;
 	private Text tutText;
 	//private Text textHolder = GetComponent<Text>();
+	private GameObject playerBabyModel;
+	private GameObject playerJuveModel;
+	private GameObject playerAdultModel;
+	private Scene sceneTemp;
 	public GameObject player;
 	private GameObject egg;
 	public GameObject tutorialBox;
@@ -55,6 +60,10 @@ public class TutorialObject : MonoBehaviour {
 	private AudioSource questCompleteSound;
 	private AudioSource tubeBreakSound;
 	private AudioSource borkDialogueSound;
+	private AudioSource chadDialogueSound;
+	private AudioSource dadDialogueSound;
+	private AudioSource eelDialogueSound;
+
 	private GameObject uiMissionText;
 	private GameObject uiQuestOutline;
 	private GameObject uiBoxOutline;
@@ -90,6 +99,14 @@ public class TutorialObject : MonoBehaviour {
 	private bool inRangeToIntSeal = false;
 	private bool inRangeToIntEel = false;
 
+	//0 = ink
+	//1 = current
+	//2 = emp
+	//3 = death
+	private bool[] fishQuestCheck = new bool[4];
+
+	private bool speakWithBorkOne;
+	private bool speakWithBorkTwo;
 	public float letterPause;
 	public string[] narrText = new string[200];
 	public bool[] narrTextTrigger = new bool[200];
@@ -176,6 +193,8 @@ public class TutorialObject : MonoBehaviour {
 	private bool jumpedAhead = false;
 	private bool visitLastTime;
 	private bool dialogueSoundPlay = false;
+
+
 	void Start(){
 		fishStats = GameObject.Find ("Player").GetComponent<PickupObject> ();
 		colorControl = GameObject.Find ("Outline").GetComponent<outlineLerp> ();
@@ -184,6 +203,17 @@ public class TutorialObject : MonoBehaviour {
 		questCompleteSound = GameObject.Find("Player").transform.Find ("questCompleteSound").GetComponent<AudioSource> ();
 		tubeBreakSound = GameObject.Find("Player").transform.Find ("tubeBreak").GetComponent<AudioSource> ();
 		borkDialogueSound = GameObject.Find("Player").transform.Find ("borkSound").GetComponent<AudioSource> ();
+		eelDialogueSound = GameObject.Find("Player").transform.Find ("eelSound").GetComponent<AudioSource> ();
+		dadDialogueSound = GameObject.Find("Player").transform.Find ("dadSound").GetComponent<AudioSource> ();
+		chadDialogueSound = GameObject.Find("Player").transform.Find ("chadSound").GetComponent<AudioSource> ();
+
+		playerBabyModel = GameObject.Find("chibiSquid");
+		playerJuveModel = GameObject.FindGameObjectWithTag ("krakenJuvenile");
+		playerJuveModel.SetActive (false);
+		playerAdultModel = GameObject.FindGameObjectWithTag ("krakenAdult");
+		playerAdultModel.SetActive (false);
+
+		sceneTemp = SceneManager.GetActiveScene ();
 		uiQuestZero = GameObject.Find ("QuestZero");
 		uiQuestZero.SetActive (false);
 		uiQuestOne = GameObject.FindGameObjectWithTag ("uiQuestOne");
@@ -265,9 +295,6 @@ public class TutorialObject : MonoBehaviour {
 		uiMissionBox = GameObject.FindGameObjectWithTag ("uiQuestBox");
 		uiMissionBox.SetActive (false);
 		borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttached");
-		borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
-		borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
-		borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 
 		borkObjectAttached.SetActive (false);
 		borkObjectUnattached = GameObject.FindGameObjectWithTag ("BorkNPCLocation");
@@ -328,6 +355,9 @@ public class TutorialObject : MonoBehaviour {
 			distanceNotifyEel ();
 			speakWithEel ();
 		}
+		if (posInDialogue == 1) {
+			speakWithBork ();
+		}
 		if (!inRangeToSeeChad && inRangeToHearChad) {
 			inRangeToSeeChad = true;
 		} 
@@ -353,7 +383,7 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestTwentyThreeInc4.SetActive (true);
 
 		}
-		else if (fishStats.getTargetProgress () == 5 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 5 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
 			uiQuestTwentyThreeInc4.SetActive (false);
 			uiQuestTwentyThreeInc5.SetActive (true);
 			anglersKilled = true;
@@ -366,15 +396,19 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestSixteenOne.SetActive (false);
 			uiQuestSixteenTwo.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () == 3 && !questSixteenComplete) {
+		else if (fishStats.getTargetProgress () >= 3 && !questSixteenComplete) {
 			uiQuestSixteenTwo.SetActive (false);
 			barracudaKilled = true;
 		}
 
 		//Debug.Log (posInDialogue);
 		inCavern = GameObject.Find("Cavern").GetComponent<LocationTracking>().here;
-		hasEnteredTemple = GameObject.Find("TempleLoc").GetComponent<LocationTracking>().here;
-		hasEnteredReef = GameObject.Find("ReefLoc").GetComponent<LocationTracking>().here;
+		if (posInDialogue == 17) {
+			hasEnteredTemple = GameObject.Find ("TempleLoc").GetComponent<LocationTracking> ().here;
+		}
+		if (posInDialogue == 20) {
+			hasEnteredReef = GameObject.Find ("ReefLoc").GetComponent<LocationTracking> ().here;
+		}
 		hasEnteredVolcVicinity = GameObject.Find("VolcLoc").GetComponent<LocationTracking>().here;
 		hasEnteredKelpForest = GameObject.Find("KelpLoc").GetComponent<LocationTracking>().here;
 		hasEnteredKGY = GameObject.Find("KrakenGYLoc").GetComponent<LocationTracking>().here;
@@ -389,11 +423,11 @@ public class TutorialObject : MonoBehaviour {
 			
 
 		}
-		if (!borkAttached && !questZeroComplete && !isGlassBroken) {
+		if (!borkAttached) {
 			distanceNotify ();
 		}
 
-		if (hasPressedEveryKey && inRangeToInt && acceptQuest && !questZeroComplete) {
+		if (speakWithBorkOne && inRangeToInt && acceptQuest && !questZeroComplete && posInDialogue == 1) {
 			acceptQuest = false;
 			questCompleteSound.Play ();
 			questZeroComplete = true;
@@ -405,7 +439,6 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
 		}
-
 		if (isGlassBroken && acceptQuest && !questOneComplete) {
 			acceptQuest = false;
 			questOneComplete = true;
@@ -420,7 +453,7 @@ public class TutorialObject : MonoBehaviour {
 			plateWithScript.SetActive (true);
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
-			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
+			//borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 
 		}
 		if (gateIsOpen && acceptQuest && !questTwoComplete && questOneComplete) {
@@ -436,7 +469,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (inCavern && acceptQuest && !questThreeComplete && questTwoComplete) {
+		if (fishQuestCheck[3] && acceptQuest && !questThreeComplete && questTwoComplete) {
 			acceptQuest = false;
 			questThreeComplete = true;
 			questCompleteSound.Play ();
@@ -449,7 +482,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 			colorControl.endColor = Color.green;
 		}
-		if (hasInked && acceptQuest && !questFourComplete && questThreeComplete) {
+		if (fishQuestCheck[0] && acceptQuest && !questFourComplete && questThreeComplete) {
 			acceptQuest = false;
 			questFourComplete = true;
 			questCompleteSound.Play ();
@@ -475,7 +508,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (hasSanic && acceptQuest && !questSixComplete && questFiveComplete) {
+		if (fishQuestCheck[1] && acceptQuest && !questSixComplete && questFiveComplete) {
 			acceptQuest = false;
 			questSixComplete = true;
 			questCompleteSound.Play ();
@@ -488,7 +521,7 @@ public class TutorialObject : MonoBehaviour {
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			colorControl.endColor = Color.green;
 		}
-		if (hasEmp && acceptQuest && !questSevenComplete && questSixComplete) {
+		if (fishQuestCheck[2] && acceptQuest && !questSevenComplete && questSixComplete) {
 			acceptQuest = false;
 			questSevenComplete = true;
 			questCompleteSound.Play ();
@@ -641,6 +674,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (false);
 			uiQuestEighteen.SetActive (false);
 			pressEText.SetActive (true);
+
 			narrTextTrigger [posInDialogue] = true;
 			colorControl.endColor = Color.green;
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -722,7 +756,9 @@ public class TutorialObject : MonoBehaviour {
 			uiQuestTwentyThreeInc5.SetActive (false);
 			pressEText.SetActive (true);
 			narrTextTrigger [posInDialogue] = true;
-			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
+			playerJuveModel.SetActive (false);
+			playerAdultModel.SetActive (true);
+
 			colorControl.endColor = Color.green;
 		}
 		if (visitLastTime && acceptQuest && !questTwentyFiveComplete && questTwentyFourComplete) {
@@ -745,7 +781,7 @@ public class TutorialObject : MonoBehaviour {
 			questCompleteSound.Play ();
 			returnToBorkText.SetActive (true);
 			incompleteMissionText.SetActive (false);
-			uiQuestTwentyFive.SetActive (false);
+			uiQuestTwentySix.SetActive (false);
 			pressEText.SetActive (true);
 			narrTextTrigger [posInDialogue] = true;
 			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -777,14 +813,13 @@ public class TutorialObject : MonoBehaviour {
 			uiMissionBox.SetActive (true);
 			uiMissionText.SetActive (true);
 			uiQuestZero.SetActive (true);
-			pressEText.SetActive (true);
+			//pressEText.SetActive (true);
 			uiQuestOutline.SetActive (true);
 			incompleteMissionText.SetActive (true);
 
 		}
 		//complete quest zero
 		if (posInDialogue == 2) {
-			Debug.Log ("calling");
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
@@ -1063,10 +1098,10 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Dialogue
-		if (posInDialogue == 19) {
+		if (posInDialogue == 19 && dialogueSoundPlay) {
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
+				//dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
@@ -1092,7 +1127,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest Nine
-		if (posInDialogue == 21) {
+		if (posInDialogue == 21 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestNine.SetActive (false);
@@ -1178,10 +1213,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 			turtleTalk = true;
 			dialogueSoundPlay = false;
-			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
-				borkDialogueSound.Play ();
-			}
+
 		}else if (posInDialogue == 25 && acceptQuest && !questTwelveComplete) {
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1190,7 +1222,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest twelve
-		if (posInDialogue == 26) {
+		if (posInDialogue == 26 && !dialogueSoundPlay) {
 			dialogueSoundPlay = false;
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
@@ -1200,44 +1232,54 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
-			dialogueSoundPlay = false;
+			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			//dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
-				//Play chad sound
-				//borkDialogueSound.Play ();
-			}
+				chadDialogueSound.Play ();
+			} 
 		}
 		//Dialogue
-		if (posInDialogue == 27) {
+		if (posInDialogue == 27  && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
-				dialogueSoundPlay = true;
+				//dialogueSoundPlay = true;
 				borkDialogueSound.Play ();
 			}
 			pressEText.SetActive (true);
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 28) {
+		if (posInDialogue == 28 && !dialogueSoundPlay) {
 			pressEText.SetActive (true);
 			dialogueSoundPlay = false;
 			if (!dialogueSoundPlay) {
 				dialogueSoundPlay = true;
 				//Play chad sound
-				//borkDialogueSound.Play ();
+				chadDialogueSound.Play ();
 			}
-			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 29) {
+		if (posInDialogue == 29 && dialogueSoundPlay) {
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 
 		}
 		//Dialogue
-		if (posInDialogue == 30) {
+		if (posInDialogue == 30 && !dialogueSoundPlay) {
 			pressEText.SetActive (true);
 			turtleTalk = false;
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				//Play chad sound
+				borkDialogueSound.Play ();
+			}
 
 
 		}
@@ -1301,7 +1343,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest fifteen
-		if (posInDialogue == 34) {
+		if (posInDialogue == 34 && dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestFifteen.SetActive (false);
@@ -1309,19 +1351,32 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 35) {
+		if (posInDialogue == 35 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			//dialogueSoundPlay = ;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 36) {
+		if (posInDialogue == 36 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-			//uiQuestSixteenComp.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			sealTalk = false;
 			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -1362,6 +1417,7 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			uiQuestSeventeen.SetActive (true);
 			pressEText.SetActive (false);
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 38 && acceptQuest && !questSeventeenComplete) {
 			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
@@ -1370,13 +1426,18 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest seventen
-		if (posInDialogue == 39) {
+		if (posInDialogue == 39 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestSeventeen.SetActive (false);
 			uiQuestOutline.SetActive (false);
 			completeMissionText.SetActive (false);
 			//returnToDadText.SetActive (false);
+
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				dadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
@@ -1392,6 +1453,7 @@ public class TutorialObject : MonoBehaviour {
 			colorControl.endColor = Color.red;
 			incompleteMissionText.SetActive (true);
 			//returnToDadText.SetActive (false);
+			dialogueSoundPlay = false;
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 40 && acceptQuest && !questEighteenComplete) {
 			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
@@ -1401,9 +1463,11 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 41) {
+		if (posInDialogue == 41 && !dialogueSoundPlay) {
 			sealTalk = false;
-
+			playerBabyModel.SetActive (false);
+			playerJuveModel.SetActive (true);
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestEighteen.SetActive (false);
@@ -1411,6 +1475,10 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Quest Sixteen
@@ -1427,14 +1495,15 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 			turtleTalk = true;
 		} else if (posInDialogue == 42 && acceptQuest && !questNineteenComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 42 && !acceptQuest && questNineteenComplete) {
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 43) {
+		if (posInDialogue == 43 && dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestNineteen.SetActive (false);
@@ -1442,14 +1511,23 @@ public class TutorialObject : MonoBehaviour {
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (true);
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 44) {
+		if (posInDialogue == 44 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				chadDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
-			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		if (posInDialogue == 45 && !acceptQuest && !questTwentyComplete) {
 			acceptQuest = true;
@@ -1464,16 +1542,20 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 
 		} else if (posInDialogue == 45 && acceptQuest && !questTwentyComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 45 && !acceptQuest && questTwentyComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
 		//Complete Quest sixteen
-		if (posInDialogue == 46) {
+		if (posInDialogue == 46 && dialogueSoundPlay) {
 			sealTalk = false;
-	
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwenty.SetActive (false);
@@ -1496,7 +1578,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 			colorControl.endColor = Color.red;
 		} else if (posInDialogue == 47 && acceptQuest && !questTwentyOneComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 47 && !acceptQuest && questTwentyOneComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -1514,14 +1596,20 @@ public class TutorialObject : MonoBehaviour {
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
 			colorControl.endColor = Color.red;
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 48 && acceptQuest && !questTwentyTwoComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 48 && !acceptQuest && questTwentyTwoComplete) {
 			//ameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 49) {
+		if (posInDialogue == 49 && !dialogueSoundPlay) {
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyTwo.SetActive (false);
@@ -1532,18 +1620,26 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 50) {
+		if (posInDialogue == 50 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
-			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		//Dialogue
-		if (posInDialogue == 51) {
+		if (posInDialogue == 51 && !dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
-			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		if (posInDialogue == 52 && !acceptQuest && !questTwentyThreeComplete) {
 			acceptQuest = true;
@@ -1564,7 +1660,7 @@ public class TutorialObject : MonoBehaviour {
 			pressEText.SetActive (false);
 
 		} else if (posInDialogue == 52 && acceptQuest && !questTwentyThreeComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 52 && !acceptQuest && questTwentyThreeComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
@@ -1582,14 +1678,23 @@ public class TutorialObject : MonoBehaviour {
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
 			colorControl.endColor = Color.red;
+			dialogueSoundPlay = false;
 		} else if (posInDialogue == 53 && acceptQuest && !questTwentyFourComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 53 && !acceptQuest && questTwentyFourComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 54) {
+		if (posInDialogue == 54 && !dialogueSoundPlay) {
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				eelDialogueSound.Play ();
+			}
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedJuvenile");
+			borkObjectAttached = GameObject.FindGameObjectWithTag ("borkAttachedAdult");
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToHL ();
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyFour.SetActive (false);
@@ -1600,11 +1705,15 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 55) {
+		if (posInDialogue == 55 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
-			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 
 		if (posInDialogue == 56 && !acceptQuest && !questTwentyFiveComplete) {
@@ -1620,18 +1729,24 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
+			dialogueSoundPlay = false;
 			eelTalk = false;
 		} else if (posInDialogue == 56 && acceptQuest && !questTwentyFiveComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 56 && !acceptQuest && questTwentyFiveComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
 		}
-		if (posInDialogue == 57) {
+		if (posInDialogue == 57 && !dialogueSoundPlay) {
 			uiMissionBox.SetActive (false);
 			uiMissionText.SetActive (false);
 			uiQuestTwentyFive.SetActive (false);
+			//dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				dialogueSoundPlay = true;
+				chadDialogueSound.Play ();
+			}
 			uiQuestOutline.SetActive (false);
 			completeMissionText.SetActive (false);
 			returnToBorkText.SetActive (false);
@@ -1639,11 +1754,15 @@ public class TutorialObject : MonoBehaviour {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 		}
 		//Dialogue
-		if (posInDialogue == 58) {
+		if (posInDialogue == 58 && dialogueSoundPlay) {
 			uiQuestOutline.SetActive (false);
-
+			dialogueSoundPlay = false;
+			if (!dialogueSoundPlay) {
+				//dialogueSoundPlay = true;
+				borkDialogueSound.Play ();
+			}
 			pressEText.SetActive (true);
-			GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 		}
 		if (posInDialogue == 59 && !acceptQuest && !questTwentySixComplete) {
 			acceptQuest = true;
@@ -1657,17 +1776,19 @@ public class TutorialObject : MonoBehaviour {
 			incompleteMissionText.SetActive (true);
 			returnToBorkText.SetActive (false);
 			pressEText.SetActive (false);
-
 			chadLocOriginWithRigid.SetActive(true);
 			chadLocOriginWithRigid.GetComponent<Rigidbody> ().isKinematic = true;
 			chadLocOriginWithNo.SetActive (false);
 			eelTalk = false;
 		} else if (posInDialogue == 59 && acceptQuest && !questTwentySixComplete) {
-			GameObject.FindGameObjectWithTag ("borkAttached").GetComponent<NPCHighlighting> ().changeMatToNml ();
+			borkObjectAttached.GetComponent<NPCHighlighting> ().changeMatToNml ();
 			pressEText.SetActive (false);
 		} else if (posInDialogue == 59 && !acceptQuest && questTwentySixComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
+			if (Input.GetKeyDown ("e")) {
+				SceneManager.LoadScene (sceneTemp.name);
+			}
 		}
 
 
@@ -1676,7 +1797,7 @@ public class TutorialObject : MonoBehaviour {
 
 
 		//Before bork is attached
-		if (inRangeToHear && firstDialogueTrigger && !borkAttached) {
+		if (firstDialogueTrigger && !borkAttached) {
 			if (!acceptQuest) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -1708,13 +1829,20 @@ public class TutorialObject : MonoBehaviour {
 			}
 			if (isEgg) {
 				eggECaller ();
-			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete) {
+			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue != 1) {
 				posInDialogue++;
-			} else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
-				//Debug.Log ("calling this one now");
+				Debug.Log ("one");
+			} 
+			else if (Input.GetKeyDown ("e") && inRangeToInt && speakWithBorkTwo && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue == 1) {
+				posInDialogue++;
+				Debug.Log ("one");
+			} 
+			else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
+				Debug.Log ("two");
 				posInDialogue++;
 			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
 				posInDialogue++;
+				Debug.Log ("three");
 			}
 			//Once Bork is attached use this
 		} else if (borkAttached && !turtleTalk && !sealTalk && !eelTalk) {
@@ -1931,7 +2059,7 @@ public class TutorialObject : MonoBehaviour {
 
 	void distanceNotify(){
 		dist = (int)Vector3.Distance (player.transform.position, tutOrigin.transform.position);
-		if (dist <= 100) {
+		if (dist <= 20) {
 			inRangeToHear = true;
 			if (dist <= 20) {
 				inRangeToInt = true;
@@ -2064,6 +2192,7 @@ public class TutorialObject : MonoBehaviour {
 		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg) {
 			posInDialogue++;
 			isEgg = false;
+			pressEText.SetActive (false);
 			egg.SetActive (false);
 		}
 	}
@@ -2124,6 +2253,14 @@ public class TutorialObject : MonoBehaviour {
 		else if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyFourComplete){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithEelTwo = true;
+		}
+	}
+	void speakWithBork(){
+		if(inRangeToInt && Input.GetKeyDown("e") && acceptQuest && !questZeroComplete){
+			speakWithBorkOne = true;
+		}
+		else if(inRangeToInt && Input.GetKeyDown("e") && !acceptQuest && questZeroComplete){
+			speakWithBorkTwo = true;
 		}
 	}
 	void jumpAhead(){
@@ -2217,70 +2354,87 @@ public class TutorialObject : MonoBehaviour {
 		narrTextTrigger [posInDialogue + 1] = true;
 	}
 
+	public void abilityUsageCheck (string boobies){
+		switch (boobies) {
+		case "ink":
+			fishQuestCheck [0] = true;
+			break;
+		case "current":
+			fishQuestCheck [1] = true;
+			break;
+		case "emp":
+			fishQuestCheck [2] = true;
+			break;
+		case "kill":
+			fishQuestCheck [3] = true;
+			break;
+
+		}
+	}
 
 
 	void fillNarrativeString(){
 		narrTextTrigger [0] = true;
-		narrText [0] = "Bork: It would be very helpful if you were to hatch sometime soon. [E]";
-		narrText [1] = "Bork: You are intelligent, and very interesting looking. Regardless, break me out of this strange prison, something is wrong with the fish in this ocean. [E]";
-		narrText [2] = "Bork: Find a box or book, pick it up [Hold LMB], and toss it at this glass [While holding LMB, press RMB]. [E]";
-		narrText [3] = "Bork: How charming of you to throw glass everywhere. Well, let's get to it I suppose. [E]";
-		narrText [4] = "Bork: Let's get out of this lab, head towards that blasted gate. [E]";
-		narrText [5] = "Bork: Neat, now let's leave this decrepit place. [E]";
-		narrText [6] = "Bork: Let's move into the cavern, you are quite weak and there are some things you need to learn. [E]";
-		narrText [7] = "Bork: Ah, it's just as a I remember it from twenty minutes ago... turquoise.  [E]";
-		narrText [8] = "Bork: Behold, I have unlocked your inking potential by fiddling with your brain! Activate your Inking ability [1] and use it [Space]. [E]";
-		narrText [9] = "Bork: Very good, you can use Ink to stop pursuing fish in their tracks. [E]";
-		narrText [10] = "Bork: Now let's unlock your movement ability [2] and use it [Space]. [E]";
-		narrText [11] = "Bork: Speed can be very useful to make a quick getaway from pursuing fish. [E]";
-		narrText [12] = "Bork: Next up will be your sonic wave, this ability [3] will confuse fish and compel them to swim away from you. Try it out now [Space]. [E]";
-		narrText [13] = "Bork: The sonic wave can be very useful when being pursued by large groups of enemies. [E]";
-		narrText [14] = "Bork: Your final ability I shall unlock is the EMP, activate it [4] and use it[Space]. [E]";
-		narrText [15] = "Bork: The EMP ability is useful when it comes to stopping enemies in their tracks, stunning them and dealing a small amount of damage. [E]";
-		narrText [16] = "Bork: Finally, as you can see, each of your abilities will drain your stamina [Top Left]. Now let's explore this cavern, however be wary of those fish, they are not themselves. [E]";
-		narrText [17] = "Bork: Oh come now, this cave could not possibly be this dull... there must be a way out. [E]";
-		narrText [18] = "Bork: Ah how nice, there is a precariously placed hole in the ceiling. [E]";
-		narrText [19] = "Bork: Now, I know you seem capable, but please take care out in the world, we are still attached and I would rather you not be the last thing I see in this world. [E]";
-		narrText [20] = "Bork: Dear lord the fog is dense, must be a product of the volcano, or some developers.... [E]";
-		narrText [21] = "Bork: Let's move through this reef towards the volcano and see if my second worst fear has come true. [E]";
-		narrText [22] = "Bork: I mean, normally things are rather dull around here, but considering the hostility around here. Things are not bueno. [E]";
-		narrText [23] = "Bork: Ah... I see yes it looks like some irresponsible peasant left the volcano on... let's go turn it off so I can get back to the Karfishians. [E]";
-		narrText [24] = "Bork: Ugh, its Chad... this will be interesting. [E]";
-		narrText [25] = "Bork: Chad, we've talked about this man... you cannot whole up in the volcano like this, it ruins everyone's day. [E]";
-		narrText [26] = "Chad: Bork do you wanna not? I was napping on this here hot vent. There was this awesome button in here that turned it on and it's just delightful. [E]";
-		narrText [27] = "Bork: Chad, you are like 400 years old, how do you not know what turning that button on does? [E]";
-		narrText [28] = "Chad: I care not for those heinous fish, they aren't my problem they cannot hurt this here shell? [E]";
-		narrText [29] = "Bork: Ugh, what a prick. Come on, he won't leave this hole himself, we have to move him ourselves, and honestly you are in no state to do so yourself. [E]";
-		narrText [30] = "Bork: We have to bulk you up, and I know the perfect meathead. He is somewhere in the kelpforest and we gotta get through that reef again. [E]";
-		narrText [31] = "Bork: This seems to be on the right track, Seal Dad will be a bit farther in, be on the lookout for sugar crystals, he loves those things. [E]";
-		narrText [32] = "Bork: Ah there he is, let's go talk to him about Chad. [E]";
+		narrText [0] = "Bork: Someone please help! Something has trapped me in this heinous prison and I have no way to escape! [E]";
+		narrText [1] = "Bork: Ah a Squidling! Release me from this prison, and we can work together to get out of here. [E]";
+		narrText [2] = "Bork: Look for an object to throw, perhaps a box or book and toss it at the glass to free me. [E]";
+		narrText [3] = "Bork: Great work, now I am just going to have a seat on your head and we can be off. [E]";
+		narrText [4] = "Bork: Now, last I knew the gate to this strange place closed behind me, we need a way to open it to get out of here. [E]";
+		narrText [5] = "Bork: Fantastic, now I can imagine you are quite hungry, so let's head out of here into the cavern so we can get you something to eat. [E]";
+		narrText [6] = "Bork: Oh, looks like breakfast has come to us, I sense there is a fish at the entrance to the cavern, let's eat! [E]";
+		narrText [7] = "Bork: Delicious, though that was rather odd the way he was behaving... I am weary that there is something wrong here. But now that you have eaten, let's learn some things.  [E]";
+		narrText [8] = "Bork: If I remember correctly, your kind have certain potentials. Try activating your Inking ability [1] and using it on a fish [Space]. [E]";
+		narrText [9] = "Bork: Very good, you can use this Ink to stop fish in their tracks. [E]";
+		narrText [10] = "Bork: Your kind are also very quick on their tentacles, try activating your movement ability [2] and while moving and use it [Space]. [E]";
+		narrText [11] = "Bork: Wow! You are exceptionally quick. That can be very useful to make a quick getaway from hostiles. [E]";
+		narrText [12] = "Bork: Squids are also rather adept at sonic waves, this ability [3] will confuse fish and compel them to swim away from you. Try it out on a fish now [Space]. [E]";
+		narrText [13] = "Bork: Wow, that is actually very impressive to see in person. [E]";
+		narrText [14] = "Bork: Your final ability is also the most powerful, it is an Electro Magnetic Pulse, activate it [4] and use it on some fish [Space]. [E]";
+		narrText [15] = "Bork: The EMP ability is useful when it comes to stopping enemies in their tracks and dealing a massive amount of damage. [E]";
+		narrText [16] = "Bork: Each of your abilities will drain your stamina, and will take time to recharge for further use. Now that you have some footing I fear that something is sincerely wrong, the fish are not normally this hostile. [E]";
+		narrText [17] = "Bork: This temple must be ages old... there must be a way out of here. [E]";
+		narrText [18] = "Bork: Ah, look up! There is a hole in the ceiling. [E]";
+		narrText [19] = "Bork: Please take care out in the world, we are attached now and I would like to see my bed at the end of the day. [E]";
+		narrText [20] = "Bork: Ah, yes things are worse than I feared, hopefully my friends are okay. It looks like most of the fish have turned hostile";
+		narrText [21] = "Bork: Let's move through this reef towards the volcano in the far distance and see if my suspicion are correct, red crystals will guide your way there. [E]";
+		narrText [22] = "Bork: Normally things are rather dull, but considering how every fish seems to see us as en enemy I feel that it must be the volcano causing this, but no one would turn that volcano on.... [E]";
+		narrText [23] = "Bork: Ah... I see yes it looks like I was unfortunately correct... let's go turn it off so we can go about our daily lives without fear of being mugged. [E]";
+		narrText [24] = "Bork: Ugh, it's Chad... who else would have done this. This should be an interesting encounter. [E]";
+		narrText [25] = "Bork: Chad, you cannot whole up in the volcano and treat it as a personal sauna, we have talked about this. [E]";
+		narrText [26] = "Chad: Bork, relax man. I am not hurting anyone by chilling here. This hot vent is awesome though, isn't it? You should try it!. [E]";
+		narrText [27] = "Bork: Chad,  we had this conversation last week, how do you not remember the implications of turning the volcano on, it turns all the fish hostile. [E]";
+		narrText [28] = "Chad: Ah, they can't hurt me though man! Relax I am perfectly safe here! [E]";
+		narrText [29] = "Bork: He simply never learns. Come on, he won't leave this hole himself, so we will have to do it. However, you are in no state to do so yourself in your current state. [E]";
+		narrText [30] = "Bork: You're gonna have to get a bit stronger first and I know the perfect meathead. He is somewhere in the Kelp Forest which is back towards the entrance to the reef. [E]";
+		narrText [31] = "Bork: This seems to be on the right track, Seal Dad will be a bit farther in, be on the lookout for sugar crystals, he loves those. [E]";
+		narrText [32] = "Bork: Ah there he is, let's go talk to him about helping us out with Chad. [E]";
 		narrText [33] = "Seal Dad: Who's this little lad? [E]";
-		narrText [34] = "Bork: I'm not honestly not sure what he is called but he has very weak arms, and Chad is being an abomination at the moment. [E]";
-		narrText [35] = "Seal Dad: Even in my age I can see from here that he is no definition in his tentacles, and yes I could hear Chad from here... gosh darn turtle ruining my afternoon. [E]";
-		narrText [36] = "Seal Dad: I got the medicine for this, you gotta get Chad out of that, and I need dinner. Kill 3 Barracudas and come back to me, after that we will talk more about bulking you up. [E]";
-		narrText [37] = "Bork: That was actually nasty... but good job, you've proved you are not incompetent, let's head back to Seal Dad. [E]";
+		narrText [34] = "Bork: I'm not honestly not sure, we never fully exchanged names, he just hatched and is still pretty weak. Normally this is just fine, but Chad is being nuisance. [E]";
+		narrText [35] = "Seal Dad: Yes, I can see from here that he is no definition in his tentacles, and yes I could hear your conversation with Chad from here... gosh darn turtle ruining my afternoon. [E]";
+		narrText [36] = "Seal Dad: I got the medicine for this, you gotta get Chad out of that, and I need dinner. Kill 3 Barracudas for me and come back, after that we will talk more about bulking you up. [E]";
+		narrText [37] = "Bork: You fight in a very grotesque way but you've already improved vastly, let's head back to Seal Dad. [E]";
 		narrText [38] = "Seal Dad: Now that you have worked them muscles, we need protein for growth. [E]";
-		narrText [39] = "Seal Dad: Procure the milk and set it down on this here orange rock, we shall share a pint together and praise Brodin. The milk will be near the amber crystals in the far corner of the kelp forest. [E]";
-		narrText [40] = "Seal Dad: Hot damn you did it, now quench thy thirst and drink up, for your muscles and bone will grow strong. [E]";
-		narrText [41] = "Bork: Heavens, you look kinda cool now I will admit, let's go back and speak to Chad and see if we can get him to budge with our new strength. [E]";
-		narrText [42] = "Bork: Alright... you, let's to talk chad out of there. [E]";
-		narrText [43] = "Bork: Chad, bruh seriously things are not okay around here and you are literally the only thing causing it. [E]";
-		narrText [44] = "Chad: Alright fine, grab my pillow and bring it to this here rock of mine, and kill me some tunas. The pillow is somewhere on the other side of this volcano. If you do this i'll take my spice elsewhere. [E]";
-		narrText [45] = "Chad: Wow, you actually did it. Ha! Thanks for the pillow Chump, you and your jellyfish can stick it, I am not going anywhere. [E]";
-		narrText [46] = "Bork: Dear Lord Chad you are actually a barnacle on this world, truly. Come on, we really only have one choice left and its in the Kraken Graveyard. [E]";
-		narrText [47] = "Bork: Well I bet this is dreary for you, anyway Eel-Chan seems to like purple these days, I would say find the biggest cluster of them and see if we can draw her out. [E]";
-		narrText [48] = "Bork: Eel-Chan, how you doin my slithery beauty? [E]";
-		narrText [49] = "Eel-Chan: Please look away, I am hideous! Those blasted anglers seem to have run off with my beauty kit and even worse they are flaunting their light on unfetchingness. [E]";
-		narrText [50] = "Bork: Could... you just deal with it and make this dingus pretty? Chad is the reason the anglers stole your things, he is using the volcano as a personal sauna. [E]";
-		narrText [51] = "Eel-Chan: Bork you are being very insensitive right now, and Chad even more so, if you happen to return my kit and deal with some of those anglers I will help you. [E]";
-		narrText [52] = "Bork: Nice job, your'e really not so bad. Let's get this back to Eel Chan, though I am really not sure how much this will help us. [E]";
-		narrText [53] = "Bork: Eel Chan, we have your beauty kit, will you help us now? [E]";
-		narrText [54] = "Eel Chan: Oh I suppose, here. A dab there a smudge there and bam youre not terrible looking! [E]";
-		narrText [55] = "Bork: Good lord, you look actually spooky, I am sure this will be more than enough to scare Chad out of hiding, and if not then just give him a good toss! [E]";
-		narrText [56] = "Bork: Chad, we are gonna give you one last chance! Vacate that hole or we will vacate you ourselves. [E]";
-		narrText [57] = "Chad: You wouldn't dare! No one would dare disturb such a kindly turtle on a day like this! [E]";
-		narrText [58] = "Bork: Have you met you? You know what we are done, squidlad, take care of this chump, and let's turn off that damn button. [E]";
-		narrText [59] = "Bork: Cool, you win. [E]";
+		narrText [39] = "Seal Dad: Procure some discus milk and set it down on this here orange rock, we shall share a pint together. The milk should be near the amber crystals in the far corner of the kelp forest. [E]";
+		narrText [40] = "Seal Dad: Delicious Discus Milk! Now quench thy thirst and drink up, for your muscles and bone will grow large and strong. [E]";
+		narrText [41] = "Bork: Heavens, I will admit you look pretty cool, this might be enough to move Chad. Let's head back over to him and try to reason him out of there with our new strength. [E]";
+		narrText [42] = "Bork: Look at him, still as frustratingly carefree as he was before. [E]";
+		narrText [43] = "Bork: Chad, seriously things are not safe for most of us out here and you are the one thing causing it. [E]";
+		narrText [44] = "Chad: Alright fine, if you can grab my pillow and bring it to this here rock of mine I might consider vacating. The pillow is somewhere on the other side of this volcano. If you do this i'll take my spice elsewhere. [E]";
+		narrText [45] = "Chad: Wow, you actually did it. Well thanks for the pillow man you didn't have to do that. I am not gonna take a nap now...zzz. [E]";
+		narrText [46] = "Bork: Did he seriously just fall asleep? This is incredibly frustrating.... Come on, we really only have one choice left and she is in the Squid Grav.. Place. [E]";
+		narrText [47] = "Bork: Wow these are really interesting rocks right...? Right? Anyway Eel-Chan seems to find purple fetching these days, I would say find the biggest cluster of them and see if we can draw her out. [E]";
+		narrText [48] = "Bork: Eel-Chan, how are you doin my beauty? [E]";
+		narrText [49] = "Eel-Chan: Aww Bork you charmer! Well I am not well, those blasted anglers just decided to run off with my beauty kit and I haven't had a chance to do myself up yet. [E]";
+		narrText [50] = "Bork: Could we help in some way? We need your help, Chad is using the volcano as a personal suana and the reason the anglers stole your things. [E]";
+		narrText [51] = "Eel-Chan: That makes so much sense now! Yes, please, if you could return my turquoise Seafora case, and deal with some of those anglers I will help you. [E]";
+		narrText [52] = "Bork: Man that was ugly, I hate doing things like this. Let's get this back to Eel-Chan. [E]";
+		narrText [53] = "Bork: Eel-Chan, we have your beauty kit, now will you help us stop Chad's escapade? [E]";
+		narrText [54] = "Eel Chan: Oh I suppose, here. A dab of fabulous there, a smudge of stoic here, and just a hint of sexy and bam you're just fetching! [E]";
+		narrText [55] = "Bork: Good lord, you lord you're no squid are you? You might be one of their ancestors, the Kraken! I am sure you are more than enough to convince Chad to vacate the volcano, and if not then just give him a good toss! [E]";
+		narrText [56] = "Bork: Chad, we are gonna give you one last chance! The ocean is no longer safe and we cannot handle your shenanigans. Vacate that volcano or we will evict you ourselves. [E]";
+		narrText [57] = "Chad: Hey man, now you're just being rude! Here I am, minding my own business and you guys just want to bully me! [E]";
+		narrText [58] = "Bork: You know that's it, this here Kraken is gonna take good care of you. [E]";
+		narrText [59] = "Bork: Wonderful, now everything is well in the world! The fish are no longer hostile and now I can live my afternoon in peace, thank you kind Kraken. [E]";
 	}
 
 

@@ -11,6 +11,7 @@ public class QuitGame : MonoBehaviour {
 	private GameObject ExitAYS; //AYS = are you sure? (splash screen)
 	private GameObject RestartAYS;
 	private GameObject AYStext;
+	public bool AYSactive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,7 @@ public class QuitGame : MonoBehaviour {
 		AYStext.SetActive(true);
 		ExitBut.interactable = false;
 		RestartBut.interactable = false;
+		AYSactive = true;
 	}
 	
 	//when called, will bring up the splash YES or NO. this is for the quit buttons
@@ -53,6 +55,7 @@ public class QuitGame : MonoBehaviour {
 		AYStext.SetActive(true);
 		ExitBut.interactable = false;
 		RestartBut.interactable = false;
+		AYSactive = true;
 	}
 	
 	//should the player say NO to restarting/quitting the game, should bring back the other options
@@ -65,6 +68,7 @@ public class QuitGame : MonoBehaviour {
 		AYStext.SetActive(false);
 		ExitBut.interactable = true;
 		RestartBut.interactable = true;
+		AYSactive = false;
 	}
 
 	

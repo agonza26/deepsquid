@@ -60,6 +60,7 @@
      <Compile Include="Assets\Data\Scripts\Enemy\Legacy Boids\BoidWatcher.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\Search.cs" />
      <Compile Include="Assets\Data\Scripts\LocationTracking.cs" />
+     <Compile Include="Assets\Data\Scripts\LocationUpdate.cs" />
      <Compile Include="Assets\Data\Scripts\NPCHighlighting.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\LabSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\SealSwitch.cs" />
@@ -100,10 +101,12 @@
      <Compile Include="Assets\Data\Scripts\TutorialObject.cs" />
      <Compile Include="Assets\Data\Scripts\dialogueLerp.cs" />
      <Compile Include="Assets\Data\Scripts\empGrower.cs" />
+     <Compile Include="Assets\Data\Scripts\fadeIn.cs" />
      <Compile Include="Assets\Data\Scripts\improved_movement.cs" />
      <Compile Include="Assets\Data\Scripts\modelSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\outlineLerp.cs" />
      <Compile Include="Assets\Data\Scripts\spellItOut.cs" />
+     <Compile Include="Assets\backdropActive.cs" />
      <Compile Include="Assets\dLoader.cs" />
      <Compile Include="Assets\testscript.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
