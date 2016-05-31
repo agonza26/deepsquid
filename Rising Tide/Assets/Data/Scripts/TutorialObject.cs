@@ -367,36 +367,38 @@ public class TutorialObject : MonoBehaviour {
 		if (!inRangeToSeeEel && inRangeToHearEel) {
 			inRangeToSeeEel = true;
 		}
-		if (fishStats.getTargetProgress () == 1 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
+		if (fishStats.getTargetProgress () >= 1 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
 			uiQuestTwentyThree.SetActive (false);
 			uiQuestTwentyThreeInc1.SetActive (true);
-		} else if (fishStats.getTargetProgress () == 2 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		} else if (fishStats.getTargetProgress ()>= 2 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
 			uiQuestTwentyThreeInc1.SetActive (false);
 			uiQuestTwentyThreeInc2.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () == 3 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 3 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
 			uiQuestTwentyThreeInc2.SetActive (false);
 			uiQuestTwentyThreeInc3.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () == 4 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 4 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
 			uiQuestTwentyThreeInc3.SetActive (false);
 			uiQuestTwentyThreeInc4.SetActive (true);
 
 		}
-		else if (fishStats.getTargetProgress () >= 5 && !questTwentyThreeComplete && posInDialogue == 52&& acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 5 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
 			uiQuestTwentyThreeInc4.SetActive (false);
 			uiQuestTwentyThreeInc5.SetActive (true);
 			anglersKilled = true;
 		}
 
-		if (fishStats.getTargetProgress () == 1 && !questSixteenComplete) {
+		if (fishStats.getTargetProgress () >= 1 && (fishStats.getTargetProgress () < 2) && !questSixteenComplete) {
 			uiQuestSixteen.SetActive (false);
 			uiQuestSixteenOne.SetActive (true);
-		} else if (fishStats.getTargetProgress () == 2 && !questSixteenComplete) {
+		} else if (fishStats.getTargetProgress () >= 2 && (fishStats.getTargetProgress () < 3) &&  !questSixteenComplete) {
 			uiQuestSixteenOne.SetActive (false);
 			uiQuestSixteenTwo.SetActive (true);
 		}
 		else if (fishStats.getTargetProgress () >= 3 && !questSixteenComplete) {
+			uiQuestSixteen.SetActive (false);
+			uiQuestSixteenOne.SetActive (false);
 			uiQuestSixteenTwo.SetActive (false);
 			barracudaKilled = true;
 		}
