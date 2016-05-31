@@ -153,7 +153,10 @@ ModelImporter:
     3300000: Bork
     4300000: Bork
     4300002: babySquid
-    7400000: Armature babySquid |Armature babySquid Action
+    7400000: bobygrab
+    7400002: bobyswim
+    7400004: bobyidle
+    7400006: bobydeath
     9500000: //RootNode
     13700000: babySquid
   materials:
@@ -176,7 +179,695 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: bobygrab
+      takeName: Armature babySquid |Armature babySquid Action
+      firstFrame: 58
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: 'Armature babySquid '
+        weight: 1
+      - path: Armature babySquid /Root
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/Bork
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L/tentacle2-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001/tentacle2-04.L.001_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R/tentacle2-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001/tentacle2-04.R.001_end
+        weight: 1
+      - path: babySquid
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: bobyswim
+      takeName: Armature babySquid |Armature babySquid Action
+      firstFrame: 78
+      lastFrame: 426
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: 'Armature babySquid '
+        weight: 1
+      - path: Armature babySquid /Root
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/Bork
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L/tentacle2-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001/tentacle2-04.L.001_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R/tentacle2-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001/tentacle2-04.R.001_end
+        weight: 1
+      - path: babySquid
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: bobyidle
+      takeName: Armature babySquid |Armature babySquid Action
+      firstFrame: 427
+      lastFrame: 898
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: 'Armature babySquid '
+        weight: 1
+      - path: Armature babySquid /Root
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/Bork
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L/tentacle2-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001/tentacle2-04.L.001_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R/tentacle2-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001/tentacle2-04.R.001_end
+        weight: 1
+      - path: babySquid
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: bobydeath
+      takeName: Armature babySquid |Armature babySquid Action
+      firstFrame: 899
+      lastFrame: 1050
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: 'Armature babySquid '
+        weight: 1
+      - path: Armature babySquid /Root
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.L/feedingTentacle02.L/feedingTentacle02.L_end
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/feedingTentacle01.R/feedingTentacle02.R/feedingTentacle02.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/Bork
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.L/fin.L_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/fin.R/fin.R_end
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead
+        weight: 1
+      - path: Armature babySquid /Root/lowerHead/upperHead/upperHead_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.L/mainTentacle01.L/mainTentacle02.L/mainTentacle03.L/mainTentacle04.L/mainTentacle05.L/mainTentacle06.L/mainTentacle07.L/mainTentacle07.L_end
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R
+        weight: 1
+      - path: Armature babySquid /Root/mainTentacleBase.R/mainTentacle01.R/mainTentacle02.R/mainTentacle03.R/mainTentacle04.R/mainTentacle05.R/mainTentacle06.R/mainTentacle07.R/mainTentacle07.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.L/tentacle1-01.L/tentacle1-02.L/tentacle1-03.L/tentacle1-04.L/tentacle1-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle1Base.R/tentacle1-01.R/tentacle1-02.R/tentacle1-03.R/tentacle1-04.R/tentacle1-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L/tentacle2-01/tentacle2-02/tentacle2-03/tentacle2-04.L/tentacle2-04.L_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.L.001/tentacle2-01.001/tentacle2-02.001/tentacle2-03.001/tentacle2-04.L.001/tentacle2-04.L.001_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R/tentacle2-01.004/tentacle2-02.004/tentacle2-03.004/tentacle2-04.R/tentacle2-04.R_end
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001
+        weight: 1
+      - path: Armature babySquid /Root/tentacle2Base.R.001/tentacle2-01.002/tentacle2-02.002/tentacle2-03.002/tentacle2-04.R.001/tentacle2-04.R.001_end
+        weight: 1
+      - path: babySquid
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
