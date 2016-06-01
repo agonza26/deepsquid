@@ -24,7 +24,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	public bool overrideDebugValue = false;
 
 	//not something you should change in the instector
 	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
@@ -63,7 +63,6 @@ public class BasicEnemy : MonoBehaviour {
 	private Vector3 toTarget = Vector3.zero;
 	private Vector3 desired_velocity = Vector3.zero;
 	private Vector3 steering = Vector3.zero;
-	private int ecoID = -1;
 
 	public ParticleSystem blood;
 	public AudioSource death;
@@ -87,6 +86,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 	void Start () {
+		debug = overrideDebugValue;
 		eco = GameObject.Find (ecosystem);
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 		//look towards target on start
@@ -198,6 +198,148 @@ public class BasicEnemy : MonoBehaviour {
 
 	void debugState(){
 		//does nothing, strickly for debugging, can modify for printing later or something
+	}
+
+
+	void setDiffStats(){
+		switch (gameObject.GetComponent<BasicEnemy> ().fishType) {
+		case "barracuda":
+			damage = 5;
+			followTimer = 10;
+			evadeTimer = 4;
+			returnTimer = 7;
+			steerMult = 13;
+			followStraight = 10;
+			chaseSteer = 2;
+			chaseStraight = 10;
+			steeringMax = 9.4f;
+			velocityMax = 9;
+
+
+
+
+
+			break;
+		case "tuna":
+			damage = 1;
+			followTimer = 10;
+			evadeTimer = 5;
+			returnTimer = 5;
+			steerMult = 1;
+			followStraight = 5;
+			chaseSteer = 2;
+			chaseStraight = 8;
+			steeringMax = 1;
+			velocityMax = 9;
+
+
+			//enemyHealthMax = 25;
+			//PlayerHealthRestoreValue = 10;
+			break;
+
+
+		case "swordfish":
+
+			damage = 10;
+			followTimer = 20;
+			evadeTimer = 10;
+			returnTimer = 10;
+			steerMult = 8;
+			followStraight = 15;
+			chaseSteer = 1;
+			chaseStraight = 8;
+			steeringMax = 10;
+			velocityMax = 13;
+
+		//	enemyHealthMax = 75;
+			//PlayerHealthRestoreValue = 40;
+			break;
+
+
+		case "angler":
+			damage = 10;
+			followTimer = 20;
+			evadeTimer = 10;
+			returnTimer = 10;
+			steerMult = 8;
+			followStraight = 15;
+			chaseSteer = 1;
+			chaseStraight = 8;
+			steeringMax = 3;
+			velocityMax = 13;
+
+
+		//	/enemyHealthMax = 45;
+			//PlayerHealthRestoreValue = 18;
+			break;
+
+
+		case "whale":
+			damage = 1;
+			followTimer = 10;
+			evadeTimer = 15;
+			returnTimer = 20;
+			steerMult = 1;
+			followStraight = 2;
+			chaseSteer = 2;
+			chaseStraight = 5;
+			steeringMax = 2;
+			velocityMax = 2;
+			//enemyHealthMax = 200;
+			//PlayerHealthRestoreValue = 9000;
+			break;
+		case "manta":
+
+			damage = 1;
+			followTimer = 10;
+			evadeTimer = 5;
+			returnTimer = 5;
+			steerMult = 1;
+			followStraight = 5;
+			chaseSteer = 2;
+			chaseStraight = 8;
+			steeringMax = 1;
+			velocityMax = 9;
+
+			//enemyHealthMax = 65;
+			//PlayerHealthRestoreValue= 15;
+			break;
+		case "flounder":
+			damage = 1;
+			followTimer = 10;
+			evadeTimer = 15;
+			returnTimer = 20;
+			steerMult = 1;
+			followStraight = 2;
+			chaseSteer = 2;
+			chaseStraight = 5;
+			steeringMax = 5;
+			velocityMax = 4;
+			randomPathFloat = 0.4f;
+
+			//enemyHealthMax = 35;
+			//PlayerHealthRestoreValue= 13;
+			break;
+		case "shark":
+			damage = 40;
+			followTimer = 10;
+			evadeTimer = 5;
+			returnTimer = 5;
+			steerMult = 4;
+			followStraight = 5;
+			chaseSteer = 20;
+			chaseStraight = 20;
+			steeringMax = 10;
+			velocityMax = 20;
+			//enemyHealthMax = 100;
+			//PlayerHealthRestoreValue = 60;
+			break;
+		}
+
+		empTimeLimit = 3;
+		empDazeTimer = 3;
+		empDamage = 35;
+
 	}
 
 

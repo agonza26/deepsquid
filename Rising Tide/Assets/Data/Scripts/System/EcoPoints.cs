@@ -33,7 +33,7 @@ public class EcoPoints : MonoBehaviour {
 	public bool debug = true;
 	private bool gone = false;
 	private float recycleTimer = 0;
-	public float recycleTimeLimit = 5;
+	private float recycleTimeLimit = 5;
 
 
 
@@ -91,7 +91,7 @@ public class EcoPoints : MonoBehaviour {
 			EnemContainerD.Clear();
 		}
 
-		if (DeadEnemContainer.Count > 0) {
+		if (DeadEnemContainer.Count > 0 && gone) {
 			recycleTimer += Time.deltaTime;
 			if(recycleTimer >= recycleTimeLimit){
 				Resurrect (DeadEnemContainer [0]);
@@ -104,7 +104,7 @@ public class EcoPoints : MonoBehaviour {
 			Die (EnemContainerS [0]);
 		} else if (Input.GetKeyUp ("i") && !gone && debug && EnemContainerS.Count > 0) {
 			Damage (EnemContainerS [0]);
-		} else if (Input.GetKeyUp ("m") && !gone && debug && DeadEnemContainer.Count > 0) {
+		} else if (Input.GetKeyUp ("m")  && debug && DeadEnemContainer.Count > 0) {
 			Resurrect (DeadEnemContainer [0]);
 		}
 
