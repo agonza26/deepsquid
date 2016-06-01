@@ -17,6 +17,9 @@ public class BasicEnemy : MonoBehaviour {
 	public float chaseStraight = 10f;
 	public bool debug = true;
 	public string ecosystem = "Eco-Test-1";
+	public bool haveMultiEcos = false;
+	public string[] muliEcos = new string[1];
+	private string[] ecosystemDataBase;
 
 	public float empTimeLimit = 3f;
 	public float steeringMax = 1f; //maximum steering magnitude
@@ -304,7 +307,7 @@ public class BasicEnemy : MonoBehaviour {
 
 			//enemyHealthMax = 65;
 			//PlayerHealthRestoreValue= 15;
-			break;
+
 		
 
 			//enemyHealthMax = 35;
@@ -339,6 +342,7 @@ public class BasicEnemy : MonoBehaviour {
 			steeringMax = 5;
 			velocityMax = 4;
 			randomPathFloat = 0.4f;
+			break;
 		}
 
 		empTimeLimit = 3;
