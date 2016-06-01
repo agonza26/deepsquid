@@ -59,6 +59,7 @@
      <Compile Include="Assets\Data\Scripts\Enemy\Legacy Boids\BoidFlocking.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\Legacy Boids\BoidWatcher.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\Search.cs" />
+     <Compile Include="Assets\Data\Scripts\FridgeModelSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\LocationTracking.cs" />
      <Compile Include="Assets\Data\Scripts\LocationUpdate.cs" />
      <Compile Include="Assets\Data\Scripts\NPCHighlighting.cs" />
