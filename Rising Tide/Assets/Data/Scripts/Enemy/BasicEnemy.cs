@@ -79,7 +79,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
-
+	public bool isHostile = true;
 
 
 
@@ -87,6 +87,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	void Start () {
 		debug = overrideDebugValue;
+		setDiffStats();
 		eco = GameObject.Find (ecosystem);
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 		//look towards target on start
@@ -289,7 +290,7 @@ public class BasicEnemy : MonoBehaviour {
 			//PlayerHealthRestoreValue = 9000;
 			break;
 		case "manta":
-
+			isHostile = false;
 			damage = 1;
 			followTimer = 10;
 			evadeTimer = 5;
@@ -304,18 +305,7 @@ public class BasicEnemy : MonoBehaviour {
 			//enemyHealthMax = 65;
 			//PlayerHealthRestoreValue= 15;
 			break;
-		case "flounder":
-			damage = 1;
-			followTimer = 10;
-			evadeTimer = 15;
-			returnTimer = 20;
-			steerMult = 1;
-			followStraight = 2;
-			chaseSteer = 2;
-			chaseStraight = 5;
-			steeringMax = 5;
-			velocityMax = 4;
-			randomPathFloat = 0.4f;
+		
 
 			//enemyHealthMax = 35;
 			//PlayerHealthRestoreValue= 13;
@@ -334,6 +324,21 @@ public class BasicEnemy : MonoBehaviour {
 			//enemyHealthMax = 100;
 			//PlayerHealthRestoreValue = 60;
 			break;
+
+		case "flounder":
+		default:
+			isHostile = false;
+			damage = 1;
+			followTimer = 10;
+			evadeTimer = 15;
+			returnTimer = 20;
+			steerMult = 1;
+			followStraight = 2;
+			chaseSteer = 2;
+			chaseStraight = 5;
+			steeringMax = 5;
+			velocityMax = 4;
+			randomPathFloat = 0.4f;
 		}
 
 		empTimeLimit = 3;
@@ -361,12 +366,20 @@ public class BasicEnemy : MonoBehaviour {
 				
 				case "foundPlayer":
 					currentTarget = lPC.positionTransform;
-					state = "follow";
 					message = "none";
 					if (foundPlayerSound)
 						foundPlayerSound.Play ();
+					if (isHostile) {
+						state = "follow";
+						follow ();
+					} else {
 
-					follow ();
+						flee();
+
+					}
+
+
+
 					switchedStates = true;
 					break;
 				}
@@ -527,11 +540,18 @@ public class BasicEnemy : MonoBehaviour {
 				}
 
 
-				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer") {
+				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer"
+					|| !isHostile) {
 					if (message == "foundPlayer") {
-						message = "none";
-						state = "follow";
-						follow ();
+
+						if (isHostile) {
+							message = "none";
+							state = "follow";
+							follow ();
+						} else {
+
+							flee ();
+						}
 
 					} else {
 
