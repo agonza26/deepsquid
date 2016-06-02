@@ -91,7 +91,7 @@ public class EcoPoints : MonoBehaviour {
 			EnemContainerD.Clear();
 		}
 
-		if (DeadEnemContainer.Count > 0 && gone) {
+		if (DeadEnemContainer.Count > 0) {
 			recycleTimer += Time.deltaTime;
 			if(recycleTimer >= recycleTimeLimit){
 				Resurrect (DeadEnemContainer [0]);

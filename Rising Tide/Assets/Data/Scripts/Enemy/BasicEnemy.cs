@@ -91,6 +91,7 @@ public class BasicEnemy : MonoBehaviour {
 	void Start () {
 		debug = overrideDebugValue;
 		setDiffStats();
+
 		eco = GameObject.Find (ecosystem);
 		lPC = GameObject.FindGameObjectWithTag ("gameController").GetComponent<LastPlayerSighting> ();
 		//look towards target on start
@@ -208,7 +209,7 @@ public class BasicEnemy : MonoBehaviour {
 	void setDiffStats(){
 		switch (gameObject.GetComponent<BasicEnemy> ().fishType) {
 		case "barracuda":
-			damage = 5;
+			damage = 20;
 			followTimer = 10;
 			evadeTimer = 4;
 			returnTimer = 7;
@@ -225,15 +226,15 @@ public class BasicEnemy : MonoBehaviour {
 
 			break;
 		case "tuna":
-			damage = 1;
+			damage = 5;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
-			steerMult = 1;
+			steerMult = 2;
 			followStraight = 5;
 			chaseSteer = 2;
 			chaseStraight = 8;
-			steeringMax = 1;
+			steeringMax = 2;
 			velocityMax = 9;
 
 
@@ -244,7 +245,7 @@ public class BasicEnemy : MonoBehaviour {
 
 		case "swordfish":
 
-			damage = 10;
+			damage = 30;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -261,7 +262,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		case "angler":
-			damage = 10;
+			damage = 20;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -279,7 +280,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		case "whale":
-			damage = 1;
+			damage = 5;
 			followTimer = 10;
 			evadeTimer = 15;
 			returnTimer = 20;
@@ -294,7 +295,7 @@ public class BasicEnemy : MonoBehaviour {
 			break;
 		case "manta":
 			isHostile = false;
-			damage = 1;
+			damage = 5;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -302,7 +303,7 @@ public class BasicEnemy : MonoBehaviour {
 			followStraight = 5;
 			chaseSteer = 2;
 			chaseStraight = 8;
-			steeringMax = 1;
+			steeringMax = 2;
 			velocityMax = 9;
 
 			//enemyHealthMax = 65;
@@ -331,7 +332,7 @@ public class BasicEnemy : MonoBehaviour {
 		case "flounder":
 		default:
 			isHostile = false;
-			damage = 1;
+			damage = 5;
 			followTimer = 10;
 			evadeTimer = 15;
 			returnTimer = 20;
@@ -373,14 +374,11 @@ public class BasicEnemy : MonoBehaviour {
 					message = "none";
 					if (foundPlayerSound)
 						foundPlayerSound.Play ();
-					if (isHostile) {
-						state = "follow";
-						follow ();
-					} else {
 
-						flee();
 
-					}
+					state = "follow";
+					follow ();
+
 
 
 
@@ -440,6 +438,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	//tune ink ability a bit
 	private void follow(){
+		print ("found player tho");
 		if (effects.Contains ("emp")) {
 			empPrep ();
 
@@ -544,18 +543,11 @@ public class BasicEnemy : MonoBehaviour {
 				}
 
 
-				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer"
-					|| !isHostile) {
+				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer") {
 					if (message == "foundPlayer") {
-
-						if (isHostile) {
 							message = "none";
 							state = "follow";
 							follow ();
-						} else {
-
-							flee ();
-						}
 
 					} else {
 
