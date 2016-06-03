@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\empGrower.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\Scripts\Enemy\BasicEnemy.cs">
     <Files>
       <File FileName="Assets\Data\Scripts\Other-IDK\KrakenSwitch.cs" Line="23" Column="18" />
       <File FileName="Assets\Data\Scripts\TutorialObject.cs" Line="2031" Column="66" />
@@ -8,26 +8,7 @@
       <File FileName="Assets\Data\Scripts\Other-IDK\LabSwitch.cs" Line="27" Column="53" />
       <File FileName="Assets\Data\Scripts\LocationUpdate.cs" Line="1" Column="1" />
       <File FileName="Assets\Data\Scripts\System\Ability\PushWave.cs" Line="54" Column="52" />
-      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="761" Column="21" />
-      <File FileName="Assets\Data\Scripts\Other-IDK\endGameSwitch.cs" Line="25" Column="25" />
-      <File FileName="Assets\Data\Scripts\System\Pause.cs" Line="98" Column="4" />
-      <File FileName="Assets\Data\Scripts\System\QuitGame.cs" Line="79" Column="22" />
-      <File FileName="Assets\Data\Scripts\Player\PickupObject.cs" Line="36" Column="4" />
-      <File FileName="Assets\Data\Scripts\Player\Pickupable.cs" Line="136" Column="16" />
-      <File FileName="Assets\Data\Scripts\System\CurrentSystem.cs" Line="98" Column="58" />
-      <File FileName="Assets\Data\Scripts\System\WaveSystem.cs" Line="102" Column="50" />
-      <File FileName="Assets\Data\Scripts\System\EcoPoints.cs" Line="94" Column="35" />
-      <File FileName="Assets\Data\Scripts\System\Abilities.cs" Line="86" Column="32" />
-      <File FileName="Assets\Data\Scripts\System\DynamicObjAv.cs" Line="21" Column="37" />
-      <File FileName="Assets\Data\Scripts\FridgeModelSwitch.cs" Line="41" Column="14" />
-      <File FileName="Assets\Data\Scripts\Enemy\BoidComponent.cs" Line="158" Column="44" />
-      <File FileName="Assets\Data\Scripts\System\AbilityProcurement.cs" Line="48" Column="3" />
-      <File FileName="Assets\Data\Scripts\System\CameraController.cs" Line="209" Column="5" />
-      <File FileName="Assets\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" Line="201" Column="4" />
-      <File FileName="Assets\Data\Scripts\NPCHighlighting.cs" Line="30" Column="5" />
-      <File FileName="Assets\Data\Scripts\Player\simple_movement.cs" Line="220" Column="17" />
-      <File FileName="Assets\Data\Scripts\Enemy\BobbitBrain.cs" Line="126" Column="5" />
-      <File FileName="Assets\Data\Scripts\empGrower.cs" Line="35" Column="2" />
+      <File FileName="Assets\Data\Scripts\Enemy\BasicEnemy.cs" Line="574" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
