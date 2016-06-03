@@ -207,7 +207,7 @@ public class TutorialObject : MonoBehaviour {
 		dadDialogueSound = GameObject.Find("Player").transform.Find ("dadSound").GetComponent<AudioSource> ();
 		chadDialogueSound = GameObject.Find("Player").transform.Find ("chadSound").GetComponent<AudioSource> ();
 
-		playerBabyModel = GameObject.Find("chibiSquid");
+		playerBabyModel = GameObject.Find("chibiSquid2");
 		playerJuveModel = GameObject.FindGameObjectWithTag ("krakenJuvenile");
 		playerJuveModel.SetActive (false);
 		playerAdultModel = GameObject.FindGameObjectWithTag ("krakenAdult");
@@ -367,18 +367,18 @@ public class TutorialObject : MonoBehaviour {
 		if (!inRangeToSeeEel && inRangeToHearEel) {
 			inRangeToSeeEel = true;
 		}
-		if (fishStats.getTargetProgress () >= 1 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
+		if (fishStats.getTargetProgress () >= 1 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest && (fishStats.getTargetProgress () < 2)) {
 			uiQuestTwentyThree.SetActive (false);
 			uiQuestTwentyThreeInc1.SetActive (true);
-		} else if (fishStats.getTargetProgress ()>= 2 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
+		} else if (fishStats.getTargetProgress ()>= 2 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest && (fishStats.getTargetProgress () < 3)) {
 			uiQuestTwentyThreeInc1.SetActive (false);
 			uiQuestTwentyThreeInc2.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () >= 3 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 3 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest&& (fishStats.getTargetProgress () < 4)) {
 			uiQuestTwentyThreeInc2.SetActive (false);
 			uiQuestTwentyThreeInc3.SetActive (true);
 		}
-		else if (fishStats.getTargetProgress () >= 4 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest) {
+		else if (fishStats.getTargetProgress () >= 4 && !questTwentyThreeComplete && posInDialogue == 52 && acceptQuest&& (fishStats.getTargetProgress () < 5)) {
 			uiQuestTwentyThreeInc3.SetActive (false);
 			uiQuestTwentyThreeInc4.SetActive (true);
 
@@ -1657,7 +1657,7 @@ public class TutorialObject : MonoBehaviour {
 		if (posInDialogue == 52 && !acceptQuest && !questTwentyThreeComplete) {
 			acceptQuest = true;
 			//Debug.Log (fishStats.getTargetProgress ());
-			eelTalk = true;
+
 			fishStats.targetUpdate ("angler");
 			//fishStats.targetReset ();
 			//Play eelchan sound
@@ -1681,6 +1681,7 @@ public class TutorialObject : MonoBehaviour {
 		}
 		if (posInDialogue == 53 && !acceptQuest && !questTwentyFourComplete) {
 			acceptQuest = true;
+			eelTalk = true;
 			uiMissionBox.SetActive (true);
 			uiMissionText.SetActive (true);
 			beautyKitImg.SetActive (false);
@@ -1923,6 +1924,9 @@ public class TutorialObject : MonoBehaviour {
 				else if (posInDialogue == 47 && acceptQuest && !questTwentyOneComplete) {
 					narrTextTrigger [posInDialogue] = false;
 					uiBoxOutline.SetActive (false);
+				}	else if (posInDialogue == 52 && acceptQuest && !questTwentyThreeComplete) {
+					narrTextTrigger [posInDialogue] = false;
+					uiBoxOutline.SetActive (false);
 				}
 				else if (posInDialogue == 56 && acceptQuest && !questTwentyFiveComplete) {
 					narrTextTrigger [posInDialogue] = false;
@@ -2073,11 +2077,12 @@ public class TutorialObject : MonoBehaviour {
 	void distanceNotify(){
 		dist = (int)Vector3.Distance (player.transform.position, tutOrigin.transform.position);
 		if (dist <= 20) {
+			pressEText.SetActive (true);
 			inRangeToHear = true;
 			if (dist <= 20) {
 				inRangeToInt = true;
 				GameObject.FindWithTag("BorkNPCLocation").GetComponent<NPCHighlighting>().changeMatToHL ();
-				if (!acceptQuest)
+				if (!acceptQuest || posInDialogue == 1)
 					pressEText.SetActive (true);
 				else
 					pressEText.SetActive (false);
@@ -2280,7 +2285,7 @@ public class TutorialObject : MonoBehaviour {
 		player.transform.localPosition = new Vector3 (-219.0f, 450.3f, 690.9f);
 		narrTextTrigger [0] = false;
 		narrTextTrigger [1] = false;
-		posInDialogue = 20;
+		posInDialogue = 52;
 		questZeroComplete = true;
 		questOneComplete = true;
 		questTwoComplete = true;
@@ -2290,9 +2295,9 @@ public class TutorialObject : MonoBehaviour {
 		questSixComplete = true;
 		questSevenComplete = true;
 		questEightComplete = true;
-		acceptQuest = false;
-		//questNineComplete = true;
-		/*
+		//acceptQuest = false;
+		questNineComplete = true;
+
 		questTenComplete = true;
 		questElevenComplete = true;
 		questThirteenComplete = true;
@@ -2305,9 +2310,9 @@ public class TutorialObject : MonoBehaviour {
 		questTwentyComplete = true;
 		questTwentyOneComplete = true;
 		questTwentyTwoComplete = true;
-		questTwentyThreeComplete = true;
-		questTwentyFourComplete = true;
-		questTwentyFiveComplete = true;*/
+		//questTwentyThreeComplete = true;
+		//questTwentyFourComplete = true;
+		//questTwentyFiveComplete = true;*/
 		//completeMissionText.SetActive (true);
 		/*
 		broughtDaPillow = true;
@@ -2332,7 +2337,6 @@ public class TutorialObject : MonoBehaviour {
 		fishQuestCheck [1] = true;
 		fishQuestCheck [2] = true;
 		fishQuestCheck [3] = true;
-		/*
 		hasEnteredVolcVicinity = true;
 		inRangeToSeeChad = true;
 		inRangeToSeeEel = true;
@@ -2343,9 +2347,9 @@ public class TutorialObject : MonoBehaviour {
 		hasEnteredKGY = true;
 		broughtDaMilk = true;
 		//acceptQuest = true;
-		anglersKilled = true;
+		//anglersKilled = true;
 		beautyKitFound = true;
-		*/
+
 		GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().speedIcon.enabled = true;
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<Abilities> ().abilities [0] = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().inkIcon.enabled = true;

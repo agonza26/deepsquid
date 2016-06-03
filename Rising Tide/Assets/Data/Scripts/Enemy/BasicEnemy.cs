@@ -438,7 +438,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	//tune ink ability a bit
 	private void follow(){
-		print ("found player tho");
+		//print ("found player tho");
 		if (effects.Contains ("emp")) {
 			empPrep ();
 

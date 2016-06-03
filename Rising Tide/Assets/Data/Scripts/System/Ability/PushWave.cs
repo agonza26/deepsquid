@@ -50,7 +50,7 @@ public class PushWave : MonoBehaviour {
 		if (!encountered.Contains (it)) {
 			encountered.Add (it);
 			if (it.GetComponent<BasicEnemy> () != null) {
-				it.GetComponent<BasicEnemy> ().outsideFactor+=   transform.TransformDirection (transform.forward) * pushFactor;
+				it.GetComponent<BasicEnemy> ().outsideFactor+=  it.transform.InverseTransformDirection( transform.TransformDirection (transform.forward) )* pushFactor;
 				it.GetComponent<BasicEnemy> ().waveAcc = true;
 				it.GetComponent<BasicEnemy> ().changeDec ();
 			}
