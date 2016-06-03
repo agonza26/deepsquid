@@ -131,7 +131,7 @@ public class Pickupable : MonoBehaviour {
 			break;
 		case "ched":
 			transform.position = position;
-			transform.rotation = rotation * Quaternion.Euler(0, chetRotate, 0);// euler to rotate on its side like we're eating it
+			transform.rotation = rotation;// euler to rotate on its side like we're eating it
 			break;
 		case "Boids":
 

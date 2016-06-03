@@ -26,7 +26,7 @@ public class PickupObject : MonoBehaviour {
     public bool parented = false;
     public bool canThrow;
     public float playerSize = 2.0f;
-	public float fuckthisshitnoonehasforethought = 34f;
+	private float fuckthisshitnoonehasforethought = 350f;
 	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
@@ -107,14 +107,20 @@ public class PickupObject : MonoBehaviour {
 			}
 		}
 	}
-		
+	public float fuckingChed(GameObject o, float bullshit){
+		if (o.tag == "ched") {
+			return bullshit;
+
+		}
+		return 0;
+	}
 
 
 
 
    private void carry(GameObject o){
         canThrow = true;
-		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-dymanicDist(o) +player.transform.right * fuckthisshitnoonehasforethought;
+		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-dymanicDist(o) +player.transform.right * fuckingChed(o,fuckthisshitnoonehasforethought);
 		carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
 
 
@@ -146,9 +152,9 @@ public class PickupObject : MonoBehaviour {
 			case "box":
 				test = 6;
 				break;
-		case "ched":
-			test = 40;
-			break;
+			case "ched":
+				test = 10;
+				break;
 			case "Environment":
 			case "book":
 			default:
