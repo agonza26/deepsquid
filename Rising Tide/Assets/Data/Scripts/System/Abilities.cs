@@ -84,7 +84,6 @@ public class Abilities : MonoBehaviour {
 	}
 
 	private bool canDepleteStam(){
-		print ("can I deplete? + " + (pauseStam == false && depleteStamCounter < 2 && currStamina >0) );
 		return (pauseStam == false && depleteStamCounter < 2 && currStamina >0);
 	}
 

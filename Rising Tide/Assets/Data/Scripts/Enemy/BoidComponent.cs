@@ -156,7 +156,6 @@ public class BoidComponent : MonoBehaviour {
 
 
 	private Vector3 limitVel(Vector3 currVel){
-		Debug.Log(Vector3.ClampMagnitude(currVel, vlim));
 		return Vector3.ClampMagnitude(currVel, vlim);
 	}
 

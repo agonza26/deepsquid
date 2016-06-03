@@ -218,7 +218,6 @@ public class simple_movement : MonoBehaviour {
 	public void toggleDeathState()
 	{
 		isDead = true;
-		Debug.Log("Simple Movement isDead " + isDead);
 	}
 
 	

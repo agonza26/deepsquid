@@ -22,7 +22,6 @@ public class modelSwitch : MonoBehaviour {
 
 	void OnCollisionEnter(Collision o){
 		if (o.gameObject.GetComponent<Pickupable> () && other) {
-			print ("here in collision");
 			if (o.gameObject.GetComponent<Pickupable> ().isThrown ()) {
 				/*print ("here in is Thrown");
 				o.gameObject.GetComponent<Pickupable> ().changeThrown ();*/
@@ -40,10 +39,10 @@ public class modelSwitch : MonoBehaviour {
     {
         if (o.gameObject.GetComponent<Pickupable>() && other)
         {
-            print("here in collision");
+
             if (o.gameObject.GetComponent<Pickupable>().isThrown())
             {
-                print ("here in is Thrown");
+
 				o.gameObject.GetComponent<Pickupable> ().changeThrown ();
                 changeModels();
                 GameObject.FindGameObjectWithTag("borkVisualCollider").GetComponent<TutorialObject>().isGlassBroken = true;

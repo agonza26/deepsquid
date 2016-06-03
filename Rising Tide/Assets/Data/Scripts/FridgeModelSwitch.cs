@@ -39,7 +39,6 @@ public class FridgeModelSwitch : MonoBehaviour {
         {
             if (o.gameObject.GetComponent<Pickupable>().isThrown())
             {
-                print ("here in is Thrown");
 				o.gameObject.GetComponent<Pickupable> ().changeThrown ();
                 changeModels();
             }

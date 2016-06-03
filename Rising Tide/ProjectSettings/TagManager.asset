@@ -39,6 +39,7 @@ TagManager:
   - krakenAdult
   - krakenJuvenile
   - borkAttachedAdult
+  - ched
   layers:
   - Default
   - TransparentFX

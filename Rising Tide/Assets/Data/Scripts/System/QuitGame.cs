@@ -82,6 +82,7 @@ public class QuitGame : MonoBehaviour {
 	// Function call reloads the scene, essentially restarting the game.
 	public void restartGame()
 	{
+		Time.timeScale = 1;
 		SceneManager.UnloadScene ("Scene 1");
 		SceneManager.LoadScene ("Scene 1");
 	}

@@ -26,7 +26,7 @@ public class PickupObject : MonoBehaviour {
     public bool parented = false;
     public bool canThrow;
     public float playerSize = 2.0f;
-	public float distance = 1.5f; //offset between carried object and player
+	public float fuckthisshitnoonehasforethought = 34f;
 	public float smooth = 20f; //smooth carrying movement
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
@@ -60,37 +60,20 @@ public class PickupObject : MonoBehaviour {
     void Update(){
 		//if we aren't dead or in the egg
 		isEgg = bork.GetComponent<TutorialObject> ().isEgg;
-		if(!GetComponent<Player_stats>().isDead && !isEgg){
-			
-
-
-
+		if(!GetComponent<Player_stats>().isDead && !isEgg && Time.timeScale != 0){
 			//if we arent carrying anything
 			if (!carrying){
 				if(Input.GetKeyDown(KeyCode.Mouse0) && GetComponent<Abilities>().currStamina >= 20) {
 					pickup ();
-
-
-
 				} 
 			} else {
 				 if (Input.GetKeyDown(KeyCode.Mouse1)){ 
 					throwObject ();
 					
-				} else if ((GetComponent<Abilities> ().currStamina <= 0f) || Input.GetKeyUp(KeyCode.Mouse0)) {
+				} else if ((GetComponent<Abilities> ().currStamina <= 0f) || Input.GetKeyDown(KeyCode.Mouse0)) {
 					dropObject ();
 				}
 			}
-
-
-
-
-
-
-
-
-
-				
 			//carrying could change from pickup, drop, or throw object
 			if (carrying){
 				carry(carriedObject);
@@ -131,7 +114,7 @@ public class PickupObject : MonoBehaviour {
 
    private void carry(GameObject o){
         canThrow = true;
-		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-dymanicDist(o);
+		Vector3 UnderPlayerPosition = player.transform.position+player.transform.forward*-dymanicDist(o) +player.transform.right * fuckthisshitnoonehasforethought;
 		carriedObject.GetComponent<Pickupable> ().holding (UnderPlayerPosition, player.transform.rotation);
 
 
@@ -163,6 +146,9 @@ public class PickupObject : MonoBehaviour {
 			case "box":
 				test = 6;
 				break;
+		case "ched":
+			test = 40;
+			break;
 			case "Environment":
 			case "book":
 			default:

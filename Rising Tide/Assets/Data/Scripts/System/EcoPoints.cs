@@ -74,7 +74,6 @@ public class EcoPoints : MonoBehaviour {
 
 	void Update(){
 		if(gone && EnemContainerS.Count > 0){
-			print ("here");
 			foreach (GameObject value in EnemContainerS){
 				EnemContainerD.Add (value);
 				value.SetActive (false);
@@ -99,17 +98,17 @@ public class EcoPoints : MonoBehaviour {
 			}
 		}
 
+		/*
+			if (Input.GetKeyUp ("k") && !gone && debug && EnemContainerS.Count > 0) {
+				Die (EnemContainerS [0]);
+			} else if (Input.GetKeyUp ("i") && !gone && debug && EnemContainerS.Count > 0) {
+				Damage (EnemContainerS [0]);
+			} else if (Input.GetKeyUp ("m") && debug && DeadEnemContainer.Count > 0) {
+				Resurrect (DeadEnemContainer [0]);
+			}
 
-		if (Input.GetKeyUp ("k") && !gone && debug && EnemContainerS.Count > 0) {
-			Die (EnemContainerS [0]);
-		} else if (Input.GetKeyUp ("i") && !gone && debug && EnemContainerS.Count > 0) {
-			Damage (EnemContainerS [0]);
-		} else if (Input.GetKeyUp ("m")  && debug && DeadEnemContainer.Count > 0) {
-			Resurrect (DeadEnemContainer [0]);
-		}
 
-
-
+		*/
 	}
 
 

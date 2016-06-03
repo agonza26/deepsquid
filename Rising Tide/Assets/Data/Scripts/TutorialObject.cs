@@ -1800,7 +1800,7 @@ public class TutorialObject : MonoBehaviour {
 		} else if (posInDialogue == 59 && !acceptQuest && questTwentySixComplete) {
 			//GameObject.FindGameObjectWithTag("borkAttached").GetComponent<NPCHighlighting> ().changeMatToHL ();
 			pressEText.SetActive (true);
-			if (Input.GetKeyDown ("e")) {
+			if (Input.GetKeyDown ("e") && Time.timeScale != 0) {
 				SceneManager.LoadScene (sceneTemp.name);
 			}
 		}
@@ -1843,20 +1843,16 @@ public class TutorialObject : MonoBehaviour {
 			}
 			if (isEgg) {
 				eggECaller ();
-			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue != 1) {
+			} else if (Input.GetKeyDown ("e") && inRangeToInt && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue != 1 && Time.timeScale != 0) {
 				posInDialogue++;
-				Debug.Log ("one");
 			} 
-			else if (Input.GetKeyDown ("e") && inRangeToInt && speakWithBorkTwo && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue == 1) {
+			else if (Input.GetKeyDown ("e") && inRangeToInt && speakWithBorkTwo && !acceptQuest && narrTextTrigger [posInDialogue + 1] && !questOneComplete && posInDialogue == 1  && Time.timeScale != 0) {
 				posInDialogue++;
-				Debug.Log ("one");
 			} 
-			else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
-				Debug.Log ("two");
+			else if (Input.GetKeyDown ("e") && !borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete  && Time.timeScale != 0) {
 				posInDialogue++;
-			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete) {
+			} else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1] && questOneComplete  && Time.timeScale != 0) {
 				posInDialogue++;
-				Debug.Log ("three");
 			}
 			//Once Bork is attached use this
 		} else if (borkAttached && !turtleTalk && !sealTalk && !eelTalk) {
@@ -1941,7 +1937,7 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
+			else if (Input.GetKeyDown ("e") && borkAttached && !acceptQuest && narrTextTrigger [posInDialogue + 1]  && Time.timeScale != 0) {
 				posInDialogue++;
 			}
 
@@ -1982,7 +1978,7 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && inRangeToIntSeal && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
+			else if (Input.GetKeyDown ("e") && inRangeToIntSeal && !acceptQuest && narrTextTrigger [posInDialogue + 1]   && Time.timeScale != 0) {
 				posInDialogue++;
 			}
 
@@ -2027,13 +2023,12 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && inRangeToIntChad && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
+			else if (Input.GetKeyDown ("e") && inRangeToIntChad && !acceptQuest && narrTextTrigger [posInDialogue + 1] && Time.timeScale != 0) {
 				posInDialogue++;
 			}
 
 		}
 		else if (borkAttached && !turtleTalk && !sealTalk && eelTalk) {
-			Debug.Log ("shoudl be hurr");
 			if (!acceptQuest) {
 				tutorialText.SetActive (true);
 				tutorialBox.SetActive (true);
@@ -2061,7 +2056,7 @@ public class TutorialObject : MonoBehaviour {
 					StartCoroutine (spellItOut ());
 				}
 			}
-			else if (Input.GetKeyDown ("e") && inRangeToIntEel && !acceptQuest && narrTextTrigger [posInDialogue + 1]) {
+			else if (Input.GetKeyDown ("e") && inRangeToIntEel && !acceptQuest && narrTextTrigger [posInDialogue + 1]  && Time.timeScale != 0) {
 				posInDialogue++;
 			}
 
@@ -2207,7 +2202,7 @@ public class TutorialObject : MonoBehaviour {
 	}
 
 	void eggECaller(){
-		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg) {
+		if (Input.GetKeyDown ("e") && narrTextTrigger [posInDialogue + 1] && isEgg && Time.timeScale != 0) {
 			posInDialogue++;
 			isEgg = false;
 			pressEText.SetActive (false);
@@ -2240,44 +2235,44 @@ public class TutorialObject : MonoBehaviour {
 
 	}
 	void speakWithChad(){
-		if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && !questTwelveComplete){
+		if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && !questTwelveComplete && Time.timeScale != 0){
 			//Debug.Log ("hasspokentoChadone = true");
 			interactWithChadOne = true;
 		}
-		else if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && posInDialogue == 42){
+		else if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && posInDialogue == 42 && Time.timeScale != 0){
 			//Debug.Log ("hasspokentoChadone = true");
 			interactWithChadTwo = true;
 		}
-		else if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && posInDialogue == 56){
+		else if(inRangeToIntChad && Input.GetKeyDown("e") && acceptQuest && posInDialogue == 56 && Time.timeScale != 0){
 			//Debug.Log ("hasspokentoChadone = true");
 			visitLastTime = true;
 		}
 	}
 	void speakWithSeal(){
-		if(inRangeToIntSeal && Input.GetKeyDown("e") && acceptQuest && !questFifteenComplete){
+		if(inRangeToIntSeal && Input.GetKeyDown("e") && acceptQuest && !questFifteenComplete && Time.timeScale != 0){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithSealOne = true;
 		}
-		else if(inRangeToIntSeal && Input.GetKeyDown("e") && acceptQuest && !questSeventeenComplete && questFifteenComplete && questSixteenComplete){
+		else if(inRangeToIntSeal && Input.GetKeyDown("e") && acceptQuest && !questSeventeenComplete && questFifteenComplete && questSixteenComplete && Time.timeScale != 0){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithSealTwo = true;
 		}
 	}
 	void speakWithEel(){
-		if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyTwoComplete){
+		if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyTwoComplete && Time.timeScale != 0){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithEelOne = true;
 		}
-		else if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyFourComplete){
+		else if(inRangeToIntEel && Input.GetKeyDown("e") && acceptQuest && !questTwentyFourComplete && Time.timeScale != 0){
 			//Debug.Log ("hasspokentosealone = true");
 			interactWithEelTwo = true;
 		}
 	}
 	void speakWithBork(){
-		if(inRangeToInt && Input.GetKeyDown("e") && acceptQuest && !questZeroComplete){
+		if(inRangeToInt && Input.GetKeyDown("e") && acceptQuest && !questZeroComplete && Time.timeScale != 0){
 			speakWithBorkOne = true;
 		}
-		else if(inRangeToInt && Input.GetKeyDown("e") && !acceptQuest && questZeroComplete){
+		else if(inRangeToInt && Input.GetKeyDown("e") && !acceptQuest && questZeroComplete && Time.timeScale != 0){
 			speakWithBorkTwo = true;
 		}
 	}
@@ -2370,7 +2365,7 @@ public class TutorialObject : MonoBehaviour {
 
 	IEnumerator spellItOut(){
 		foreach (char letter in narrText[posInDialogue].ToCharArray()) {
-			if(Input.GetKeyDown("e") && !tooltipInProgress){
+			if(Input.GetKeyDown("e") && !tooltipInProgress && Time.timeScale != 0){
 				break;
 			}
 			tutText.text += letter;

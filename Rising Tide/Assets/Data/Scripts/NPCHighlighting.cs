@@ -5,7 +5,7 @@ public class NPCHighlighting : MonoBehaviour {
 	public Material[] mats = new Material[2];
 	// Use this for initialization
 	void Start () {
-		mats [0] = GetComponentInChildren<Renderer>().material;
+		//mats [0] = GetComponentInChildren<Renderer>().material;
 	}
 	
 	// Update is called once per frame

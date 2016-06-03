@@ -92,7 +92,6 @@ public class BobbitEyes : MonoBehaviour
 
 					if(hit.collider.gameObject.name == "squidHead")
 					{
-						Debug.Log ("we are here1");
 						BobbitBrain brain = GetComponent<BobbitBrain>();
 						brain.message = "seePlayer";
 						playerInSight = true;

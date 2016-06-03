@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Art\Animations\NPCs\VolcanoButton\eyesightOverride.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BE_Stats.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BasicEnemy.cs" />
      <Compile Include="Assets\Data\Scripts\Enemy\BobbitBrain.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Data\Scripts\LocationTracking.cs" />
      <Compile Include="Assets\Data\Scripts\LocationUpdate.cs" />
      <Compile Include="Assets\Data\Scripts\NPCHighlighting.cs" />
+     <Compile Include="Assets\Data\Scripts\Other-IDK\KrakenSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\LabSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\SealSwitch.cs" />
      <Compile Include="Assets\Data\Scripts\Other-IDK\TurtleSwitch.cs" />

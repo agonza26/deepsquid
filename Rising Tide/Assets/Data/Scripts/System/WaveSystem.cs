@@ -54,7 +54,7 @@ public class WaveSystem : MonoBehaviour {
 			case "Enemy":
 				
 				if (it.GetComponent<BasicEnemy> () != null) {
-					it.GetComponent<BasicEnemy> ().waveAcc = false;
+				it.GetComponent<BasicEnemy> ().changeAcc( false);
 				}
 				break;
 			case "CameraTarget":
@@ -98,7 +98,7 @@ public class WaveSystem : MonoBehaviour {
 				break;
 			case "Enemy":
 				if (it.GetComponent<BasicEnemy> () != null) {
-					it.GetComponent<BasicEnemy> ().waveAcc = true;
+				it.GetComponent<BasicEnemy> ().changeAcc(true);
 					it.GetComponent<BasicEnemy> ().changeDec ();
 				}
 				break;

@@ -43,7 +43,7 @@ public class Player_stats : MonoBehaviour {
 			GetComponent<improved_movement> ().toggleDeathState ();
 			isDead = true;
 		} else {
-			if(Input.GetKeyUp("x"))
+			if(Input.GetKeyUp("x") && false)
 			{
 				playerDamage(1f);
 			}

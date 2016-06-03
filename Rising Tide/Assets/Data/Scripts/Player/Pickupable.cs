@@ -6,7 +6,7 @@ public class Pickupable : MonoBehaviour {
 	public string ttName = "testtubeWhole";
 	public float size = 1.0f;
 	public int abilityIndex = 0;
-
+	public float chetRotate = 45f;
 
 
 
@@ -128,6 +128,10 @@ public class Pickupable : MonoBehaviour {
 
 			//get if it escaped or not
 
+			break;
+		case "ched":
+			transform.position = position;
+			transform.rotation = rotation * Quaternion.Euler(0, chetRotate, 0);// euler to rotate on its side like we're eating it
 			break;
 		case "Boids":
 

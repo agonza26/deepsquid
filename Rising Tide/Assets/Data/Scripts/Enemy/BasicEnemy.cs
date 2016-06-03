@@ -27,12 +27,18 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	private float timerforWaveAbility = 0f;
+
+	private float timeLImitforWave = 5f;
+
+
+
 	public bool overrideDebugValue = false;
 
 	//not something you should change in the instector
 	public string message = "none"; // used to tell the fish outside effects that aren't contained in this logic, ie sight or other compnents
 	public GameObject thing; //eventually make it a child of an object
-	public bool waveAcc = true; //to know when we have accelerated from aen outside wave, controlled only with waves
+	private bool waveAcc = false; //to know when we have accelerated from aen outside wave, controlled only with waves
 	public Vector3 outsideFactor = Vector3.zero; //current outsideFactor from waves, 
 
 
@@ -86,6 +92,10 @@ public class BasicEnemy : MonoBehaviour {
 
 
 
+	public void changeAcc(bool t){
+		waveAcc = t;
+
+	}
 
 
 	void Start () {
@@ -128,7 +138,10 @@ public class BasicEnemy : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().abilityUsageCheck ("emp");
 
 		} else if (c.gameObject.tag == "EcoPoint") {
-			changePlaces ();
+
+			if (c.gameObject.transform == currentTarget) {
+				changePlaces ();
+			}
 
 
 		}
@@ -209,7 +222,7 @@ public class BasicEnemy : MonoBehaviour {
 	void setDiffStats(){
 		switch (gameObject.GetComponent<BasicEnemy> ().fishType) {
 		case "barracuda":
-			damage = 20;
+			damage = 5;
 			followTimer = 10;
 			evadeTimer = 4;
 			returnTimer = 7;
@@ -226,7 +239,7 @@ public class BasicEnemy : MonoBehaviour {
 
 			break;
 		case "tuna":
-			damage = 5;
+			damage = 2;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -245,7 +258,7 @@ public class BasicEnemy : MonoBehaviour {
 
 		case "swordfish":
 
-			damage = 30;
+			damage = 10;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -262,7 +275,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		case "angler":
-			damage = 20;
+			damage = 5;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -293,6 +306,8 @@ public class BasicEnemy : MonoBehaviour {
 			//enemyHealthMax = 200;
 			//PlayerHealthRestoreValue = 9000;
 			break;
+
+
 		case "manta":
 			isHostile = false;
 			damage = 5;
@@ -315,7 +330,7 @@ public class BasicEnemy : MonoBehaviour {
 			//PlayerHealthRestoreValue= 13;
 			break;
 		case "shark":
-			damage = 40;
+			damage = 15;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -342,7 +357,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseStraight = 5;
 			steeringMax = 5;
 			velocityMax = 4;
-			randomPathFloat = 0.4f;
+
 			break;
 		}
 
@@ -371,15 +386,19 @@ public class BasicEnemy : MonoBehaviour {
 				
 				case "foundPlayer":
 					currentTarget = lPC.positionTransform;
+
 					message = "none";
 					if (foundPlayerSound)
 						foundPlayerSound.Play ();
 
+					if (isHostile) {
+						state = "follow";
+						follow ();
 
-					state = "follow";
-					follow ();
+					} else {
+						flee ();
 
-
+					}
 
 
 					switchedStates = true;
@@ -543,12 +562,16 @@ public class BasicEnemy : MonoBehaviour {
 				}
 
 
-				if (doubleBackTime > evadeTimer+returnTimer || message == "foundPlayer") {
+				if (doubleBackTime > evadeTimer+returnTimer) {
 					if (message == "foundPlayer") {
-							message = "none";
+						message = "none";
+						if (isHostile) {
 							state = "follow";
 							follow ();
+						} else {
+							flee ();
 
+						}
 					} else {
 
 						state = "idle";
@@ -737,9 +760,22 @@ public class BasicEnemy : MonoBehaviour {
 
 	//methods that modify/control external movement from waves
 	private void waveHandler(){
-		rigBod.velocity += outsideFactor;
-		if (waveAcc) {
 
+		if (outsideFactor.magnitude != 0) {
+			timerforWaveAbility += Time.deltaTime;
+
+			if (timerforWaveAbility >= 3f) {
+				outsideFactor = Vector3.zero;
+				waveAcc = false;
+				timerforWaveAbility = 0;
+			}
+		}
+		rigBod.velocity += outsideFactor;
+
+
+
+
+		if (waveAcc) {
 			waveAccHandler ();
 		}
 
@@ -758,7 +794,7 @@ public class BasicEnemy : MonoBehaviour {
 			outsideFactor -= lastFactor * outsideDec;
 			if (outsideFactor.magnitude < 0.01f) {
 				outsideFactor = Vector3.zero;
-
+				waveAcc = false;
 			}
 
 
@@ -766,6 +802,7 @@ public class BasicEnemy : MonoBehaviour {
 			outsideFactor += lastFactor * outsideDec;
 			if (outsideFactor.magnitude > -0.01f) {
 				outsideFactor = Vector3.zero;
+				waveAcc = false;
 			}
 		}
 	}

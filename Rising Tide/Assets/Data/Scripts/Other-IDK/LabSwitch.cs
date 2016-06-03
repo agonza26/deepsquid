@@ -21,18 +21,21 @@ public class LabSwitch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (moveGate) {
+			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().gateIsOpen = true;
+			if (movedPos.x < dist) {
+				gate.transform.localPosition += new Vector3 (0.5f, 0, 0);
+				movedPos += new Vector3 (0.5f, 0, 0);
+			}//= Vector3.Lerp (origPos, movedPos, 0.1f);
 
+		}
 	}
 
-	void OnTriggerStay(Collider other) 
+	void OnTriggerEnter(Collider other) 
 	{
 		
 		if (other.gameObject.CompareTag ("box")) {
-			GameObject.FindGameObjectWithTag ("borkVisualCollider").GetComponent<TutorialObject> ().gateIsOpen = true;
-			if (movedPos.x < dist) {
-				gate.transform.localPosition += new Vector3 (0.1f, 0, 0);
-				movedPos += new Vector3 (0.1f, 0, 0);
-			}//= Vector3.Lerp (origPos, movedPos, 0.1f);
+			moveGate = true;
 		}
 	}
 

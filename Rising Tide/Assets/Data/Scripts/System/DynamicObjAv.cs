@@ -18,10 +18,7 @@ public class DynamicObjAv : MonoBehaviour {
 	
 	void OnTriggerStay(Collider c){
 		GameObject o = c.gameObject;
-		//print(o.name);
 		if(o.GetComponent<SpringJoint>()){
-			
-			
 			directionalForce = Vector3. ClampMagnitude(o.transform.position  - GetComponentInParent<Transform>().position, maxMag);
 			//o.GetComponent<Rigidbody>().AddForce(directionalForce);
 			

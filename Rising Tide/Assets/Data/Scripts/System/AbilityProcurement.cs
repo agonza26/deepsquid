@@ -27,7 +27,6 @@ public class AbilityProcurement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log("in ability procurement: " + abilities[0] + ", " + abilities[1]);
 		if (speedAbilityObject.tag == "AbilitySpeed") {
 			//player.GetComponentInParent<Pickupable> ().gameObject == speedAbilityObject ) {
 			speedAbilityObject.SetActive (false);
@@ -46,7 +45,7 @@ public class AbilityProcurement : MonoBehaviour {
 
 		} 
 
-		Debug.Log ("in abilities: " + abilities[1]);
+
 
 
 

@@ -9,7 +9,6 @@ public class testscript : MonoBehaviour {
 	}
 
 	void OnParticleCollision(GameObject other){
-		print ("box hit a " + other.name);
 	}
 	// Update is called once per frame
 	void Update () {

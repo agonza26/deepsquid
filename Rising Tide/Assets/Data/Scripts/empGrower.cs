@@ -40,7 +40,6 @@ public class empGrower : MonoBehaviour {
 		GetComponent<SphereCollider>().enabled = true;
 		
 		if(debugFeatures)
-			Debug.Log ("a() started");
 
 		while (transform.localScale.x < sizeLimit) {
 			transform.localScale += new Vector3 (growScale, growScale,growScale);
@@ -55,8 +54,6 @@ public class empGrower : MonoBehaviour {
 
 
 		if (debugFeatures) {
-			Debug.Log ("a() stopped");
-			print (Time.time - startTime);
 		}
 		coroutineDone = true;
 		GetComponent<SphereCollider>().enabled = false;

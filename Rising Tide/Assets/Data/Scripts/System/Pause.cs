@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour {
 
@@ -19,7 +19,7 @@ public class Pause : MonoBehaviour {
 	private GameObject Slider;
 
 	void Start  (){
-		if(Application.loadedLevelName != "MainMenuScene")
+		if(SceneManager.GetActiveScene().name != "MainMenuScene")
 		{
 			if(!Slider)
 			{
@@ -41,7 +41,7 @@ public class Pause : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(Application.loadedLevelName != "MainMenuScene")
+		if(SceneManager.GetActiveScene().name != "MainMenuScene")
 		{
 			if(Input.GetKeyDown (KeyCode.Escape) && !player.GetComponent<Player_stats>().isDead && !transform.GetComponent<QuitGame>().AYSactive)
 			{
