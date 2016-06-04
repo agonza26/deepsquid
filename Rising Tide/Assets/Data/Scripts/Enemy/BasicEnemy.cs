@@ -222,7 +222,7 @@ public class BasicEnemy : MonoBehaviour {
 	void setDiffStats(){
 		switch (gameObject.GetComponent<BasicEnemy> ().fishType) {
 		case "barracuda":
-			damage = 5;
+			damage = 15;
 			followTimer = 10;
 			evadeTimer = 4;
 			returnTimer = 7;
@@ -231,7 +231,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseSteer = 2;
 			chaseStraight = 10;
 			steeringMax = 9.4f;
-			velocityMax = 9;
+			velocityMax = 35;
 
 
 
@@ -239,7 +239,7 @@ public class BasicEnemy : MonoBehaviour {
 
 			break;
 		case "tuna":
-			damage = 2;
+			damage = 8;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -248,7 +248,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseSteer = 2;
 			chaseStraight = 8;
 			steeringMax = 2;
-			velocityMax = 9;
+			velocityMax = 14;
 
 
 			//enemyHealthMax = 25;
@@ -258,7 +258,7 @@ public class BasicEnemy : MonoBehaviour {
 
 		case "swordfish":
 
-			damage = 10;
+			damage = 20;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -267,7 +267,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseSteer = 1;
 			chaseStraight = 8;
 			steeringMax = 10;
-			velocityMax = 13;
+			velocityMax = 75;
 
 		//	enemyHealthMax = 75;
 			//PlayerHealthRestoreValue = 40;
@@ -275,7 +275,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		case "angler":
-			damage = 5;
+			damage = 20;
 			followTimer = 20;
 			evadeTimer = 10;
 			returnTimer = 10;
@@ -284,7 +284,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseSteer = 1;
 			chaseStraight = 8;
 			steeringMax = 3;
-			velocityMax = 13;
+			velocityMax = 20;
 
 
 		//	/enemyHealthMax = 45;
@@ -293,7 +293,7 @@ public class BasicEnemy : MonoBehaviour {
 
 
 		case "whale":
-			damage = 5;
+			damage = 60;
 			followTimer = 10;
 			evadeTimer = 15;
 			returnTimer = 20;
@@ -310,7 +310,7 @@ public class BasicEnemy : MonoBehaviour {
 
 		case "manta":
 			isHostile = false;
-			damage = 5;
+			damage = 8;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -330,7 +330,7 @@ public class BasicEnemy : MonoBehaviour {
 			//PlayerHealthRestoreValue= 13;
 			break;
 		case "shark":
-			damage = 15;
+			damage = 35;
 			followTimer = 10;
 			evadeTimer = 5;
 			returnTimer = 5;
@@ -339,7 +339,7 @@ public class BasicEnemy : MonoBehaviour {
 			chaseSteer = 20;
 			chaseStraight = 20;
 			steeringMax = 10;
-			velocityMax = 20;
+			velocityMax = 45;
 			//enemyHealthMax = 100;
 			//PlayerHealthRestoreValue = 60;
 			break;
@@ -483,7 +483,7 @@ public class BasicEnemy : MonoBehaviour {
 				if (!switchedStates) {
 
 
-					velocityMax = Random.Range (velocityRangeMin, velocityRangeMax);
+					velocityMax = velocityRangeMax;//Random.Range (velocityRangeMin, velocityRangeMax);
 					steeringMax = Random.Range (steeringRangeMin, steeringRangeMax);
 
 

@@ -31,7 +31,7 @@ public class PickupObject : MonoBehaviour {
     public float throwForce = 700f;
 	public bool carrying = false; //must be public for improved movement;
 	public AudioSource grabSound;
-	public float holdDamage = 1f;
+	public float holdDamage = .7f;
 
 	private bool isEgg;
 	private bool grabbableInRange = false;

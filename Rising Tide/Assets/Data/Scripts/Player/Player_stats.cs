@@ -42,12 +42,12 @@ public class Player_stats : MonoBehaviour {
 		if (currHealth <= 0) {
 			GetComponent<improved_movement> ().toggleDeathState ();
 			isDead = true;
-		} else {
+		} /*else {
 			if(Input.GetKeyUp("x") && false)
 			{
 				playerDamage(1f);
 			}
-		}
+		}*/
 
 	}
 

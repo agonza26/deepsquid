@@ -58,7 +58,7 @@ public class Abilities : MonoBehaviour {
 
 
 
-	public float speedStaminaCost = 3f;
+	public float speedStaminaCost = 1.5f;
 	public float inkStaminaCost = 6f;
 	public float waveStaminaCost = 50f;
 	public float empStaminaCost = 175f;
